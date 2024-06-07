@@ -6,7 +6,8 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev:xion":"next dev --turbo"
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
