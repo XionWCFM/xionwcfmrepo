@@ -11,7 +11,7 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
-      '@repo/typescript-config':
+      '@xionwcfm/typescript-config':
         specifier: workspace:*
         version: link:packages/typescript-config
       prettier:
@@ -39,9 +39,6 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       '@types/node':
         specifier: ^20
         version: 20.11.24
@@ -51,6 +48,9 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.2.19
+      '@xionwcfm/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       eslint:
         specifier: ^8
         version: 8.57.0
@@ -88,9 +88,6 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       '@types/node':
         specifier: ^20
         version: 20.11.24
@@ -100,6 +97,9 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.2.19
+      '@xionwcfm/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       eslint:
         specifier: ^8
         version: 8.57.0
@@ -142,7 +142,7 @@ importers:
 
   packages/math:
     devDependencies:
-      '@repo/typescript-config':
+      '@xionwcfm/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       typescript:
@@ -156,9 +156,6 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
       '@turbo/gen':
         specifier: ^1.12.4
         version: 1.12.4(@types/node@20.11.24)(typescript@5.3.3)
@@ -174,6 +171,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.2.19
         version: 18.2.19
+      '@xionwcfm/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -4255,7 +4255,7 @@ snapshots:
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0(eslint@8.57.0))(eslint@8.57.0)
-      eslint-plugin-import: 2.29.0(@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
+      eslint-plugin-import: 2.29.0(@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.57.0)
       eslint-plugin-react: 7.33.2(eslint@8.57.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.57.0)
@@ -4309,7 +4309,7 @@ snapshots:
       enhanced-resolve: 5.15.0
       eslint: 8.57.0
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
-      eslint-plugin-import: 2.29.0(@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
+      eslint-plugin-import: 2.29.0(@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
       fast-glob: 3.3.1
       get-tsconfig: 4.7.2
       is-core-module: 2.13.1
@@ -4357,7 +4357,7 @@ snapshots:
       eslint: 8.57.0
       ignore: 5.3.1
 
-  eslint-plugin-import@2.29.0(@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0):
+  eslint-plugin-import@2.29.0(@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.0(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0):
     dependencies:
       array-includes: 3.1.7
       array.prototype.findlastindex: 1.2.3

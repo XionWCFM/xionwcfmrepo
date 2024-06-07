@@ -16,7 +16,7 @@
     }
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@xionwcfm/typescript-config": "workspace:*",
     "typescript": "latest"
   }
 }

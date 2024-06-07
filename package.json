@@ -6,11 +6,11 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "dev:xion":"turbo dev:xion"
+    "dev:xion": "turbo dev:xion"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@xionwcfm/typescript-config": "workspace:*",
     "prettier": "^3.2.5",
     "turbo": "^2.0.1"
   },
