@@ -8,6 +8,7 @@
     "incremental": false,
     "isolatedModules": true,
     "lib": ["es2022", "DOM", "DOM.Iterable"],
+    "types":["vitest/globals"],
     "module": "NodeNext",
     "moduleDetection": "force",
     "moduleResolution": "NodeNext",
