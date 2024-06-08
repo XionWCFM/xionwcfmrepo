@@ -1,21 +1,21 @@
 {
-  "name": "turbo-repo",
-  "private": true,
-  "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "dev:xion": "turbo dev:xion"
-  },
-  "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@xionwcfm/typescript-config": "workspace:*",
-    "prettier": "^3.2.5",
-    "turbo": "^2.0.1"
-  },
-  "packageManager": "pnpm@8.15.6",
-  "engines": {
-    "node": ">=18"
-  }
+	"name": "turbo-repo",
+	"private": true,
+	"scripts": {
+		"build": "turbo build",
+		"dev": "turbo dev",
+		"lint": "turbo lint",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"dev:xion": "turbo dev:xion"
+	},
+	"devDependencies": {
+		"@repo/eslint-config": "workspace:*",
+		"@xionwcfm/typescript-config": "workspace:*",
+		"prettier": "^3.2.5",
+		"turbo": "^2.0.1"
+	},
+	"packageManager": "pnpm@8.15.6",
+	"engines": {
+		"node": ">=18"
+	}
 }
