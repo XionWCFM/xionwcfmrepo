@@ -3,7 +3,9 @@
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
-    "build": "tsc"
+    "build": "tsc",
+    "test:ci":"vitest run",
+    "test":"vitest"
   },
   "exports": {
     "./add": {
