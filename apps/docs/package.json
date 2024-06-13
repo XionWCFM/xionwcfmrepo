@@ -15,7 +15,6 @@
     "next": "15.0.0-rc.0"
   },
   "devDependencies": {
-    "@xionwcfm/eslint-config": "workspace:*",
     "@xionwcfm/typescript-config": "workspace:*",
     "typescript": "^5",
     "@types/node": "^20",
