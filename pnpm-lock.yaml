@@ -88,9 +88,6 @@ importers:
         specifier: 19.0.0-rc-f994737d14-20240522
         version: 19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522)
     devDependencies:
-      '@biomejs/biome':
-        specifier: 1.8.0
-        version: 1.8.0
       '@testing-library/jest-dom':
         specifier: ^6.4.5
         version: 6.4.5(vitest@1.6.0(@types/node@20.11.24)(happy-dom@14.12.0))
