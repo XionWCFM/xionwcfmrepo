@@ -16,6 +16,7 @@
     "ignore": ["**/.gitignore", "**/.yarn", "**/.pnp.*", "**/build", "**/coverage", "**/dist", "**/lib", "**/.next"],
     "rules": {
       "recommended": true,
+
       "a11y": {
         "noAccessKey": "error",
         "noAriaUnsupportedElements": "error",
