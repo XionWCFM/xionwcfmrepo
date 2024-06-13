@@ -1,26 +1,26 @@
 {
-	"name": "turbo-repo",
-	"private": true,
-	"scripts": {
-		"build": "turbo build",
-		"dev": "turbo dev",
-		"lint": "turbo lint",
-		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
-		"dev:xion": "turbo dev:xion",
-		"test": "turbo run test",
-		"test:watch": "turbo run test:watch"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.8.0",
-		"@repo/eslint-config": "workspace:*",
-		"@xionwcfm/typescript-config": "workspace:*",
-		"prettier": "^3.2.5",
-		"turbo": "^2.0.1",
-		"typescript": "^5.4.5",
-		"vitest": "^1.6.0"
-	},
-	"packageManager": "pnpm@8.15.6",
-	"engines": {
-		"node": ">=18"
-	}
+  "name": "turbo-repo",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "dev:xion": "turbo dev:xion",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.0",
+    "@xionwcfm/eslint-config": "workspace:*",
+    "@xionwcfm/typescript-config": "workspace:*",
+    "prettier": "^3.2.5",
+    "turbo": "^2.0.1",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "packageManager": "pnpm@8.15.6",
+  "engines": {
+    "node": ">=18"
+  }
 }
