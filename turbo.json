@@ -17,7 +17,7 @@
       "cache": false,
       "persistent": true
     },
-    "test:ci":{},
+    "test:ci": {},
     "dev": {
       "cache": false,
       "persistent": true
