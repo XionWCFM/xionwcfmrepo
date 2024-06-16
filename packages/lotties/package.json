@@ -1,0 +1,52 @@
+{
+  "name": "@xionwcfm/lotties",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./builder": {
+      "types": "./dist/builder/index.d.ts",
+      "default": "./dist/builder/index.js"
+    },
+    "./use-animation": {
+      "types": "./dist/use-animation/index.d.ts",
+      "default": "./dist/use-animation/index.js"
+    },
+    "./use-debounce-value": {
+      "types": "./dist/use-debounce-value/index.d.ts",
+      "default": "./dist/use-debounce-value/index.js"
+    },
+    "./use-draft": {
+      "types": "./dist/use-draft/index.d.ts",
+      "default": "./dist/use-draft/index.js"
+    },
+    "./use-intersection-observer": {
+      "types": "./dist/use-intersection-observer/index.d.ts",
+      "default": "./dist/use-intersection-observer/index.js"
+    },
+    "./use-loading": {
+      "types": "./dist/use-loading/index.d.ts",
+      "default": "./dist/use-loading/index.js"
+    },
+    "./use-scroll-direction": {
+      "types": "./dist/use-scroll-direction/index.d.ts",
+      "default": "./dist/use-scroll-direction/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/react": "^18",
+    "@xionwcfm/typescript-config": "workspace:*",
+    "typescript": "latest"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  }
+}
