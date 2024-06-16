@@ -6,7 +6,7 @@ export class InternalError extends Error {
     super(message);
     this.at = at;
     this.cause = cause;
-    this.name = "YEONPICK_BASE_ERROR";
+    this.name = "INTERNAL_ERROR";
   }
   static createErrorMessage(message: string, errorName: string, at: string) {
     const errorType = errorName.toUpperCase();
