@@ -1,0 +1,36 @@
+{
+  "name": "@xionwcfm/adapters",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./link": {
+      "types": "./dist/link/index.d.ts",
+      "default": "./dist/link/index.js"
+    },
+    "./image": {
+      "types": "./dist/image/index.d.ts",
+      "default": "./dist/image/index.js"
+    },
+    "./router": {
+      "types": "./dist/router/index.d.ts",
+      "default": "./dist/router/index.js"
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18",
+    "@xionwcfm/typescript-config": "workspace:*",
+    "typescript": "latest"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "next": "^14"
+  }
+}

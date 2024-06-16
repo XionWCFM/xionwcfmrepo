@@ -44,5 +44,9 @@
     "@types/react": "^18",
     "@xionwcfm/typescript-config": "workspace:*",
     "typescript": "latest"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
   }
 }
