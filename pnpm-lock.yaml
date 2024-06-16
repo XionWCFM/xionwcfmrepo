@@ -145,6 +145,18 @@ importers:
 
   configs/typescript: {}
 
+  packages/hooks:
+    devDependencies:
+      '@types/react':
+        specifier: ^18
+        version: 18.3.3
+      '@xionwcfm/typescript-config':
+        specifier: workspace:*
+        version: link:../../configs/typescript
+      typescript:
+        specifier: latest
+        version: 5.4.5
+
   packages/math:
     devDependencies:
       '@xionwcfm/typescript-config':
@@ -157,7 +169,7 @@ importers:
   packages/types:
     devDependencies:
       '@types/react':
-        specifier: ^18.3.3
+        specifier: ^18
         version: 18.3.3
 
   packages/ui:

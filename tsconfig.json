@@ -1,3 +1,9 @@
 {
+  "compilerOptions": {
+    "jsx": "react"
+  },
+  "compilerOptions": {
+    "jsx": "react"
+  },
   "extends": "@xionwcfm/typescript-config/base.json"
 }
