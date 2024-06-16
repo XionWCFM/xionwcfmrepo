@@ -192,6 +192,15 @@ importers:
         specifier: latest
         version: 5.4.5
 
+  packages/token:
+    devDependencies:
+      '@xionwcfm/typescript-config':
+        specifier: workspace:*
+        version: link:../../configs/typescript
+      typescript:
+        specifier: latest
+        version: 5.4.5
+
   packages/types:
     devDependencies:
       '@types/react':

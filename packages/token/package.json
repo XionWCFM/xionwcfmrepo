@@ -1,0 +1,19 @@
+{
+  "name": "@xionwcfm/token",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./css": "./src/index.css"
+  },
+  "devDependencies": {
+    "@xionwcfm/typescript-config": "workspace:*",
+    "typescript": "latest"
+  }
+}
