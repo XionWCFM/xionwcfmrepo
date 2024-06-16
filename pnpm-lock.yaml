@@ -72,9 +72,6 @@ importers:
 
   apps/web:
     dependencies:
-      '@repo/math':
-        specifier: workspace:*
-        version: link:../../packages/math
       '@xionwcfm/error':
         specifier: workspace:*
         version: link:../../packages/errors
@@ -195,15 +192,6 @@ importers:
         specifier: latest
         version: 5.4.5
 
-  packages/math:
-    devDependencies:
-      '@xionwcfm/typescript-config':
-        specifier: workspace:*
-        version: link:../../configs/typescript
-      typescript:
-        specifier: latest
-        version: 5.4.5
-
   packages/types:
     devDependencies:
       '@types/react':
@@ -245,6 +233,15 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
+
+  packages/utils:
+    devDependencies:
+      '@xionwcfm/typescript-config':
+        specifier: workspace:*
+        version: link:../../configs/typescript
+      typescript:
+        specifier: latest
+        version: 5.4.5
 
 packages:
 

@@ -12,7 +12,6 @@
     "test:ci": "vitest run"
   },
   "dependencies": {
-    "@repo/math": "workspace:*",
     "@xionwcfm/ui": "workspace:*",
     "@xionwcfm/error": "workspace:*",
     "next": "15.0.0-rc.0",
