@@ -7,13 +7,11 @@
     "indentWidth": 2,
     "lineEnding": "lf",
     "lineWidth": 120,
-    "attributePosition": "auto",
-    "ignore": ["**/.gitignore", "**/.yarn/*", "**/.pnp.*", "**/build/*", "**/coverage/*", "**/dist/*", "**/.next/*"]
+    "attributePosition": "auto"
   },
   "organizeImports": { "enabled": true },
   "linter": {
     "enabled": true,
-    "ignore": ["**/.gitignore", "**/.yarn/*", "**/.pnp.*", "**/build/*", "**/coverage/*", "**/dist/*", "**/.next/*"],
     "rules": {
       "recommended": true,
       "suspicious": {
@@ -47,5 +45,8 @@
         "useValidAriaValues": "error"
       }
     }
+  },
+  "files": {
+    "ignore": ["**/.gitignore", "**/.yarn/*", "**/.pnp.*", "**/build/*", "**/coverage/*", "**/dist/*", "**/.next/*"]
   }
 }
