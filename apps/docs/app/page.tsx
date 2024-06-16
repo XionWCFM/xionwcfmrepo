@@ -1,4 +1,4 @@
-import { Button } from "@repo/ui/button";
+import { Button } from "@xionwcfm/ui/button";
 import Image from "next/image";
 
 export default function Home() {

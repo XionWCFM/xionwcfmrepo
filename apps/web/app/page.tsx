@@ -1,6 +1,6 @@
 "use client";
 import { add } from "@repo/math/add";
-import { Button } from "@repo/ui/button";
+import { Button } from "@xionwcfm/ui/button";
 import { ReactContextError } from "@xionwcfm/error/internal-error";
 
 export default function Home() {
