@@ -6,7 +6,13 @@
   "publishConfig": {
     "access": "public"
   },
+  "exports": {
+    "./deep-partial": "./src/deep-partial/index.ts",
+    "./polymorphic": "./src/polymorphic/index.ts"
+  },
   "devDependencies": {
-    "@types/react": "^18"
+    "@types/react": "^18",
+    "@xionwcfm/typescript-config": "workspace:*",
+    "typescript": "latest"
   }
 }
