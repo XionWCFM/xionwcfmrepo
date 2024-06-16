@@ -47,6 +47,15 @@
     }
   },
   "files": {
-    "ignore": ["**/.gitignore", "**/.yarn/*", "**/.pnp.*", "**/build/*", "**/coverage/*", "**/dist/*", "**/.next/*"]
+    "ignore": [
+      "**/.gitignore",
+      "**/.yarn/*",
+      "**/.pnp.*",
+      "**/build/*",
+      "**/coverage/*",
+      "**/dist/*",
+      "**/.next/*",
+      "**/node_modules/*"
+    ]
   }
 }
