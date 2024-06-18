@@ -33,7 +33,6 @@ export const Image = forwardRef(function Image(props: ImageProps, ref: Ref<HTMLI
   } = props;
 
   return (
-    //@ts-expect-error
     <NextImage
       src={src}
       alt={alt ?? ""}

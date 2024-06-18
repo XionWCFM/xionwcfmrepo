@@ -14,7 +14,6 @@ export type LinkType = ComponentType<LinkProps>;
 export const Link = forwardRef(function Link(props: LinkProps, ref: Ref<HTMLAnchorElement>) {
   const { href, replace, scroll, prefetch, children, ...attributes } = props;
   return (
-    //@ts-expect-error
     <NextLink href={href} replace={replace} scroll={scroll} prefetch={prefetch} ref={ref} {...attributes}>
       {children}
     </NextLink>
