@@ -1,0 +1,19 @@
+{
+  "name": "@xionwcfm/tailwindcss-config",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    "./base": {
+      "default": "./src/base.ts"
+    }
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "@xionwcfm/typescript-config": "workspace:*",
+    "typescript": "latest"
+  }
+}
