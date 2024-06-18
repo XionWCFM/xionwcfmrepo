@@ -1,6 +1,6 @@
+import { cleanup } from "@testing-library/react";
 import { vi } from "vitest";
 import createFetchMock from "vitest-fetch-mock";
-import { cleanup } from "@testing-library/react";
 
 import "@testing-library/jest-dom";
 
