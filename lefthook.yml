@@ -1,8 +1,6 @@
 pre-push:
   parallel: true
   commands:
-    nvm:
-      run: nvm use
     lint:
       run: pnpm run lint:biome
       stage_fixed: true
