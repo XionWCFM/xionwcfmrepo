@@ -2,10 +2,6 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
   "tasks": {
-    "//#format-and-lint": {},
-    "//#format-and-lint:fix": {
-      "cache": false
-    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
@@ -17,10 +13,7 @@
       "cache": false,
       "persistent": true
     },
-    "test:ci": {
-      "cache": false,
-      "persistent": true
-    },
+    "test:ci": {},
     "dev": {
       "cache": false,
       "persistent": true
