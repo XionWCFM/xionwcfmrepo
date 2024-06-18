@@ -4,8 +4,8 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "push:origin": "git push origin $(git symbolic-ref --short HEAD)",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "dev:xion": "turbo dev:xion",
     "test": "turbo run test",
     "test:ci": "turbo run test:ci",
