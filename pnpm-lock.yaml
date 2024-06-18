@@ -74,7 +74,10 @@ importers:
     dependencies:
       '@xionwcfm/error':
         specifier: workspace:*
-        version: link:../../packages/errors
+        version: link:../../packages/error
+      '@xionwcfm/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
       '@xionwcfm/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -164,7 +167,7 @@ importers:
         specifier: latest
         version: 5.4.5
 
-  packages/errors:
+  packages/error:
     devDependencies:
       '@xionwcfm/typescript-config':
         specifier: workspace:*
