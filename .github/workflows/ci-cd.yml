@@ -15,7 +15,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-          cache: pnpm
 
       - name: Install Dependencies
         run: pnpm install
@@ -36,7 +35,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-          cache: pnpm
 
       - name: Install Dependencies
         run: pnpm install
@@ -54,7 +52,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-          cache: pnpm
 
       - name: Install Dependencies
         run: pnpm install
