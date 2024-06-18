@@ -89,7 +89,7 @@ const colors = {
     "900": "var(--primary-900)",
     "950": "var(--primary-950)",
   },
-} as const;
+};
 
 const borderRadius = {
   xs: "var(--radius)",
@@ -98,7 +98,7 @@ const borderRadius = {
   xl: "calc(var(--radius) * 8)",
   circle: "50%",
   full: "9999px",
-} as const;
+};
 
 const spacing = {
   "0": "0px",
@@ -130,7 +130,7 @@ const spacing = {
   "1/3": "33.3%",
   half: "50%",
   full: "100%",
-} as const;
+};
 
 const fontSize = {
   "title-1": "calc(var(--font-size) * 4)",
@@ -146,7 +146,7 @@ const fontSize = {
   "caption-1": "calc(var(--font-size) * 0.875)",
   "caption-2": "calc(var(--font-size) * 0.75)",
   "caption-3": "calc(var(--font-size) * 0.625)",
-} as const;
+};
 
 const fontWeight = {
   "title-1": "700",
@@ -167,7 +167,7 @@ const fontWeight = {
   medium: "500",
   regular: "400",
   light: "300",
-} as const;
+};
 
 const lineHeight = {
   "title-1": "150%",
@@ -188,14 +188,14 @@ const lineHeight = {
   normal: "150%",
   loose: "180%",
   looser: "200%",
-} as const;
+};
 
 const boxShadow = {
   xs: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
   sm: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
   md: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
   lg: "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px",
-} as const;
+};
 
 const keyframes = {
   "fade-in": {
@@ -218,21 +218,23 @@ const keyframes = {
     from: { opacity: 0, transform: "translate(-50%, -48%) scale(0.96)" },
     to: { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
   },
-} as const;
+};
 
 const animation = {
   "fade-in-100": "fade-in 100ms ease-in",
   "fade-in-150": "fade-in 150ms ease-in",
   "fade-in-200": "fade-in 200ms ease-in",
   "fade-in-300": "fade-in 300ms ease-in",
+  "fade-in-500": "fade-in 500ms ease-in",
   "fade-out-100": "fade-out 100ms ease-in",
   "fade-out-150": "fade-out 150ms ease-in",
   "fade-out-200": "fade-out 200ms ease-in",
   "fade-out-300": "fade-out 300ms ease-in",
+  "fade-out-500": "fade-out 500ms ease-in",
   "toast-slide-up": "toast-slide-up 300ms ease-in",
   "toast-slide-down": "toast-slide-down 300ms ease-out",
   "dialog-appear": "dialog-appear 150ms cubic-bezier(0.16, 1, 0.3, 1)",
-} as const;
+};
 
 export const XION_STYLE = {
   colors,

@@ -1,5 +1,5 @@
 {
-  "name": "@xionwcfm/adapter",
+  "name": "@xionwcfm/adapters",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -27,10 +27,11 @@
   "devDependencies": {
     "@types/react": "^18",
     "@xionwcfm/typescript-config": "workspace:*",
+    "next": "15.0.0-rc.0",
     "typescript": "latest"
   },
   "peerDependencies": {
-    "react": "^18",
-    "next": "^14"
+    "next": "^14",
+    "react": "^18"
   }
 }

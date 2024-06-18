@@ -1,3 +1,7 @@
+@import "@xionwcfm/token/css";
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
