@@ -190,13 +190,14 @@ importers:
         version: 5.4.5
 
   packages/date:
+    dependencies:
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
     devDependencies:
       '@xionwcfm/typescript-config':
         specifier: workspace:*
         version: link:../../configs/typescript
-      date-fns:
-        specifier: ^3.6.0
-        version: 3.6.0
       typescript:
         specifier: latest
         version: 5.4.5
