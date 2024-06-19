@@ -51,6 +51,7 @@
       "**/.gitignore",
       "**/.yarn/*",
       "**/.pnp.*",
+      "**/.turbo/*",
       "**/build/*",
       "**/coverage/*",
       "**/dist/*",
