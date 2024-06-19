@@ -1,0 +1,16 @@
+{
+  "name": "@xionwcfm/date",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@xionwcfm/typescript-config": "workspace:*",
+    "date-fns": "^3.6.0",
+    "typescript": "latest"
+  },
+  "peerDependencies": {
+    "date-fns": "^3"
+  }
+}
