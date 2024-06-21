@@ -15,7 +15,7 @@ export default function Home() {
       >
         클릭
       </button>
-      <Box>
+      <Box as={"main"} px="12">
         <div className="">ds</div>
         <div className="">dsa</div>
       </Box>
