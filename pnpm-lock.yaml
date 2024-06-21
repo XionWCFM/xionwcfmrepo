@@ -361,6 +361,9 @@ importers:
       '@xionwcfm/token':
         specifier: workspace:*
         version: link:../token
+      '@xionwcfm/types':
+        specifier: workspace:*
+        version: link:../types
       '@xionwcfm/typescript-config':
         specifier: workspace:*
         version: link:../../configs/typescript

@@ -1,11 +1,11 @@
 "use client";
 import { ReactContextError } from "@xionwcfm/error/internal-error";
-import { useLoading } from "@xionwcfm/hooks/use-loading";
+import { Box } from "@xionwcfm/ui/box";
 import { Button } from "@xionwcfm/ui/button";
 
 export default function Home() {
   return (
-    <div className=" textpr  font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div className="">
       <button
         className=" bg-primary-50"
         type="button"
@@ -15,6 +15,10 @@ export default function Home() {
       >
         클릭
       </button>
+      <Box>
+        <div className="">ds</div>
+        <div className="">dsa</div>
+      </Box>
       <Button className=" " appName="hello">
         hello
       </Button>

@@ -5,8 +5,10 @@
   "type": "module",
   "exports": {
     "./button": "./src/button.tsx",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx"
+    "./box": "./src/box/index.tsx",
+    "./stack": "./src/stack/index.tsx",
+    "./spacing": "./src/spacing/index.tsx",
+    "./paragraph": "./src/paragraph/index.tsx"
   },
   "scripts": {
     "generate:component": "turbo gen react-component",
@@ -16,6 +18,7 @@
   "devDependencies": {
     "@xionwcfm/typescript-config": "workspace:*",
     "@xionwcfm/tailwindcss-config": "workspace:*",
+    "@xionwcfm/types": "workspace:*",
     "@xionwcfm/token": "workspace:*",
     "@turbo/gen": "^1.12.4",
     "@types/eslint": "^8.56.5",
