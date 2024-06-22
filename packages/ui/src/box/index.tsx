@@ -5,13 +5,8 @@ import type {
 } from "@xionwcfm/types/polymorphic";
 import { type ElementType, type ReactNode, forwardRef } from "react";
 import { cn } from "../cn";
-import { createSpacingElementCss } from "../internal-utils/create-spacing-element-css";
-import { spacingVariants } from "../internal-utils/spacing-variants";
-import type { CssSpacingElementType, CssSpacingGapType, SpacingSystemProps } from "../types";
-
-const getS = (type: CssSpacingElementType, gap?: CssSpacingGapType) => {
-  return spacingVariants({ spacing: createSpacingElementCss(type, gap) });
-};
+import { getS } from "../internal-utils/get-s";
+import type { SpacingSystemProps } from "../types";
 
 export type PolimophicWithSpacingSystemProps<C extends ElementType> = PolymorphicComponentProps<
   C,
