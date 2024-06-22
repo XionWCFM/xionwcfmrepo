@@ -7,7 +7,15 @@ import { ROUTES } from "~/shared/routes";
 
 export const Header = () => {
   return (
-    <Stack as={"header"} direction={"row"} align={"center"} justify={"between"} px={"12"} py={"8"}>
+    <Stack
+      className=" bg-neutral-50"
+      as={"header"}
+      direction={"row"}
+      align={"center"}
+      justify={"between"}
+      px={"16"}
+      py={"8"}
+    >
       <Link href={ROUTES.root()}>
         <Image
           {...ASSET_XION_BOX_LOGO_48_16}

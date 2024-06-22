@@ -1,3 +1,4 @@
+import { Stack } from "@xionwcfm/ui/stack";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -10,7 +11,7 @@ interface MdxRemoteProps {
 }
 export const MdxRemote = ({ source }: MdxRemoteProps) => {
   return (
-    <article className="">
+    <Stack>
       <MDXRemote
         source={source}
         components={MDXComponents}
@@ -33,17 +34,17 @@ export const MdxRemote = ({ source }: MdxRemoteProps) => {
                 rehypePrettyCode,
                 {
                   theme: "github-dark",
-                  //@ts-ignore
+                  //@ts-expect-error
                   onVisitLine(node) {
                     if (node.children.length === 0) {
                       node.children = [{ type: "text", value: " " }];
                     }
                   },
-                  //@ts-ignore
+                  //@ts-expect-error
                   onVisitHighlightedLine(node) {
                     node.properties.className.push("line--highlighted");
                   },
-                  //@ts-ignore
+                  //@ts-expect-error
                   onVisitHighlightedWord(node) {
                     node.properties.className = ["word--highlighted"];
                   },
@@ -53,6 +54,6 @@ export const MdxRemote = ({ source }: MdxRemoteProps) => {
           },
         }}
       />
-    </article>
+    </Stack>
   );
 };

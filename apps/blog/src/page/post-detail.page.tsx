@@ -1,3 +1,4 @@
+import { Stack } from "@xionwcfm/ui/stack";
 import type { PostWithFrontmatterType } from "~/entities/post/model/post.model";
 import { MdxRemote } from "~/entities/post/ui/mdx/mdx-remote";
 
@@ -7,10 +8,10 @@ type PostPageProps = {
 
 export default function PostDetailPage({ post }: PostPageProps) {
   return (
-    <article>
+    <Stack px={"16"}>
       <h1>{post.title}</h1>
       <p>{post.description}</p>
       <MdxRemote source={post.content} />
-    </article>
+    </Stack>
   );
 }

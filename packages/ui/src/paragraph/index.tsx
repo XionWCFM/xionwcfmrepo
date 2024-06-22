@@ -25,8 +25,11 @@ const paragraphVariants = cva("", {
     },
     leading: {
       default: "",
+      denser: "leading-denser",
       normal: "leading-normal",
       tight: "leading-tight",
+      loose: "leading-loose",
+      looser: "leading-looser",
     },
     weight: {
       default: "",
