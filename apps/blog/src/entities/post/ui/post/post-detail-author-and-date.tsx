@@ -19,7 +19,7 @@ export const PostDetailAuthorAndDate = (props: PostDetailAuthorAndDateProps) => 
           {AUTHOR_NAME}
         </Paragraph>
       </Stack>
-      <Paragraph size={"3"} color={"neutral-500"} weight={"thin"}>
+      <Paragraph size={"3"} color={"neutral-600"} weight={"thin"}>
         {date}
       </Paragraph>
     </Stack>

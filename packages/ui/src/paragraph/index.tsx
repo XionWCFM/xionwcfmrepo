@@ -150,8 +150,8 @@ export const Paragraph: ParagraphType = forwardRef(function Paragraph<C extends 
 ) {
   const Component = as || "p";
   const { m, my, mx, mr, ml, mt, mb, p, py, px, pr, pl, pt, pb, ...omitSpacingRest } = rest;
-  const defaultCss = `${getS("m", m)} ${getS("my", my)} ${getS("mx", mx)} ${getS("mr", mr)} ${getS("ml", ml)} ${getS("mt", mt)} ${getS("mb", mb)} 
-  ${getS("p", p)} ${getS("py", py)} ${getS("px", px)} ${getS("pr", pr)} ${getS("pl", pl)} ${getS("pt", pt)} ${getS("pb", pb)}`;
+  const defaultCss = ` ${getS("my", my)} ${getS("mx", mx)}  
+  ${getS("py", py)} ${getS("px", px)} `;
 
   return (
     <Component
