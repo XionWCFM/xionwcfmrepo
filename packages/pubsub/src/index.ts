@@ -8,7 +8,7 @@ export class Pubsub<EventName extends string = string> {
     if (!this.events[eventName]) {
       this.events[eventName] = [];
     }
-    //@ts-expect-error
+    //@ts-ignore
     this.events[eventName].push(func);
   }
   unsubscribe(eventName: EventName, func: DefaultFunction) {
@@ -21,7 +21,7 @@ export class Pubsub<EventName extends string = string> {
     if (!this.events[eventName]) {
       return;
     }
-    //@ts-expect-error
+    //@ts-ignore
     // biome-ignore lint/complexity/noForEach: <explanation>
     this.events[eventName].forEach((func) => func(context));
   }

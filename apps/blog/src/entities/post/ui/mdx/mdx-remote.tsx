@@ -33,17 +33,17 @@ export const MdxRemote = ({ source }: MdxRemoteProps) => {
                 rehypePrettyCode,
                 {
                   theme: "github-dark",
-                  //@ts-expect-error
+                  //@ts-ignore
                   onVisitLine(node) {
                     if (node.children.length === 0) {
                       node.children = [{ type: "text", value: " " }];
                     }
                   },
-                  //@ts-expect-error
+                  //@ts-ignore
                   onVisitHighlightedLine(node) {
                     node.properties.className.push("line--highlighted");
                   },
-                  //@ts-expect-error
+                  //@ts-ignore
                   onVisitHighlightedWord(node) {
                     node.properties.className = ["word--highlighted"];
                   },
