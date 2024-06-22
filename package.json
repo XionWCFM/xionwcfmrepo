@@ -4,6 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "storybook": "turbo storybook",
     "push:origin": "git push origin $(git symbolic-ref --short HEAD)",
     "lint": "turbo lint",
     "dev:xion": "turbo dev:xion",

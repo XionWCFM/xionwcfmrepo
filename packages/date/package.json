@@ -1,0 +1,45 @@
+{
+  "name": "@xionwcfm/date",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./format-date": {
+      "types": "./dist/format-date/index.d.ts",
+      "default": "./dist/format-date/index.js"
+    },
+    "./is-after-with-sameday": {
+      "types": "./dist/is-after-with-sameday/index.d.ts",
+      "default": "./dist/is-after-with-sameday/index.js"
+    },
+    "./is-before-with-sameday": {
+      "types": "./dist/is-before-with-sameday/index.d.ts",
+      "default": "./dist/is-before-with-sameday/index.js"
+    },
+    "./safe-get-iso": {
+      "types": "./dist/safe-get-iso/index.d.ts",
+      "default": "./dist/safe-get-iso/index.js"
+    },
+    "./to-date": {
+      "types": "./dist/to-date/index.d.ts",
+      "default": "./dist/to-date/index.js"
+    },
+    "./to-iso": {
+      "types": "./dist/to-iso/index.d.ts",
+      "default": "./dist/to-iso/index.js"
+    }
+  },
+  "devDependencies": {
+    "@xionwcfm/typescript-config": "workspace:*",
+    "date-fns": "^3.6.0",
+    "typescript": "latest"
+  },
+  "peerDependencies": {
+    "date-fns": "^3"
+  },
+  "dependencies": {
+    "date-fns": "^3.6.0"
+  }
+}

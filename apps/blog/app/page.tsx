@@ -1,22 +1,14 @@
-"use client";
-import { ReactContextError } from "@xionwcfm/error/internal-error";
-import { useLoading } from "@xionwcfm/hooks/use-loading";
-import { Button } from "@xionwcfm/ui/button";
+import { getAllPosts } from "~/entities/post/model/post.service";
 
-export default function Home() {
+export default async function RootPage() {
+  const posts = await getAllPosts();
   return (
-    <div className=" textpr  font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <button
-        className=""
-        type="button"
-        onClick={() => {
-          throw new ReactContextError("error", "Home");
-        }}
-      >
-        클릭
-      </button>
-      <Button appName="hello">hello</Button>
-      <button type="button">sda</button>
+    <div className="">
+      {posts.map((post) => (
+        <div className="" key={post.title}>
+          <div className="">{post.filePath}</div>
+        </div>
+      ))}
     </div>
   );
 }

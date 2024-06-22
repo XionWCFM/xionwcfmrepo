@@ -2,7 +2,6 @@
   "name": "@xionwcfm/token",
   "type": "module",
   "scripts": {
-    "dev": "tsc --watch",
     "build": "tsc"
   },
   "exports": {

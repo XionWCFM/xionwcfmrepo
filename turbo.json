@@ -4,7 +4,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", "storybook-static/**"]
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -15,6 +15,10 @@
     },
     "test:ci": {},
     "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "storybook": {
       "cache": false,
       "persistent": true
     },

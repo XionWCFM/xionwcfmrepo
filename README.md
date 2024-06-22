@@ -8,7 +8,7 @@
 
 - configs : typescript, tailwindcss 등 다양한 패키지에서 필요로하는 구성 설정이 포함됩니다.
 
-
+---
 
 # CONVENTION
 
@@ -37,16 +37,18 @@
 
 [yyyy.MM.dd] Label: 작업 내용
 
-
-## COMMIT CONVENTION
-
-gitmoji를 이용하여 emoji를 통해 작업내용을 나타내고 
-
-
 ### example
 
 [2024.06.19] feature: CI/CD 구성 설정 적용 및 workspace 설정 추가
 
+---
+
+## COMMIT CONVENTION
+
+gitmoji를 이용하여 emoji를 통해 작업내용을 나타내며 각 Commit의 제목은 작업 내용을 나타냅니다.
+
+
+---
 
 ## insight
 

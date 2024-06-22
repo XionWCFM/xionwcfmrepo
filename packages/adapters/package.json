@@ -7,7 +7,6 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "tsc --watch",
     "build": "tsc"
   },
   "exports": {
