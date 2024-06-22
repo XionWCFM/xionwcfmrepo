@@ -7,25 +7,20 @@ import { type ElementType, type ReactNode, forwardRef } from "react";
 import { cn } from "../cn";
 import { createSpacingElementCss } from "../internal-utils/create-spacing-element-css";
 import { spacingVariants } from "../internal-utils/spacing-variants";
-import type {
-  CssSpacingElementType,
-  CssSpacingGapType,
-  SemanticHTMLContentSectionType,
-  SpacingSystemProps,
-} from "../types";
+import type { CssSpacingElementType, CssSpacingGapType, SpacingSystemProps } from "../types";
 
 const getS = (type: CssSpacingElementType, gap?: CssSpacingGapType) => {
   return spacingVariants({ spacing: createSpacingElementCss(type, gap) });
 };
 
-type PolimophicWithSpacingSystemProps<C extends ElementType> = PolymorphicComponentProps<
+export type PolimophicWithSpacingSystemProps<C extends ElementType> = PolymorphicComponentProps<
   C,
   {
     className?: string;
   } & SpacingSystemProps
 >;
 
-type BoxType = <C extends ElementType = SemanticHTMLContentSectionType>(
+type BoxType = <C extends ElementType = ElementType>(
   props: PolymorphicComponentPropsWithRef<C, PolimophicWithSpacingSystemProps<C>>,
 ) => ReactNode | null;
 

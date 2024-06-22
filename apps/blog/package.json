@@ -12,6 +12,7 @@
     "test:ci": "vitest run"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "^1.3.0",
     "@xionwcfm/error": "workspace:*",
     "@xionwcfm/hooks": "workspace:*",
     "@xionwcfm/ui": "workspace:*",

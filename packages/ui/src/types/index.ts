@@ -30,7 +30,7 @@ export type SemanticHTMLClickableContentType = "button" | "a";
 
 export type SemanticHTMLListContentType = "ul" | "ol" | "li" | "dl" | "dt" | "dd";
 
-export type HAndWAndMType = "h" | "w" | "m";
+export type HAndWType = "h" | "w";
 
 export type CssSpacingElementType =
   | "my"
@@ -56,7 +56,7 @@ export type ReturnCssDirectionType = "flex-row" | "flex-col";
 
 export type ReturnCssSpacingGapType = "" | `gap-${CssSpacingGapType}`;
 
-export type ReturnCssSpacingWAndHAndMarginType = "" | `${HAndWAndMType}-${CssSpacingGapType}`;
+export type ReturnCssSpacingWAndHAndMarginType = "" | `${HAndWType}-${CssSpacingGapType}`;
 
 export type ReturnCssSpacingElementType = "" | `${CssSpacingElementType}-${CssSpacingGapType}`;
 
