@@ -1,5 +1,5 @@
 {
-  "name": "@xionwcfm/util",
+  "name": "@xionwcfm/utils",
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AUTHOR_NAME, BASE_SITE_NAME, BASE_SITE_TITLE } from "../../constants";
+import { AUTHOR_NAME, BASE_SITE_NAME, BASE_SITE_TITLE } from "~/shared/constants";
 
 type CreateMetadataParamsType = {
   title: string;
