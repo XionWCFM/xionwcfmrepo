@@ -8,7 +8,10 @@
     "./box": "./src/box/index.tsx",
     "./stack": "./src/stack/index.tsx",
     "./spacing": "./src/spacing/index.tsx",
-    "./paragraph": "./src/paragraph/index.tsx"
+    "./paragraph": "./src/paragraph/index.tsx",
+    "./separate": "./src/separate/index.tsx",
+    "./skeleton": "./src/skeleton/index.tsx",
+    "./chip": "./src/chip/index.tsx"
   },
   "scripts": {
     "generate:component": "turbo gen react-component",

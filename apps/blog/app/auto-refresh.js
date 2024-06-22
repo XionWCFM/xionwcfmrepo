@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "development") {
     const router = useRouter();
     useEffect(() => {
       console.log("is work");
-      const ws = new WebSocket("ws://localhost:3001");
+      const ws = new WebSocket("ws://localhost:3600");
       ws.onmessage = (event) => {
         if (event.data === "refresh") {
           router.refresh();

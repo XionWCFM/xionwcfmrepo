@@ -65,6 +65,11 @@ const skeletonVariants = cva(" animate-pulse", {
       "100%": " h-full",
       screen: "h-screen",
     },
+    variant: {
+      default: "",
+      circle: "rounded-full",
+      box: " rounded-xs",
+    },
   },
 
   defaultVariants: {
@@ -80,13 +85,13 @@ type SkeletonType = <C extends ElementType = SemanticHTMLContentSectionType>(
 ) => ReactNode | null;
 
 export const Skeleton: SkeletonType = forwardRef(function Skeleton<C extends ElementType = "div">(
-  { children, as, className, w, h, ...rest }: Props<C>,
+  { children, as, className, variant, w, h, ...rest }: Props<C>,
   ref?: PolymorphicRef<C>,
 ) {
   const Component = as || "div";
 
   return (
-    <Component ref={ref} className={cn(skeletonVariants({ w, h }), className)} {...rest}>
+    <Component ref={ref} className={cn(skeletonVariants({ w, h, variant }), className)} {...rest}>
       {children}
     </Component>
   );

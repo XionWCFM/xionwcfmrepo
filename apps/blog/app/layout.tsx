@@ -31,13 +31,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <AutoRefresh>
-      <html lang="ko" className={notoSansKr.className}>
-        <body>{children}</body>
-        <ClarityScript />
-        <GoogleTagManager gtmId={ENVIRONMENT.GTM_ID} />
-        <GoogleAnalytics gaId={ENVIRONMENT.GA_ID} />
-      </html>
-    </AutoRefresh>
+    // <AutoRefresh>
+    <html lang="ko" className={notoSansKr.className}>
+      <body>{children}</body>
+      <ClarityScript />
+      <GoogleTagManager gtmId={ENVIRONMENT.GTM_ID} />
+      <GoogleAnalytics gaId={ENVIRONMENT.GA_ID} />
+    </html>
+    // </AutoRefresh>
   );
 }

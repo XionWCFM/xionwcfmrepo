@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { IconProps } from "./types";
 
-export const HamburgerMenuIcon = React.forwardRef<SVGSVGElement, IconProps>(
+export const EmailIcon = React.forwardRef<SVGSVGElement, IconProps>(
   ({ color = "currentColor", ...props }, forwardedRef) => {
     return (
       // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
@@ -25,4 +25,4 @@ export const HamburgerMenuIcon = React.forwardRef<SVGSVGElement, IconProps>(
   },
 );
 
-export default HamburgerMenuIcon;
+export default EmailIcon;
