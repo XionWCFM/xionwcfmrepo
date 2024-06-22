@@ -26,7 +26,7 @@ type CreateMetadataParamsType = {
  *
  * @returns {Promise<Metadata>} 생성된 메타데이터 객체를 포함하는 프로미스입니다.
  */
-export const createMetadata = async (param: CreateMetadataParamsType): Promise<Metadata> => {
+export const createMetadata = (param: CreateMetadataParamsType): Metadata => {
   const index = typeof param.robots?.index === "boolean" ? param.robots.index : true;
   const follow = typeof param.robots?.follow === "boolean" ? param.robots.follow : true;
   const authors = param.authors ?? AUTHOR_NAME;
