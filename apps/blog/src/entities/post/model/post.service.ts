@@ -52,7 +52,6 @@ export const getFrontmatter = async (source: string): Promise<FrontmatterType> =
 export const getPost = async (filePath: string[]): Promise<PostWithFrontmatterType | null> => {
   const postsDirectory = getPostsDirectory();
   const post = findPostFile(postsDirectory, filePath);
-
   if (!post) return null;
   const frontmatter = await getFrontmatter(post.content);
   return Object.assign(post, frontmatter);
@@ -62,7 +61,5 @@ export const getAllPosts = async () => {
   const postsDirectory = getPostsDirectory();
   const posts = await Promise.all(readDirectory(postsDirectory).map((path) => getPost(path.filePath)));
   const validPosts = posts.filter((post) => post !== null) as Array<PostWithFrontmatterType>;
-  const today = new Date().toISOString();
-
-  return validPosts.filter((post) => post.releaseDate <= today);
+  return validPosts;
 };

@@ -1,5 +1,5 @@
 // 메타데이터에 대한 상수값입니다.
-export const BASE_SITE_URL = "www.xionwcfm.com";
+export const BASE_SITE_URL = "https://www.xionwcfm.com";
 
 export const BASE_SITE_DESCRIPTION =
   "글 쓰기를 좋아하는 대한민국의 프론트엔드 개발자입니다. XionWCFM, 냠냠맨 등의 이름으로도 활동하였습니다. next.js, react, typescript, javascript 등 프론트엔드 개발과 관련된 주제의 글을 작성합니다.";
