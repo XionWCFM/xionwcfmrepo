@@ -21,6 +21,10 @@ export const AUTHOR_COPYRIGHT = "© 2024 YuGilJong. All rights reserved";
 // 기타 서드파티에 대한 상수값입니다.
 export const LORDICON_LICENSE = "Animated icons by Lordicon.com";
 
+export const EXTERNAL_LINKED_IN = "https://www.linkedin.com/in/giljong-yu-289195277/";
+
+export const EXTERNAL_GITHUB = "https://github.com/XionWCFM";
+
 export const CONSTANTS = {
   BASE_SITE_URL,
   BASE_SITE_DESCRIPTION,
@@ -31,4 +35,6 @@ export const CONSTANTS = {
   AUTHOR_EMAIL,
   AUTHOR_COPYRIGHT,
   LORDICON_LICENSE,
+  EXTERNAL_GITHUB,
+  EXTERNAL_LINKED_IN,
 };
