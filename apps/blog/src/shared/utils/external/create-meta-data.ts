@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AUTHOR_NAME, BASE_SITE_NAME, BASE_SITE_TITLE } from "~/shared/constants";
+import { isEnabled } from "~/shared/feature-flag";
 
 type CreateMetadataParamsType = {
   title: string;
@@ -61,8 +62,10 @@ export const createMetadata = (param: CreateMetadataParamsType): Metadata => {
       description,
     },
     robots: {
-      index,
-      follow,
+      //   index: isEnabled("seo-start") ? index : false,
+      //   follow: isEnabled("seo-start") ? follow : false,
+      index: false,
+      follow: false,
     },
     publisher: AUTHOR_NAME,
     icons: {
