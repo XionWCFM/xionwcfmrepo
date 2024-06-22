@@ -1,32 +1,50 @@
+"use client";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Image } from "@xionwcfm/adapters/image";
 import { Link } from "@xionwcfm/adapters/link";
+import { useScrollDirection } from "@xionwcfm/hooks/use-scroll-direction";
+import { Separate } from "@xionwcfm/ui/separate";
+import { Spacing } from "@xionwcfm/ui/spacing";
 import { Stack } from "@xionwcfm/ui/stack";
 import { ASSET_XION_BOX_LOGO_48_16 } from "~/shared/assets";
+import { isEnabled } from "~/shared/feature-flag";
 import { ROUTES } from "~/shared/routes";
 
 export const Header = () => {
+  const scrollDirection = useScrollDirection();
+  const shouldHiding = scrollDirection === "down" ? "-translate-y-[64px]" : "translate-y-0";
   return (
-    <Stack
-      className=" bg-neutral-50"
-      as={"header"}
-      direction={"row"}
-      align={"center"}
-      justify={"between"}
-      px={"16"}
-      py={"8"}
-    >
-      <Link href={ROUTES.root()}>
-        <Image
-          {...ASSET_XION_BOX_LOGO_48_16}
-          width={ASSET_XION_BOX_LOGO_48_16.width * 2}
-          height={ASSET_XION_BOX_LOGO_48_16.height * 2}
-        />
-      </Link>
+    <>
+      <Stack
+        className={` w-screen bg-neutral-50   fixed transition-transform duration-300 ${shouldHiding}`}
+        as={"header"}
+        align={"center"}
+      >
+        <Stack
+          className=" px-16 md:px-0 md:max-w-768 xl:max-w-1024 "
+          w={"screen"}
+          direction={"row"}
+          align={"center"}
+          justify={"between"}
+          py={"8"}
+        >
+          <Link href={ROUTES.root()}>
+            <Image
+              {...ASSET_XION_BOX_LOGO_48_16}
+              width={ASSET_XION_BOX_LOGO_48_16.width * 2}
+              height={ASSET_XION_BOX_LOGO_48_16.height * 2}
+            />
+          </Link>
 
-      <button type={"button"}>
-        <HamburgerMenuIcon className=" w-24 h-24 text-neutral-400" />
-      </button>
-    </Stack>
+          {isEnabled("header-hambuger") ? (
+            <button type={"button"}>
+              <HamburgerMenuIcon className=" w-24 h-24 text-neutral-400" />
+            </button>
+          ) : null}
+        </Stack>
+        <Separate />
+      </Stack>
+      <Spacing className=" bg-neutral-50" h={"48"} />
+    </>
   );
 };

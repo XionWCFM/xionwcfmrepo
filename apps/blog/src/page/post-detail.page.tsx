@@ -8,7 +8,7 @@ type PostPageProps = {
 
 export default function PostDetailPage({ post }: PostPageProps) {
   return (
-    <Stack px={"16"}>
+    <Stack className=" px-16 md:px-0">
       <h1>{post.title}</h1>
       <p>{post.description}</p>
       <MdxRemote source={post.content} />
