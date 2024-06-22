@@ -1,12 +1,17 @@
 import "./globals.css";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
+import { Noto_Sans_KR } from "next/font/google";
+import { ClarityScript } from "~/app/script/clarity.script";
 import { ENVIRONMENT } from "~/shared/environment";
 import { AUTHOR_NAME, BASE_SITE_DESCRIPTION, BASE_SITE_TITLE, BASE_SITE_URL } from "../src/shared/constants";
 import { createMetadata } from "../src/shared/utils/external/create-meta-data";
 import AutoRefresh from "./auto-refresh";
 
-const ClarityScript = dynamic(() => import("~/app/script/clarity.script").then((c) => c.ClarityScript));
+const notoSansKr = Noto_Sans_KR({
+  weight: ["200", "300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -27,9 +32,11 @@ export default function RootLayout({
 }>) {
   return (
     <AutoRefresh>
-      <html lang="ko">
+      <html lang="ko" className={notoSansKr.className}>
         <body>{children}</body>
         <ClarityScript />
+        <GoogleTagManager gtmId={ENVIRONMENT.GTM_ID} />
+        <GoogleAnalytics gaId={ENVIRONMENT.GA_ID} />
       </html>
     </AutoRefresh>
   );
