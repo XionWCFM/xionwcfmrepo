@@ -39,6 +39,7 @@ export const createMetadata = (param: CreateMetadataParamsType): Metadata => {
       template: `%s - ${BASE_SITE_TITLE}`,
     },
     description,
+    keywords: ["frontend", "nextjs", "react", "techblog", "blog", "typescript"],
     alternates: {
       canonical: url,
     },
@@ -63,6 +64,7 @@ export const createMetadata = (param: CreateMetadataParamsType): Metadata => {
       index,
       follow,
     },
+    publisher: AUTHOR_NAME,
     icons: {
       icon: [
         { rel: "apple-touch-icon", sizes: "57x57", url: "/apple-icon-57x57.png" },

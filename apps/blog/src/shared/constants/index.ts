@@ -18,13 +18,6 @@ export const AUTHOR_EMAIL = "giljongyudev@gmail.com";
 
 export const AUTHOR_COPYRIGHT = "© 2024 YuGilJong. All rights reserved";
 
-export const AUTHOR = {
-  NAME: AUTHOR_NAME,
-  DESCRIPTION: AUTHOR_DESCRIPTION,
-  EMAIL: AUTHOR_EMAIL,
-  COPYRIGHT: AUTHOR_COPYRIGHT,
-};
-
 // 기타 서드파티에 대한 상수값입니다.
 export const LORDICON_LICENSE = "Animated icons by Lordicon.com";
 
