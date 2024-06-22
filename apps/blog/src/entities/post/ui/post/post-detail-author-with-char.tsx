@@ -15,7 +15,7 @@ export const PostDetailAuthorWithChar = () => {
           <Paragraph weight={"bold"} color={"neutral-600"} size={"6"}>
             {AUTHOR_NAME}
           </Paragraph>
-          <Paragraph size={"4"} weight={"thin"} color={"neutral-400"}>
+          <Paragraph size={"4"} weight={"thin"} color={"neutral-600"}>
             {AUTHOR_DESCRIPTION}
           </Paragraph>
         </Stack>
