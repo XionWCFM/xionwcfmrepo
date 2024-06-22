@@ -6,7 +6,7 @@ import { cn } from "../cn";
 import { getS } from "../internal-utils/get-s";
 import type { SemanticHTMLTextContentType } from "../types";
 
-const paragraphVariants = cva("", {
+const paragraphVariants = cva(" whitespace-pre-wrap", {
   variants: {
     size: {
       default: "",

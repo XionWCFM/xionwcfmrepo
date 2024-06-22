@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {},
   "exports": {
-    "./email-icon": "./src/email-icon"
+    "./email-icon": "./src/email-icon.tsx"
   },
   "publishConfig": {
     "access": "public"
