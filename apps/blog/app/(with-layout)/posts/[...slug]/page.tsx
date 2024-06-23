@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
-import { getPost } from "~/entities/post/model/post.service";
+import { getAllPosts, getPost } from "~/entities/post/model/post.service";
 import PostDetailPage from "~/page/post-detail.page";
 import { BASE_SITE_URL } from "~/shared/constants";
 import { createMetadata } from "~/shared/utils/external/create-meta-data";
@@ -19,6 +19,15 @@ export const generateMetadata = async (params: PostProps): Promise<Metadata> => 
   const metaData = createMetadata({ description: post.description, title: post.title, url });
   return metaData;
 };
+
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({
+    slug: post.filePath,
+  }));
+}
+
+export const dynamic = "force-static";
 
 export default async function Post(params: PostProps) {
   const slug = params.params.slug;
