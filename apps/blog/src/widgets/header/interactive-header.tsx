@@ -14,7 +14,7 @@ export const InteractiveHeader = () => {
   const shouldHiding = scrollDirection === "down" ? "-translate-y-[64px]" : "translate-y-0";
   return (
     <Stack
-      className={` w-screen bg-neutral-50   fixed transition-transform duration-300 ${shouldHiding}`}
+      className={` z-20 w-screen bg-neutral-50   fixed transition-transform duration-300 ${shouldHiding}`}
       as={"header"}
       align={"center"}
     >
