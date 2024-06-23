@@ -13,7 +13,10 @@
       "cache": false,
       "persistent": true
     },
-    "test:ci": {},
+    "test:ci": {
+      "cache": true,
+      "persistent": false
+    },
     "dev": {
       "cache": false,
       "persistent": true
