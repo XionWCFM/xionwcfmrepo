@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ASSET_XION_OG_IMAGE_1200_630 } from "~/shared/assets";
 import { AUTHOR_NAME, BASE_SITE_NAME, BASE_SITE_TITLE, BASE_TEMPLETE_TITLE } from "~/shared/constants";
 import { isEnabled } from "~/shared/feature-flag";
 
@@ -53,6 +54,7 @@ export const createMetadata = (param: CreateMetadataParamsType): Metadata => {
       url,
       type: "website",
       siteName: BASE_SITE_NAME,
+      images: [ASSET_XION_OG_IMAGE_1200_630.src],
     },
     twitter: {
       creator: authors,
@@ -60,6 +62,7 @@ export const createMetadata = (param: CreateMetadataParamsType): Metadata => {
       site: url,
       title,
       description,
+      images: [ASSET_XION_OG_IMAGE_1200_630.src],
     },
     robots: {
       index,
