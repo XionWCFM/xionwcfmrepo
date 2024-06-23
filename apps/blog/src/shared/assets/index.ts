@@ -12,13 +12,6 @@ export const ASSET_XION_CHAR_WHITE = {
   height: 197,
 } as const;
 
-export const ASSET_XION_OG_IMAGE_1200_630 = {
-  src: "/xion-og-image-1200x630.webp",
-  alt: "XionWCFM의 OG Image",
-  width: 1200,
-  height: 630,
-};
-
 export const ASSET_XION_BOX_LOGO_48_16 = {
   src: "/xion-box-logo-48x16.webp",
   alt: "XionWCFM의 로고 이미지",
