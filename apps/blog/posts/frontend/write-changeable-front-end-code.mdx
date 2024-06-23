@@ -1,0 +1,210 @@
+---
+title: 변경에 자유로운 프론트엔드 코드 작성하기
+description: 외부의 변경에 유연한 코드를 작성하기 위해서 내부의존성 (Internal Dependency)를 두는 방법을 고려할 수 있습니다. 해당 방법의 장점은 도입에 어려움이 크지 않으며 구조를 많이 변경할 필요가 없고 동작에 변경이 생기지 않는다는 것입니다. 또한 그럼에도 불구하고 향후 외부 라이브러리와 같은 의존성들을 교체하는 과정에서 매우 큰 편의성을 선사하는 방법이라는 점이 매력적입니다.
+thumbnail: fallback
+categories: frontend
+writeDate: 2024-06-14T08:29:07.053Z
+releaseDate: 2024-06-14T17:44:00.053Z
+canView: true
+authority: public
+---
+
+
+
+안녕하세요 오늘은 변경에 자유로운 코드를 작성하기라는 주제로 이야기를 해보겠습니다. 사실 거의 상식이나 다름없는 느낌으로 많이 알려진 내용이다보니 거창한 척(?) 말하는 것이 조금 민망하기도 합니다 어떻게하면 변경에 자유로운 코드를 작성할 수 있을까요? 
+
+여러가지 견해가 있을 수 있겠지만 저는 라이브러리, 프레임워크와 같은 외부 코드들은 기본적으로 항상 "작은 내용"이라고 생각하려고 하는 편입니다.
+
+채용공고에는 리액트, next.js와 같은 라이브러리, 프레임워크들이 "당연"하다는 듯이 적혀있을만큼 우리의 생업이라는 관점에서는 커다란 내용일지 모르지만 적어도 코드의 영역에서는 "작은 내용"이라고 생각하자는것이죠
+ 
+<br/>
+
+이해를 돕기 위해 하나의 작은 예시를 만들어봤습니다. 불과 3년정도 전까지만 해도 매우 대중적으로 사용되던 상태 관리 라이브러리인 redux의 코드입니다.
+
+```tsx
+import { useSelector } from "react-redux"
+
+export const TodoList = () => {
+    const todoList = useSelector((state) => state.todoReducer)
+    return(
+        <div>
+            {todoList.map(todo => (
+                <div key={todo}>{todo}</div>
+            ))}
+        </div>
+    )   
+}
+```
+
+전혀 문제가 없어보이는 코드입니다.
+ 
+그런데 이렇게 잘못된 점은 없는 코드이지만 이렇게 리덕스에 의존하는 컴포넌트의 가짓수가 늘어나면 늘어날수록 우리의 코드는 리덕스 없이는 살 수 없는 코드가 되어갑니다. 만약 redux를 걷어내고 다른 상태관리 라이브러리로 넘어가고 싶은 상황이라면 어떨까요?
+
+ 
+react-redux, redux를 사용하는 모든 컴포넌트를 돌아다니면서 redux에 대한 의존성을 지워나가주어야할 것입니다. 자연스레 코드베이스가 커지면 커질수록 리덕스에 대한 의존성을 끊어내는 걸 상상하기 어렵게됩니다.
+ 
+라이브러리 하나를 교체하는데에 엄청나게 많은 파일을 한땀한땀 변경해야하고 동작을 확인해야한다면 누구도 그런 일을 즐길 수 없을것입니다.
+
+---
+
+## 구현체에 의존하지말고 인터페이스에 의존해라
+
+엄청 유명한 말이다보니 다들 한두번씩은 들어보셨을 것 같습니다. 다만 위의 말을 그대로 프론트엔드에 대입해서 생각하면 아마 혼란이 오시는 분들도 있을 것 같아요 "구현체"라는 말때문에 그렇지 않을까?라는 생각이 드는데요
+
+<br/>
+
+사실 보통은 프론트엔드 코드를 짜면서 인터페이스를 구성해두고 그 인터페이스를 구현하는 클래스를 작성하는 백엔드(?)스러운 코드를 잘 작성하지 않다보니까 그냥 나는 인터페이스를 만든적이 없는데? 라는 생각이 들 수 있을 것 같습니다.
+
+<br/>
+ 
+
+구현체라는 말보다는 dependency라는 개념으로 생각하는것이 오히려 더 쉬울것 같습니다.  그러면 외부 세부사항으로 인해 우리의 코드가 더럽혀지는 예시를 한번 찾아볼까요? 예를 들어 next.js의 Link 컴포넌트는 nextjs를 사용하는 경우꼭 필요한 컴포넌트이지만 그와 동시에 next.js라는 외부의 세부사항에 얽혀있는 의존성입니다. 즉 우리는 Link 컴포넌트를 사용하기 위해 다음과 같이 우리의 코드를 next.js로 더럽힙니다.
+
+큰 문제가 아닐 수 있습니다. 하지만 만약 나중에 nextjs를 사용하지 않게되었다면 어떨까요? 몇백, 몇천개의 파일들을 돌아다니며 Link 컴포넌트를 새 프레임워크의 Link로 바꾸어나갈 자신이 그려지지않나요? nextjs의 버전이 올라가면서 경로지정에 대한 api를 href대신 to로 변경한다면 어떨까요?
+
+```tsx
+import Link from "next/link";
+
+export default function Home() {
+  return <div>
+    <Link href={"/hell"}>hello hell world</Link>
+  </div>;
+}
+```
+
+
+이런 문제를 해결하기 위해 이런 발상을 할수도 있습니다. Link 컴포넌트의 구현체인 next/link에 의존하는게 아니라 인터페이스에 의존하면 되는거아니야? 그리고 의존성 주입을 해주면 되겠네? 이제 위 아이디어를 구현해봅시다.
+
+```tsx
+import Link from 'next/link';
+
+export default function Home() {
+  return (
+      <HomePage Link={Link}/>
+  );
+}
+
+
+const HomePage = ({Link}) => {
+  return <div>
+    <Link href={'/hello'}>hello DI world</Link>
+  </div>
+}
+```
+
+이제 HomePage라는 우리의 페이지 컴포넌트는 next/link라는 세부사항에 구애받지 않고 그저 주입받는 Link를 사용하도록 변경되었습니다. 그러나 이 상태에서는 Link를 주입해주는 지점이 산재될 수 밖에 없다는 한계가 존재하는데요
+
+주입을 위해 구현체를 생성하는 코드가 산재되어 있으면 매번 구현체를 만들어주어야하는 수고가 생기게되고 여러곳에서 주입하다보니 앞서 고민했던 것처럼 구현체를 바꾸어야할 때 바꾸는 작업도 어려워집니다.
+ 
+따라서 next/link 에서 오는 Link 컴포넌트를 한번 래핑한 우리의 컴포넌트를 만들어봅시다. 저는 이러한 행위를 내부의존성(Internal Dependency)라고 부릅니다.
+
+```tsx
+import NextLink from 'next/link';
+import { type Ref, forwardRef, type ReactNode, type ComponentPropsWithoutRef, type ComponentType } from 'react';
+
+type LinkProps = {
+  href: string;
+  replace?: boolean;
+  scroll?: boolean;
+  prefetch?: boolean;
+  children?: ReactNode;
+} & ComponentPropsWithoutRef<'a'>;
+
+export type LinkType = ComponentType<LinkProps>;
+
+export const Link = forwardRef(function Link(props: LinkProps, ref: Ref<HTMLAnchorElement>) {
+  const { href, replace, scroll, prefetch, children, ...attributes } = props;
+  return (
+    <NextLink href={href} replace={replace} scroll={scroll} prefetch={prefetch} ref={ref} {...attributes}>
+      {children}
+    </NextLink>
+  );
+});
+```
+이미 프로젝트가 진행되고 있던 상황에서 처음 Internal Dependency를 만들때에는 현재 의존하고 있는 라이브러리의 API 구성과 완전히 동일하게 작성하는 편입니다. API 구성이 기존과 완전히 호환되면 그저 import 구문을 바꾸는 정도만으로도 코드 변경을 마칠 수 있기 때문에 변경의 부담감이 적어지기 때문입니다. 이제 기존에 next/link에 의존하고 있던 컴포넌트의 Link를 교체해봅시다.
+
+```tsx
+import Link from "next/link";
+
+export default function Home() {
+  return <div>
+    <Link href={"/gonext"}>go next</Link>
+  </div>;
+}
+
+```
+
+next/link에 의존하고 있던 Link 컴포넌트는
+
+```tsx
+import { Link } from '~/src/shared/adapters/link';
+
+export default function Home() {
+  return (
+    <div>
+      <Link href={'/gonext'}>go next</Link>
+    </div>
+  );
+}
+```
+
+이렇게 우리의 internal dependecy로 변경해도 아무 문제없이 동작한다는 것을 알 수 있습니다. 여기에서 Props Drilling을 감수하는 대신 테스트의 용이성을 가져가고 싶다. 라는 생각이 드신다면 Link 컴포넌트 자체를 주입하여 사용하는 패턴을 고려할 수도 있습니다.
+
+```tsx
+import { Link, type LinkType } from '~/src/shared/adapters/link';
+
+export default function Home() {
+  return <HomePage Link={Link} />;
+}
+
+const HomePage = ({ Link }: { Link: LinkType }) => {
+  return (
+    <div>
+      <Link href={'/gonext'}>go next</Link>
+    </div>
+  );
+};
+```
+
+그러나 이렇게 DI 하는 형태로 코드를 작성할 시 Props Drilling이 심해질 수 있으며 코드의 상용구가 많아진다는 문제가 발생할 수 있습니다. 따라서 자신의 프로젝트 상황을 적절히 고려하여 어디까지 DI할지를 적절하게 고려하면서 코드를 작성하는것이 중요하다고 할 수 있습니다.
+ 
+사실 저는 이렇게 외부의존성을 내부의존성으로 한번 래핑하여 내부의존성에 의존하는것만으로도 어느정도 구조적으로 좋은 효과를 볼 수 있다고 생각해요 실제 next/link 구현체를 사용함으로인해 테스트에 모킹이 필요해진다면 그부분을 모킹하는 편이 매번 Link를 사용하기 위해 최상단 부분부터 Props Drilling을 하는것보다는 더 장점이 크다. 라고 생각하거든요
+ 
+이제 또 다른 예시를 한번 만들어볼까요? 저는 ISO포맷의 string을 Date 객체로 변환하기 위하여 date-fns라는 라이브러리의 parseISO 함수에 의존하기로 했습니다. 이렇게 코드를 작성할 수 있겠죠?
+
+```tsx
+import { parseISO } from 'date-fns';
+
+const hi = parseISO('2024-05-24')
+```
+
+이렇게 직접 date-fns에 의존할 수 있을 거에요 하지만 이렇게 코드를 작성해나갔던 파일들이 시간이 지남에 따라 늘어나게된다면 나중엔 우리의 코드베이스는 date-fns와 강결합되어 다른 날짜 라이브러리로 옮겨가는것이 어려워집니다. 이럴 때에는 마찬가지로 내부의존성으로 외부의존성을 래핑해주는 행위를 통해 변경에 유연한 형태로 바꿔줄 수 있습니다.
+
+
+```tsx
+import { parseISO } from 'date-fns';
+
+export const toDate = (date: string | Date) => {
+  if (typeof date === 'string') return parseISO(date);
+  return date;
+};
+```
+
+이렇게 date-fns에서 온 parseISO를 사용하여 string을 Date로 변환한다는 세부사항을 toDate라는 함수의 세부구현으로 감추었습니다.
+이제 string을 Date로 바꿀때에는 date-fns에 직접 의존하는게 아니라 지금은 date-fns에 의존하는 toDate함수에 의존하는 것으로 해결할 수 있습니다.
+
+---
+
+## 내부 의존성(Internal Dependency)로 코드 감싸기
+
+외부의 변경에 유연한 코드를 작성하기 위해서 내부의존성 (Internal Dependency)를 두는 방법을 고려할 수 있습니다. 해당 방법의 장점은 도입에 어려움이 크지 않으며 구조를 많이 변경할 필요가 없고 동작에 변경이 생기지 않는다는 것입니다. 또한 그럼에도 불구하고 향후 외부 라이브러리와 같은 의존성들을 교체하는 과정에서 매우 큰 편의성을 선사하는 방법이라는 점이 매력적입니다.
+
+DI를 위해 인터페이스를 설계하고 인터페이스에 맞는 구현체를 인터페이스에 맞는 형태로 고치는 과정에서 생기는 상용구와 복잡도는 커다란 비용으로 다가오기 쉽지만 해당 방법론을 적용하는 것은 매우 쉽습니다.
+
+이 방법론을 리액트를 기반으로한 대부분의 현대 프론트엔드 개발에서 적용하는 대표적인 방법은 Context API, Custom Hook, Component가 있으며 리액트에 구애받지 않는 순수한 자바스크립트 형태로 작성하고자한다면 그저 함수를 정의하기만 하면 되는 간단한 작업입니다.
+
+---
+
+## 마치며
+
+이번에는 내부 의존성을 감싸는 작업을 통해 내 프로젝트의 의존 관계를 조금 더 유연하게 변경하는 작업을 수행했습니다. 다만 이러한 작업 역시 피로도가 생기는 작업이기 때문에 자주 바뀔 것으로 예상되는 지점에만 사용하는 것이 효과적이라는 점은 유의할만 합니다. 읽어주셔서 감사합니다. 

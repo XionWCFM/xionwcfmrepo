@@ -6,8 +6,10 @@ export const BASE_SITE_DESCRIPTION =
 
 export const BASE_SITE_NAME = "XionWCFM Frontend Tech Blog";
 
-export const BASE_SITE_TITLE = "XionWCFM의 프론트엔드 기술 블로그";
+export const BASE_SITE_TITLE = "XionWCFM | 유길종 - 프론트엔드 개발자 기술 블로그";
 
+export const BASE_TEMPLETE_TITLE = "XionWCFM | 유길종";
+export const AUTHOR_NICKNAME = "XionWCFM";
 // author에 대한 상수값입니다.
 export const AUTHOR_NAME = "유길종(XionWCFM)";
 
@@ -26,10 +28,12 @@ export const EXTERNAL_LINKED_IN = "https://www.linkedin.com/in/giljong-yu-289195
 export const EXTERNAL_GITHUB = "https://github.com/XionWCFM";
 
 export const CONSTANTS = {
+  BASE_TEMPLETE_TITLE,
   BASE_SITE_URL,
   BASE_SITE_DESCRIPTION,
   BASE_SITE_NAME,
   BASE_SITE_TITLE,
+  AUTHOR_NICKNAME,
   AUTHOR_NAME,
   AUTHOR_DESCRIPTION,
   AUTHOR_EMAIL,

@@ -1,8 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
+import { safeGetIso } from "@xionwcfm/date/safe-get-iso";
+import { toDate } from "@xionwcfm/date/to-date";
+import { toZonedTime } from "date-fns-tz";
 import { compileMDX } from "next-mdx-remote/rsc";
+import { getKoreanToday } from "~/shared/utils/date/get-korean-today";
 import type { FrontmatterType, PostType, PostWithFrontmatterType } from "./post.model";
-
 const POST_REPOSITORY_FOLDER_NAME = "posts";
 
 const getPostsDirectory = () => {
@@ -41,6 +44,18 @@ const findPostFile = (directory: string, filePath: string[]): PostType | null =>
   return null;
 };
 
+export const canViewPost = (frontmatter: Pick<PostWithFrontmatterType, "canView" | "releaseDate">, today: Date) => {
+  if (!frontmatter.canView) {
+    return false;
+  }
+  const date = safeGetIso(frontmatter.releaseDate);
+  if (!date) throw new Error("invalid Post Release Date by canViewPost");
+  const todayTime = getKoreanToday(today).getTime();
+  const dateTime = toDate(date).getTime();
+  const isOverReleaseDate = todayTime > dateTime;
+  return isOverReleaseDate;
+};
+
 export const getFrontmatter = async (source: string): Promise<FrontmatterType> => {
   const { frontmatter } = await compileMDX<FrontmatterType>({
     source,
@@ -54,6 +69,7 @@ export const getPost = async (filePath: string[]): Promise<PostWithFrontmatterTy
   const post = findPostFile(postsDirectory, filePath);
   if (!post) return null;
   const frontmatter = await getFrontmatter(post.content);
+  if (!canViewPost(frontmatter, new Date())) return null;
   return Object.assign(post, frontmatter);
 };
 
@@ -61,5 +77,16 @@ export const getAllPosts = async () => {
   const postsDirectory = getPostsDirectory();
   const posts = await Promise.all(readDirectory(postsDirectory).map((path) => getPost(path.filePath)));
   const validPosts = posts.filter((post) => post !== null) as Array<PostWithFrontmatterType>;
-  return validPosts;
+  const canViewPosts = validPosts.filter((post) => canViewPost(post, new Date()));
+  return canViewPosts;
+};
+
+export const getAllPostsSortedByReleaseDate = async () => {
+  const posts = await getAllPosts();
+  posts.sort((a, b) => {
+    const dateA = toDate(a.releaseDate).getTime();
+    const dateB = toDate(b.releaseDate).getTime();
+    return dateB - dateA;
+  });
+  return posts;
 };

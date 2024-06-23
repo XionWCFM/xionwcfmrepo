@@ -8,6 +8,10 @@ import type { SemanticHTMLTextContentType } from "../types";
 
 const paragraphVariants = cva(" whitespace-pre-wrap", {
   variants: {
+    overflow: {
+      default: "",
+      ellipsis: "whitespace-nowrap overflow-hidden max-w-[336px] text-ellipsis",
+    },
     size: {
       default: "",
       "12": "text-size-12",
@@ -127,6 +131,7 @@ const paragraphVariants = cva(" whitespace-pre-wrap", {
     },
   },
   defaultVariants: {
+    overflow: "default",
     size: "default",
     color: "default",
     responsive: "default",
@@ -145,20 +150,20 @@ type ParagraphType = <C extends ElementType = SemanticHTMLTextContentType>(
 ) => ReactNode | null;
 
 export const Paragraph: ParagraphType = forwardRef(function Paragraph<C extends ElementType = "p">(
-  { children, as, className, size, color, responsive, leading, weight, ...rest }: Props<C>,
+  { children, as, className, overflow, size, color, responsive, leading, weight, ...rest }: Props<C>,
   ref?: PolymorphicRef<C>,
 ) {
   const Component = as || "p";
   const { m, my, mx, mr, ml, mt, mb, p, py, px, pr, pl, pt, pb, ...omitSpacingRest } = rest;
-  const defaultCss = ` ${getS("my", my)} ${getS("mx", mx)}  
-  ${getS("py", py)} ${getS("px", px)} `;
+  const defaultCss = `${getS("m", m)} ${getS("mr", mr)} ${getS("ml", ml)} ${getS("mb", mb)} ${getS("mt", mt)}  ${getS("my", my)} ${getS("mx", mx)}  
+   ${getS("py", py)} ${getS("px", px)} ${getS("pt", pt)}  ${getS("pb", pb)}  ${getS("pl", pl)}  ${getS("pr", pr)}  ${getS("p", p)}`;
 
   return (
     <Component
       ref={ref}
       className={cn(
         defaultCss,
-        paragraphVariants({ size, color, leading, weight, responsive: responsive ? size : "default" }),
+        paragraphVariants({ overflow, size, color, leading, weight, responsive: responsive ? size : "default" }),
         className,
       )}
       {...omitSpacingRest}

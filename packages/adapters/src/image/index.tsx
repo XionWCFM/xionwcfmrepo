@@ -35,6 +35,7 @@ export const Image = forwardRef(function Image(props: ImageProps, ref: Ref<HTMLI
   return (
     <NextImage
       src={src}
+      title={alt ?? ""}
       alt={alt ?? ""}
       width={width ?? 10}
       height={height ?? 10}

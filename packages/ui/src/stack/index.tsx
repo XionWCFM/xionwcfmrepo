@@ -19,8 +19,8 @@ export const Stack: StackType = forwardRef(function Stack<C extends ElementType 
 ) {
   const Component = as || "div";
   const { m, my, mx, mr, ml, mt, mb, p, py, px, pr, pl, pt, pb, ...omitSpacingRest } = rest;
-  const defaultCss = ` ${getS("my", my)} ${getS("mx", mx)}  
-  ${getS("py", py)} ${getS("px", px)} `;
+  const defaultCss = `${getS("m", m)} ${getS("mr", mr)} ${getS("ml", ml)} ${getS("mb", mb)} ${getS("mt", mt)}  ${getS("my", my)} ${getS("mx", mx)}  
+   ${getS("py", py)} ${getS("px", px)} ${getS("pt", pt)}  ${getS("pb", pb)}  ${getS("pl", pl)}  ${getS("pr", pr)}  ${getS("p", p)}`;
 
   return (
     <Component

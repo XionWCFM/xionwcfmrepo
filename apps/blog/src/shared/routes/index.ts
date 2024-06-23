@@ -1,4 +1,4 @@
 export const ROUTES = {
   root: () => "/",
-  postDetail: (postsPath: string) => `/${postsPath}`,
+  postDetail: (postsPath: string[]) => `/posts/${postsPath.join("/")}`,
 };

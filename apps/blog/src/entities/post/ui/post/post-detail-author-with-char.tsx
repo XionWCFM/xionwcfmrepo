@@ -1,12 +1,12 @@
-import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Image } from "@xionwcfm/adapters/image";
-import { Link } from "@xionwcfm/adapters/link";
-import { EmailIcon } from "@xionwcfm/icon/email-icon";
 import { Paragraph } from "@xionwcfm/ui/paragraph";
 import { Stack } from "@xionwcfm/ui/stack";
 import { ASSET_XION_CHAR_GRAY } from "~/shared/assets";
 import { AUTHOR_DESCRIPTION, AUTHOR_NAME } from "~/shared/constants";
 import { isEnabled } from "~/shared/feature-flag";
+import { XionEmailIcon } from "~/shared/ui/icon/xion-email-icon";
+import { XionGithubLogoIcon } from "~/shared/ui/icon/xion-github-icon";
+import { XionLinkedinIcon } from "~/shared/ui/icon/xion-linkedin-icon";
 export const PostDetailAuthorWithChar = () => {
   return (
     <Stack direction={"row"} gap={"16"}>
@@ -22,14 +22,10 @@ export const PostDetailAuthorWithChar = () => {
         </Stack>
 
         <Stack direction={"row"} gap={"20"}>
-          <Link href="" aria-label={"go to XionWCFM github"}>
-            <GitHubLogoIcon className=" w-24 h-24 text-neutral-500" />
-          </Link>
+          <XionGithubLogoIcon />
 
-          <Link href="" aria-label={"go to XionWCFM LinkedIn"}>
-            <LinkedInLogoIcon className=" w-24 h-24 text-neutral-500" />
-          </Link>
-          {isEnabled("author-email") ? <EmailIcon className=" w-24 h-24 text-neutral-500" /> : null}
+          <XionLinkedinIcon />
+          {isEnabled("author-email") ? <XionEmailIcon /> : null}
         </Stack>
       </Stack>
     </Stack>

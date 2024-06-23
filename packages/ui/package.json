@@ -11,7 +11,8 @@
     "./paragraph": "./src/paragraph/index.tsx",
     "./separate": "./src/separate/index.tsx",
     "./skeleton": "./src/skeleton/index.tsx",
-    "./chip": "./src/chip/index.tsx"
+    "./chip": "./src/chip/index.tsx",
+    "./cn": "./src/cn/index.ts"
   },
   "scripts": {
     "generate:component": "turbo gen react-component",

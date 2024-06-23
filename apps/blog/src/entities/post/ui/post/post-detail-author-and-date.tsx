@@ -10,7 +10,7 @@ type PostDetailAuthorAndDateProps = {
 };
 
 export const PostDetailAuthorAndDate = (props: PostDetailAuthorAndDateProps) => {
-  const date = formatDate(props.date, "yyyy.MM.dd - hh:mm");
+  const date = formatDate(props.date, "yyyy.MM.dd. HH:mm");
   return (
     <Stack className="gap-x-16 gap-y-8 items-end">
       <Stack direction={"row"} gap={"4"} align={"center"}>
