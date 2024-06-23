@@ -17,7 +17,7 @@ authority: public
 그러던 중 터보레포가 메이저버전 2를 출시하면서 Docs도 새롭게 개편한 것을 알게되었는데 이 터보레포의 Docs에서 평소 고민하던 부분들에 대한 답을 시원하게 얻어가는 경험을 하게되어서 소개드립니다. 
 
 
-### 일반적인 형태의 모노레포 프로젝트 구성
+## 일반적인 형태의 모노레포 프로젝트 구성
 
 
 ```
@@ -33,16 +33,16 @@ authority: public
 
 이제 모노레포 프로젝트에서 인터널패키지를 관리하는 3가지 방법을 알아봅시다.
 
-### Just-In Time Packages
+## Just-In Time Packages
 
 Just-In Time 이란 용어는 꽤 친숙합니다. Just In Time 패키지는 패키지에서 빌드를 수행하는게 아니라 이 패키지를 사용하는 쪽에 빌드의 책임이 있습니다. 즉 제가 예전에 했던 방식과 같이 각 패키지를 빌드해서 결과물을 내보내는게 아니라 빌드되지 않은 파일을 그대로 내보낸다는 뜻입니다. 이렇게 JIT 방식으로 패키지를 구성하면 어떤 장점이 있을까요?
 
 
-#### JIT 패키지의 장점
+### JIT 패키지의 장점
 
 1. 최소한의 Configuration으로 패키지 분할이 가능하다 
 
-#### JIT 패키지의 단점
+### JIT 패키지의 단점
 
 1. 해당 패키지를 사용하는 측이 트랜스파일링, 빌드를 수행해줘야한다.
 
@@ -113,7 +113,7 @@ export default function Home() {
 
 따라서 이런 .tsx 파일들을 적절하게 사용하기 위해서는 사용하는 측에게 가져다 쓴 코드를 트랜스파일링하고, 번들링할 책임이 주어지게됩니다.
 
-### Compiled Packages
+## Compiled Packages
 
 위에서 JIT Pacakges는 빌드를 하지 않고 바로 .tsx 파일들을 내보내는것을 확인했습니다. 반대로 Compiled Packages 는 일반적으로 떠올리는 빌드과정을 거친 결과물들을 내보내는 방식입니다. 제가 위에서 이야기했듯 맨 처음 모노레포를 알게된 뒤 사용한 방법이기도하고요!
 
@@ -147,11 +147,11 @@ export default function Home() {
 즉 Compiled Packages를 이루는 가장 큰 핵심은 패키지에서 빌드를 수행하고 외부에는 빌드결과물을 공개한다는 점입니다. 이제 이런 방식의 장점과 단점을 정리해봅시다.
 
 
-#### Compiled Packages의 장점
+### Compiled Packages의 장점
 
 1. 빌드 캐싱이 가능합니다.
 
-#### Compiled Packages의 단점
+### Compiled Packages의 단점
 
 1. 더 많은 추가 Configuration이 필요합니다.
 
@@ -172,17 +172,17 @@ Compiled Packages의 가장 큰 장점은 캐싱이 가능해진다는 점입니
 
 라이브러리를 통해 번들링을 하게되면 코드가 애플리케이션의 번들러에 포함되기 이전에 이미 minify, uglify 되어 디버깅이 어려워질 수 있고 해당 도구들을 학습해야하는 비용이 생긴다는 점을 문제로 드는 것 같아요 이런 측면에서 보면 vercel팀의 경우에는 간단한 구성과 설정이라는 가치를 굉장히 높이 평가하고 있다라는 생각도 듭니다.
 
-### Publishable Packages
+## Publishable Packages
 
 일반적으로 npm , yarn과 같은 패키지매니저를 통해 다운로드받을 수 있게 publish된 패키지들을 의미합니다. Internal Packages라고해서 외부에 배포하면 안된다는 법도 없으니까요 다만 이러한 경우 외부에서 패키지를 다운로드하는 사용자들의 다양한 케이스를 고려하여 많은 구성설정을 해줘야할 수 있습니다.
 
 또 패키지의 버저닝, 변경로그 등을 관리하기 위해 changesets과 같은 도구들의 사용법도 익히는게 좋죠 ( 여담으로 저는 처음 changesets을 접했을때 꽤나 헤맸던 기억이 있습니다.)
 
-#### Publishable Packages의 장점
+### Publishable Packages의 장점
 
 1. 버저닝이 용이하다.
 
-#### Publishable Packages의 단점
+### Publishable Packages의 단점
 
 1. 수많은 구성과 도구가 필요할 가능성이 높다.
 
@@ -214,7 +214,7 @@ Publishable Packages의 경우에는 조금 특수한 상황이 아니라면 추
 [https://turbo.build/repo/docs/core-concepts/internal-packages#limitations-and-tradeoffs-1](https://turbo.build/repo/docs/core-concepts/internal-packages#limitations-and-tradeoffs-1)
 
 
-### 마치며
+## 마치며
 
 이번에는 Turbo Repo의 Docs를 참고하며 모노레포에서 Internal Packages들을 다루는 3가지 방법을 알아보았습니다. 처음 모노레포를 접했을 때엔 이렇게 깔끔하게 정리된 개념과 문서를 찾아보기 힘들어 머릿속으로 열심히 분류하며 장단점을 고려했던 기억이 나는데요 세상 참 좋아진 것 같습니다(?)  
   

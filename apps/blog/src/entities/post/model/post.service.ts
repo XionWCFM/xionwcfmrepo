@@ -4,6 +4,7 @@ import { safeGetIso } from "@xionwcfm/date/safe-get-iso";
 import { toDate } from "@xionwcfm/date/to-date";
 import { toZonedTime } from "date-fns-tz";
 import { compileMDX } from "next-mdx-remote/rsc";
+import { ENVIRONMENT } from "~/shared/environment";
 import { getKoreanToday } from "~/shared/utils/date/get-korean-today";
 import type { FrontmatterType, PostType, PostWithFrontmatterType } from "./post.model";
 const POST_REPOSITORY_FOLDER_NAME = "posts";
@@ -45,9 +46,11 @@ const findPostFile = (directory: string, filePath: string[]): PostType | null =>
 };
 
 export const canViewPost = (frontmatter: Pick<PostWithFrontmatterType, "canView" | "releaseDate">, today: Date) => {
+  if (ENVIRONMENT.NODE_ENV === "development") return true;
   if (!frontmatter.canView) {
     return false;
   }
+
   const date = safeGetIso(frontmatter.releaseDate);
   if (!date) throw new Error("invalid Post Release Date by canViewPost");
   const todayTime = getKoreanToday(today).getTime();

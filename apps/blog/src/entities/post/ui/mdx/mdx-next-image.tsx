@@ -9,7 +9,9 @@ export function MdxNextImage(props: HTMLProps<HTMLImageElement>) {
   if (src) {
     if (src.startsWith("http")) {
       // eslint-disable-next-line @next/next/no-img-element
-      return <img src={src} alt={src} width={width} height={height} />;
+      return (
+        <img src={src} alt={src} width={width} height={height} title={props.alt || ""} aria-label={props.alt || ""} />
+      );
     }
     return (
       <Image
@@ -17,9 +19,11 @@ export function MdxNextImage(props: HTMLProps<HTMLImageElement>) {
         height={height}
         alt={props.alt || ""}
         title={props.alt || ""}
+        aria-label={props.alt || ""}
         crossOrigin="anonymous"
         src={src}
         placeholder="empty"
+        className={` object-cover ${props.className}`}
       />
     );
   }

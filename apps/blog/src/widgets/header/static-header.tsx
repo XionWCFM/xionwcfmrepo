@@ -9,7 +9,7 @@ import { ROUTES } from "~/shared/routes";
 
 export const StaticHeader = () => {
   return (
-    <Stack className={" w-screen bg-neutral-50  "} as={"header"} align={"center"}>
+    <Stack className={" z-20 w-screen bg-neutral-50  "} as={"header"} align={"center"}>
       <Stack
         className=" px-16 md:px-0 md:max-w-768 xl:max-w-1024 "
         w={"screen"}

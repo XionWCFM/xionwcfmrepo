@@ -1,0 +1,228 @@
+---
+title: Tistory에서 nextjs 기반의 개인 블로그로 이주한 후기
+description: 약 2년의 시간 동안 관리해왔던 티스토리 블로그에서 자체 구축한 개인 블로그로 옮기고 난 후기입니다.
+thumbnail: fallback
+categories: retrospect
+writeDate: 2024-06-23T00:29:07.053Z
+releaseDate: 2024-06-23T13:00:00.053Z
+canView: true
+authority: public
+---
+
+
+사실 티스토리에서 벗어나 개인 기술블로그를 관리하려는 생각은 꽤 오래전부터 가지고 있었던 생각인데요. 지금까지 약 3번 가량의 시행착오가 있었습니다. 처음에는 공식 문서를 충실히 따라 `@next/mdx`를 이용한 블로그를 두번째에는 `contentlayer`를 세번째에는 `next-remote-mdx`를 이용해보고 결국 4번째만에 지금의 형태가 되었습니다.
+
+그동안 수많은 시간과 블로그를 도자기 장인처럼 깨부쉈던 시간을 돌이켜보면 무작정 개발부터 했던 것이 큰 문제였던 것 같다는 생각이 들어 지금의 블로그를 이틀의 주말동안 구성한 과정을 소개드리려고 합니다. 제가 블로그를 구축해나간 과정은 크게 정리하면 다음과 같아요
+
+1. **피그마를 통해 브랜드 컬러 선정 및 디자인 토큰 정의**
+
+2. **디자인 토큰을 기반으로한 디자인 시스템 설계**
+
+3. **로고, 시그니처 캐릭터, 아이콘, 파비콘, OG Image 등의 Asset 제작**
+
+4. **제작한 Asset과 토큰을 기반으로 피그마에 Mobile, DeskTop 시안 목업 제작**
+
+5. **디자인 시스템의 구현체가 될 코드 작성**
+
+6. **시안 구현**
+
+코드 이야기는 없고 사실상 기획과 디자인을 하는 시간이 더 크다고 생각할수도 있을 것 같아요 왜 이렇게 했냐면 지난 실패했던 시간을 돌이켜보았을 때 충분한 디자인 구상이 끝나지 않고 구현을 먼저하면 오히려 퍼블리싱에 시간을 많이 빼앗기게 된다는 실패 경험이 있었기 때문이랍니다.
+
+---
+
+## 티스토리
+
+
+![꾸준히 관리한 티스토리 블로그](/posts/blog-migration/1.webp)
+
+티스토리의 경우 제가 개발을 처음 시작했을 때 부터 꾸준히 관리해오던 블로그입니다. 사실 간단한 작은 글들을 쓸 때는 정말 편한점이 있어서 개인 블로그가 있어도 종종 쓸 것 같아요 누적 방문자 10만명을 돌파했을 때 기분이 좋았던 기억이 있는데 개인 블로그에서는 저런 방문자 카운팅 기능까지 한땀한땀 붙여주어야한다는 사실이 아찔하기도 합니다.
+
+
+## 피그마를 통해 브랜드 컬러와 디자인 토큰 정의하기
+
+
+![피그마 설정](/posts/blog-migration/2.webp)
+
+피그마를 정리하면서 가벼운 디자인 시스템을 만들었습니다. 필요한 내용들을 전부 정의하고 시작하기에는 시간이 너무 많이 들거라고 생각했고 결론적으로 정말 최소한으로 필요한 내용들만 추려서 먼저 제작하기로 생각을 했어요 이중 컬러와 컬러를 기반으로 타이포그래피를 정의하는 것은 매우 중요한 작업인데요 접근성 점수 중 **Contrast 에 대한 부분은 전적으로 색상**과 관련이 있기 때문이에요
+
+충분한 대비가 존재하지 않으면 화면의 글씨를 체크하는 것이 어려운 사용자가 있을 수 있기 때문에 누구나 쉽게 읽을 수 있는 정도의 대비로 타이포그래피를 정해주어야합니다. 전 디자인적으로는 대비가 좀 흐릿한게 예쁘다고 생각하긴 하지만 접근성을 준수하기 위해 "예쁘다"라고 생각하는 값 대신 접근성이 보장되는 색상을 선택했어요
+
+
+
+## 로고, 캐릭터 등 Asset 만들기 
+
+
+![ogImage](/xion-og-image-1200-630.webp)
+
+사실 처음에는 Lottie 파일과 무료로 제공되는 어셋을 사용해서 캐릭터를 만들려고 했는데 라이센스 정책을 고려하는 게 더 귀찮겠다는 생각이 들어서 직접 만드는 것으로 방향을 선회했습니다. 그런데 피그마를 다루는게 어려워서 시간을 꽤 많이 소모했던 것 같네요. 손재주가 좋은 분들은 더 빠르게 끝날 수 있겠지만 저는 그게 그거였던 것 같기도 합니다
+
+
+## Google Analytics , Google Search Console , Clarity 연동하기
+
+사용자를 분석하고, 구글 검색에 노출시키기 위해선 꼭 해야하는 작업이기도 합니다. 처음 할 땐 많이 헤맸던 기억이 나는데 최근에는 next.js에서 제공하는 @next/thirdparties 라이브러리가 있어 GA, GTM을 연동하는게 크게 쉬워진 점이 좋은 것 같아요 
+
+Clarity는 히트맵을 통해 사용자 행동을 분석 해주는 서드파티 서비스라고 할 수 있는데 A, B 테스트나 사용자 행동 분석에 이점이 있음에도 불구하고 무료라는 점이 참 좋은 것 같습니다. 연동도 크게 어렵지 않으니 한번 시도해보시면 좋을 것 같아요 next.js에서 clarity를 연동하는 것은 여러 방법이 있겠지만 저는 이런식으로 간단하게 수행합니다.
+
+```tsx
+"use client";
+import Script from "next/script";
+
+export const ClarityScript = () => {
+  return (
+    <>
+      <Script id="clarityScript" type="text/javascript" defer strategy={"afterInteractive"}>{`(function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "mvz3tc93tn")`}</Script>
+    </>
+  );
+};
+
+```
+
+## 디자인 시스템 구현체 작성하기
+
+블로그를 만들 때 일부러 turbo repo를 이용하여 모노레포 형태로 프로젝트를 구축했습니다. 사이드 프로젝트를 수행할 때에도 이 레포지토리에서 미리 만들어둔 코드조각들을 재활용하기 위함인데요 개인적으로 프로젝트를 진행할 때에도 파편화되기 쉬운 코드들이 한곳으로 모아지고 바로 다양한 코드베이스들을 활용할 수 있다는 점에서 모노레포로 프로젝트를 관리하면 이점이 있는 것 같습니다. 저는 특히 모든 프로젝트에서 거의 동일하게 사용되는 github actions이나 패키지 설치, 로컬 편의 기능들 설정이 매우 귀찮게 느껴지곤 했는데 모노레포로 관리하면 이부분이 확실히 괜찮은 것 같아요
+
+아무튼 디자인 시스템을 만들때에 중요하게 생각한 점은 Polimorphic 하게 컴포넌트를 구현하는 것과 디자인 시스템 컴포넌트들을 선언적으로 관리할 수 있게 하는 것이었어요 [f-lab의 Type-Safe하게 다형성 지원하기](https://f-lab.kr/blog/polymorphism-with-type-safe)라는 글에서 크게 도움을 받아 타입세이프하면서 다형성을 지원하는 구조를 짤 수 있었습니다. 저는 위 글을 많이 참고하여 다음과 같은 형태의 타입 패키지를 만들어두고 돌려 쓰고 있습니다.
+
+```ts
+import type { ComponentPropsWithRef, ComponentPropsWithoutRef, ElementType } from "react";
+
+export type AsProp<C extends ElementType> = {
+  as?: C;
+};
+
+export type KeyWithAs<C extends ElementType, Props> = keyof (AsProp<C> & Props);
+
+export type PolymorphicRef<C extends ElementType> = ComponentPropsWithRef<C>["ref"];
+
+export type PolymorphicComponentProps<C extends ElementType, Props = object> = (Props & AsProp<C>) &
+  Omit<ComponentPropsWithoutRef<C>, KeyWithAs<C, Props>>;
+
+export type PolymorphicComponentPropsWithRef<C extends ElementType, Props = object> = Props & {
+  ref?: PolymorphicRef<C>;
+};
+
+```
+
+이렇게 들어오는 as의 타입에 따라 다른 props를 지원할 수 있도록 타입을 구성해주면 다형성을 타입세이프하게 지원하게해줄 수 있습니다.
+
+
+```tsx
+import type {
+  PolymorphicComponentProps,
+  PolymorphicComponentPropsWithRef,
+  PolymorphicRef,
+} from "@xionwcfm/types/polymorphic";
+import { type ElementType, type ReactNode, forwardRef } from "react";
+import { cn } from "../cn";
+import { getS } from "../internal-utils/get-s";
+import type { SpacingSystemProps } from "../types";
+
+export type PolimophicWithSpacingSystemProps<C extends ElementType> = PolymorphicComponentProps<
+  C,
+  {
+    className?: string;
+  } & SpacingSystemProps
+>;
+
+type BoxType = <C extends ElementType = ElementType>(
+  props: PolymorphicComponentPropsWithRef<C, PolimophicWithSpacingSystemProps<C>>,
+) => ReactNode | null;
+
+export const Box: BoxType = forwardRef(function Box<C extends ElementType = "div">(
+  { children, as, className, ...rest }: PolimophicWithSpacingSystemProps<C>,
+  ref?: PolymorphicRef<C>,
+) {
+  const Component = as || "div";
+  const { m, my, mx, mr, ml, mt, mb, p, py, px, pr, pl, pt, pb, style, ...omitSpacingRest } = rest;
+  const defaultCss = `${getS("m", m)} ${getS("mr", mr)} ${getS("ml", ml)} ${getS("mb", mb)} ${getS("mt", mt)}  ${getS("my", my)} ${getS("mx", mx)}  
+   ${getS("py", py)} ${getS("px", px)} ${getS("pt", pt)}  ${getS("pb", pb)}  ${getS("pl", pl)}  ${getS("pr", pr)}  ${getS("p", p)}`;
+
+  return (
+    <Component ref={ref} className={cn(defaultCss, className)} {...omitSpacingRest}>
+      {children}
+    </Component>
+  );
+});
+
+```
+
+그리고 난 뒤 모든 디자인 시스템 컴포넌트의 베이스가 되어줄 Box 컴포넌트를 정의해주었어요 기본적으로 아무런 스타일링도 들어가지 않는 Box를 기본으로 시스템을 구축해나가는거죠! 이 아이디어는 [Development & Investing](https://itchallenger.tistory.com/887)님의 번역문서를 참고하며 얻었습니다. 또 이 과정에서 마진, 패딩 값들은 클래스이름이 아니라 선언적인 프랍 형태로 관리할 수 있도록 내부 구현을 추가해주었습니다. 이제 이렇게 구성한 Box 컴포넌트는 다음과 같은 형태로 사용할 수 있어요
+
+```tsx
+     <Box my="16" px="24" mx="4" pb="2" pt="4">
+     hello
+      </Box>
+```
+
+다만 tailwindcss로 이렇게 **선언적인 스페이싱 시스템을 구성할 때의 트레이드오프**가 존재하는데요 사용하지 않는 스페이싱에 대한 CSS도 생성될 가능성이 존재한다는 것입니다. 그러나 자체적으로 확인해보았을 때에 해당 스페이싱 시스템을 사용할 때와 사용하지 않을 때의 **CSS 크기 차이가 1KiB 미만**으로 발생하는 것을 확인하고 저는 DX 측면에서 위 형태로 사용하는 것을 선택했습니다.
+
+
+
+## 시안 구현
+
+글에서는 모두 작성하지는 않았지만 이렇게 많이 사용되는 시스템에 대한 코드들을 선언적이게 활용할 수 있도록 작성한 뒤 시안을 구현하기 시작했습니다. 활용가능한 옵션이 많다보니 구현에 걸리는 시간도 덩달아 줄어들었는데요 이런 측면에서 DX가 충분히 고려된 시스템은 개발자 개개인의 생산성을 정말 크게 높여줄 수 있겠다. 라는 생각도 들었습니다.
+
+## SEO 측면에서의 최적화
+
+LightHouse로 측정할 수 있는 성능, 접근성, SEO 점수는 물론 챙겨가야하는 점수이지만 그 이외에 콘텐츠적으로 챙길 수 있는 SEO 점수들도 존재합니다. 기본적인 내용이 아닌가 싶을 수도 있지만 예를 들어 H1 태그는 한 페이지에 단 한번만 사용하기, heading 태그는 구조화된 순서를 따라서 사용하기 (ex: h2는 한번도 안쓰고 h3를 쓰는것은 X) 이런 부분들은 항상 주의하면서 글을 작성하는 게 좋은 것 같습니다.
+
+또 LightHouse에서는 잘 집계되지 않는 캐노니컬 태그에 대한 설정여부나 긴 기다림 없이도 Image, Link에 대해 누락해버린 접근성 설명 등과 같은 부분들을 빠르게 잘 채울수 있도록 도와주는 구글 확장 프로그램이 있는데요 [SEO META in 1 CLICK](https://chromewebstore.google.com/detail/seo-meta-in-1-click/bjogjfinolnhfhkbipphpdlldadpnmhc)이라는 확장 프로그램입니다. 이런 확장프로그램들은 한번 사용해보시면 괜찮은 점들이 있는 것 같아요
+
+
+## Og Image 관련 이슈 핸들링
+
+```tsx
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+      siteName: BASE_SITE_NAME,
+      images: [{ url: `/opengraph-image.png`, alt: "About XionWCFM OG IMAGE" }],
+    },
+    twitter: {
+      creator: authors,
+      card: "summary",
+      site: url,
+      title,
+      description,
+      images: [{ url: `/twitter-image.png`, alt: "About XionWCFM OG IMAGE" }],
+    },
+```
+
+nextjs의 App router는 이렇게 Metadata 객체의 openGraph, twitter부분에 넘기는 images 키에 url과 alt에 대한 정보가 담긴 이미지 배열들을 넘기는 것으로 OG Image와 Twitter 이미지를 붙여줄 수 있습니다. 그런데 이게 로컬에서는 잘 동작하지만 배포하고 난 뒤엔 OG Image가 적용되지 않는 이슈가 있었어요
+
+뭐가 문제일까 고민하며 이것저것 경우의수를 떠올려보던 중 배포되어 있는 OG Image의 링크를 따라가보니 제 도메인인 xionwcfm.com/opengraph-image.png로 ogimage를 가져오는게 아니라 vercel에서 제공하는 임시도메인으로 ogimage를 요청하고있던 것을 발견했습니다. 문제가 되는 지점이 여기일 가능성이 높다고 생각하고 이미지 경로를 상대경로에서 절대 경로로 고쳐주는 작업을 수행했어요
+
+```tsx
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+      siteName: BASE_SITE_NAME,
+      images: [{ url: `${BASE_SITE_URL}/opengraph-image.png`, alt: "About XionWCFM OG IMAGE" }],
+    },
+    twitter: {
+      creator: authors,
+      card: "summary",
+      site: url,
+      title,
+      description,
+      images: [{ url: `${BASE_SITE_URL}/twitter-image.png`, alt: "About XionWCFM OG IMAGE" }],
+    },
+```
+
+이렇게 절대 경로 형태로 고쳐주니 거짓말같이 동작하기 시작했습니다.
+
+
+
+## 마치며
+
+사실 개인 블로그라는게 티스토리, 벨로그와 같이 상용화된 서비스에 비하면 불편한점이 많아서 꾸준히 유지보수하는 것이 더 어려운 것 같습니다. 저도 지금은 최소 기능만 구현하다보니 앞으로 계속 이 블로그를 써나가려고 한다면 여러가지 추가 개발이 필요한 상황인데요. 그래도 이번에는 끝까지 잘 이주할 수 있으면 좋겠다는 마음으로 글 마치겠습니다. 읽어주셔서 감사합니다.
+
+

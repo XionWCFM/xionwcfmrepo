@@ -1,7 +1,8 @@
 import { Paragraph } from "@xionwcfm/ui/paragraph";
+import { Stack } from "@xionwcfm/ui/stack";
 import type { MDXComponents as TMDXComponents } from "mdx/types";
+import Image from "next/image";
 import type { AnchorHTMLAttributes, HTMLAttributes } from "react";
-import { MdxNextImage } from "./mdx-next-image";
 import { MdxNextLink } from "./mdx-next-link";
 
 type AProps = AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -11,7 +12,6 @@ type CProps = HTMLAttributes<HTMLElement>;
 type PreProps = HTMLAttributes<HTMLPreElement>;
 
 export const MDXComponents: TMDXComponents = {
-  img: MdxNextImage,
   a: ({ className, href, ...props }: AProps) => (
     <MdxNextLink
       className={
@@ -22,6 +22,21 @@ export const MDXComponents: TMDXComponents = {
       {...props}
     />
   ),
+  img: (props) => {
+    return (
+      <Stack my="16" as={"span"} align={"center"} className=" relative w-full h-256 md:h-512">
+        <Image
+          className=" transition-all duration-200 rounded-md hover:opacity-70"
+          src={props.src ?? ""}
+          alt={props.alt ?? ""}
+          title={props.alt}
+          aria-label={props.alt}
+          objectFit="contain"
+          fill
+        />
+      </Stack>
+    );
+  },
   h1: ({ className, color, ...props }: HProps) => (
     <Paragraph mt="20" mb="12" as="h2" color={"neutral-700"} {...props} />
   ),
