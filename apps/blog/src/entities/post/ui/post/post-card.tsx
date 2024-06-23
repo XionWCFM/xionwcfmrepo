@@ -6,7 +6,6 @@ import Link from "next/link";
 import React from "react";
 import { AUTHOR_NICKNAME } from "~/shared/constants";
 import { ROUTES } from "~/shared/routes";
-import { getThumbnail } from "../../lib/utils";
 import type { PostWithFrontmatterType } from "../../model/post.model";
 
 type PostCardProps = {
@@ -15,7 +14,6 @@ type PostCardProps = {
 
 export const PostCard = (props: PostCardProps) => {
   const { post } = props;
-  const thumbnail = getThumbnail(post.thumbnail ?? "");
   const date = formatDate(post.releaseDate, "yyyy.MM.dd. HH:mm");
   const label = `ReadMore : ${post.title}`;
   return (
@@ -25,7 +23,7 @@ export const PostCard = (props: PostCardProps) => {
           {post.categories}
         </Paragraph>
       </Box>
-      <Link href={ROUTES.postDetail(post.filePath)} aria-label={label}>
+      <Link href={ROUTES.postDetail(post.filePath)} aria-label={label} title={label}>
         <Stack px="8" pt="4" pb="8">
           <Paragraph
             as="h2"

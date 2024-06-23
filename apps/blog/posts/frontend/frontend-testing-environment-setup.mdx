@@ -1,0 +1,438 @@
+---
+title: 프론트엔드 테스트 개발 환경 설정하기
+description: 프론트엔드 테스팅 환경을 구성하는것은 상당히 정신건강을 해치는 작업 중 하나입니다. 그래도 다행인 점은 시간이 지나면서 outdated 되는 정보도 있을 수 있지만 환경설정을 하는데에 큰 틀은 보통 바뀌지 않는 것 같아요 또 하다보면 꼭 필요하지만 기억이 잘 안나는 설정들이 존재하는데요 그런 세부적인 디테일들을 한곳에 정리해보았습니다.
+thumbnail: fallback
+categories: next
+writeDate: 2024-06-15T08:29:07.053Z
+releaseDate: 2024-06-16T17:44:00.053Z
+canView: true
+authority: public
+---
+
+프론트엔드 테스팅 환경을 구성하는것은 상당히 정신건강을 해치는 작업 중 하나입니다. 그래도 다행인 점은 시간이 지나면서 outdated 되는 정보도 있을 수 있지만 환경설정을 하는데에 큰 틀은 보통 바뀌지 않는 것 같아요 또 하다보면 꼭 필요하지만 기억이 잘 안나는 설정들이 존재하는데요 그런 세부적인 디테일들을 한곳에 정리해보았습니다. 저는 next.js | tailwindcss | react-query를 주로 사용하므로 해당 사항에 맞게 설정을 하였습니다.
+
+## nextjs setup
+
+```
+npx create-next-app@latest
+```
+
+### next.config.js
+
+```tsx
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  swcMinify: true,
+};
+
+export default nextConfig;
+```
+
+compiler 옵션을 통해 console에 대한 내용을 지울지 말지를 결정할 수 있습니다. 프로덕션 코드에서 console 코드가 남게되면 외부로 우리 애플리케이션의 소중한 정보가 유출되거나 console로 인해 제때 GC에 들어가지 못하여 메모리 누수를 불러일으킬 수 있습니다. 따라서 환경변수를 이용하여 프로덕션환경에서는 콘솔을 지우도록 설정합니다.
+
+## yarnberry setup
+
+```
+yarn set version berry
+```
+
+### .gitignore
+```
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.yarn/cache
+```
+
+ignore에 넣어주어야할 폴더들을 적절히 삽입합니다.
+
+### .yarnrc.yml
+
+```
+yarnPath: .yarn/releases/yarn-4.2.2.cjs
+enableGlobalCache: false
+```
+
+enableGlobalCache 옵션을 끕니다. 이 옵션을 통해 yarn의 캐시를 프로젝트 내부에 위치시킬 수 있게 됩니다.
+
+## vitest | RTL setup
+
+```
+yarn add -D vitest @vitejs/plugin-react jsdom @testing-library/react
+```
+
+next.js의 Testing: Vitest 문서를 참고하면 다음과 같은 의존성 설치를 권합니다. 여기에 개발 경험상 추가적으로 필요한 종속성들을 설치하겠습니다.
+
+```
+yarn add -D @testing-library/jest-dom vitest-fetch-mock vite-tsconfig-paths @testing-library/user-event happy-dom
+```
+
+컴포넌트 테스팅을 원활하게 수행하기 위한 의존성과 경로리졸브, fetch에 대한 처리를 위해 해당 의존성들을 추가하는 편입니다. 이제 vitest.config.ts를 작성해보겠습니다.
+
+
+### vitest.config.ts
+
+```ts
+import { defineConfig } from 'vitest/config';
+import tsConfigPaths from 'vite-tsconfig-paths';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react(), tsConfigPaths()],
+  test: {
+    globals: true,
+    environment: 'happydom',
+    setupFiles: ['./vitest.setup.ts'],
+    include: ['**/*.test.+(ts|tsx|js)'],
+  },
+});
+```
+
+향후 작성할 e2e test와 glob이 겹치는 것을 막기위해 spec.ts는 vitest에서 감지하지않고 test만 감지하도록 설정을 수정합니다. globals 옵션은 describe, it과 같은 기본적인 테스트문법에 필요한 함수들을 매번 임포트해야하는 수고를 덜어주는 역할을 합니다. 다음은 모든 테스트에서 돌아가게될 setup 파일을 설정해주도록 하겠습니다.
+
+
+### vitest.setup.ts
+
+```ts
+import '@testing-library/jest-dom';
+import { vi } from 'vitest';
+import createFetchMock from 'vitest-fetch-mock';
+
+const fetchMocker = createFetchMock(vi);
+fetchMocker.enableMocks();
+```
+
+@testint-library/jest-dom을 import하지 않으면 expect함수에 toBeInTheDocument와 같은 컴포넌트 테스팅 용도의 메서드들이 타입에러를 만드는 문제가 있습니다. 매번 import하는 것은 정신건강에 좋지 않으니 setup 부분에서 자동으로 import 하도록 처리해두면 편리합니다.
+
+```ts
+  it('component render test', () => {
+    render(<button type={'button'}>helloworld</button>);
+    expect(screen.getByRole('button', { name: 'helloworld' })).toBeInTheDocument();
+  });
+```
+
+이러한 형태로 작성할 수 있습니다. 또 하나의 처리는 fetch에 대한 처리인데요 fetch가 아니라 axios를 사용하시는 분의 경우에는 vitest-fetch-mock 대신 axios와 관련된 테스팅라이브러리를 설치하시면 되겠습니다. 마찬가지로 매번 fetch를 모킹하는 것은 정신건강에 좋지 않기 때문에 setup 부분에서 한번에 모킹을 수행합니다.
+
+```
+  "compilerOptions": {
+    "types": [ "vitest/globals"],
+```
+
+타입스크립트를 쓰는 경우 타입추론을 위해 컴파일러 옵션에 vitest를 추가합니다. 이제 package.json을 수정하여 편의성 스크립트를 추가하겠습니다.
+
+## package.json setup
+
+```
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage.all",
+    "test:all": "vitest run",
+```
+
+vitest는 기본적으로 watch (테스트를 돌리고 끝나는게 아니라 테스트 파일의 변경을 지속적으로 감시합니다. ) 모드로 실행됩니다. ci 환경에서 테스트를 돌려보는 것과 같이 watching이 필요없는 경우를 위해 vitest run 명령어를 이용하면 한번만 실행하고 테스트를 종료하는데요 따라서 이에 대한 스크립트를 하나 두면 편리한 점이 있습니다.
+
+
+## tanstackquery setup
+
+async 상태에 대한 관리는 어느새 tanstackquery로 정리가 되지 않았나 하는 생각을 합니다. tanstack query 와 같이 provider를 기반으로 돌아가는 라이브러리들은 테스트를 수행할때도 provider를 적절히 제공해주면 됩니다. 다만 tanstack query의 testing 문서를 살펴보면 추가적으로 해주면 좋은 설정들이 있다는 것을 알 수 있는데요 docs를 존중하면서 테스팅 유틸을 작성해봅시다.
+
+[Testing | Tanstack Query React Docs](https://tanstack.com/query/latest/docs/framework/react/guides/testing) 
+
+참고로 위 링크의 테스팅 가이드를 보면 종속성을 설치할것을 요구하는 내용을 볼 수 있는데요 설명을 자세히 읽어보면 좋은 정보를 얻어갈 수 있습니다. react 18 이후 버전을 사용하고 있는 경우에는 @testing-library/react에 이미 renderHook 메서드가 내장되어 있기 때문에 @testing-library/react-hooks 와 그 피어의존성인 react-test-renderer를 설치할 필요가 없다는 내용을 찾아볼 수 있어요 혹시 18버전 미만의 리액트를 사용하고 계신 분이라면 설치해주시면 되겠습니다.
+
+```tsx
+// 테스트 환경에서는 retry가 있는 경우 테스팅 시간이 늘어나는 문제가 있습니다. 이를 방지하기 위해 retry를 0으로 설정합니다.
+const testingClinet = () => new QueryClient({ defaultOptions: { queries: { retry: 0 } } });
+```
+테스팅 환경에서는 retry를 0으로 설정하는 것을 통해 테스팅 시간을 줄일 수 있습니다. queryClient를 하나의 스토어를 생성한다는 관점으로 본다면 모든 테스트는 다른 테스트와 격리된 테스트환경을 가지는것이 좋다라는 관점에서 각 테스트마다 새로 생성을 해주는 것이 좋을 것입니다. 따라서 함수를 호출할 때마다 새로 생성되는 형태로 쿼리클라이언트를 관리해주는 것이 핵심이라고 할 수 있어요
+
+
+
+```tsx
+export const Wrapper = () => {
+  return function wrapper({ children }: PropsWithChildren) {
+    return (
+      <QueryClientProvider client={testingClinet()}>
+        <Suspense>{children}</Suspense>
+      </QueryClientProvider>
+    );
+  };
+};
+```
+
+따라서 이런 형태로 wrapper에 들어갈 프로바이더를 생성해주는 함수를 정의해두면 편리한 점이 있어요 이곳에 필요한 프로바이더들을 추가해주는 형태로 작업을 하면 프로바이더 제공때문에 테스트코드가 깨진다는 문제를 해결하기 위해 각 테스트에서 프로바이더들을 일일히 집어넣어주는 고통에서 해방될 수 있습니다. 
+
+이제 tanstack query로 돌아가보면 본질적으로 query가 비동기라는 점이 중요합니다. 따라서 쿼리가 성공할 때 까지 테스트에서도 충분히 쿼리를 기다려주어야할 필요성이 있습니다. 공식문서를 참고하면 다음과 같은 형태로 쿼리를 기다려주는 것을 확인할 수 있습니다.
+
+```tsx
+import { renderHook, waitFor } from "@testing-library/react";
+
+...
+
+const { result } = renderHook(() => useCustomHook(), { wrapper });
+
+await waitFor(() => expect(result.current.isSuccess).toBe(true));
+```
+
+renderHook은 훅을 렌더링하여 테스트하는 것을 도와주는 유틸함수에요 wrapper는 해당 코드에서 세부사항이 등장하지 않지만 내부적으로 쿼리프로바이더를 제공하는 프로바이더 컴포넌트일거고요 중요한 지점은 바로 이곳입니다.
+
+```ts
+await waitFor(() => expect(result.current.isSuccess).toBe(true));
+```
+
+이 부분이 바로 await waitFor 구문을 통해 쿼리가 성공할때까지 기다려주는 부분입니다. 이렇게 쿼리의 성공을 기다린 다음 쿼리의 내용들을 테스트하는 코드들을 넣어주어야 테스트가 제대로 돌아가요
+
+### **msw setup**
+
+최근 2버전으로 메이저버전이 오르면서 격변이 있었던 라이브러리입니다. 기본적인 사용예시도 완전히 달라져버렸고 심지어 jest에서는 2버전이 제대로 호환되지 않는 문제까지 존재해요 그래도 결국은 2버전으로 모두 넘어가야할 날이 오지 않을까 싶어 그냥 2버전으로 setup하는 법을 다루겠습니다. 사실 setup 자체는 변한게 거의 없긴해요
+
+```
+yarn add -D msw
+```
+
+설치를 수행하고 간단한 핸들러를 작성해보겠습니다.
+
+```tsx
+import { http, HttpResponse } from 'msw';
+​
+export const handlers = [
+  http.get('/api/hello', () => {
+    return HttpResponse.json({
+      id: 'c7b3d8e0-5e0b-4b0f-8b3a-3b9f4b3d3b3d',
+      firstName: 'John',
+      lastName: 'Maverick',
+    });
+  }),
+];
+```
+
+/api/hello 경로로 들어온 요청을 가로채어서 다음과 같은 응답을 보내겠다는 내용입니다. testing 환경에서 msw를 사용하는 경우에는 node 로 생성을 해두면 되는데요 따라서 이렇게 코드를 작성하면 되겠습니다.
+
+```ts
+import { setupServer } from 'msw/node';
+
+export const mockServer = setupServer(...handlers);
+```
+
+msw/node에서 setupServer를 가져오는 것이 핵심입니다. 클라이언트의 경우에는 또 다른 설정방법이 존재하니 참고하세요 이제 vitest.setup.ts 파일에 msw에 대한 설정을 추가하면 설정 자체는 끝입니다.
+
+### vitest.setup.ts
+
+```ts
+import { mockServer as server } from './src/mocks/node';
+
+beforeAll(() => {
+  server.listen();
+});
+
+afterEach(() => {
+  server.resetHandlers();
+});
+
+afterAll(() => {
+  server.close();
+});
+```
+
+각 테스트마다 핸들러들을 초기화해주는 작업을 수행하겠다는 의미에요
+
+### **playwright setup**
+
+vitest와 rtl을 통하여 유닛, 컴포넌트 테스트를 수행할 수 있는 환경이 되었습니다. 여기에 추가로 욕심을 내본다면 cypress , playwright와 같은 도구를 이용한 e2e 테스팅을 생각해볼 수 있을 것입니다. playwright는 초기 설정을 편하게 도와주는 명령어를 이미 제공하고 있으니 이를 따라 작성하면 되어서 편한 점이 있어요
+
+```
+yarn create playwright
+```
+
+해당 명령어를 이용하면 4가지 선택지가 주어지는데 원하는대로 선택해주시면 되겠습니다.
+
+-   Choose between TypeScript or JavaScript (default is TypeScript)
+-   Name of your Tests folder (default is tests or e2e if you already have a tests folder in your project)
+-   Add a GitHub Actions workflow to easily run tests on CI
+-   Install Playwright browsers (default is true)
+
+쉽게 대답할 수 있는 질문들이에요 타입스크립트를 쓰는지, 테스팅폴더 이름 뭘로할지, CI에 붙일건지와 같은 내용들이죠!
+
+이제 vitest 때와 마찬가지로 package.json에 scripts를 추가해주겠습니다.
+
+**package.json**
+
+```
+  "e2e": "playwright test",
+  "e2e:ui": "playwright test --ui"
+```
+
+### **storybook setup**
+
+storybook 은 UI 테스팅을 위해 많이 사용되는 도구입니다. 환경설정이 많이 난해했었던 기억이 있는데 최근에는 생태계가 발전하면서 꽤 쉽게 환경설정을 끝낼 수 있게 된 것 같아요
+
+```
+npx storybook@latest init
+```
+
+storybook의 경우 위 명령어만으로도 어느정도 귀찮은 설정들은 알아서 제공되니 tailwind.css와의 통합만 신경써주면 되겠습니다. 먼저 tailwind의 config를 수정해주겠습니다.
+
+**tailwind.config.ts**
+
+```ts
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './.storybook/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {},
+  plugins: [],
+};
+export default config;
+```
+
+.storybook 폴더도 tailwind에 포함시키는 작업을 수행해줍니다. 이제 .storybook/main.ts로 이동합니다.
+
+```ts
+const config: StorybookConfig = {
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+```
+
+스토리들을 glob 해올 패턴을 정하는 부분인데 자기 프로젝트에 맞게 설정해주시면 되겠습니다. 이제 .storybook/preview.ts로 이동합니다.
+
+```ts
+import type { Preview } from '@storybook/react';
+import '../src/app/style/tailwind.css';
+
+const preview: Preview = {
+```
+
+이 부분에서 tailwind에 대한 initialize를 하고있는 css를 import 해주면 설정은 완료입니다. 조금 아쉬운 점이 있다면 next.js를 사용하는 프로젝트의 경우 vite에 대한 지원이 되지 않습니다. 따라서 무조건 storybook을 webpack 기반으로만 사용해야한다는 아쉬움이 있는데요 그래도 스토리북 버전이 오르면서 성능개선이 많이 이루어진 편이라 그냥 참고 쓰면 뭐.. 그냥저냥.. 괜찮은 것 같습니다.
+
+### **biome setup**
+
+biome는 쉽게 생각하면 prettier와 eslint를 한번에 제공하는 all in one 패키지라고 생각할 수 있는 라이브러리입니다. 아직 안정된 라이브러리는 아니라고 생각이 들지만 속도나 config 면에서 장점이 있어 간단한 프로젝트를 하는 경우에는 eslint 보다 장점이 있습니다. 만약 eslint, prettier를 사용하실 예정이라면 스킵하셔도 좋습니다.
+
+```
+yarn add --dev --exact @biomejs/biome
+```
+
+```
+yarn biome init
+```
+
+저는 biome에 제가 사용하는 prettier 설정과 더불어 a11y 린트 설정을 추가하여 사용하는 편입니다.
+
+**biome.json**
+
+```
+{
+	"$schema": "https://biomejs.dev/schemas/1.7.3/schema.json",
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": true,
+		"indentStyle": "space",
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"lineWidth": 120,
+		"attributePosition": "auto",
+		"ignore": [
+			"**/.gitignore",
+			"**/.yarn",
+			"**/.pnp.*",
+			"**/build",
+			"**/coverage",
+			"**/dist",
+			"**/lib",
+			"**/.next"
+		]
+	},
+	"organizeImports": { "enabled": true },
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"a11y": {
+				"noAccessKey": "error",
+				"noAriaUnsupportedElements": "error",
+				"noAutofocus": "error",
+				"noDistractingElements": "error",
+				"noHeaderScope": "error",
+				"noInteractiveElementToNoninteractiveRole": "error",
+				"noNoninteractiveElementToInteractiveRole": "error",
+				"noNoninteractiveTabindex": "error",
+				"noPositiveTabindex": "error",
+				"noRedundantAlt": "error",
+				"noRedundantRoles": "error",
+				"useAltText": "error",
+				"useAnchorContent": "error",
+				"useAriaActivedescendantWithTabindex": "error",
+				"useAriaPropsForRole": "error",
+				"useHeadingContent": "error",
+				"useHtmlLang": "error",
+				"useIframeTitle": "error",
+				"useKeyWithClickEvents": "error",
+				"useKeyWithMouseEvents": "error",
+				"useMediaCaption": "error",
+				"useValidAnchor": "error",
+				"useValidAriaProps": "error",
+				"useValidAriaRole": "error",
+				"useValidAriaValues": "error"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded",
+			"trailingComma": "es5",
+			"semicolons": "always",
+			"arrowParentheses": "asNeeded",
+			"bracketSpacing": true,
+			"bracketSameLine": false,
+			"quoteStyle": "single",
+			"attributePosition": "auto"
+		}
+	}
+}
+```
+
+vscode 기준으로는 biome 확장을 설치하고 default formatter를 biome로 수정해주시면 설정 완료입니다.
+
+### **lefthook setup**
+
+lefthook은 husky의 대체자라고 할 수 있을 것 같은데요 환경설정이 매우 쉽고 yml 문법으로 동작을 설정할 수 있어 github action과 유사하게 설정을 작성할 수 있다는 점에서 큰 장점이 있습니다. 성능적으로도 병렬실행을 지원하는 만큼 프리커밋, 프리푸시 단계에서 돌리는 작업이 무거워질수록 장점이 있고요 docs가 좀 읽기 싫게 생겼다는 단점이 있습니다만 차차 나아지겠죠..
+
+```
+yarn add -D lefthook
+```
+
+위 명령어를 실행하고나면 lefthook.yml이 생성되어있는 것을 확인할 수 있습니다. github action과 거의 유사한 문법으로 작성할 수 있어요 간단한 예시를 만들어보면 다음과 같습니다.
+
+```
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      run: yarn format
+      stage_fixed: true
+    lint-next:
+      run: yarn lint:next
+      stage_fixed: true
+    lint:
+      run: yarn lint
+      stage_fixed: true
+```
+
+pre-commit 단계에서 병렬적으로 다음 세개의 커맨드를 실행하겠다 라는 의미로 읽을 수 있습니다. 굉장히 직관적이죠? 파일목록을 필터링하여 특정 조건에서만 레프트훅을 실행하는 등의 편의기능도 많이 제공되고 있으니 필요하다면 적용해도 좋을 것 같습니다.  [더 많은 정보는 lefthook github에서 확인해보세요](https://github.com/evilmartians/lefthook)
+
+
+### **마치며**
+
+상당히 긴 환경설정들을 거쳐서 테스트를 할 수 있는 프로젝트를 만들었습니다. 정말 놀라운 사실은 이렇게 길고 긴 환경설정 과정들이 사실은 더 길고 스트레스 받는 일이었다는 것일지도 모르겠어요 biome, lefthook, vitest 등 비교적 최근에 나온 도구들의 환경설정방법이 쉬운 덕이라고 할 수 있습니다.
+
+단적인 예시로 jest의 경우에는 타입스크립트, 경로리졸브, esm 모듈사용 등의 문제를 해결하기 위해 ts-jest와 같은 또다른 라이브러리를 추가설치하고 그걸 config에 적절히 녹여내는 등의 작업이 아직도 필요하고요. eslint는 말할것도 없고 husky는 제공되는 기능의 한계로 인해 lint-staged와 같은 추가 의존성이 꼭 필요해지곤 했습니다.
+
+그런 관점에서 환경설정의 고통에서 해방되는 경험을 제공해준 biome, lefthook, vitest와 같은 도구들이 너무나도 반갑습니다 여러분들도 한번 경험해보시면 좋겠다는 생각을 하면서 글 마무리하도록 하겠습니다. 읽어주셔서 감사합니다

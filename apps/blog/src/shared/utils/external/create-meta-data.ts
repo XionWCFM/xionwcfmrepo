@@ -62,10 +62,8 @@ export const createMetadata = (param: CreateMetadataParamsType): Metadata => {
       description,
     },
     robots: {
-      //   index: isEnabled("seo-start") ? index : false,
-      //   follow: isEnabled("seo-start") ? follow : false,
-      index: false,
-      follow: false,
+      index,
+      follow,
     },
     publisher: AUTHOR_NAME,
     icons: {

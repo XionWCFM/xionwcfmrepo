@@ -12,7 +12,16 @@ type PreProps = HTMLAttributes<HTMLPreElement>;
 
 export const MDXComponents: TMDXComponents = {
   img: MdxNextImage,
-  a: ({ className, href, ...props }: AProps) => <MdxNextLink target={"_blank"} href={href} {...props} />,
+  a: ({ className, href, ...props }: AProps) => (
+    <MdxNextLink
+      className={
+        " underline underline-offset-4 text-primary-600 hover:rounded-sm duration-200 transition-colors hover:text-primary-700 hover:bg-neutral-200"
+      }
+      target={"_blank"}
+      href={href}
+      {...props}
+    />
+  ),
   h1: ({ className, color, ...props }: HProps) => <Paragraph as="h2" color={"neutral-700"} {...props} />,
   h2: ({ className, color, ...props }: HProps) => (
     <Paragraph my="12" as={"h2"} size={"9"} weight={"bold"} color={"neutral-700"} {...props} />

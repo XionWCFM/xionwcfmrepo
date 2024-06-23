@@ -26,7 +26,7 @@ export const InteractiveHeader = () => {
         justify={"between"}
         py={"8"}
       >
-        <Link href={ROUTES.root()}>
+        <Link href={ROUTES.root()} aria-label={"home 화면으로 돌아갑니다"}>
           <Image
             {...ASSET_XION_BOX_LOGO_48_16}
             width={ASSET_XION_BOX_LOGO_48_16.width * 2}
