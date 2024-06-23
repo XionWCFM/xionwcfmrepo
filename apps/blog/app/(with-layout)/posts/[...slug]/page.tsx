@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { getAllPosts, getPost } from "~/entities/post/model/post.service";
 import PostDetailPage from "~/page/post-detail.page";
 import { BASE_SITE_URL } from "~/shared/constants";
+import { ENVIRONMENT } from "~/shared/environment";
 import { createMetadata } from "~/shared/utils/external/create-meta-data";
 
 type PostProps = {
@@ -27,7 +28,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export const dynamic = "force-static";
+export const dynamic = ENVIRONMENT.NODE_ENV === "production" ? "force-static" : "force-dynamic";
 
 export default async function Post(params: PostProps) {
   const slug = params.params.slug;
