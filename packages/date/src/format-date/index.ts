@@ -1,6 +1,6 @@
-import { format, parseISO } from "date-fns";
+import { format } from "date-fns";
 
-type DateConverterVariant = "yyyy.MM.dd" | "yyyy.MM.dd - hh:mm" | "M월 dd일" | "MM월 dd일";
+type DateConverterVariant = "yyyy.MM.dd" | "yyyy.MM.dd - HH:mm" | "yyyy.MM.dd. HH:mm" | "M월 dd일" | "MM월 dd일";
 
 /**
  * 날짜를 다른 형식으로 변환하는 함수입니다.
@@ -17,7 +17,7 @@ type DateConverterVariant = "yyyy.MM.dd" | "yyyy.MM.dd - hh:mm" | "M월 dd일" |
  */
 export const formatDate = (date: string | Date, dateFormat: DateConverterVariant) => {
   if (typeof date === "string") {
-    return format(parseISO(date), dateFormat);
+    return format(new Date(date), dateFormat);
   }
   return format(date, dateFormat);
 };

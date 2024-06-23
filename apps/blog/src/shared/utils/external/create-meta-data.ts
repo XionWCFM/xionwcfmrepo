@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AUTHOR_NAME, BASE_SITE_NAME, BASE_SITE_TITLE } from "~/shared/constants";
+import { AUTHOR_NAME, BASE_SITE_NAME, BASE_SITE_TITLE, BASE_TEMPLETE_TITLE } from "~/shared/constants";
 import { isEnabled } from "~/shared/feature-flag";
 
 type CreateMetadataParamsType = {
@@ -37,7 +37,7 @@ export const createMetadata = (param: CreateMetadataParamsType): Metadata => {
   return {
     title: {
       default: title,
-      template: `%s - ${BASE_SITE_TITLE}`,
+      template: `%s - ${BASE_TEMPLETE_TITLE}`,
     },
     description,
     keywords: ["frontend", "nextjs", "react", "techblog", "blog", "typescript"],

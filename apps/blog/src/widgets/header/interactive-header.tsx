@@ -9,7 +9,7 @@ import { ASSET_XION_BOX_LOGO_48_16 } from "~/shared/assets";
 import { isEnabled } from "~/shared/feature-flag";
 import { ROUTES } from "~/shared/routes";
 
-export const Header = () => {
+export const InteractiveHeader = () => {
   const scrollDirection = useScrollDirection();
   const shouldHiding = scrollDirection === "down" ? "-translate-y-[64px]" : "translate-y-0";
   return (

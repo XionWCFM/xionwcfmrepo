@@ -38,8 +38,5 @@
   },
   "peerDependencies": {
     "date-fns": "^3"
-  },
-  "dependencies": {
-    "date-fns": "^3.6.0"
   }
 }

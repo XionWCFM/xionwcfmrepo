@@ -34,7 +34,7 @@ export type HAndWType = "h" | "w";
 
 export type CssMarginSpacingElementType = "my" | "mx" | "ml" | "mr" | "mb" | "mt" | "m";
 export type CssPaddingSpacingElementType = "p" | "pl" | "pr" | "pb" | "pt" | "px" | "py";
-export type CssSpacingElementType = "px" | "py" | "mx" | "my";
+export type CssSpacingElementType = CssMarginSpacingElementType | CssPaddingSpacingElementType;
 
 export type CssSpacingGapType = "0" | "4" | "8" | "12" | "16" | "20" | "24" | "28" | "32" | "36" | "40";
 
