@@ -33,7 +33,7 @@ export const MDXComponents: TMDXComponents = {
     <Paragraph size={"5"} leading={"looser"} weight={"light"} color={"neutral-600"} {...props} />
   ),
   pre: ({ className, ...props }: PreProps) => (
-    <pre className={" my-24 overflow-x-auto rounded-sm bg-neutral-200 px-24 py-12 text-neutral-500"} {...props} />
+    <pre className={" my-24 overflow-x-auto rounded-sm bg-neutral-200 px-24 py-12 text-neutral-700"} {...props} />
   ),
   hr: (props) => <hr className=" border-t border-neutral-300 my-16" />,
   code: ({ className, ...props }: CProps) => <code className={" text-size-3"} {...props} />,

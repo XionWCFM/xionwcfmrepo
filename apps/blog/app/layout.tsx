@@ -9,7 +9,7 @@ import { createMetadata } from "../src/shared/utils/external/create-meta-data";
 import AutoRefresh from "./auto-refresh";
 
 const notoSansKr = Noto_Sans_KR({
-  weight: ["200", "300", "400", "500", "600", "700"],
+  weight: ["200", "300", "500", "700"],
   subsets: ["latin"],
 });
 

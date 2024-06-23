@@ -8,7 +8,7 @@ export const Footer = () => {
     <Stack className=" bg-gray-100" justify={"center"} align={"center"} as={"footer"} py="20" px="12">
       <Stack>
         {paragraphsList.map((text) => (
-          <Paragraph leading={"loose"} as={"span"} weight={"thin"} color={"gray-400"} key={text}>
+          <Paragraph leading={"loose"} as={"span"} weight={"thin"} color={"gray-700"} key={text}>
             {text}
           </Paragraph>
         ))}
