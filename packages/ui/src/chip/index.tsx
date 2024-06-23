@@ -18,7 +18,7 @@ export const Chip: ChipType = forwardRef(function Chip<C extends ElementType = "
     <Component
       ref={ref}
       className={cn(
-        " text-size-2 font-light py-4 px-16 bg-neutral-200 cursor-pointer rounded-full text-neutral-500 hover:bg-neutral-300 duration-200 transition-all",
+        " text-size-4 font-light py-4 px-16 bg-neutral-200 cursor-pointer rounded-full text-neutral-700 hover:bg-neutral-300 duration-200 transition-all",
         className,
       )}
       {...rest}
