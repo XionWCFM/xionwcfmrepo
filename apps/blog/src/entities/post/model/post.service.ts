@@ -80,3 +80,13 @@ export const getAllPosts = async () => {
   const canViewPosts = validPosts.filter((post) => canViewPost(post, new Date()));
   return canViewPosts;
 };
+
+export const getAllPostsSortedByReleaseDate = async () => {
+  const posts = await getAllPosts();
+  posts.sort((a, b) => {
+    const dateA = toDate(a.releaseDate).getTime();
+    const dateB = toDate(b.releaseDate).getTime();
+    return dateB - dateA;
+  });
+  return posts;
+};

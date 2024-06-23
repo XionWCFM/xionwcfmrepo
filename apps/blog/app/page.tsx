@@ -1,7 +1,7 @@
 import { Paragraph } from "@xionwcfm/ui/paragraph";
 import { Separate } from "@xionwcfm/ui/separate";
 import { Stack } from "@xionwcfm/ui/stack";
-import { getAllPosts } from "~/entities/post/model/post.service";
+import { getAllPostsSortedByReleaseDate } from "~/entities/post/model/post.service";
 import { PostCard } from "~/entities/post/ui/post/post-card";
 import { AUTHOR_NICKNAME } from "~/shared/constants";
 import { MainXionWCFM } from "~/shared/ui/common/main-xion-wcfm";
@@ -9,7 +9,7 @@ import { Footer } from "~/widgets/footer";
 import { StaticHeader } from "~/widgets/header/static-header";
 
 export default async function RootPage() {
-  const posts = await getAllPosts();
+  const posts = await getAllPostsSortedByReleaseDate();
   const currentPostTitle = `${AUTHOR_NICKNAME}의 최신 포스트 보기`;
   return (
     <>
@@ -27,7 +27,7 @@ export default async function RootPage() {
                 <Separate />
               </Stack>
               <Stack my={"28"} gap={"16"}>
-                {posts.map((post, index) => (
+                {posts.map((post) => (
                   <PostCard key={post.title} post={post} />
                 ))}
               </Stack>
