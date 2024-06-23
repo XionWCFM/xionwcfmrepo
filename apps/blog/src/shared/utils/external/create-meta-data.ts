@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AUTHOR_NAME, BASE_SITE_NAME, BASE_TEMPLETE_TITLE } from "~/shared/constants";
+import { AUTHOR_NAME, BASE_SITE_NAME, BASE_SITE_URL, BASE_TEMPLETE_TITLE } from "~/shared/constants";
 
 type CreateMetadataParamsType = {
   title: string;
@@ -34,6 +34,7 @@ export const createMetadata = (param: CreateMetadataParamsType): Metadata => {
   const { title, description, url } = param;
 
   return {
+    metadataBase: new URL(BASE_SITE_URL),
     title: {
       default: title,
       template: `%s - ${BASE_TEMPLETE_TITLE}`,
@@ -60,7 +61,7 @@ export const createMetadata = (param: CreateMetadataParamsType): Metadata => {
       site: url,
       title,
       description,
-      images: [{ url: "/opengraph-image.png", alt: "About XionWCFM OG IMAGE" }],
+      images: [{ url: "/twitter-image.png", alt: "About XionWCFM OG IMAGE" }],
     },
     robots: {
       index,
