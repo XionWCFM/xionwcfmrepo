@@ -52,6 +52,7 @@ export const createMetadata = (param: CreateMetadataParamsType): Metadata => {
       url,
       type: "website",
       siteName: BASE_SITE_NAME,
+      images: [{ url: "/opengraph-image.png", alt: "About XionWCFM OG IMAGE" }],
     },
     twitter: {
       creator: authors,
@@ -59,6 +60,7 @@ export const createMetadata = (param: CreateMetadataParamsType): Metadata => {
       site: url,
       title,
       description,
+      images: [{ url: "/opengraph-image.png", alt: "About XionWCFM OG IMAGE" }],
     },
     robots: {
       index,
