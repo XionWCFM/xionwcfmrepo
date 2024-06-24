@@ -1,4 +1,5 @@
 "use client";
+import { useSearchParams } from "next/navigation";
 import Script from "next/script";
 
 export const ClarityScript = () => {
@@ -11,4 +12,15 @@ export const ClarityScript = () => {
     })(window, document, "clarity", "script", "mvz3tc93tn")`}</Script>
     </>
   );
+};
+
+export const useHI = () => {
+  const searchParams = useSearchParams();
+  const getAllSearchParams = () => {
+    const obj: Record<string, string> = {};
+    searchParams.forEach((value, key) => {
+      obj[key] = value;
+    });
+    return obj;
+  };
 };
