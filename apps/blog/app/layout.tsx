@@ -1,10 +1,10 @@
 import "./globals.css";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import { ClarityScript } from "~/app/script/clarity.script";
+import { VercelScript } from "~/app/script/vercel.script";
 import { ENVIRONMENT } from "~/shared/environment";
 import { AUTHOR_NAME, BASE_SITE_DESCRIPTION, BASE_SITE_TITLE, BASE_SITE_URL } from "../src/shared/constants";
 import { createMetadata } from "../src/shared/utils/external/create-meta-data";
@@ -37,10 +37,9 @@ export default function RootLayout({
       <html lang="ko" className={notoSansKr.className}>
         <body>{children}</body>
         <ClarityScript />
+        <VercelScript />
         <GoogleTagManager gtmId={ENVIRONMENT.GTM_ID} />
         <GoogleAnalytics gaId={ENVIRONMENT.GA_ID} />
-        <SpeedInsights />
-        <Analytics />
       </html>
     </AutoRefresh>
   );
