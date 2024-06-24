@@ -1,9 +1,9 @@
 import { Paragraph } from "@xionwcfm/ui/paragraph";
 import { Separate } from "@xionwcfm/ui/separate";
 import { Stack } from "@xionwcfm/ui/stack";
-import { getAllPostsSortedByReleaseDate } from "~/entities/post/model/post.service";
+import { getAllPosts, getAllPostsSortedByReleaseDate } from "~/entities/post/model/post.service";
 import { PostCard } from "~/entities/post/ui/post/post-card";
-import { AUTHOR_NICKNAME } from "~/shared/constants";
+import { AUTHOR_NICKNAME, BASE_SITE_URL } from "~/shared/constants";
 import { MainXionWCFM } from "~/shared/ui/common/main-xion-wcfm";
 import { Footer } from "~/widgets/footer";
 import { StaticHeader } from "~/widgets/header/static-header";
