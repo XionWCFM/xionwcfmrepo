@@ -1,0 +1,16 @@
+{
+  "name": "@xionwcfm/qs",
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  },
+  "exports": {
+    "./get-all-querystring": {
+      "default": "./src/get-all-query-string.ts"
+    }
+  },
+  "devDependencies": {
+    "@xionwcfm/typescript-config": "workspace:*",
+    "typescript": "latest"
+  }
+}
