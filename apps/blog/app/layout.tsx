@@ -1,5 +1,7 @@
 import "./globals.css";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import { ClarityScript } from "~/app/script/clarity.script";
@@ -37,6 +39,8 @@ export default function RootLayout({
         <ClarityScript />
         <GoogleTagManager gtmId={ENVIRONMENT.GTM_ID} />
         <GoogleAnalytics gaId={ENVIRONMENT.GA_ID} />
+        <SpeedInsights />
+        <Analytics />
       </html>
     </AutoRefresh>
   );
