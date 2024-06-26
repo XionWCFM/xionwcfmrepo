@@ -12,6 +12,8 @@
     "./separate": "./src/separate/index.tsx",
     "./skeleton": "./src/skeleton/index.tsx",
     "./chip": "./src/chip/index.tsx",
+    "./separated": "./src/separated/index.tsx",
+    "./switch-case": "./src/switch-case/index.tsx",
     "./cn": "./src/cn/index.ts"
   },
   "scripts": {
