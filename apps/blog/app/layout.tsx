@@ -38,8 +38,8 @@ export default function RootLayout({
         <body>{children}</body>
         <ClarityScript />
         <VercelScript />
-        <GoogleTagManager gtmId={ENVIRONMENT.GTM_ID} />
-        <GoogleAnalytics gaId={ENVIRONMENT.GA_ID} />
+        <GoogleTagManager gtmId={"GTM-52Z3Z37J"} />
+        <GoogleAnalytics gaId={"G-59H4F1GZ8B"} />
       </html>
     </AutoRefresh>
   );
