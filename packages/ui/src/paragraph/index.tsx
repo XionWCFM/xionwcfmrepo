@@ -1,9 +1,8 @@
 import type { PolymorphicComponentPropsWithRef, PolymorphicRef } from "@xionwcfm/types/polymorphic";
 import { type VariantProps, cva } from "class-variance-authority";
 import { type ElementType, type ReactNode, forwardRef } from "react";
-import type { PolimophicWithSpacingSystemProps } from "../box";
+import { Box, type PolimophicWithSpacingSystemProps } from "../box";
 import { cn } from "../cn";
-import { getS } from "../internal-utils/get-s";
 import type { SemanticHTMLTextContentType } from "../types";
 
 const paragraphVariants = cva(" whitespace-pre-wrap", {
@@ -150,25 +149,22 @@ type ParagraphType = <C extends ElementType = SemanticHTMLTextContentType>(
 ) => ReactNode | null;
 
 export const Paragraph: ParagraphType = forwardRef(function Paragraph<C extends ElementType = "p">(
-  { children, as, className, overflow, size, color, responsive, leading, weight, ...rest }: Props<C>,
+  props: Props<C>,
   ref?: PolymorphicRef<C>,
 ) {
-  const Component = as || "p";
-  const { m, my, mx, mr, ml, mt, mb, p, py, px, pr, pl, pt, pb, ...omitSpacingRest } = rest;
-  const defaultCss = `${getS("m", m)} ${getS("mr", mr)} ${getS("ml", ml)} ${getS("mb", mb)} ${getS("mt", mt)}  ${getS("my", my)} ${getS("mx", mx)}  
-   ${getS("py", py)} ${getS("px", px)} ${getS("pt", pt)}  ${getS("pb", pb)}  ${getS("pl", pl)}  ${getS("pr", pr)}  ${getS("p", p)}`;
-
+  const { overflow, size, color, leading, weight, responsive, className, children, as, ...rest } = props;
+  const typedRest = rest as PolymorphicComponentPropsWithRef<C, PolimophicWithSpacingSystemProps<C>>;
   return (
-    <Component
+    <Box
+      as={as}
       ref={ref}
       className={cn(
-        defaultCss,
         paragraphVariants({ overflow, size, color, leading, weight, responsive: responsive ? size : "default" }),
         className,
       )}
-      {...omitSpacingRest}
+      {...typedRest}
     >
       {children}
-    </Component>
+    </Box>
   );
 });
