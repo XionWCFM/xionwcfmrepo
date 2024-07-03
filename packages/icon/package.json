@@ -5,7 +5,10 @@
   "license": "MIT",
   "scripts": {},
   "exports": {
-    "./email-icon": "./src/email-icon.tsx"
+    "./email-icon": "./src/email-icon.tsx",
+    "./fill-check-icon": "./src/fill-check-icon.tsx",
+    "./fill-info-icon": "./src/fill-info-icon.tsx",
+    "./fill-warning-icon": "./src/fill-warning-icon.tsx"
   },
   "publishConfig": {
     "access": "public"
