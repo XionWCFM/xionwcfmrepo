@@ -1,6 +1,7 @@
 import "./globals.css";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
+import { Toaster } from "@xionwcfm/ui/toast";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import { ClarityScript } from "~/app/script/clarity.script";
@@ -35,7 +36,10 @@ export default function RootLayout({
   return (
     <AutoRefresh>
       <html lang="ko" className={notoSansKr.className}>
-        <body>{children}</body>
+        <body>
+          {children}
+          <Toaster />
+        </body>
         <ClarityScript />
         <VercelScript />
         <GoogleTagManager gtmId={"GTM-52Z3Z37J"} />

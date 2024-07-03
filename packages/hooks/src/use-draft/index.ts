@@ -1,9 +1,6 @@
 import { useState } from "react";
+import { usePreservedCallback } from "../use-preserved-callback";
 
-type UseDraftProps<T> = {
-  initialState: T;
-  onCommit?: ((state: T) => Promise<void>) | ((state: T) => void);
-};
 /**
  * 사용자 정의 훅으로, 임시 상태 값을 관리하는 데 사용됩니다.
  *
@@ -26,12 +23,12 @@ type UseDraftProps<T> = {
  * // 상태 값 커밋
  * onCommit();
  */
-export const useDraft = <T>(props: UseDraftProps<T>) => {
+export const useDraft = <T>(initialState: T, externalOnCommit?: (prevValue: T) => void) => {
   const [draft, setDraft] = useState<T>();
-  const value = draft ?? props?.initialState;
-  const onChangeValue = setDraft;
-  const onCommit = () => {
-    return props?.onCommit?.(value);
-  };
-  return { value, onChangeValue, onCommit };
+  const value = draft ?? initialState;
+  const onChangeValue = usePreservedCallback(setDraft);
+  const onCommit = usePreservedCallback(() => {
+    return externalOnCommit?.(value);
+  });
+  return [value, onChangeValue, onCommit] as const;
 };

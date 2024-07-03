@@ -2,7 +2,6 @@
   "name": "@xionwcfm/ui",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "exports": {
     "./button": "./src/button.tsx",
     "./box": "./src/box/index.tsx",
@@ -14,6 +13,7 @@
     "./chip": "./src/chip/index.tsx",
     "./separated": "./src/separated/index.tsx",
     "./switch-case": "./src/switch-case/index.tsx",
+    "./toast": "./src/toast/index.tsx",
     "./cn": "./src/cn/index.ts"
   },
   "scripts": {
@@ -22,15 +22,18 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "@xionwcfm/typescript-config": "workspace:*",
-    "@xionwcfm/tailwindcss-config": "workspace:*",
-    "@xionwcfm/types": "workspace:*",
-    "@xionwcfm/token": "workspace:*",
+    "@radix-ui/react-toast": "^1.2.1",
     "@turbo/gen": "^1.12.4",
     "@types/eslint": "^8.56.5",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
+    "@xionwcfm/pubsub": "workspace:*",
+    "@xionwcfm/tailwindcss-config": "workspace:*",
+    "@xionwcfm/token": "workspace:*",
+    "@xionwcfm/hooks": "workspace:*",
+    "@xionwcfm/types": "workspace:*",
+    "@xionwcfm/typescript-config": "workspace:*",
     "autoprefixer": "^10.4.19",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
