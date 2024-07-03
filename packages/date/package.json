@@ -3,32 +3,70 @@
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
-    "build": "tsc"
+    "build": "pnpm run build:esm && pnpm run build:cjs",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json"
   },
   "exports": {
     "./format-date": {
-      "types": "./dist/format-date/index.d.ts",
-      "default": "./dist/format-date/index.js"
+      "import": {
+        "types": "./dist/esm/format-date/index.d.ts",
+        "default": "./dist/esm/format-date/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/format-date/index.d.ts",
+        "default": "./dist/cjs/format-date/index.js"
+      }
     },
     "./is-after-with-sameday": {
-      "types": "./dist/is-after-with-sameday/index.d.ts",
-      "default": "./dist/is-after-with-sameday/index.js"
+      "import": {
+        "types": "./dist/esm/is-after-with-sameday/index.d.ts",
+        "default": "./dist/esm/is-after-with-sameday/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/is-after-with-sameday/index.d.ts",
+        "default": "./dist/cjs/is-after-with-sameday/index.js"
+      }
     },
     "./is-before-with-sameday": {
-      "types": "./dist/is-before-with-sameday/index.d.ts",
-      "default": "./dist/is-before-with-sameday/index.js"
+      "import": {
+        "types": "./dist/esm/is-before-with-sameday/index.d.ts",
+        "default": "./dist/esm/is-before-with-sameday/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/is-before-with-sameday/index.d.ts",
+        "default": "./dist/cjs/is-before-with-sameday/index.js"
+      }
     },
     "./safe-get-iso": {
-      "types": "./dist/safe-get-iso/index.d.ts",
-      "default": "./dist/safe-get-iso/index.js"
+      "import": {
+        "types": "./dist/esm/safe-get-iso/index.d.ts",
+        "default": "./dist/esm/safe-get-iso/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/safe-get-iso/index.d.ts",
+        "default": "./dist/cjs/safe-get-iso/index.js"
+      }
     },
     "./to-date": {
-      "types": "./dist/to-date/index.d.ts",
-      "default": "./dist/to-date/index.js"
+      "import": {
+        "types": "./dist/esm/to-date/index.d.ts",
+        "default": "./dist/esm/to-date/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/to-date/index.d.ts",
+        "default": "./dist/cjs/to-date/index.js"
+      }
     },
     "./to-iso": {
-      "types": "./dist/to-iso/index.d.ts",
-      "default": "./dist/to-iso/index.js"
+      "import": {
+        "types": "./dist/esm/to-iso/index.d.ts",
+        "default": "./dist/esm/to-iso/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/to-iso/index.d.ts",
+        "default": "./dist/cjs/to-iso/index.js"
+      }
     }
   },
   "devDependencies": {
