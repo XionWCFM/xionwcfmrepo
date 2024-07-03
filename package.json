@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "build:p": "turbo build --filter './packages/*'",
     "dev": "turbo dev",
     "storybook": "turbo storybook",
     "push:origin": "git push origin $(git symbolic-ref --short HEAD)",

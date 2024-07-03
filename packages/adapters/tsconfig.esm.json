@@ -1,7 +1,7 @@
 {
-  "extends": "@xionwcfm/typescript-config/esm.json",
+  "extends": "@xionwcfm/typescript-config/react-library.json",
   "compilerOptions": {
-    "outDir": "dist/esm",
+    "outDir": "./dist/esm",
     "rootDir": "src"
   },
   "include": ["src"],
