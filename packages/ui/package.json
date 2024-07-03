@@ -13,6 +13,7 @@
     "./chip": "./src/chip/index.tsx",
     "./separated": "./src/separated/index.tsx",
     "./switch-case": "./src/switch-case/index.tsx",
+    "./toast": "./src/toast/index.tsx",
     "./cn": "./src/cn/index.ts"
   },
   "scripts": {
