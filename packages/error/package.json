@@ -1,6 +1,5 @@
 {
   "name": "@xionwcfm/error",
-  "type": "module",
   "scripts": {
     "build": "pnpm run build:esm && pnpm run build:cjs",
     "build:esm": "tsc -p tsconfig.esm.json",
