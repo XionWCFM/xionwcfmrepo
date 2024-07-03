@@ -2,53 +2,120 @@
   "name": "@xionwcfm/utils",
   "type": "module",
   "scripts": {
-    "dev": "tsc --watch",
-    "build": "tsc"
+    "build": "pnpm run build:esm && pnpm run build:cjs",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json"
   },
   "exports": {
     "./batch-request-of": {
-      "types": "./dist/batch-request-of/index.d.ts",
-      "default": "./dist/batch-request-of/index.js"
+      "import": {
+        "types": "./dist/esm/batch-request-of/index.d.ts",
+        "default": "./dist/esm/batch-request-of/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/batch-request-of/index.d.ts",
+        "default": "./dist/cjs/batch-request-of/index.js"
+      }
     },
     "./commaize": {
-      "types": "./dist/commaize/index.d.ts",
-      "default": "./dist/commaize/index.js"
+      "import": {
+        "types": "./dist/esm/commaize/index.d.ts",
+        "default": "./dist/esm/commaize/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/commaize/index.d.ts",
+        "default": "./dist/cjs/commaize/index.js"
+      }
     },
     "./decommaize": {
-      "types": "./dist/decommaize/index.d.ts",
-      "default": "./dist/decommaize/index.js"
+      "import": {
+        "types": "./dist/esm/decommaize/index.d.ts",
+        "default": "./dist/esm/decommaize/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/decommaize/index.d.ts",
+        "default": "./dist/cjs/decommaize/index.js"
+      }
     },
     "./delay": {
-      "types": "./dist/delay/index.d.ts",
-      "default": "./dist/delay/index.js"
+      "import": {
+        "types": "./dist/esm/delay/index.d.ts",
+        "default": "./dist/esm/delay/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/delay/index.d.ts",
+        "default": "./dist/cjs/delay/index.js"
+      }
     },
     "./format-phone": {
-      "types": "./dist/format-phone/index.d.ts",
-      "default": "./dist/format-phone/index.js"
+      "import": {
+        "types": "./dist/esm/format-phone/index.d.ts",
+        "default": "./dist/esm/format-phone/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/format-phone/index.d.ts",
+        "default": "./dist/cjs/format-phone/index.js"
+      }
     },
     "./get": {
-      "types": "./dist/get/index.d.ts",
-      "default": "./dist/get/index.js"
+      "import": {
+        "types": "./dist/esm/get/index.d.ts",
+        "default": "./dist/esm/get/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/get/index.d.ts",
+        "default": "./dist/cjs/get/index.js"
+      }
     },
     "./set": {
-      "types": "./dist/set/index.d.ts",
-      "default": "./dist/set/index.js"
+      "import": {
+        "types": "./dist/esm/set/index.d.ts",
+        "default": "./dist/esm/set/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/set/index.d.ts",
+        "default": "./dist/cjs/set/index.js"
+      }
     },
     "./object-entries": {
-      "types": "./dist/object-entries/index.d.ts",
-      "default": "./dist/object-entries/index.js"
+      "import": {
+        "types": "./dist/esm/object-entries/index.d.ts",
+        "default": "./dist/esm/object-entries/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/object-entries/index.d.ts",
+        "default": "./dist/cjs/object-entries/index.js"
+      }
     },
     "./object-keys": {
-      "types": "./dist/object-keys/index.d.ts",
-      "default": "./dist/object-keys/index.js"
+      "import": {
+        "types": "./dist/esm/object-keys/index.d.ts",
+        "default": "./dist/esm/object-keys/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/object-keys/index.d.ts",
+        "default": "./dist/cjs/object-keys/index.js"
+      }
     },
     "./object-values": {
-      "types": "./dist/object-values/index.d.ts",
-      "default": "./dist/object-values/index.js"
+      "import": {
+        "types": "./dist/esm/object-values/index.d.ts",
+        "default": "./dist/esm/object-values/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/object-values/index.d.ts",
+        "default": "./dist/cjs/object-values/index.js"
+      }
     },
     "./uniq-by": {
-      "types": "./dist/uniq-by/index.d.ts",
-      "default": "./dist/uniq-by/index.js"
+      "import": {
+        "types": "./dist/esm/uniq-by/index.d.ts",
+        "default": "./dist/esm/uniq-by/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/uniq-by/index.d.ts",
+        "default": "./dist/cjs/uniq-by/index.js"
+      }
     }
   },
   "devDependencies": {
