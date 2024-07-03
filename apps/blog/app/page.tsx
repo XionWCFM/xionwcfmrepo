@@ -17,7 +17,6 @@ export default async function RootPage() {
         <Stack w={"100%"} justify={"center"} align={"center"}>
           <Stack w="screen" className=" md:max-w-768 xl:max-w-1024">
             <MainXionWCFM />
-
             <Stack className=" px-16 md:px-0">
               <Stack>
                 <Paragraph color={"neutral-800"} weight={"light"} size={"7"} responsive className=" mt-24 mb-12">

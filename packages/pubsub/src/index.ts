@@ -17,7 +17,7 @@ export class Pubsub<EventName extends string = string> {
       this.events[eventName] = handlers.filter((handler) => handler !== func);
     }
   }
-  publish(eventName: EventName, context?: Record<string, any>) {
+  publish<T = Record<string, any>>(eventName: EventName, context?: T) {
     if (!this.events[eventName]) {
       return;
     }
