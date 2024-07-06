@@ -31,6 +31,7 @@
     "@xionwcfm/pubsub": "workspace:*",
     "@xionwcfm/tailwindcss-config": "workspace:*",
     "@xionwcfm/token": "workspace:*",
+    "@xionwcfm/icon": "workspace:*",
     "@xionwcfm/types": "workspace:*",
     "@xionwcfm/typescript-config": "workspace:*",
     "autoprefixer": "^10.4.19",

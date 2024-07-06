@@ -1,7 +1,14 @@
 "use client";
 import * as ToastPrimitives from "@radix-ui/react-toast";
+import { FillCheckIcon } from "@xionwcfm/icon/fill-check-icon";
+import { FillInfoIcon } from "@xionwcfm/icon/fill-info-icon";
+import { FillWarningIcon } from "@xionwcfm/icon/fill-warning-icon";
 import { Pubsub } from "@xionwcfm/pubsub";
 import { type ReactNode, useEffect, useReducer } from "react";
+import { Box } from "../box";
+import { Paragraph } from "../paragraph";
+import { SwitchCase } from "../switch-case";
+
 const TOAST_TIMEOUT_DEFAULT = 1_500;
 
 type ToastEvent = "add" | "delete" | "clear";
@@ -92,12 +99,31 @@ export const Toaster = () => {
 
   return (
     <ToastPrimitives.Provider duration={TOAST_TIMEOUT_DEFAULT}>
-      {state.map((toast) => (
-        <ToastPrimitives.Root key={toast.id} duration={toast.time}>
-          <ToastPrimitives.Title className=" bg-purple-50 ">{toast.content}</ToastPrimitives.Title>
-        </ToastPrimitives.Root>
-      ))}
-      <ToastPrimitives.Viewport className=" fixed bottom-0 left-[50%] translate-x-[-50%]  flex flex-col gap-y-16" />
+      {state.map((toast) => {
+        const { option } = toast;
+        return (
+          <ToastPrimitives.Root
+            className=" flex justify-center gap-x-8 font-regular items-center bg-neutral-200 text-neutral-500 rounded-full w-[300px] min-h-[48px] py-8 px-16"
+            key={toast.id}
+            duration={toast.time}
+          >
+            <Box className="flex justify-center items-center translate-y-[1px]">
+              <SwitchCase
+                value={option}
+                caseBy={{ success: <FillCheckIcon />, warning: <FillInfoIcon />, error: <FillWarningIcon /> }}
+                defaultComponent={<FillCheckIcon />}
+              />
+            </Box>
+
+            <ToastPrimitives.Title>
+              <Paragraph overflow={"ellipsis"} className=" max-w-[270px]">
+                {toast.content}
+              </Paragraph>
+            </ToastPrimitives.Title>
+          </ToastPrimitives.Root>
+        );
+      })}
+      <ToastPrimitives.Viewport className=" z-50 fixed top-[16px] left-[50%] translate-x-[-50%]  flex flex-col gap-y-16" />
     </ToastPrimitives.Provider>
   );
 };
