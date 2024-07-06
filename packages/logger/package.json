@@ -17,9 +17,10 @@
     }
   },
   "devDependencies": {
-    "@xionwcfm/typescript-config": "workspace:*",
+    "@types/react": "^18",
     "@xionwcfm/pubsub": "workspace:*",
-    "typescript": "latest",
-    "@types/react": "^18"
+    "@xionwcfm/typescript-config": "workspace:*",
+    "tsup": "^8.1.0",
+    "typescript": "latest"
   }
 }
