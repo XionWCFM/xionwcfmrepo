@@ -18,8 +18,7 @@
   },
   "scripts": {
     "generate:component": "turbo gen react-component",
-    "dev": "tsc --watch",
-    "build": "tsc"
+    "build": "tsup"
   },
   "devDependencies": {
     "@radix-ui/react-toast": "^1.2.1",

@@ -1,69 +1,67 @@
 {
   "name": "@xionwcfm/date",
   "scripts": {
-    "build": "pnpm run build:esm && pnpm run build:cjs",
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build:cjs": "tsc -p tsconfig.cjs.json"
+    "build": "tsup"
   },
   "exports": {
     "./format-date": {
       "import": {
-        "types": "./dist/esm/format-date/index.d.ts",
-        "default": "./dist/esm/format-date/index.js"
+        "types": "./dist/format-date.d.mts",
+        "default": "./dist/format-date.mjs"
       },
       "require": {
-        "types": "./dist/cjs/format-date/index.d.ts",
-        "default": "./dist/cjs/format-date/index.js"
+        "types": "./dist/format-date.d.ts",
+        "default": "./dist/format-date.js"
       }
     },
     "./is-after-with-sameday": {
       "import": {
-        "types": "./dist/esm/is-after-with-sameday/index.d.ts",
-        "default": "./dist/esm/is-after-with-sameday/index.js"
+        "types": "./dist/is-after-with-sameday.d.mts",
+        "default": "./dist/is-after-with-sameday.mjs"
       },
       "require": {
-        "types": "./dist/cjs/is-after-with-sameday/index.d.ts",
-        "default": "./dist/cjs/is-after-with-sameday/index.js"
+        "types": "./dist/is-after-with-sameday.d.ts",
+        "default": "./dist/is-after-with-sameday.js"
       }
     },
     "./is-before-with-sameday": {
       "import": {
-        "types": "./dist/esm/is-before-with-sameday/index.d.ts",
-        "default": "./dist/esm/is-before-with-sameday/index.js"
+        "types": "./dist/is-before-with-sameday.d.mts",
+        "default": "./dist/is-before-with-sameday.mjs"
       },
       "require": {
-        "types": "./dist/cjs/is-before-with-sameday/index.d.ts",
-        "default": "./dist/cjs/is-before-with-sameday/index.js"
+        "types": "./dist/is-before-with-sameday.d.ts",
+        "default": "./dist/is-before-with-sameday.js"
       }
     },
     "./safe-get-iso": {
       "import": {
-        "types": "./dist/esm/safe-get-iso/index.d.ts",
-        "default": "./dist/esm/safe-get-iso/index.js"
+        "types": "./dist/safe-get-iso.d.mts",
+        "default": "./dist/safe-get-iso.mjs"
       },
       "require": {
-        "types": "./dist/cjs/safe-get-iso/index.d.ts",
-        "default": "./dist/cjs/safe-get-iso/index.js"
+        "types": "./dist/safe-get-iso.d.ts",
+        "default": "./dist/safe-get-iso.js"
       }
     },
     "./to-date": {
       "import": {
-        "types": "./dist/esm/to-date/index.d.ts",
-        "default": "./dist/esm/to-date/index.js"
+        "types": "./dist/to-date.d.mts",
+        "default": "./dist/to-date.mjs"
       },
       "require": {
-        "types": "./dist/cjs/to-date/index.d.ts",
-        "default": "./dist/cjs/to-date/index.js"
+        "types": "./dist/to-date.d.ts",
+        "default": "./dist/to-date.js"
       }
     },
     "./to-iso": {
       "import": {
-        "types": "./dist/esm/to-iso/index.d.ts",
-        "default": "./dist/esm/to-iso/index.js"
+        "types": "./dist/to-iso.d.mts",
+        "default": "./dist/to-iso.mjs"
       },
       "require": {
-        "types": "./dist/cjs/to-iso/index.d.ts",
-        "default": "./dist/cjs/to-iso/index.js"
+        "types": "./dist/to-iso.d.ts",
+        "default": "./dist/to-iso.js"
       }
     }
   },

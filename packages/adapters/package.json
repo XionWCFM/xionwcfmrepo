@@ -7,39 +7,37 @@
     "access": "public"
   },
   "scripts": {
-    "build": "pnpm run build:esm && pnpm run build:cjs",
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build:cjs": "tsc -p tsconfig.cjs.json"
+    "build": "tsup"
   },
   "exports": {
     "./link": {
       "import": {
-        "types": "./dist/esm/link/index.d.ts",
-        "default": "./dist/esm/link/index.js"
+        "types": "./dist/link.d.mts",
+        "default": "./dist/link.mjs"
       },
       "require": {
-        "types": "./dist/cjs/link/index.d.ts",
-        "default": "./dist/cjs/link/index.js"
+        "types": "./dist/link.d.ts",
+        "default": "./dist/link.js"
       }
     },
     "./image": {
       "import": {
-        "types": "./dist/esm/image/index.d.ts",
-        "default": "./dist/esm/image/index.js"
+        "types": "./dist/image.d.mts",
+        "default": "./dist/image.mjs"
       },
       "require": {
-        "types": "./dist/cjs/image/index.d.ts",
-        "default": "./dist/cjs/image/index.js"
+        "types": "./dist/image.d.ts",
+        "default": "./dist/image.js"
       }
     },
     "./router": {
       "import": {
-        "types": "./dist/esm/router/index.d.ts",
-        "default": "./dist/esm/router/index.js"
+        "types": "./dist/router.d.mts",
+        "default": "./dist/router.mjs"
       },
       "require": {
-        "types": "./dist/cjs/router/index.d.ts",
-        "default": "./dist/cjs/router/index.js"
+        "types": "./dist/router.d.ts",
+        "default": "./dist/router.js"
       }
     }
   },

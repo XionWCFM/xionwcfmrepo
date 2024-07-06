@@ -1,7 +1,7 @@
 {
   "name": "@xionwcfm/qs",
   "scripts": {
-    "build": "tsc"
+    "build": "tsup"
   },
   "exports": {
     "./get-all-querystring": {

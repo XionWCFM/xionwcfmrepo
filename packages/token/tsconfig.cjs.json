@@ -1,9 +1,0 @@
-{
-  "extends": "@xionwcfm/typescript-config/cjs.json",
-  "compilerOptions": {
-    "outDir": "./dist/cjs",
-    "rootDir": "src"
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
-}

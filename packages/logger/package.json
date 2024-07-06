@@ -1,9 +1,6 @@
 {
   "name": "@xionwcfm/logger",
-  "scripts": {
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build:cjs": "tsc -p tsconfig.cjs.json"
-  },
+  "scripts": {},
   "exports": {
     ".": {
       "import": {
