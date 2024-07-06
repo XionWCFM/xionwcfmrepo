@@ -5,6 +5,7 @@ import { toast } from "@xionwcfm/ui/toast";
 import { clipboard } from "@xionwcfm/utils/web";
 import { AUTHOR_EMAIL } from "~/shared/constants";
 import type { IconProps } from "./icon.type";
+
 export const XionEmailIcon = (props: IconProps) => {
   const { onClick, className } = props;
   const mergeOnClick = async () => {

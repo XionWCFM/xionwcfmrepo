@@ -21,9 +21,8 @@ export const PostDetailAuthorWithChar = () => {
           </Paragraph>
         </Stack>
 
-        <Stack direction={"row"} gap={"20"}>
+        <Stack direction={"row"} gap={"12"}>
           <XionGithubLogoIcon />
-
           <XionLinkedinIcon />
           {isEnabled("author-email") ? <XionEmailIcon /> : null}
         </Stack>
