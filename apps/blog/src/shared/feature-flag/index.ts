@@ -10,7 +10,7 @@ export const isEnabled = (type: FeatureFlagType, context?: FeatureFlagContextTyp
     case "header-hambuger":
       return false;
     case "author-email":
-      return false;
+      return true;
     default:
       throw new Error("Unknown feature flag type");
   }

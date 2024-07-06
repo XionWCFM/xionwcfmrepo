@@ -1,6 +1,7 @@
 import baseConfig from "@xionwcfm/tailwindcss-config/base";
 import { XION_STYLE } from "@xionwcfm/token";
 import type { Config } from "tailwindcss";
+
 const config: Config = {
   ...baseConfig,
   content: [
@@ -21,5 +22,6 @@ const config: Config = {
       animation: XION_STYLE.animation,
     },
   },
+  plugins: [...(baseConfig?.plugins ?? []), require("tailwindcss-animate")],
 };
 export default config;

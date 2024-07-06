@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/react": "^18",
     "@xionwcfm/typescript-config": "workspace:*",
+    "tsup": "^8.1.0",
     "typescript": "latest"
   }
 }

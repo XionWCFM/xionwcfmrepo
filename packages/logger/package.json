@@ -1,0 +1,23 @@
+{
+  "name": "@xionwcfm/logger",
+  "scripts": {},
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18",
+    "@xionwcfm/pubsub": "workspace:*",
+    "@xionwcfm/typescript-config": "workspace:*",
+    "tsup": "^8.1.0",
+    "typescript": "latest"
+  }
+}
