@@ -4,189 +4,197 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "pnpm run build:esm && pnpm run build:cjs",
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build:cjs": "tsc -p tsconfig.cjs.json"
+    "build": "tsup"
   },
   "exports": {
-    "./builder": {
+    ".": {
       "import": {
-        "types": "./dist/esm/builder/index.d.ts",
-        "default": "./dist/esm/builder/index.js"
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
       },
       "require": {
-        "types": "./dist/cjs/builder/index.d.ts",
-        "default": "./dist/cjs/builder/index.js"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./builder": {
+      "import": {
+        "types": "./dist/builder.d.mts",
+        "default": "./dist/builder.mjs"
+      },
+      "require": {
+        "types": "./dist/builder.d.ts",
+        "default": "./dist/builder.js"
       }
     },
     "./use-animation": {
       "import": {
-        "types": "./dist/esm/use-animation/index.d.ts",
-        "default": "./dist/esm/use-animation/index.js"
+        "types": "./dist/use-animation.d.mts",
+        "default": "./dist/use-animation.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-animation/index.d.ts",
-        "default": "./dist/cjs/use-animation/index.js"
+        "types": "./dist/use-animation.d.ts",
+        "default": "./dist/use-animation.js"
       }
     },
     "./use-debounce-value": {
       "import": {
-        "types": "./dist/esm/use-debounce-value/index.d.ts",
-        "default": "./dist/esm/use-debounce-value/index.js"
+        "types": "./dist/use-debounce-value.d.mts",
+        "default": "./dist/use-debounce-value.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-debounce-value/index.d.ts",
-        "default": "./dist/cjs/use-debounce-value/index.js"
+        "types": "./dist/use-debounce-value.d.ts",
+        "default": "./dist/use-debounce-value.js"
       }
     },
     "./use-draft": {
       "import": {
-        "types": "./dist/esm/use-draft/index.d.ts",
-        "default": "./dist/esm/use-draft/index.js"
+        "types": "./dist/use-draft.d.mts",
+        "default": "./dist/use-draft.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-draft/index.d.ts",
-        "default": "./dist/cjs/use-draft/index.js"
+        "types": "./dist/use-draft.d.ts",
+        "default": "./dist/use-draft.js"
       }
     },
     "./use-intersection-observer": {
       "import": {
-        "types": "./dist/esm/use-intersection-observer/index.d.ts",
-        "default": "./dist/esm/use-intersection-observer/index.js"
+        "types": "./dist/use-intersection-observer.d.mts",
+        "default": "./dist/use-intersection-observer.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-intersection-observer/index.d.ts",
-        "default": "./dist/cjs/use-intersection-observer/index.js"
+        "types": "./dist/use-intersection-observer.d.ts",
+        "default": "./dist/use-intersection-observer.js"
       }
     },
     "./use-loading": {
       "import": {
-        "types": "./dist/esm/use-loading/index.d.ts",
-        "default": "./dist/esm/use-loading/index.js"
+        "types": "./dist/use-loading.d.mts",
+        "default": "./dist/use-loading.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-loading/index.d.ts",
-        "default": "./dist/cjs/use-loading/index.js"
+        "types": "./dist/use-loading.d.ts",
+        "default": "./dist/use-loading.js"
       }
     },
     "./use-scroll-direction": {
       "import": {
-        "types": "./dist/esm/use-scroll-direction/index.d.ts",
-        "default": "./dist/esm/use-scroll-direction/index.js"
+        "types": "./dist/use-scroll-direction.d.mts",
+        "default": "./dist/use-scroll-direction.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-scroll-direction/index.d.ts",
-        "default": "./dist/cjs/use-scroll-direction/index.js"
+        "types": "./dist/use-scroll-direction.d.ts",
+        "default": "./dist/use-scroll-direction.js"
       }
     },
     "./use-boolean-state": {
       "import": {
-        "types": "./dist/esm/use-boolean-state/index.d.ts",
-        "default": "./dist/esm/use-boolean-state/index.js"
+        "types": "./dist/use-boolean-state.d.mts",
+        "default": "./dist/use-boolean-state.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-boolean-state/index.d.ts",
-        "default": "./dist/cjs/use-boolean-state/index.js"
+        "types": "./dist/use-boolean-state.d.ts",
+        "default": "./dist/use-boolean-state.js"
       }
     },
     "./use-check-list": {
       "import": {
-        "types": "./dist/esm/use-check-list/index.d.ts",
-        "default": "./dist/esm/use-check-list/index.js"
+        "types": "./dist/use-check-list.d.mts",
+        "default": "./dist/use-check-list.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-check-list/index.d.ts",
-        "default": "./dist/cjs/use-check-list/index.js"
+        "types": "./dist/use-check-list.d.ts",
+        "default": "./dist/use-check-list.js"
       }
     },
     "./use-force-update": {
       "import": {
-        "types": "./dist/esm/use-force-update/index.d.ts",
-        "default": "./dist/esm/use-force-update/index.js"
+        "types": "./dist/use-force-update.d.mts",
+        "default": "./dist/use-force-update.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-force-update/index.d.ts",
-        "default": "./dist/cjs/use-force-update/index.js"
+        "types": "./dist/use-force-update.d.ts",
+        "default": "./dist/use-force-update.js"
       }
     },
     "./use-input-state": {
       "import": {
-        "types": "./dist/esm/use-input-state/index.d.ts",
-        "default": "./dist/esm/use-input-state/index.js"
+        "types": "./dist/use-input-state.d.mts",
+        "default": "./dist/use-input-state.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-input-state/index.d.ts",
-        "default": "./dist/cjs/use-input-state/index.js"
+        "types": "./dist/use-input-state.d.ts",
+        "default": "./dist/use-input-state.js"
       }
     },
     "./use-is-mounted": {
       "import": {
-        "types": "./dist/esm/use-is-mounted/index.d.ts",
-        "default": "./dist/esm/use-is-mounted/index.js"
+        "types": "./dist/use-is-mounted.d.mts",
+        "default": "./dist/use-is-mounted.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-is-mounted/index.d.ts",
-        "default": "./dist/cjs/use-is-mounted/index.js"
+        "types": "./dist/use-is-mounted.d.ts",
+        "default": "./dist/use-is-mounted.js"
       }
     },
     "./use-is-mounted-ref": {
       "import": {
-        "types": "./dist/esm/use-is-mounted-ref/index.d.ts",
-        "default": "./dist/esm/use-is-mounted-ref/index.js"
+        "types": "./dist/use-is-mounted-ref.d.mts",
+        "default": "./dist/use-is-mounted-ref.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-is-mounted-ref/index.d.ts",
-        "default": "./dist/cjs/use-is-mounted-ref/index.js"
+        "types": "./dist/use-is-mounted-ref.d.ts",
+        "default": "./dist/use-is-mounted-ref.js"
       }
     },
     "./use-isomorphic-layout-effect": {
       "import": {
-        "types": "./dist/esm/use-isomorphic-layout-effect/index.d.ts",
-        "default": "./dist/esm/use-isomorphic-layout-effect/index.js"
+        "types": "./dist/use-isomorphic-layout-effect.d.mts",
+        "default": "./dist/use-isomorphic-layout-effect.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-isomorphic-layout-effect/index.d.ts",
-        "default": "./dist/cjs/use-isomorphic-layout-effect/index.js"
+        "types": "./dist/use-isomorphic-layout-effect.d.ts",
+        "default": "./dist/use-isomorphic-layout-effect.js"
       }
     },
     "./use-preserved-callback": {
       "import": {
-        "types": "./dist/esm/use-preserved-callback/index.d.ts",
-        "default": "./dist/esm/use-preserved-callback/index.js"
+        "types": "./dist/use-preserved-callback.d.mts",
+        "default": "./dist/use-preserved-callback.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-preserved-callback/index.d.ts",
-        "default": "./dist/cjs/use-preserved-callback/index.js"
+        "types": "./dist/use-preserved-callback.d.ts",
+        "default": "./dist/use-preserved-callback.js"
       }
     },
     "./use-ref-effect": {
       "import": {
-        "types": "./dist/esm/use-ref-effect/index.d.ts",
-        "default": "./dist/esm/use-ref-effect/index.js"
+        "types": "./dist/use-ref-effect.d.mts",
+        "default": "./dist/use-ref-effect.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-ref-effect/index.d.ts",
-        "default": "./dist/cjs/use-ref-effect/index.js"
+        "types": "./dist/use-ref-effect.d.ts",
+        "default": "./dist/use-ref-effect.js"
       }
     },
     "./use-resize-observer": {
       "import": {
-        "types": "./dist/esm/use-resize-observer/index.d.ts",
-        "default": "./dist/esm/use-resize-observer/index.js"
+        "types": "./dist/use-resize-observer.d.mts",
+        "default": "./dist/use-resize-observer.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-resize-observer/index.d.ts",
-        "default": "./dist/cjs/use-resize-observer/index.js"
+        "types": "./dist/use-resize-observer.d.ts",
+        "default": "./dist/use-resize-observer.js"
       }
     },
     "./use-toggle-state": {
       "import": {
-        "types": "./dist/esm/use-toggle-state/index.d.ts",
-        "default": "./dist/esm/use-toggle-state/index.js"
+        "types": "./dist/use-toggle-state.d.mts",
+        "default": "./dist/use-toggle-state.mjs"
       },
       "require": {
-        "types": "./dist/cjs/use-toggle-state/index.d.ts",
-        "default": "./dist/cjs/use-toggle-state/index.js"
+        "types": "./dist/use-toggle-state.d.ts",
+        "default": "./dist/use-toggle-state.js"
       }
     }
   },
@@ -197,6 +205,7 @@
     "@types/node": "^20.14.9",
     "@types/react": "^18",
     "@xionwcfm/typescript-config": "workspace:*",
+    "tsup": "^8.1.0",
     "typescript": "latest"
   },
   "peerDependencies": {
