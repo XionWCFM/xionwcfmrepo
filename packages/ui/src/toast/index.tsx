@@ -1,8 +1,7 @@
 "use client";
 import * as ToastPrimitives from "@radix-ui/react-toast";
-import { useIsomorphicLayoutEffect } from "@xionwcfm/hooks/use-isomorphic-layout-effect";
 import { Pubsub } from "@xionwcfm/pubsub";
-import { type ReactNode, useReducer } from "react";
+import { type ReactNode, useEffect, useReducer } from "react";
 const TOAST_TIMEOUT_DEFAULT = 1_500;
 
 type ToastEvent = "add" | "delete" | "clear";
@@ -63,12 +62,16 @@ const reducer = (state: ToastType[], action: ToastAction): ToastType[] => {
   }
 };
 
+const createRandomId = (prefix: string) => {
+  return `${prefix}-${Math.random().toString(36).substring(7)}`;
+};
+
 export const Toaster = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useIsomorphicLayoutEffect(() => {
+  useEffect(() => {
     const addHandler = async (toast: ToastParamType) => {
-      const id = Math.random().toString(36).substring(7);
+      const id = createRandomId("xionwcfm-toast");
       const title = toast.content ?? "";
       const option = toast.option ?? "success";
       const time = toast.time ?? 1500;
