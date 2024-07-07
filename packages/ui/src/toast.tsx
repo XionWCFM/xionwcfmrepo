@@ -5,9 +5,9 @@ import { FillInfoIcon } from "@xionwcfm/icon/fill-info-icon";
 import { FillWarningIcon } from "@xionwcfm/icon/fill-warning-icon";
 import { Pubsub } from "@xionwcfm/pubsub";
 import { type ReactNode, useEffect, useReducer } from "react";
-import { Box } from "../box";
-import { Paragraph } from "../paragraph";
-import { SwitchCase } from "../switch-case";
+import { Box } from "./box";
+import { Paragraph } from "./paragraph";
+import { SwitchCase } from "./switch-case";
 
 const TOAST_TIMEOUT_DEFAULT = 1_500;
 

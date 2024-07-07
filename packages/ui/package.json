@@ -4,17 +4,17 @@
   "private": true,
   "exports": {
     "./button": "./src/button.tsx",
-    "./box": "./src/box/index.tsx",
-    "./stack": "./src/stack/index.tsx",
-    "./spacing": "./src/spacing/index.tsx",
-    "./paragraph": "./src/paragraph/index.tsx",
-    "./separate": "./src/separate/index.tsx",
-    "./skeleton": "./src/skeleton/index.tsx",
-    "./chip": "./src/chip/index.tsx",
-    "./separated": "./src/separated/index.tsx",
-    "./switch-case": "./src/switch-case/index.tsx",
-    "./toast": "./src/toast/index.tsx",
-    "./cn": "./src/cn/index.ts"
+    "./box": "./src/box.tsx",
+    "./stack": "./src/stack.tsx",
+    "./spacing": "./src/spacing.tsx",
+    "./paragraph": "./src/paragraph.tsx",
+    "./separate": "./src/separate.tsx",
+    "./skeleton": "./src/skeleton.tsx",
+    "./chip": "./src/chip.tsx",
+    "./separated": "./src/separated.tsx",
+    "./switch-case": "./src/switch-case.tsx",
+    "./toast": "./src/toast.tsx",
+    "./cn": "./src/external-utils/cn.ts"
   },
   "scripts": {
     "generate:component": "turbo gen react-component",
@@ -28,10 +28,10 @@
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "@xionwcfm/hooks": "workspace:*",
+    "@xionwcfm/icon": "workspace:*",
     "@xionwcfm/pubsub": "workspace:*",
     "@xionwcfm/tailwindcss-config": "workspace:*",
     "@xionwcfm/token": "workspace:*",
-    "@xionwcfm/icon": "workspace:*",
     "@xionwcfm/types": "workspace:*",
     "@xionwcfm/typescript-config": "workspace:*",
     "autoprefixer": "^10.4.19",
@@ -44,5 +44,8 @@
     "tailwindcss": "^3.4.1",
     "tsup": "^8.1.0",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0"
   }
 }

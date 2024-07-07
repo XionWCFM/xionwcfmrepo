@@ -1,10 +1,10 @@
 import type { PolymorphicComponentPropsWithRef, PolymorphicRef } from "@xionwcfm/types/polymorphic";
 import { type VariantProps, cva } from "class-variance-authority";
 import { type ElementType, type ReactNode, forwardRef } from "react";
-import type { PolimophicWithSpacingSystemProps } from "../box/index";
-import { cn } from "../cn/index";
-import { stackVariants } from "../internal-utils/stack-variants";
-import type { SemanticHTMLContentSectionType } from "../types/index";
+import type { PolimophicWithSpacingSystemProps } from "./box";
+import { cn } from "./external-utils/cn";
+import { stackVariants } from "./internal-utils/stack-variants";
+import type { SemanticHTMLContentSectionType } from "./internal-utils/type";
 
 const skeletonVariants = cva(" animate-pulse", {
   variants: {
