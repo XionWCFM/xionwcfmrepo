@@ -1,10 +1,10 @@
 import type { PolymorphicComponentPropsWithRef, PolymorphicRef } from "@xionwcfm/types/polymorphic";
 import type { VariantProps } from "class-variance-authority";
 import { type ElementType, type ReactNode, forwardRef } from "react";
-import { Box, type PolimophicWithSpacingSystemProps } from "../box/index";
-import { cn } from "../cn/index";
-import { stackVariants } from "../internal-utils/stack-variants";
-import type { SemanticHTMLContentSectionType } from "../types/index";
+import { Box, type PolimophicWithSpacingSystemProps } from "./box";
+import { cn } from "./external-utils/cn";
+import { stackVariants } from "./internal-utils/stack-variants";
+import type { SemanticHTMLContentSectionType } from "./internal-utils/type";
 
 type Props<C extends ElementType> = PolimophicWithSpacingSystemProps<C> & VariantProps<typeof stackVariants>;
 

@@ -9,7 +9,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Stack className="md:bg-neutral-100 min-h-screen">
+    <Stack className=" min-h-screen">
       <InteractiveHeader />
       <Spacing className=" bg-neutral-50" h={"48"} />
       <Stack className="  overflow-hidden" w={"screen"} align={"center"}>

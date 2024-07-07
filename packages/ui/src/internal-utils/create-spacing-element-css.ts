@@ -1,4 +1,4 @@
-import type { CssSpacingElementType, CssSpacingGapType, ReturnCssSpacingElementType } from "../types/index.js";
+import type { CssSpacingElementType, CssSpacingGapType, ReturnCssSpacingElementType } from "./type.js";
 
 export const createSpacingElementCss = (
   type?: CssSpacingElementType,

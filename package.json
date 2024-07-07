@@ -4,7 +4,8 @@
   "scripts": {
     "build": "turbo build",
     "build:p": "turbo build --filter './packages/*'",
-    "dev": "turbo dev",
+    "dev": "turbo dev --filter './apps/blog'",
+    "dev:pg": "turbo dev --filter './apps/playground'",
     "storybook": "turbo storybook",
     "push:origin": "git push origin $(git symbolic-ref --short HEAD)",
     "lint": "turbo lint",

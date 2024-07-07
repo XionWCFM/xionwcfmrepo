@@ -1,0 +1,37 @@
+{
+  "name": "playground",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "19.0.0-rc.0",
+    "react-dom": "19.0.0-rc.0",
+    "next": "15.0.0-canary.56",
+    "date-fns": "^3.6.0",
+    "@xionwcfm/adapters": "workspace:*",
+    "@xionwcfm/date": "workspace:*",
+    "@xionwcfm/error": "workspace:*",
+    "@xionwcfm/hooks": "workspace:*",
+    "@xionwcfm/icon": "workspace:*",
+    "@xionwcfm/pubsub": "workspace:*",
+    "@xionwcfm/ui": "workspace:*",
+    "@xionwcfm/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "@xionwcfm/tailwindcss-config": "workspace:*",
+    "@xionwcfm/token": "workspace:*",
+    "@xionwcfm/typescript-config": "workspace:*"
+  }
+}

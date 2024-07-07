@@ -17,7 +17,7 @@ export const PostCard = (props: PostCardProps) => {
   const date = formatDate(post.releaseDate, "yyyy.MM.dd. HH:mm");
   const label = `ReadMore : ${post.title}`;
   return (
-    <Stack className="hover:opacity-90 hover:rounded-sm hover:bg-neutral-200 duration-200 transition-colors">
+    <Stack className="hover:opacity-80 hover:rounded-sm hover:bg-neutral-200 duration-200 transition-colors">
       <Box px="8">
         <Paragraph color={"gray-600"} size={"3"} responsive>
           {post.categories}

@@ -5,9 +5,9 @@ import type {
 } from "@xionwcfm/types/polymorphic";
 import type { VariantProps } from "class-variance-authority";
 import { type ElementType, type ReactNode, forwardRef } from "react";
-import { cn } from "../cn";
-import { stackVariants } from "../internal-utils/stack-variants";
-import type { SemanticHTMLContentSectionType } from "../types";
+import { cn } from "./external-utils/cn";
+import { stackVariants } from "./internal-utils/stack-variants";
+import type { SemanticHTMLContentSectionType } from "./internal-utils/type";
 
 type Props<C extends ElementType> = PolymorphicComponentProps<
   C,
