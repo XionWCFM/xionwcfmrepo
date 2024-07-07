@@ -30,6 +30,7 @@
     "@xionwcfm/tailwindcss-config": "workspace:*",
     "@xionwcfm/typescript-config": "workspace:*",
     "@xionwcfm/token": "workspace:*",
+    "@xionwcfm/icon": "workspace:*",
     "autoprefixer": "^10.4.19",
     "postcss": "^8",
     "storybook": "^8.1.10",

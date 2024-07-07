@@ -22,7 +22,7 @@ type BoxType = <C extends ElementType = ElementType>(
 ) => ReactNode | null;
 
 export const Box: BoxType = forwardRef(function Box<C extends ElementType = "div">(
-  { children, as, className, asChild, ...rest }: PolimophicWithSpacingSystemProps<C>,
+  { children, as, className, asChild = false, ...rest }: PolimophicWithSpacingSystemProps<C>,
   ref?: PolymorphicRef<C>,
 ) {
   const AsComponent = as || "div";
