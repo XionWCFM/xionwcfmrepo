@@ -1,7 +1,7 @@
-import React from "react";
+import { Stack } from "@xionwcfm/ui/stack";
 
 const PortfolioPage = () => {
-  return <div>page</div>;
+  return <Stack>.</Stack>;
 };
 
 export default PortfolioPage;
