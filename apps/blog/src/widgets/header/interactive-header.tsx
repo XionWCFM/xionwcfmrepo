@@ -19,7 +19,7 @@ export const InteractiveHeader = () => {
       align={"center"}
     >
       <Stack
-        className=" px-16 md:px-0 md:max-w-768 xl:max-w-1024 "
+        className=" px-16 md:px-0 md:max-w-768  "
         w={"screen"}
         direction={"row"}
         align={"center"}

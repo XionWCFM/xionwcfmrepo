@@ -12,7 +12,7 @@ export default async function RootPage() {
   const currentPostTitle = `${AUTHOR_NICKNAME}의 최신 포스트 보기`;
   return (
     <>
-      <Stack className=" bg-neutral-50 min-h-screen">
+      <Stack className=" min-h-screen bg-neutral-50">
         <StaticHeader />
         <Stack w={"100%"} justify={"center"} align={"center"}>
           <Stack w="screen" className=" md:max-w-768 xl:max-w-1024">

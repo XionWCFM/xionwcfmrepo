@@ -20,7 +20,7 @@ export const XionEmailIcon = (props: IconProps) => {
   const { className } = props;
 
   return (
-    <button className=" hover:opacity-70" type="button">
+    <button name="email-button" aria-label={"email-button"} className=" hover:opacity-70" type="button">
       <EmailIcon onClick={handleEmailClick} className={cn("w-24 h-24 text-neutral-500", className)} />
     </button>
   );
