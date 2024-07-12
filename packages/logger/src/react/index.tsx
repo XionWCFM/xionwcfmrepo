@@ -1,5 +1,5 @@
 "use client";
-import { type ReactNode, useCallback, useEffect, useRef } from "react";
+import { type PropsWithChildren, type ReactNode, useCallback, useEffect, useRef } from "react";
 import type { GetCallbackHandlerParam, LoggerReturnStructure } from "../core";
 
 function usePreservedCallback<Callback extends (...args: any[]) => any>(callback: Callback) {

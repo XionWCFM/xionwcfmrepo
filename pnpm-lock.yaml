@@ -223,6 +223,9 @@ importers:
       '@xionwcfm/icon':
         specifier: workspace:*
         version: link:../../packages/icon
+      '@xionwcfm/logger':
+        specifier: workspace:*
+        version: link:../../packages/logger
       '@xionwcfm/pubsub':
         specifier: workspace:*
         version: link:../../packages/pubsub

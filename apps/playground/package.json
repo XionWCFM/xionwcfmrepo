@@ -19,6 +19,7 @@
     "@xionwcfm/hooks": "workspace:*",
     "@xionwcfm/icon": "workspace:*",
     "@xionwcfm/pubsub": "workspace:*",
+    "@xionwcfm/logger": "workspace:*",
     "@xionwcfm/ui": "workspace:*",
     "@xionwcfm/utils": "workspace:*"
   },

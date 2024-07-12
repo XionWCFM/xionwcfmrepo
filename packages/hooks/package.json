@@ -27,6 +27,7 @@
         "default": "./dist/builder.js"
       }
     },
+
     "./use-animation": {
       "import": {
         "types": "./dist/use-animation.d.mts",

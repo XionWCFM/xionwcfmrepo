@@ -1,4 +1,22 @@
+"use client";
 import { Stack } from "@xionwcfm/ui/stack";
+import { logger } from "~/src/app/providers";
+import useNavigationBlocker from "~/src/hooks/use-navigation-blocker";
 export default function Home() {
-  return <Stack>hello</Stack>;
+  useNavigationBlocker(async () => {
+    return confirm("hel");
+  });
+  return (
+    <Stack>
+      hell
+      <button
+        type="button"
+        onClick={() => {
+          logger.track("click");
+        }}
+      >
+        click
+      </button>
+    </Stack>
+  );
 }
