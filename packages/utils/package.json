@@ -83,6 +83,16 @@
         "types": "./dist/web/index.d.ts",
         "default": "./dist/web/index.js"
       }
+    },
+    "./pattern": {
+      "import": {
+        "types": "./dist/pattern/index.d.mts",
+        "default": "./dist/pattern/index.mjs"
+      },
+      "require": {
+        "types": "./dist/pattern/index.d.ts",
+        "default": "./dist/pattern/index.js"
+      }
     }
   },
   "devDependencies": {
