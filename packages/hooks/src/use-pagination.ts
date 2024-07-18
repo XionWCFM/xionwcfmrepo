@@ -58,10 +58,10 @@ const reducer = <T>(state: PaginationStatesType<T>, action: PaginationActionType
   }
 };
 
-const _getPaginationButtonList = <T>(state: PaginationStatesType<T>, buttonSize: number) => {
-  const { currentPage, totalPageCount } = state;
-  // state.currentPage가 buttonSize보다 작을 때 -> 1
-  // state.currentPage가 buttonSize보다 클 때 -> state.currentPage - buttonSize
+export const _getPaginationButtonList = <T>(state: PaginationStatesType<T>, buttonSize: number) => {
+  const { currentPage } = state;
+  const firstNum = Math.floor((currentPage - 1) / buttonSize) * buttonSize + 1;
+  return Array.from({ length: buttonSize }).map((_, idx) => firstNum + idx);
 };
 
 const getPaginationList = <T>(
