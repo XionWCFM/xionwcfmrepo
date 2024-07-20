@@ -4,7 +4,6 @@ import { Paragraph } from "@xionwcfm/ui/paragraph";
 import { Stack } from "@xionwcfm/ui/stack";
 import { ASSET_XION_CHAR_GRAY } from "~/shared/assets";
 import { AUTHOR_DESCRIPTION, AUTHOR_NAME } from "~/shared/constants";
-import { isEnabled } from "~/shared/feature-flag";
 import { ROUTES } from "~/shared/routes";
 import { XionEmailIcon } from "~/shared/ui/icon/xion-email-icon";
 import { XionGithubLogoIcon } from "~/shared/ui/icon/xion-github-icon";
@@ -29,7 +28,7 @@ export const PostDetailAuthorWithChar = () => {
         <Stack direction={"row"} gap={"12"}>
           <XionGithubLogoIcon />
           <XionLinkedinIcon />
-          {isEnabled("author-email") ? <XionEmailIcon /> : null}
+          <XionEmailIcon />
         </Stack>
       </Stack>
     </Stack>
