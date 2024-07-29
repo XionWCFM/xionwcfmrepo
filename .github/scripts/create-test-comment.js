@@ -7,7 +7,7 @@ const createTestResultText = (value) => {
       const testAssertion = testSuites.testResults
         .map((testResult) =>
           testResult.assertionResults
-            .filter((assertion) => assertion.status === "passed" && assertion.fullName.trim() === "")
+            .filter((assertion) => !(assertion.status === "passed" && assertion.fullName.trim() === ""))
             .map((assertion) => `- ${assertion.status === "passed" ? "✅" : "❌"} ${assertion.fullName}`)
             .join("\n"),
         )
