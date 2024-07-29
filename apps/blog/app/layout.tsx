@@ -34,17 +34,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <AutoRefresh>
-      <html lang="ko" className={notoSansKr.className}>
-        <body>
+    <html lang="ko" className={notoSansKr.className}>
+      <body>
+        <AutoRefresh>
           {children}
           <Toaster />
-        </body>
-        <ClarityScript />
-        <VercelScript />
-        <GoogleTagManager gtmId={"GTM-52Z3Z37J"} />
-        <GoogleAnalytics gaId={"G-59H4F1GZ8B"} />
-      </html>
-    </AutoRefresh>
+        </AutoRefresh>
+      </body>
+      <ClarityScript />
+      <VercelScript />
+      <GoogleTagManager gtmId={"GTM-52Z3Z37J"} />
+      <GoogleAnalytics gaId={"G-59H4F1GZ8B"} />
+    </html>
   );
 }

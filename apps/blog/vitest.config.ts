@@ -10,6 +10,8 @@ export default defineConfig({
     environment: "happy-dom",
     setupFiles: ["./vitest.setup.tsx"],
     include: ["**/*.test.+(ts|tsx|js)"],
+    reporters: ["default", "json"],
+    outputFile: "test-results.json",
     sequence: {
       shuffle: true,
     },

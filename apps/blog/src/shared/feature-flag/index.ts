@@ -1,3 +1,5 @@
+import { ENVIRONMENT } from "../environment";
+
 type FeatureFlagType = "header-hambuger" | "author-email";
 
 type FeatureFlagContextType = {
@@ -8,7 +10,7 @@ export const isEnabled = (type: FeatureFlagType, context?: FeatureFlagContextTyp
   const today = context?.today ?? new Date();
   switch (type) {
     case "header-hambuger":
-      return false;
+      return ENVIRONMENT.NODE_ENV === "development";
     case "author-email":
       return true;
     default:
