@@ -18,8 +18,7 @@
     "./drawer": "./src/drawer.tsx"
   },
   "scripts": {
-    "generate:component": "turbo gen react-component",
-    "build": "tsup"
+    "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
     "@radix-ui/react-toast": "^1.2.1",
