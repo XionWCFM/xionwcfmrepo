@@ -84,3 +84,16 @@ jobs:
 
       - name: Run Tests
         run: pnpm run test:ci
+
+      - name: Combine Test Results
+        run: pnpm run combine-test-results
+
+      - name: Create Test Comment
+        uses: actions/github-script@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const script = require('./.github/create-test-comment.js')
+            console.log(script({github, context}))

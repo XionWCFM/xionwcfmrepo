@@ -15,7 +15,8 @@
     },
     "test:ci": {
       "cache": true,
-      "persistent": false
+      "persistent": false,
+      "outputs": ["test-results.json"]
     },
     "dev": {
       "cache": false,
