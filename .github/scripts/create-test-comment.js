@@ -7,14 +7,11 @@ const createTestResultText = (value) => {
       const testAssertion = testSuites.success
         ? "✅ 모두 통과했어요!"
         : testSuites.testResults
-            .filter((testResult) => testResult.status === "failed")
             .map((testResult) =>
               testResult.assertionResults
-                .filter((assertion) => assertion.status === "failed")
                 .map(
                   (assertion) => `
-            🔴 테스트 이름: ${assertion.fullName}
-            ❌ 실패 메시지: ${assertion.failureMessages.join("\n")}
+            - ${assertion.success ? "✅" : "❌"} ${assertion.fullName}
           `,
                 )
                 .join("\n"),
@@ -30,7 +27,6 @@ ${testSuites.success ? "✅ 테스트 통과" : "❌ 테스트 실패"}
 |------------------|---------------------|---------------------|
 | ${testSuites.numTotalTests} | ${testSuites.numPassedTests} | ${testSuites.numFailedTests} |
 
-실패한 테스트 목록:
 ${testAssertion}
           `;
     })
