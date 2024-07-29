@@ -95,5 +95,5 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const script = require('./.github/create-test-comment.js')
+            const script = require('./.github/scripts/create-test-comment.js')
             console.log(script({github, context}))
