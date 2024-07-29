@@ -4,19 +4,17 @@ const path = require("node:path");
 const createTestResultText = (value) => {
   return value
     .map((testSuites) => {
-      const testAssertion = testSuites.success
-        ? "✅ 모두 통과했어요!"
-        : testSuites.testResults
-            .map((testResult) =>
-              testResult.assertionResults
-                .map(
-                  (assertion) => `
+      const testAssertion = testSuites.testResults
+        .map((testResult) =>
+          testResult.assertionResults
+            .map(
+              (assertion) => `
             - ${assertion.success ? "✅" : "❌"} ${assertion.fullName}
           `,
-                )
-                .join("\n"),
             )
-            .join("\n");
+            .join("\n"),
+        )
+        .join("\n");
 
       return `
 🤖 [${testSuites.repoPath}]에 대한 테스트 결과에요!
