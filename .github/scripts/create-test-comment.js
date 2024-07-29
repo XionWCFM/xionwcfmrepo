@@ -22,15 +22,16 @@ const createTestResultText = (value) => {
             .join("\n");
 
       return `
-          🤖 [${testSuites.repoPath}]에 대한 테스트 결과에요!
+🤖 [${testSuites.repoPath}]에 대한 테스트 결과에요!
           
-          ${testSuites.success ? "✅ 테스트 통과" : "❌ 테스트 실패"}
+${testSuites.success ? "✅ 테스트 통과" : "❌ 테스트 실패"}
   
-          📊 전체 테스트 수: ${testSuites.numTotalTests}
-          ✅ 성공한 테스트 수: ${testSuites.numPassedTests}
-          ❌ 실패한 테스트 수: ${testSuites.numFailedTests}
-          
-          ${testAssertion}
+| 📊 전체 테스트 수 | ✅ 성공한 테스트 수 | ❌ 실패한 테스트 수 |
+|------------------|---------------------|---------------------|
+| ${testSuites.numTotalTests} | ${testSuites.numPassedTests} | ${testSuites.numFailedTests} |
+
+실패한 테스트 목록:
+${testAssertion}
           `;
     })
     .join("\n\n");
