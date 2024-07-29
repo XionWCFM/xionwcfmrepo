@@ -1,5 +1,5 @@
 import { Stack } from "@xionwcfm/ui/stack";
-import { InteractiveHeader } from "~/widgets/header/interactive-header";
+import { StaticHeader } from "~/widgets/header/static-header";
 
 export default function RootLayout({
   children,
@@ -8,7 +8,7 @@ export default function RootLayout({
 }>) {
   return (
     <Stack>
-      <InteractiveHeader />
+      <StaticHeader />
       {children}
     </Stack>
   );

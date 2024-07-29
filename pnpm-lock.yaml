@@ -365,10 +365,10 @@ importers:
         version: link:../typescript
       tailwindcss:
         specifier: ^3.4.1
-        version: 3.4.4(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))
+        version: 3.4.4(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))
       typescript:
         specifier: latest
-        version: 5.5.3
+        version: 5.5.4
 
   configs/typescript: {}
 
@@ -389,10 +389,10 @@ importers:
         version: 15.0.0-rc.0(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))(typescript@5.5.4)
       typescript:
         specifier: latest
-        version: 5.5.3
+        version: 5.5.4
 
   packages/date:
     devDependencies:
@@ -404,10 +404,10 @@ importers:
         version: 3.6.0
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))(typescript@5.5.4)
       typescript:
         specifier: latest
-        version: 5.5.3
+        version: 5.5.4
 
   packages/error:
     devDependencies:
@@ -416,10 +416,10 @@ importers:
         version: link:../../configs/typescript
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))(typescript@5.5.4)
       typescript:
         specifier: latest
-        version: 5.5.3
+        version: 5.5.4
 
   packages/hooks:
     dependencies:
@@ -456,16 +456,16 @@ importers:
         version: 14.12.0
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.4))(typescript@5.5.4)
       typescript:
         specifier: latest
-        version: 5.5.3
+        version: 5.5.4
       vite:
         specifier: ^5.3.4
         version: 5.3.4(@types/node@20.14.9)(terser@5.31.1)
       vite-tsconfig-paths:
         specifier: ^4.3.2
-        version: 4.3.2(typescript@5.5.3)(vite@5.3.4(@types/node@20.14.9)(terser@5.31.1))
+        version: 4.3.2(typescript@5.5.4)(vite@5.3.4(@types/node@20.14.9)(terser@5.31.1))
       vitest:
         specifier: ^1.6.0
         version: 1.6.0(@types/node@20.14.9)(happy-dom@14.12.0)(terser@5.31.1)
@@ -490,10 +490,10 @@ importers:
         version: link:../../configs/typescript
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))(typescript@5.5.4)
       typescript:
         specifier: latest
-        version: 5.5.3
+        version: 5.5.4
 
   packages/logger:
     devDependencies:
@@ -508,16 +508,16 @@ importers:
         version: link:../../configs/typescript
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))(typescript@5.5.4)
       typescript:
         specifier: latest
-        version: 5.5.3
+        version: 5.5.4
 
   packages/lotties:
     devDependencies:
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))(typescript@5.5.4)
 
   packages/pubsub:
     devDependencies:
@@ -526,10 +526,10 @@ importers:
         version: link:../../configs/typescript
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))(typescript@5.5.4)
       typescript:
         specifier: latest
-        version: 5.5.3
+        version: 5.5.4
 
   packages/qs:
     devDependencies:
@@ -538,10 +538,10 @@ importers:
         version: link:../../configs/typescript
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))(typescript@5.5.4)
       typescript:
         specifier: latest
-        version: 5.5.3
+        version: 5.5.4
 
   packages/token:
     devDependencies:
@@ -550,10 +550,10 @@ importers:
         version: link:../../configs/typescript
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))(typescript@5.5.4)
       typescript:
         specifier: latest
-        version: 5.5.3
+        version: 5.5.4
 
   packages/types:
     devDependencies:
@@ -565,13 +565,16 @@ importers:
         version: link:../../configs/typescript
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))(typescript@5.5.4)
       typescript:
         specifier: latest
-        version: 5.5.3
+        version: 5.5.4
 
   packages/ui:
     dependencies:
+      '@radix-ui/react-dialog':
+        specifier: ^1.1.1
+        version: 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot':
         specifier: ^1.1.0
         version: 1.1.0(@types/react@18.3.3)(react@18.3.1)
@@ -581,6 +584,9 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)
+      vaul:
+        specifier: ^0.9.1
+        version: 0.9.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@radix-ui/react-toast':
         specifier: ^1.2.1
@@ -662,10 +668,10 @@ importers:
         version: link:../../configs/typescript
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))(typescript@5.5.4)
       typescript:
         specifier: latest
-        version: 5.5.3
+        version: 5.5.4
 
 packages:
 
@@ -2188,6 +2194,19 @@ packages:
       '@types/react-dom':
         optional: true
 
+  '@radix-ui/react-dialog@1.1.1':
+    resolution: {integrity: sha512-zysS+iU4YP3STKNS6USvFVqI4qqx8EpiwmT5TuCApVEBca+eRCbONi4EgzfNSuVnOXvC5UPHHMjs8RXO6DH9Bg==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+
   '@radix-ui/react-direction@1.1.0':
     resolution: {integrity: sha512-BUuBvgThEiAXh2DWu93XsT+a3aWrGqolGlqqw5VU1kG7p/ZH2cuDlM1sRLNnY3QcBS69UIz2mcKhMxDsdewhjg==}
     peerDependencies:
@@ -2232,6 +2251,15 @@ packages:
       '@types/react':
         optional: true
 
+  '@radix-ui/react-focus-guards@1.1.0':
+    resolution: {integrity: sha512-w6XZNUPVv6xCpZUqb/yN9DL6auvpGX3C/ee6Hdi16v2UUy25HV2Q5bcflsiDyT/g5RwbPQ/GIT1vLkeRb+ITBw==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
   '@radix-ui/react-focus-scope@1.0.4':
     resolution: {integrity: sha512-sL04Mgvf+FmyvZeYfNu1EPAaaxD+aw7cYeIB9L9Fvq8+urhltTRaEo5ysKOpHuKPclsZcSUMKlN05x4u+CINpA==}
     peerDependencies:
@@ -2239,6 +2267,19 @@ packages:
       '@types/react-dom': '*'
       react: ^16.8 || ^17.0 || ^18.0
       react-dom: ^16.8 || ^17.0 || ^18.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+
+  '@radix-ui/react-focus-scope@1.1.0':
+    resolution: {integrity: sha512-200UD8zylvEyL8Bx+z76RJnASR2gRMuxlgFCPAe/Q/679a/r0eK3MBVYMb7vZODZcffZBdob1EGnky78xmVvcA==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -6098,6 +6139,16 @@ packages:
       '@types/react':
         optional: true
 
+  react-remove-scroll@2.5.7:
+    resolution: {integrity: sha512-FnrTWO4L7/Bhhf3CYBNArEG/yROV0tKmTv7/3h9QCFvH6sndeFf1wPqOcbFVu5VAulS5dV1wGT3GZZ/1GawqiA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
   react-style-singleton@2.2.1:
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
     engines: {node: '>=10'}
@@ -6937,6 +6988,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typescript@5.5.4:
+    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   ufo@1.5.3:
     resolution: {integrity: sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==}
 
@@ -7089,6 +7145,12 @@ packages:
   vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
+
+  vaul@0.9.1:
+    resolution: {integrity: sha512-fAhd7i4RNMinx+WEm6pF3nOl78DFkAazcN04ElLPFF9BMCNGbY/kou8UMhIcicm0rJCNePJP0Yyza60gGOD0Jw==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
 
   vfile-location@5.0.2:
     resolution: {integrity: sha512-NXPYyxyBSH7zB5U6+3uDdd6Nybz6o6/od9rk8bp9H8GR3L+cm/fC0uUTbqBmUTnMCUDslAGBOIKNfvvb+gGlDg==}
@@ -8834,6 +8896,28 @@ snapshots:
       '@types/react': 18.3.3
       '@types/react-dom': 18.3.0
 
+  '@radix-ui/react-dialog@1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@radix-ui/primitive': 1.1.0
+      '@radix-ui/react-compose-refs': 1.1.0(@types/react@18.3.3)(react@18.3.1)
+      '@radix-ui/react-context': 1.1.0(@types/react@18.3.3)(react@18.3.1)
+      '@radix-ui/react-dismissable-layer': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-focus-guards': 1.1.0(@types/react@18.3.3)(react@18.3.1)
+      '@radix-ui/react-focus-scope': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-id': 1.1.0(@types/react@18.3.3)(react@18.3.1)
+      '@radix-ui/react-portal': 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-presence': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-primitive': 2.0.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-slot': 1.1.0(@types/react@18.3.3)(react@18.3.1)
+      '@radix-ui/react-use-controllable-state': 1.1.0(@types/react@18.3.3)(react@18.3.1)
+      aria-hidden: 1.2.4
+      react: 18.3.1
+      react-dom: 19.0.0-rc-f994737d14-20240522(react@18.3.1)
+      react-remove-scroll: 2.5.7(@types/react@18.3.3)(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.3
+      '@types/react-dom': 18.3.0
+
   '@radix-ui/react-direction@1.1.0(@types/react@18.3.3)(react@18.3.1)':
     dependencies:
       react: 18.3.1
@@ -8874,6 +8958,12 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.3
 
+  '@radix-ui/react-focus-guards@1.1.0(@types/react@18.3.3)(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.3
+
   '@radix-ui/react-focus-scope@1.0.4(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.7
@@ -8882,6 +8972,17 @@ snapshots:
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.3.3)(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.3
+      '@types/react-dom': 18.3.0
+
+  '@radix-ui/react-focus-scope@1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-compose-refs': 1.1.0(@types/react@18.3.3)(react@18.3.1)
+      '@radix-ui/react-primitive': 2.0.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-use-callback-ref': 1.1.0(@types/react@18.3.3)(react@18.3.1)
+      react: 18.3.1
+      react-dom: 19.0.0-rc-f994737d14-20240522(react@18.3.1)
     optionalDependencies:
       '@types/react': 18.3.3
       '@types/react-dom': 18.3.0
@@ -13723,6 +13824,14 @@ snapshots:
       postcss: 8.4.38
       ts-node: 10.9.2(@types/node@20.14.10)(typescript@5.5.3)
 
+  postcss-load-config@4.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4)):
+    dependencies:
+      lilconfig: 3.1.2
+      yaml: 2.4.5
+    optionalDependencies:
+      postcss: 8.4.38
+      ts-node: 10.9.2(@types/node@20.14.10)(typescript@5.5.4)
+
   postcss-load-config@4.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.14.5)(typescript@5.4.5)):
     dependencies:
       lilconfig: 3.1.2
@@ -13731,21 +13840,21 @@ snapshots:
       postcss: 8.4.38
       ts-node: 10.9.2(@types/node@20.14.5)(typescript@5.4.5)
 
-  postcss-load-config@4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)):
+  postcss-load-config@4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4)):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.4.5
     optionalDependencies:
       postcss: 8.4.39
-      ts-node: 10.9.2(@types/node@20.14.10)(typescript@5.5.3)
+      ts-node: 10.9.2(@types/node@20.14.10)(typescript@5.5.4)
 
-  postcss-load-config@4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.3)):
+  postcss-load-config@4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.4)):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.4.5
     optionalDependencies:
       postcss: 8.4.39
-      ts-node: 10.9.2(@types/node@20.14.9)(typescript@5.5.3)
+      ts-node: 10.9.2(@types/node@20.14.9)(typescript@5.5.4)
 
   postcss-nested@6.0.1(postcss@8.4.38):
     dependencies:
@@ -13964,6 +14073,17 @@ snapshots:
       '@types/react': 18.3.3
 
   react-remove-scroll@2.5.5(@types/react@18.3.3)(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-remove-scroll-bar: 2.3.6(@types/react@18.3.3)(react@18.3.1)
+      react-style-singleton: 2.2.1(@types/react@18.3.3)(react@18.3.1)
+      tslib: 2.6.3
+      use-callback-ref: 1.3.2(@types/react@18.3.3)(react@18.3.1)
+      use-sidecar: 1.1.2(@types/react@18.3.3)(react@18.3.1)
+    optionalDependencies:
+      '@types/react': 18.3.3
+
+  react-remove-scroll@2.5.7(@types/react@18.3.3)(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-remove-scroll-bar: 2.3.6(@types/react@18.3.3)(react@18.3.1)
@@ -14720,6 +14840,33 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
+  tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4)):
+    dependencies:
+      '@alloc/quick-lru': 5.2.0
+      arg: 5.0.2
+      chokidar: 3.6.0
+      didyoumean: 1.2.2
+      dlv: 1.1.3
+      fast-glob: 3.3.2
+      glob-parent: 6.0.2
+      is-glob: 4.0.3
+      jiti: 1.21.6
+      lilconfig: 2.1.0
+      micromatch: 4.0.7
+      normalize-path: 3.0.0
+      object-hash: 3.0.0
+      picocolors: 1.0.1
+      postcss: 8.4.38
+      postcss-import: 15.1.0(postcss@8.4.38)
+      postcss-js: 4.0.1(postcss@8.4.38)
+      postcss-load-config: 4.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))
+      postcss-nested: 6.0.1(postcss@8.4.38)
+      postcss-selector-parser: 6.1.0
+      resolve: 1.22.8
+      sucrase: 3.35.0
+    transitivePeerDependencies:
+      - ts-node
+
   tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.14.5)(typescript@5.4.5)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
@@ -14917,6 +15064,25 @@ snapshots:
       yn: 3.1.1
     optional: true
 
+  ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4):
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.11
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@types/node': 20.14.10
+      acorn: 8.12.0
+      acorn-walk: 8.3.3
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 5.5.4
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    optional: true
+
   ts-node@10.9.2(@types/node@20.14.5)(typescript@5.4.5):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
@@ -14935,7 +15101,7 @@ snapshots:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
-  ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.3):
+  ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.4):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
@@ -14949,7 +15115,7 @@ snapshots:
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
-      typescript: 5.5.3
+      typescript: 5.5.4
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     optional: true
@@ -14958,9 +15124,9 @@ snapshots:
     optionalDependencies:
       typescript: 5.4.5
 
-  tsconfck@3.1.0(typescript@5.5.3):
+  tsconfck@3.1.0(typescript@5.5.4):
     optionalDependencies:
-      typescript: 5.5.3
+      typescript: 5.5.4
 
   tsconfig-paths@3.15.0:
     dependencies:
@@ -15002,7 +15168,7 @@ snapshots:
       - supports-color
       - ts-node
 
-  tsup@8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3):
+  tsup@8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))(typescript@5.5.4):
     dependencies:
       bundle-require: 4.2.1(esbuild@0.21.5)
       cac: 6.7.14
@@ -15012,7 +15178,7 @@ snapshots:
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
-      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))
+      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.4))
       resolve-from: 5.0.0
       rollup: 4.18.0
       source-map: 0.8.0-beta.0
@@ -15020,12 +15186,12 @@ snapshots:
       tree-kill: 1.2.2
     optionalDependencies:
       postcss: 8.4.39
-      typescript: 5.5.3
+      typescript: 5.5.4
     transitivePeerDependencies:
       - supports-color
       - ts-node
 
-  tsup@8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.3))(typescript@5.5.3):
+  tsup@8.1.0(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.4))(typescript@5.5.4):
     dependencies:
       bundle-require: 4.2.1(esbuild@0.21.5)
       cac: 6.7.14
@@ -15035,7 +15201,7 @@ snapshots:
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
-      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.3))
+      postcss-load-config: 4.0.2(postcss@8.4.39)(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.4))
       resolve-from: 5.0.0
       rollup: 4.18.0
       source-map: 0.8.0-beta.0
@@ -15043,7 +15209,7 @@ snapshots:
       tree-kill: 1.2.2
     optionalDependencies:
       postcss: 8.4.39
-      typescript: 5.5.3
+      typescript: 5.5.4
     transitivePeerDependencies:
       - supports-color
       - ts-node
@@ -15135,6 +15301,8 @@ snapshots:
   typescript@5.4.5: {}
 
   typescript@5.5.3: {}
+
+  typescript@5.5.4: {}
 
   ufo@1.5.3: {}
 
@@ -15298,6 +15466,15 @@ snapshots:
 
   vary@1.1.2: {}
 
+  vaul@0.9.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@radix-ui/react-dialog': 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 19.0.0-rc-f994737d14-20240522(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+
   vfile-location@5.0.2:
     dependencies:
       '@types/unist': 3.0.2
@@ -15381,11 +15558,11 @@ snapshots:
       - supports-color
       - typescript
 
-  vite-tsconfig-paths@4.3.2(typescript@5.5.3)(vite@5.3.4(@types/node@20.14.9)(terser@5.31.1)):
+  vite-tsconfig-paths@4.3.2(typescript@5.5.4)(vite@5.3.4(@types/node@20.14.9)(terser@5.31.1)):
     dependencies:
       debug: 4.3.5
       globrex: 0.1.2
-      tsconfck: 3.1.0(typescript@5.5.3)
+      tsconfck: 3.1.0(typescript@5.5.4)
     optionalDependencies:
       vite: 5.3.4(@types/node@20.14.9)(terser@5.31.1)
     transitivePeerDependencies:
