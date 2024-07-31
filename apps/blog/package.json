@@ -9,7 +9,7 @@
     "lint": "next lint",
     "dev:xion": "next dev --turbo",
     "test": "vitest",
-    "test:ci": "vitest run",
+    "test:ci": "vitest run --coverage",
     "next-dev": "next dev",
     "watch-content": "node ./watcher.cjs"
   },
@@ -33,16 +33,23 @@
     "react-dom": "19.0.0-rc-f994737d14-20240522"
   },
   "devDependencies": {
-    "@mdx-js/loader": "^3.0.1",
-    "@mdx-js/react": "^3.0.1",
-    "@next/mdx": "^14.2.4",
+    "vite": "^5.2.13",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^2.0.4",
+    "vitest-fetch-mock": "^0.2.2",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/coverage-v8": "^2.0.4",
+
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "happy-dom": "^14.12.0",
 
     "@types/mdx": "^2.0.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/ws": "^8.5.10",
-    "@vitejs/plugin-react": "^4.3.0",
     "@xionwcfm/tailwindcss-config": "workspace:*",
     "@xionwcfm/token": "workspace:*",
     "@xionwcfm/typescript-config": "workspace:*",
@@ -65,14 +72,9 @@
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5",
-    "ws": "^8.17.1",
-    "vite": "^5.2.13",
-    "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^1.6.0",
-    "vitest-fetch-mock": "^0.2.2",
-    "@testing-library/jest-dom": "^6.4.5",
-    "@testing-library/react": "^16.0.0",
-    "@testing-library/user-event": "^14.5.2",
-    "happy-dom": "^14.12.0"
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.4",
+    "ws": "^8.17.1"
   }
 }

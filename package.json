@@ -4,6 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "build:p": "turbo build --filter './packages/*'",
+    "build:actions": "turbo build --filter './packages/actions'",
     "dev": "turbo dev --filter './apps/blog'",
     "dev:pg": "turbo dev --filter './apps/playground'",
     "storybook": "turbo storybook",
@@ -16,13 +17,14 @@
     "check:biome": "npx @biomejs/biome check --write .",
     "format:biome": "npx @biomejs/biome format --write .",
     "clean:all": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf packages/*/node_modules && pnpm store prune && pnpm install",
-    "combine-test-results": "node ./.github/scripts/combine-test-results.js"
+    "comment:ci": "node ./.github/scripts/comment-ci.js"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.0",
     "@xionwcfm/typescript-config": "workspace:*",
+    "@xionwcfm/actions": "workspace:*",
     "prettier": "^3.2.5",
-    "turbo": "^2.0.9",
+    "turbo": "^2.0.10",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   },
