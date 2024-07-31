@@ -84,11 +84,14 @@ jobs:
 
       - name: Run Tests
         run: pnpm run test:ci
-        
+
       - name: Create Test Comment
         uses: actions/github-script@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          run: pnpm run comment:ci
+          script: |
+            const { createGithubCoverageComment, createGithubTestComment } = require("@xionwcfm/actions");
+            createGithubTestComment();
+            createGithubCoverageComment();
