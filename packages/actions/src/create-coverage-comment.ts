@@ -3,7 +3,7 @@ import type { VitestCoverageSummeryType } from "./_internal/vitest.type";
 
 const createTableRow = (filePath: string, data: VitestCoverageSummeryType[string]): string => {
   const truncatedPath = filePath.split(/\/(apps|packages)\//);
-  return `| ${truncatedPath[1]}/${truncatedPath[2]} | ${data.statements.pct.toFixed(2)}% | ${data.branches.pct.toFixed(2)}% | ${data.functions.pct.toFixed(2)}% | ${data.lines.pct.toFixed(2)}%  |\n`;
+  return `| ${truncatedPath[1]}/${truncatedPath[2]} | ${data?.statements?.pct?.toFixed(2)}% | ${data?.branches?.pct?.toFixed(2)}% | ${data?.functions?.pct?.toFixed(2)}% | ${data?.lines?.pct?.toFixed(2)}%  |\n`;
 };
 
 export const createCoverageComment = (coverage: VitestCoverageSummeryType) => {
