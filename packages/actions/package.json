@@ -1,0 +1,19 @@
+{
+  "name": "@xionwcfm/actions",
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest",
+    "test:ci": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@actions/github": "^6.0.0",
+    "@octokit/rest": "^21.0.1",
+    "@vitest/coverage-v8": "^2.0.4",
+    "@xionwcfm/typescript-config": "workspace:*",
+    "tsup": "^8.1.0",
+    "typescript": "latest",
+    "vite": "^5.3.5",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^2.0.4"
+  }
+}
