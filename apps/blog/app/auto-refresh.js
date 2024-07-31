@@ -12,7 +12,6 @@ if (process.env.NODE_ENV === "development") {
   AutoRefresh = function AutoRefresh({ children }) {
     const router = useRouter();
     useEffect(() => {
-      console.log("is work");
       const ws = new WebSocket("ws://localhost:3600");
       ws.onmessage = (event) => {
         if (event.data === "refresh") {

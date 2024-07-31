@@ -4,6 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "build:p": "turbo build --filter './packages/*'",
+    "build:actions": "turbo build --filter './packages/actions'",
     "dev": "turbo dev --filter './apps/blog'",
     "dev:pg": "turbo dev --filter './apps/playground'",
     "storybook": "turbo storybook",
