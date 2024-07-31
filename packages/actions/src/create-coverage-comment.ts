@@ -1,47 +1,54 @@
-import { VITEST_COVERAGE_FILE_NAME, VITEST_COVERAGE_SIGNATURE_TEXT } from "./_internal/constant";
+import { VITEST_COVERAGE_SIGNATURE_TEXT } from "./_internal/constant";
 import type { VitestCoverageSummeryType } from "./_internal/vitest.type";
 
 export const createCoverageComment = (coverage: VitestCoverageSummeryType) => {
   const total = coverage.total;
 
-  const createTableRow = (title: string, data: any): string => {
-    return `| ${title} | ${data.total} | ${data.covered} | ${data.skipped} | ${data.pct.toFixed(2)}% |\n`;
+  const createTableRow = (filePath: string, data: any): string => {
+    const uncoveredLines = data.lines.total - data.lines.covered;
+    const truncatedPath = filePath.split(/\/(apps|packages)\//);
+    return `| ${truncatedPath[1]}/${truncatedPath[2]} | ${data.statements.pct.toFixed(2)}% | ${data.branches.pct.toFixed(2)}% | ${data.functions.pct.toFixed(2)}% | ${data.lines.pct.toFixed(2)}% | ${uncoveredLines} |\n`;
   };
 
   const totalCoverageTable = `
-  ### 총 커버리지 📊
-  
-  | 항목       | 총계   | 커버된 수 | 스킵된 수 | 퍼센트   |
-  |------------|-------:|---------:|---------:|---------:|
-  ${createTableRow("라인", total.lines)}
-  ${createTableRow("명령문", total.statements)}
-  ${createTableRow("함수", total.functions)}
-  ${createTableRow("분기", total.branches)}
-  `;
+### Total Coverage 📊
+
+| File   | Stmts | Branch   | Funcs   | Lines   |
+|--------|-------:|-------:|-------:|-------:|
+| Total  | ${total.statements.pct.toFixed(2)}% | ${total.branches.pct.toFixed(2)}% | ${total.functions.pct.toFixed(2)}% | ${total.lines.pct.toFixed(2)}% |
+
+`;
 
   const fileCoverages = Object.entries(coverage)
     .filter(([key]) => key !== "total")
-    .map(([filePath, fileCoverage]) => {
-      return `
-  #### ${filePath} 📁
-  
-  | 항목       | 총계   | 커버된 수 | 스킵된 수 | 퍼센트   |
-  |------------|-------:|---------:|---------:|---------:|
-  ${createTableRow("라인", fileCoverage.lines)}
-  ${createTableRow("명령문", fileCoverage.statements)}
-  ${createTableRow("함수", fileCoverage.functions)}
-  ${createTableRow("분기", fileCoverage.branches)}
-  `;
-    })
-    .join("\n");
+    .map(([filePath, fileCoverage]) => createTableRow(filePath, fileCoverage))
+    .join("");
 
   return `
-  ## 📊 테스트 커버리지 리포트
-  
-  ${totalCoverageTable}
-  
-  ${fileCoverages}
-  
-  ${VITEST_COVERAGE_SIGNATURE_TEXT}
+## 📊 Test Coverage Report
+
+${totalCoverageTable}
+
+<details>
+<summary>📁 Detail Coverage</summary>
+
+| File   | Stmts | Branch   | Funcs   | Lines    |
+|------------|-------:|-------:|-------:|-------:|
+${fileCoverages}
+
+</details>
+
+
+`;
+};
+export const combineCoverageComment = (coverages: VitestCoverageSummeryType[]) => {
+  return `
+  ## XionWCFM Coverage Report
+
+  <details>
+    <summary>Coverage Detail</summary>
+  ${coverages.map((coverage) => createCoverageComment(coverage)).join("\n")}
+  🤖 SIGNATURE_KEY : ${VITEST_COVERAGE_SIGNATURE_TEXT}
+  </details>
   `;
 };

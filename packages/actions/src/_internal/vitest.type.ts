@@ -1,4 +1,5 @@
 export type VitestTestResultsType = {
+  repoPath: string;
   numTotalTestSuites: number;
   numPassedTestSuites: number;
   numFailedTestSuites: number;

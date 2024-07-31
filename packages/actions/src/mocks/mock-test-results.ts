@@ -1,4 +1,5 @@
 export const MOCK_TEST_RESULTS = {
+  repoPath: "apps/blog",
   numTotalTestSuites: 6,
   numPassedTestSuites: 6,
   numFailedTestSuites: 0,

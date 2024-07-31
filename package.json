@@ -16,12 +16,12 @@
     "check:biome": "npx @biomejs/biome check --write .",
     "format:biome": "npx @biomejs/biome format --write .",
     "clean:all": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf packages/*/node_modules && pnpm store prune && pnpm install",
-    "combine-test-results": "node ./.github/scripts/combine-test-results.js",
-    "test:local": "pnpm run test:ci && pnpm run combine-test-results"
+    "comment:ci": "node ./.github/scripts/comment-ci.js"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.0",
     "@xionwcfm/typescript-config": "workspace:*",
+    "@xionwcfm/actions": "workspace:*",
     "prettier": "^3.2.5",
     "turbo": "^2.0.9",
     "typescript": "^5.4.5",

@@ -94,6 +94,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const script = require('./.github/scripts/create-test-comment.js')
-            console.log(script({github, context}))
+          run: pnpm run comment:ci
