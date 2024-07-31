@@ -92,6 +92,5 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { createGithubCoverageComment, createGithubTestComment } = require("@xionwcfm/actions");
-            createGithubTestComment();
-            createGithubCoverageComment();
+            const script = require('./.github/scripts/ci-comment.js')
+            script({github, context})

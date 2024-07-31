@@ -1,4 +1,3 @@
-const { createGithubCoverageComment, createGithubTestComment } = require("@xionwcfm/actions");
+const { createXionWCFMComment } = require("@xionwcfm/actions");
 
-createGithubTestComment();
-createGithubCoverageComment();
+module.exports = createXionWCFMComment;

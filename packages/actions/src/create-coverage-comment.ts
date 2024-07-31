@@ -43,10 +43,11 @@ ${fileCoverages}
 export const combineCoverageComment = (coverages: VitestCoverageSummeryType[]) => {
   return `
   ## XionWCFM Coverage Report
+  
+  ${coverages.map((coverage) => createCoverageComment(coverage)).join("\n")}
 
   <details>
     <summary>Coverage</summary>
-  ${coverages.map((coverage) => createCoverageComment(coverage)).join("\n")}
   🤖 SIGNATURE_KEY : ${VITEST_COVERAGE_SIGNATURE_TEXT}
   </details>
   `;

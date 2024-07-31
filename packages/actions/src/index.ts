@@ -16,7 +16,7 @@ import { combineTestComment } from "./create-test-comment";
 
 const checkDirectoryList = ["apps", "packages"];
 
-export const createGithubTestComment = async () => {
+const createGithubTestComment = async (githubContext: { github: any; context: any }) => {
   const baseDir = process.env.GITHUB_WORKSPACE || "./";
   const combinedResultsPath = path.join(baseDir, VITEST_COMBINED_RESULTS_FILE_NAME);
   const combinedTestResults = combineResults<VitestTestResultsType>({
@@ -26,12 +26,16 @@ export const createGithubTestComment = async () => {
   });
   fs.writeFileSync(combinedResultsPath, JSON.stringify(combinedTestResults, null, 2));
   if (process.env.CI) {
-    await createOrUpdateComment(combineTestComment(combinedTestResults), VITEST_TEST_RESULTS_SIGNATURE_TEXT);
+    await createOrUpdateComment(
+      combineTestComment(combinedTestResults),
+      VITEST_TEST_RESULTS_SIGNATURE_TEXT,
+      githubContext,
+    );
   }
   console.log("🔥 test comment created");
 };
 
-export const createGithubCoverageComment = async () => {
+const createGithubCoverageComment = async (githubContext: { github: any; context: any }) => {
   const baseDir = process.env.GITHUB_WORKSPACE || "./";
   const combinedResultsPath = path.join(baseDir, VITEST_COMBINED_COVERAGE_FILE_NAME);
   const combineCoverageResults = combineResults<VitestCoverageSummeryType>({
@@ -43,7 +47,16 @@ export const createGithubCoverageComment = async () => {
   fs.writeFileSync(combinedResultsPath, JSON.stringify(combineCoverageResults, null, 2));
 
   if (process.env.CI) {
-    await createOrUpdateComment(combineCoverageComment(combineCoverageResults), VITEST_COVERAGE_SIGNATURE_TEXT);
+    await createOrUpdateComment(
+      combineCoverageComment(combineCoverageResults),
+      VITEST_COVERAGE_SIGNATURE_TEXT,
+      githubContext,
+    );
   }
   console.log("🔥 coverage comment created");
+};
+
+export const createXionWCFMComment = async (githubContext: { github: any; context: any }) => {
+  createGithubTestComment(githubContext);
+  createGithubCoverageComment(githubContext);
 };
