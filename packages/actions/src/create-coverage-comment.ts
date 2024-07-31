@@ -3,8 +3,8 @@ import type { VitestCoverageSummeryType } from "./_internal/vitest.type";
 
 export const createCoverageComment = (coverage: VitestCoverageSummeryType) => {
   const total = coverage.total;
-
-  const createTableRow = (filePath: string, data: any): string => {
+  console.log("total work?", total);
+  const createTableRow = (filePath: string, data: VitestCoverageSummeryType[string]): string => {
     const uncoveredLines = data.lines.total - data.lines.covered;
     const truncatedPath = filePath.split(/\/(apps|packages)\//);
     return `| ${truncatedPath[1]}/${truncatedPath[2]} | ${data.statements.pct.toFixed(2)}% | ${data.branches.pct.toFixed(2)}% | ${data.functions.pct.toFixed(2)}% | ${data.lines.pct.toFixed(2)}% | ${uncoveredLines} |\n`;
@@ -46,7 +46,7 @@ export const combineCoverageComment = (coverages: VitestCoverageSummeryType[]) =
   ## XionWCFM Coverage Report
 
   <details>
-    <summary>Coverage Detail</summary>
+    <summary>Coverage</summary>
   ${coverages.map((coverage) => createCoverageComment(coverage)).join("\n")}
   🤖 SIGNATURE_KEY : ${VITEST_COVERAGE_SIGNATURE_TEXT}
   </details>
