@@ -4,10 +4,11 @@ import { type ElementType, type ReactNode, forwardRef } from "react";
 import { Box, type PolimophicWithSpacingSystemProps } from "./box";
 import { cn } from "./external-utils/cn";
 import type { SemanticHTMLContentSectionType } from "./internal-utils/type";
+import { Spinner } from "./spinner";
 
 export const buttonVariants = cva(
   `inline-flex items-center justify-center whitespace-nowrap 
-  rounded-md text-sm font-medium ring-offset-background 
+  rounded-md font-medium ring-offset-background 
   duration-200 transition-colors focus-visible:outline-none focus-visible:ring-2  
   focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50
   `,
@@ -17,7 +18,7 @@ export const buttonVariants = cva(
         default: "",
         outline: `
         border border-neutral-200 text-neutral-600 
-        hover:opacity-90 hover:bg-neutral-200
+        hover:opacity-90 hover:bg-neutral-200 hover:border-neutral-300
         active:opacity-70
         `,
         primary: `
@@ -33,13 +34,13 @@ export const buttonVariants = cva(
         hover:bg-neutral-200 hover:opacity-95
         active:opacity-90`,
         link: "hover:underline hover:underline-offset-4 ",
-        icon: " border hover:bg-neutral-50 hover:bg-opacity-90 active:opacity-70",
+        icon: " border hover:bg-neutral-100 hover:bg-opacity-80 active:opacity-70",
       },
       size: {
         default: "",
         sm: "  rounded-md px-12 py-6",
         lg: " rounded-md px-20 py-8",
-        full: " w-full py-12",
+        full: " w-full py-12 h-48",
         icon: "px-8 py-8",
       },
     },
@@ -86,11 +87,12 @@ export const Button: ButtonType = forwardRef(function Button<C extends ElementTy
       asChild={asChild}
       ref={ref}
       className={cn(slotClass, buttonVariants({ variant, size }), className)}
-      disabled={disabled}
+      disabled={disabled || loading}
       {...typedRest}
     >
       <>
-        {startIcon ? (
+        {loading ? <Spinner /> : null}
+        {startIcon && !loading ? (
           <Box as="span" className="mr-2">
             {startIcon}
           </Box>
