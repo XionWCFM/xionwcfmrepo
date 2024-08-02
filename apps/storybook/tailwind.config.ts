@@ -9,6 +9,12 @@ const config: Config = {
     "./.storybook/**/*.{js,ts,jsx,tsx,mdx}",
     "../../packages/ui/src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: XION_STYLE as unknown as Config["theme"],
+
+  // theme: XION_STYLE as unknown as Config["theme"],
+  theme: {
+    extend: {
+      ...(XION_STYLE as unknown as Config["theme"]),
+    },
+  },
 };
 export default config;

@@ -54,6 +54,9 @@ export const Buttons: Story = {
               <Button startIcon={<FillInfoIcon />} variant={variant} size={"sm"}>
                 Button
               </Button>
+              <Button startIcon={<FillInfoIcon />} variant={variant} loading size={"sm"}>
+                Button
+              </Button>
               <Button endIcon={<FillInfoIcon />} variant={variant} size={"sm"}>
                 Button
               </Button>
