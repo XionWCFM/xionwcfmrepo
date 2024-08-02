@@ -21,10 +21,10 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.0",
-    "@xionwcfm/typescript-config": "workspace:*",
     "@xionwcfm/actions": "workspace:*",
+    "@xionwcfm/typescript-config": "workspace:*",
     "prettier": "^3.2.5",
-    "turbo": "^2.0.10",
+    "turbo": "^2.0.11",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   },
