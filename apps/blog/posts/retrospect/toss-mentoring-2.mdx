@@ -148,6 +148,45 @@ export default function ExampleFunnel() {
 
 condition을 판단할 때에 async하게 판단하는 것도 가능하게 하면 fallback을 몇초동안 보여줄것인가에 대한 처리도 자연스럽게 녹일 수 있었던 것이 구현을 해보면서 좋았던 지점이었습니다.
 
+또 한편으로는 confirm 을 통해 사용자에게 진입할 수 없다는 것을 안내하는 것도 좋은 방법이 될 것 같다는 생각이 들었는데요 overlay-kit을 활용하면 쉽게 구현할 수 있었습니다.
+
+```tsx
+
+        <Funnel.Step name={"b"}>
+          <Funnel.Guard
+            condition={async () => {
+              if (Math.random() > 0.5) {
+                return true;
+              }
+              await new Promise((res) => setTimeout(res, 1000));
+              return false;
+            }}
+            onFunnelRestrictEvent={async () => {
+              await overlay.openAsync(({ close, unmount }) => (
+                <div>
+                  <div>접근할 수 없는 상태에요</div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      close(true);
+                    }}
+                  >
+                    처음 화면으로 돌아가기
+                  </button>
+                </div>
+              ));
+              controller.onStepChange("a", { type: "replace" });
+            }}
+            fallback={<div>fallback..</div>}
+          >
+            <FunnelB nextStep={() => controller.onStepChange("c")} />
+          </Funnel.Guard>
+        </Funnel.Step>
+
+```
+
+
+
 ---
 
 ## 퍼널의 렌더링 최적화 어떻게 이룰 수 있을까요?
