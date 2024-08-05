@@ -102,13 +102,14 @@ Tanstack Query의 패키지 구성을 살펴보면 코어 패키지인 @tanstack
 
 
 ```tsx
-import { useFunnel } from "@xionhub/funnel-app-router-adapter";
-
 const EXAMPLE_FUNNEL_ID = "hello-this-is-funnel-id";
+const exampleFunnelOptions = funnelOptions({
+  steps: ["a", "b", "c"],
+  funnelId: EXAMPLE_FUNNEL_ID,
+});
+
 export default function ExampleFunnel() {
-  const [Funnel, controller] = useFunnel(["a", "b", "c"] as const, {
-    funnelId: EXAMPLE_FUNNEL_ID,
-  });
+  const [Funnel, controller] = useFunnel(exampleFunnelOptions);
 
   return (
     <div className=" px-4 py-4">
@@ -126,7 +127,7 @@ export default function ExampleFunnel() {
               await new Promise((res) => setTimeout(res, 1000));
               return false;
             }}
-            onFunnelRestrictEvent={() => {
+            onFunnelRestrictEvent={async () => {  
               controller.onStepChange("a", { type: "replace" });
             }}
             fallback={<div>fallback..</div>}
@@ -142,9 +143,19 @@ export default function ExampleFunnel() {
     </div>
   );
 }
+
+  );
+}
 ```
 
-세부 구현은 재미없으니까.. 다루지 않고 넘어가도록 하겠습니다. 퍼널에 진입할 수 있는가?에 대한 여부를 판단하는 것과 진입할 수 없을 때의 처리, 그리고 fallback을 각각 필요에 따라 주입하면 적절할 것 같았습니다.
+세부 구현은 재미없으니까.. 다루지 않고 넘어가도록 하겠습니다. 그리고 funnel의 선언과 동작부분을 분리하는 것을 통해 좀 더 유연하게 퍼널을 처리할 수 있지 않을까했는데요
+
+tanstackquery의 구조를 참고하여 항상 동일한 구조를 가진 객체 하나에 의존하는 형태로 구성하는 것을 통해 해당 목표를 달성할 수 있었습니다.
+
+<br/>
+
+
+가드의 인터페이스를 설계할 때에는 퍼널에 진입할 수 있는가?에 대한 여부를 판단하는 것과 진입할 수 없을 때의 처리, 그리고 fallback을 각각 필요에 따라 주입하면 적절할 것 같았습니다.
 
 condition을 판단할 때에 async하게 판단하는 것도 가능하게 하면 fallback을 몇초동안 보여줄것인가에 대한 처리도 자연스럽게 녹일 수 있었던 것이 구현을 해보면서 좋았던 지점이었습니다.
 
@@ -185,6 +196,7 @@ condition을 판단할 때에 async하게 판단하는 것도 가능하게 하�
 
 ```
 
+이렇게요!
 
 
 ---
