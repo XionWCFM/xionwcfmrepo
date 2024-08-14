@@ -40,7 +40,7 @@ export const buttonVariants = cva(
         default: "",
         sm: "  rounded-md px-12 py-6",
         lg: " rounded-md px-20 py-8",
-        full: " w-full py-12 h-48",
+        full: " w-full  py-20 min-h-[60px]",
         icon: "px-8 py-8",
       },
     },
@@ -91,7 +91,12 @@ export const Button: ButtonType = forwardRef(function Button<C extends ElementTy
       {...typedRest}
     >
       <>
-        {loading ? <Spinner /> : null}
+        {loading ? (
+          <Box as="span" className="mr-2">
+            <Spinner />
+          </Box>
+        ) : null}
+
         {startIcon && !loading ? (
           <Box as="span" className="mr-2">
             {startIcon}
