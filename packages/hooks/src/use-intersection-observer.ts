@@ -67,7 +67,6 @@ const useIntersectionObserver = ({
     if (domElement) {
       observer = new IntersectionObserver(
         (entries) =>
-          // biome-ignore lint/complexity/noForEach: <explanation>
           entries.forEach((entry) => {
             if (!entry.isIntersecting) {
               offIntersect();

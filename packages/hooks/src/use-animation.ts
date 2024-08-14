@@ -41,7 +41,6 @@ const useAnimation = (classNameArray: string[], option?: OptionObject) => {
     if (isAnimatedOnlyOnce) {
       isOnce.current = false;
     }
-    // biome-ignore lint/complexity/noForEach: <explanation>
     classNameArray.forEach((className) => {
       targetRef.current?.classList.add(className);
     });
@@ -53,7 +52,6 @@ const useAnimation = (classNameArray: string[], option?: OptionObject) => {
       return;
     }
 
-    // biome-ignore lint/complexity/noForEach: <explanation>
     classNameArray.forEach((className) => {
       targetRef.current?.classList.remove(className);
     });

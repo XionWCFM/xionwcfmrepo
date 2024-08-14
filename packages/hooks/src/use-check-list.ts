@@ -31,7 +31,6 @@ export function useCheckList<T extends Item>(initialItems: T[]) {
     (id: IdType, checked: boolean) => {
       const idx = findIndex(id);
       if (idx > -1) {
-        // biome-ignore lint/style/noNonNullAssertion: <explanation>
         const item = listRef.current[idx]!;
 
         if (item.checked !== checked) {

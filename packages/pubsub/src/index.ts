@@ -22,7 +22,6 @@ export class Pubsub<EventName extends string = string> {
       return;
     }
     //@ts-ignore
-    // biome-ignore lint/complexity/noForEach: <explanation>
     this.events[eventName].forEach((func) => func(context));
   }
   clear(eventName?: EventName) {

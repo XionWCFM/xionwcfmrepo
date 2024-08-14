@@ -7,7 +7,6 @@ const combinedResultsPath = path.join(resultsDir, "combined-test-results.json");
 const findTestResults = (baseDirs) => {
   const results = [];
 
-  // biome-ignore lint/complexity/noForEach: <explanation>
   baseDirs.forEach((baseDir) => {
     const fullBaseDirPath = path.join(resultsDir, baseDir);
 
@@ -17,7 +16,6 @@ const findTestResults = (baseDirs) => {
         .filter((dirent) => dirent.isDirectory())
         .map((dirent) => dirent.name);
 
-      // biome-ignore lint/complexity/noForEach: <explanation>
       subDirs.forEach((subDir) => {
         const fullSubDirPath = path.join(fullBaseDirPath, subDir, "test-results.json");
         if (fs.existsSync(fullSubDirPath)) {
