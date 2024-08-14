@@ -11,7 +11,6 @@ export function Separated({ children, with: separator }: Props) {
   return (
     <>
       {childrenArray.map((child, i) => (
-        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
         <Fragment key={i}>
           {child}
           {i + 1 !== childrenLength ? separator : null}
