@@ -6,7 +6,6 @@ const ExampleDrawer = () => {
     <Drawer.Root>
       <Drawer.Trigger>trigger</Drawer.Trigger>
       <Drawer.Content className=" ">
-        {/* biome-ignore lint/style/noUnusedTemplateLiteral: <explanation> */}
         <div className={`h-screen  `}>
           <Drawer.Header>Drawer Header</Drawer.Header>
           <Drawer.Footer>Drawer Footer</Drawer.Footer>

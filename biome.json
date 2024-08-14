@@ -40,6 +40,7 @@
         "noAccessKey": "error",
         "noAriaUnsupportedElements": "error",
         "noAutofocus": "error",
+        "useButtonType": "off",
         "noDistractingElements": "error",
         "noHeaderScope": "error",
         "noInteractiveElementToNoninteractiveRole": "error",
