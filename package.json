@@ -20,7 +20,7 @@
     "comment:ci": "node ./.github/scripts/comment-ci.js"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.0",
+    "@biomejs/biome": "1.8.3",
     "@xionwcfm/actions": "workspace:*",
     "@xionwcfm/typescript-config": "workspace:*",
     "prettier": "^3.2.5",

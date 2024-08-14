@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
   "formatter": {
     "enabled": true,
     "formatWithErrors": true,
@@ -14,8 +14,27 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+
+      "style": {
+        "useSelfClosingElements": "off",
+        "noNonNullAssertion": "off",
+        "noUnusedTemplateLiteral": "off",
+        "noParameterAssign": "off",
+        "useDefaultParameterLast": "off",
+        "useImportType": "off"
+      },
       "suspicious": {
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
+        "noDoubleEquals": "off",
+        "noArrayIndexKey": "off",
+        "noPrototypeBuiltins": "off",
+        "noImplicitAnyLet": "off",
+        "noAssignInExpressions": "off"
+      },
+      "complexity": {
+        "noForEach": "off",
+        "noUselessFragments": "off",
+        "noStaticOnlyClass": "off"
       },
       "a11y": {
         "noAccessKey": "error",
