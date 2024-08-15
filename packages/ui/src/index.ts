@@ -6,6 +6,7 @@ import { Chip } from "./chip";
 import { ConfirmDialog } from "./confirm-dialog";
 import { DialogPrimitives } from "./dialog";
 import { Drawer } from "./drawer";
+import { Flex } from "./flex";
 import { Input } from "./input";
 import { Label } from "./label";
 import { UnderlineInput } from "./outline-input";
@@ -20,7 +21,9 @@ import { Stack } from "./stack";
 import { SwitchCase } from "./switch-case";
 import { Tabs } from "./tabs";
 import { type ToastType, Toaster, toast } from "./toast";
+
 export {
+  Flex,
   UnderlineInput,
   Label,
   RadioGroup,
