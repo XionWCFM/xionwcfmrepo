@@ -5,12 +5,15 @@ const ExampleDrawer = () => {
   return (
     <Drawer.Root>
       <Drawer.Trigger>trigger</Drawer.Trigger>
-      <Drawer.Content className=" ">
-        <div className={`h-screen  `}>
-          <Drawer.Header>Drawer Header</Drawer.Header>
-          <Drawer.Footer>Drawer Footer</Drawer.Footer>
-        </div>
-      </Drawer.Content>
+      <Drawer.Portal>
+        <Drawer.Overlay />
+        <Drawer.Content className=" ">
+          <div className={` h-[50vh]`}>
+            <Drawer.Header>Drawer Header</Drawer.Header>
+            <Drawer.Footer>Drawer Footer</Drawer.Footer>
+          </div>
+        </Drawer.Content>
+      </Drawer.Portal>
     </Drawer.Root>
   );
 };
