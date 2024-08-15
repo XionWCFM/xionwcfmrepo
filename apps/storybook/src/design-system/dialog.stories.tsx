@@ -25,7 +25,7 @@ export default meta;
 
 type Story = StoryObj<typeof Dialog>;
 
-export const Drawers: Story = {
+export const DialogPrimitive: Story = {
   args: {},
   decorators: [
     () => (

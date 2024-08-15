@@ -43,12 +43,22 @@ export const Buttons: Story = {
           <div className=" py-12 gap-y-16 flex flex-col" key={variant}>
             <p className=" text-size-8 font-bold">{`${variant} case`}</p>
             <div className=" flex gap-x-16">
-              <Button variant={variant} size={"sm"}>
-                Button
-              </Button>
-              <Button variant={variant} size={"lg"}>
-                Button
-              </Button>
+              <div className="">
+                <Button variant={variant} size={"sm"}>
+                  Button
+                </Button>
+              </div>
+              <div className="">
+                <Button variant={variant} size={"md"}>
+                  Button
+                </Button>
+              </div>
+
+              <div className="">
+                <Button variant={variant} size={"lg"}>
+                  Button
+                </Button>
+              </div>
             </div>
             <div className=" flex items-center gap-x-16">
               <Button startIcon={<FillInfoIcon />} variant={variant} size={"sm"}>

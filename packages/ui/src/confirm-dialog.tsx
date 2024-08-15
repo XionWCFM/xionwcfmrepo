@@ -42,7 +42,7 @@ export const ConfirmDialog = (props: ConfirmDialogProps) => {
           >
             {description}
           </Paragraph>
-          <Box className=" flex justify-end items-center gap-x-8 xs:gap-x-16">
+          <Box className=" flex  justify-center items-center gap-x-8 xs:gap-x-16">
             {primaryButton}
             {secondaryButton}
           </Box>
