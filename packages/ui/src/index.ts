@@ -7,7 +7,10 @@ import { ConfirmDialog } from "./confirm-dialog";
 import { DialogPrimitives } from "./dialog";
 import { Drawer } from "./drawer";
 import { Input } from "./input";
+import { Label } from "./label";
+import { UnderlineInput } from "./outline-input";
 import { Paragraph } from "./paragraph";
+import { RadioGroup } from "./radio-group";
 import { Separate } from "./separate";
 import { Separated } from "./separated";
 import { Skeleton } from "./skeleton";
@@ -17,8 +20,10 @@ import { Stack } from "./stack";
 import { SwitchCase } from "./switch-case";
 import { Tabs } from "./tabs";
 import { type ToastType, Toaster, toast } from "./toast";
-
 export {
+  UnderlineInput,
+  Label,
+  RadioGroup,
   Input,
   AspectRatio,
   Box,
