@@ -8,6 +8,7 @@ import {
   forwardRef,
 } from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
+import { Box } from "./box";
 import { cn } from "./external-utils/cn";
 
 const Root = ({ shouldScaleBackground = true, ...props }: ComponentProps<typeof DrawerPrimitive.Root>) => (
@@ -41,19 +42,15 @@ const DrawerContent = forwardRef<
   ElementRef<typeof DrawerPrimitive.Content>,
   ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
-  <DrawerPortal>
-    <DrawerOverlay />
-    <DrawerPrimitive.Content
-      ref={ref}
-      className="fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-[10px] border bg-white "
-      {...props}
-    >
-      <DrawerHandle className=" top-[24px]">
-        <div className="mx-auto mt-[16px] h-[8px] w-[100px] rounded-full bg-gray-200" />
-      </DrawerHandle>
-      {children}
-    </DrawerPrimitive.Content>
-  </DrawerPortal>
+  <DrawerPrimitive.Content
+    ref={ref}
+    className=" fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-[10px] border bg-white "
+    {...props}
+  >
+    <DrawerHandle className=" top-[16px] mb-8 h-6 w-[80px] rounded-full bg-gray-200" />
+
+    {children}
+  </DrawerPrimitive.Content>
 ));
 DrawerContent.displayName = "DrawerContent";
 

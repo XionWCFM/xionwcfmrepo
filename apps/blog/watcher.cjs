@@ -7,7 +7,6 @@ const watchCallbacks = [];
 
 chokidar.watch("./posts").on("all", (event) => {
   if (event === "change") {
-    // biome-ignore lint/complexity/noForEach: <explanation>
     watchCallbacks.forEach((cb) => cb());
   }
 });

@@ -12,8 +12,14 @@
     }
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.1",
     "@xionwcfm/typescript-config": "workspace:*",
-    "typescript": "latest"
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "latest",
+    "@xionwcfm/token": "workspace:*"
+  },
+  "peerDependencies": {
+    "tailwindcss-animate": ">=0.0.0",
+    "@xionwcfm/token": "workspace:*"
   }
 }

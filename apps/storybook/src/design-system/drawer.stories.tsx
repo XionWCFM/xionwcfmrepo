@@ -1,17 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Button } from "@xionwcfm/ui";
 import { Drawer } from "@xionwcfm/ui/drawer";
 
 const ExampleDrawer = () => {
   return (
     <Drawer.Root>
-      <Drawer.Trigger>trigger</Drawer.Trigger>
-      <Drawer.Content className=" ">
-        {/* biome-ignore lint/style/noUnusedTemplateLiteral: <explanation> */}
-        <div className={`h-screen  `}>
-          <Drawer.Header>Drawer Header</Drawer.Header>
-          <Drawer.Footer>Drawer Footer</Drawer.Footer>
-        </div>
-      </Drawer.Content>
+      <Drawer.Trigger>
+        <Button variant={"emphasis"} size={"md"}>
+          열어보기
+        </Button>
+      </Drawer.Trigger>
+      <Drawer.Portal>
+        <Drawer.Overlay />
+        <Drawer.Content className=" ">
+          <div className={` h-[50vh]`}>
+            <Drawer.Header>Drawer Header</Drawer.Header>
+            <Drawer.Footer>Drawer Footer</Drawer.Footer>
+          </div>
+        </Drawer.Content>
+      </Drawer.Portal>
     </Drawer.Root>
   );
 };
@@ -30,7 +37,7 @@ export const Drawers: Story = {
   args: {},
   decorators: [
     () => (
-      <div className=" flex flex-col">
+      <div className=" min-h-screen p-16 flex flex-col">
         <ExampleDrawer />
       </div>
     ),

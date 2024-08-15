@@ -56,7 +56,6 @@ const useIntersectionObserver = ({
   enabled = true,
 }: UseIntersectionObserver) => {
   const memoizedOnIntersect = React.useCallback(onIntersect, []);
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (!enabled) return;
 
@@ -67,7 +66,6 @@ const useIntersectionObserver = ({
     if (domElement) {
       observer = new IntersectionObserver(
         (entries) =>
-          // biome-ignore lint/complexity/noForEach: <explanation>
           entries.forEach((entry) => {
             if (!entry.isIntersecting) {
               offIntersect();

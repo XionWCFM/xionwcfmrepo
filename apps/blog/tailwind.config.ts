@@ -20,6 +20,7 @@ const config: Config = {
     extend: {
       keyframes: XION_STYLE.keyframes as Config["theme"],
       animation: XION_STYLE.animation,
+      screens: XION_STYLE.screens,
     },
   },
   plugins: [...(baseConfig?.plugins ?? []), require("tailwindcss-animate")],

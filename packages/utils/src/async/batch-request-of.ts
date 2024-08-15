@@ -7,7 +7,6 @@ export const batchRequestsOf = <F extends CallbackFunctionType>(callback: F) => 
   return ((...args: Parameters<F>) => {
     const key = JSON.stringify(args);
     if (promiseByKey.has(key)) {
-      // biome-ignore lint/style/noNonNullAssertion: <explanation>
       return promiseByKey.get(key)!;
     }
     const promise = callback(...args);

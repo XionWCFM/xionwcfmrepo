@@ -12,7 +12,6 @@ export class Observable<T> {
   }
 
   notify(data: T): void {
-    // biome-ignore lint/complexity/noForEach: <explanation>
     this.observers.forEach((observer) => observer(data));
   }
 }

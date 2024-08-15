@@ -8,7 +8,7 @@ import { Spinner } from "./spinner";
 
 export const buttonVariants = cva(
   `inline-flex items-center justify-center whitespace-nowrap 
-  rounded-md font-medium ring-offset-background 
+  rounded-md font-medium ring-offset-background relative 
   duration-200 transition-colors focus-visible:outline-none focus-visible:ring-2  
   focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50
   `,
@@ -22,9 +22,12 @@ export const buttonVariants = cva(
         active:opacity-70
         `,
         primary: `
-        bg-neutral-800 text-neutral-100
+        bg-neutral-700 text-neutral-100
         hover:opacity-95
         active:opacity-90
+        `,
+        emphasis: `
+        bg-primary-500 text-gray-50 hover:opacity-95 active:opacity-90 
         `,
         secondary: ` rounded-sm bg-neutral-100 text-neutral-600
          hover:opacity-80  hover:bg-neutral-200
@@ -39,8 +42,9 @@ export const buttonVariants = cva(
       size: {
         default: "",
         sm: "  rounded-md px-12 py-6",
-        lg: " rounded-md px-20 py-8",
-        full: " w-full py-12 h-48",
+        md: " rounded-md px-16 py-8",
+        lg: " rounded-md px-20 py-12",
+        full: " w-full  py-16  text-size-6",
         icon: "px-8 py-8",
       },
     },
@@ -91,13 +95,18 @@ export const Button: ButtonType = forwardRef(function Button<C extends ElementTy
       {...typedRest}
     >
       <>
-        {loading ? <Spinner /> : null}
+        {loading ? (
+          <Box as="span" className=" absolute">
+            <Spinner />
+          </Box>
+        ) : null}
+
         {startIcon && !loading ? (
           <Box as="span" className="mr-2">
             {startIcon}
           </Box>
         ) : null}
-        {children}
+        <div className={`${loading ? "invisible" : ""}`}>{children}</div>
         {endIcon ? (
           <Box as="span" className="ml-2">
             {endIcon}
