@@ -33,7 +33,7 @@ export const ConfirmDialog = (props: ConfirmDialogProps) => {
             </DialogPrimitives.Close>
           </Box>
           <Paragraph
-            className=" mb-8 xs:mt-8"
+            className=" mb-24 mt-4 xs:mt-8"
             color={"gray-500"}
             weight={"thin"}
             size={"3"}
@@ -42,7 +42,7 @@ export const ConfirmDialog = (props: ConfirmDialogProps) => {
           >
             {description}
           </Paragraph>
-          <Box className=" flex justify-end items-center gap-x-16">
+          <Box className=" flex justify-end items-center gap-x-8 xs:gap-x-16">
             {primaryButton}
             {secondaryButton}
           </Box>
