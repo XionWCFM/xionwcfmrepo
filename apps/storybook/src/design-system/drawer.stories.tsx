@@ -1,10 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Button } from "@xionwcfm/ui";
 import { Drawer } from "@xionwcfm/ui/drawer";
 
 const ExampleDrawer = () => {
   return (
     <Drawer.Root>
-      <Drawer.Trigger>trigger</Drawer.Trigger>
+      <Drawer.Trigger>
+        <Button variant={"emphasis"} size={"md"}>
+          열어보기
+        </Button>
+      </Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay />
         <Drawer.Content className=" ">

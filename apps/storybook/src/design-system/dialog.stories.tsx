@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { DialogPrimitives } from "@xionwcfm/ui";
+import { Button, DialogPrimitives } from "@xionwcfm/ui";
 
 const Dialog = () => {
   return (
     <div>
       <DialogPrimitives.Root>
-        <DialogPrimitives.Trigger>withOverlay</DialogPrimitives.Trigger>
+        <DialogPrimitives.Trigger>
+          <Button variant={"emphasis"} size={"md"}>
+            열어보기
+          </Button>
+        </DialogPrimitives.Trigger>
         <DialogPrimitives.Portal>
           <DialogPrimitives.Overlay />
           <DialogPrimitives.Content>hello</DialogPrimitives.Content>

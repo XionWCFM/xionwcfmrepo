@@ -6,7 +6,9 @@ const Dialog = () => {
   const [open, setOpen] = useState(false);
   return (
     <div>
-      <button onClick={() => setOpen(true)}>click</button>
+      <Button variant={"emphasis"} size={"md"} onClick={() => setOpen(true)}>
+        열어보기
+      </Button>
       <ConfirmDialog
         isOpen={open}
         onClose={() => setOpen(false)}
