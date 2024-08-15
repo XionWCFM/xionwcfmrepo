@@ -40,7 +40,7 @@ export const Buttons: Story = {
           <Story />
         </div>
         {withOutIcon.map((variant) => (
-          <div className=" py-12 gap-y-16 flex flex-col" key={variant}>
+          <div className=" py-12 gap-y-16 flex flex-wrap flex-col" key={variant}>
             <p className=" text-size-8 font-bold">{`${variant} case`}</p>
             <div className=" flex gap-x-16">
               <div className="">

@@ -41,7 +41,7 @@ export const ConfirmDialogStory: Story = {
   args: {},
   decorators: [
     () => (
-      <div className=" flex flex-col">
+      <div className=" min-h-screen p-16 flex flex-col">
         <Dialog />
       </div>
     ),

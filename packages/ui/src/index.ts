@@ -6,6 +6,7 @@ import { Chip } from "./chip";
 import { ConfirmDialog } from "./confirm-dialog";
 import { DialogPrimitives } from "./dialog";
 import { Drawer } from "./drawer";
+import { Input } from "./input";
 import { Paragraph } from "./paragraph";
 import { Separate } from "./separate";
 import { Separated } from "./separated";
@@ -16,7 +17,9 @@ import { Stack } from "./stack";
 import { SwitchCase } from "./switch-case";
 import { Tabs } from "./tabs";
 import { type ToastType, Toaster, toast } from "./toast";
+
 export {
+  Input,
   AspectRatio,
   Box,
   Button,
