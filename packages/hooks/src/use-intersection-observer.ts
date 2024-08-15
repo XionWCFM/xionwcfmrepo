@@ -56,7 +56,6 @@ const useIntersectionObserver = ({
   enabled = true,
 }: UseIntersectionObserver) => {
   const memoizedOnIntersect = React.useCallback(onIntersect, []);
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (!enabled) return;
 

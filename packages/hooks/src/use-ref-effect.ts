@@ -16,7 +16,6 @@ export function useRefEffect<E extends HTMLElement = HTMLElement>(
   const preservedCallback = usePreservedCallback(callback);
   const disposeRef = useRef<CleanupCallback>(noop);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const effect = useCallback(
     (element: E | null) => {
       disposeRef.current();

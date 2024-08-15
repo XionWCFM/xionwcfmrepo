@@ -2,6 +2,7 @@
   "name": "@xionwcfm/ui",
   "version": "0.0.0",
   "private": true,
+  "main": "./src/index.tsx",
   "exports": {
     "./button": "./src/button.tsx",
     "./box": "./src/box.tsx",
@@ -15,7 +16,10 @@
     "./switch-case": "./src/switch-case.tsx",
     "./toast": "./src/toast.tsx",
     "./cn": "./src/external-utils/cn.ts",
-    "./drawer": "./src/drawer.tsx"
+    "./drawer": "./src/drawer.tsx",
+    "./dialog-primitives": "./src/dialog.tsx",
+    "./aspect-ratio": "./src/aspect-ratio.tsx",
+    "./separator": "./src/separator.tsx"
   },
   "scripts": {
     "generate:component": "turbo gen react-component"

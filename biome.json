@@ -36,6 +36,9 @@
         "noUselessFragments": "off",
         "noStaticOnlyClass": "off"
       },
+      "correctness": {
+        "useExhaustiveDependencies": "off"
+      },
       "a11y": {
         "noAccessKey": "error",
         "noAriaUnsupportedElements": "error",
