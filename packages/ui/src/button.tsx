@@ -8,7 +8,7 @@ import { Spinner } from "./spinner";
 
 export const buttonVariants = cva(
   `inline-flex items-center justify-center whitespace-nowrap 
-  rounded-md font-medium ring-offset-background 
+  rounded-md font-medium ring-offset-background relative 
   duration-200 transition-colors focus-visible:outline-none focus-visible:ring-2  
   focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50
   `,
@@ -96,7 +96,7 @@ export const Button: ButtonType = forwardRef(function Button<C extends ElementTy
     >
       <>
         {loading ? (
-          <Box as="span" className="mr-2">
+          <Box as="span" className=" absolute">
             <Spinner />
           </Box>
         ) : null}
@@ -106,7 +106,7 @@ export const Button: ButtonType = forwardRef(function Button<C extends ElementTy
             {startIcon}
           </Box>
         ) : null}
-        {children}
+        <div className={`${loading ? "invisible" : ""}`}>{children}</div>
         {endIcon ? (
           <Box as="span" className="ml-2">
             {endIcon}
