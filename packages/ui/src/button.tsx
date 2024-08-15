@@ -7,7 +7,7 @@ import type { SemanticHTMLContentSectionType } from "./internal-utils/type";
 import { Spinner } from "./spinner";
 
 export const buttonVariants = cva(
-  `inline-flex items-center justify-center whitespace-nowrap 
+  `inline-flex items-center justify-center whitespace-nowrap text-size-3 xs:text-size-5
   rounded-md font-medium ring-offset-background 
   duration-200 transition-colors focus-visible:outline-none focus-visible:ring-2  
   focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50
@@ -22,9 +22,12 @@ export const buttonVariants = cva(
         active:opacity-70
         `,
         primary: `
-        bg-neutral-800 text-neutral-100
+        bg-neutral-700 text-neutral-100
         hover:opacity-95
         active:opacity-90
+        `,
+        emphasis: `
+        bg-primary-500 text-gray-50 hover:opacity-95 active:opacity-90 
         `,
         secondary: ` rounded-sm bg-neutral-100 text-neutral-600
          hover:opacity-80  hover:bg-neutral-200
@@ -40,7 +43,7 @@ export const buttonVariants = cva(
         default: "",
         sm: "  rounded-md px-12 py-6",
         lg: " rounded-md px-20 py-8",
-        full: " w-full  py-20 min-h-[60px]",
+        full: " w-full  py-16  text-size-6",
         icon: "px-8 py-8",
       },
     },

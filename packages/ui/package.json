@@ -26,6 +26,7 @@
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
+    "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-toast": "^1.2.1",
     "@turbo/gen": "^1.12.4",
     "@types/eslint": "^8.56.5",

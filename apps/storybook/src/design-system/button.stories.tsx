@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { FillInfoIcon } from "@xionwcfm/icon/fill-info-icon";
 import { Button } from "@xionwcfm/ui/button";
 
-const options = ["default", "outline", "primary", "secondary", "ghost", "link", "icon"] as const;
+const options = ["default", "outline", "primary", "secondary", "ghost", "link", "icon", "emphasis"] as const;
 const withOutIcon = options.filter((item) => item !== "icon");
 
 const meta: Meta<typeof Button> = {
