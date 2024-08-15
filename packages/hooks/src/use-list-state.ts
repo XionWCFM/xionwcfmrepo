@@ -54,7 +54,7 @@ export function useListState<T>(initialValue: T[] = []): UseListState<T> {
       const item = current[from];
 
       cloned.splice(from, 1);
-      cloned.splice(to, 0, item);
+      cloned.splice(to, 0, item!);
 
       return cloned;
     });
@@ -65,8 +65,8 @@ export function useListState<T>(initialValue: T[] = []): UseListState<T> {
       const fromItem = cloned[from];
       const toItem = cloned[to];
 
-      cloned.splice(to, 1, fromItem);
-      cloned.splice(from, 1, toItem);
+      cloned.splice(to, 1, fromItem!);
+      cloned.splice(from, 1, toItem!);
 
       return cloned;
     });
@@ -81,6 +81,7 @@ export function useListState<T>(initialValue: T[] = []): UseListState<T> {
   const setItemProp = <K extends keyof T, U extends T[K]>(index: number, prop: K, value: U) =>
     setState((current) => {
       const cloned = [...current];
+      //@ts-ignore
       cloned[index] = { ...cloned[index], [prop]: value };
       return cloned;
     });

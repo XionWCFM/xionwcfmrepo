@@ -20,7 +20,7 @@ export function useIntersection<T extends HTMLElement = any>(
       }
 
       observer.current = new IntersectionObserver(([_entry]) => {
-        setEntry(_entry);
+        setEntry(_entry!);
       }, options);
 
       observer.current.observe(element);

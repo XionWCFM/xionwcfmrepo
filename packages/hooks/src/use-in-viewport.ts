@@ -8,7 +8,7 @@ export function useInViewport<T extends HTMLElement = any>() {
     if (typeof IntersectionObserver === "undefined") {
       return null;
     }
-    return new IntersectionObserver(([entry]) => setInViewport(entry.isIntersecting));
+    return new IntersectionObserver(([entry]) => setInViewport(entry!.isIntersecting));
   }, [ref]);
 
   useEffect(() => {

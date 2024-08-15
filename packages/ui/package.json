@@ -2,8 +2,9 @@
   "name": "@xionwcfm/ui",
   "version": "0.0.0",
   "private": true,
-  "main": "./src/index.tsx",
+  "main": "./src/index.ts",
   "exports": {
+    ".": "./src/index.ts",
     "./button": "./src/button.tsx",
     "./box": "./src/box.tsx",
     "./stack": "./src/stack.tsx",

@@ -18,10 +18,11 @@ export function shallowEqual(a: any, b: any) {
   for (let i = 0; i < length; i += 1) {
     const key = keys[i];
 
+    //@ts-ignore
     if (!(key in b)) {
       return false;
     }
-
+    //@ts-ignore
     if (a[key] !== b[key]) {
       return false;
     }

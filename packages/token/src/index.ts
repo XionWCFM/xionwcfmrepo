@@ -210,6 +210,10 @@ const animation = {
   "dialog-appear": "dialog-appear 150ms cubic-bezier(0.16, 1, 0.3, 1)",
 };
 
+const screens = {
+  xs: "450px",
+};
+
 export const XION_STYLE = {
   colors,
   borderRadius,
@@ -220,4 +224,5 @@ export const XION_STYLE = {
   boxShadow,
   keyframes,
   animation,
+  screens,
 };
