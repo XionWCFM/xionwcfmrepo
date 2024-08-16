@@ -1,6 +1,6 @@
 import { BeverageType } from "../../beverage/model/beverage.model";
 
-export type OrderStatus = "receipt" | "preparing" | "ready" | "completed" | "cancelled";
+export type OrderStatus = "preparing" | "ready" | "completed" | "cancelled";
 
 export type OrderType = {
   id: string;
@@ -10,9 +10,8 @@ export type OrderType = {
     beverageId: string;
     quantity: number;
   }[];
-  totalPrice: number;
   createdAt: string;
-  updatedAt: string;
+  updatedAt: string | null;
 };
 
 export type CompletedBeverageStatus = "ready" | "completed";
