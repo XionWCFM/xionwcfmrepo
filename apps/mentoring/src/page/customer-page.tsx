@@ -1,12 +1,9 @@
 import { Flex, Stack } from "@xionwcfm/ui";
-import { CustomerSignUpBar } from "src/feature/customer-sign-up/customer-sign-up-bar";
-
+import { CustomerOrderBar } from "src/feature/customer-order/bar";
 export function CustomerPage() {
   return (
     <Stack>
-      <Flex px="16">
-        <CustomerSignUpBar />
-      </Flex>
+      <CustomerOrderBar />
     </Stack>
   );
 }

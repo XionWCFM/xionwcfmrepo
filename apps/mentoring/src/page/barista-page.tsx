@@ -1,3 +1,5 @@
+import { Stack } from "@xionwcfm/ui";
+
 export function BaristaPage() {
-  return <div></div>;
+  return <Stack></Stack>;
 }

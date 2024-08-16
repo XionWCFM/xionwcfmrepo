@@ -3,14 +3,14 @@ import { useFunnel } from "@xionhub/funnel-app-router-adapter";
 import { useFunnelDefaultStep } from "@xionhub/funnel-core";
 import { useRouter } from "next/navigation";
 import { ROUTES } from "~/shared/routes";
-import { customerSignUpFunnelOptions } from "./customer-sign-up-funnel-options";
-import { useCustomerSignUpDispatch, useCustomerSignUpState } from "./customer-sign-up-state";
-import { CustomerSignUpConfirm } from "./funnel-step/customer-sign-up-confirm";
-import { CustomerSignUpDone } from "./funnel-step/customer-sign-up-done";
-import { CustomerSignUpGuard } from "./funnel-step/customer-sign-up-guard";
-import { CustomerSignUpName } from "./funnel-step/customer-sign-up-name";
-import { CustomerSignUpPhone } from "./funnel-step/customer-sign-up-phone";
-import { CustomerSignUpStart } from "./funnel-step/customer-sign-up-start";
+import { customerSignUpFunnelOptions } from "./funnel-options";
+import { CustomerSignUpConfirm } from "./funnel-step/confirm";
+import { CustomerSignUpDone } from "./funnel-step/done";
+import { CustomerSignUpGuard } from "./funnel-step/guard";
+import { CustomerSignUpName } from "./funnel-step/name";
+import { CustomerSignUpPhone } from "./funnel-step/phone";
+import { CustomerSignUpStart } from "./funnel-step/start";
+import { useCustomerSignUpDispatch, useCustomerSignUpState } from "./state";
 
 export const CustomerSignUpFunnel = () => {
   const [Funnel, { step, createStep }] = useFunnel(customerSignUpFunnelOptions());

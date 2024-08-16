@@ -1,6 +1,6 @@
 import { funnelOptions } from "@xionhub/funnel-core";
 import { ROUTES } from "~/shared/routes";
-import { CustomerSignUpStateType } from "./customer-sign-up-state";
+import { CustomerSignUpStateType } from "./state";
 
 export const customerSignUpFunnelOptions = () =>
   funnelOptions({

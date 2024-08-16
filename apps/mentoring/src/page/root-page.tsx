@@ -1,10 +1,8 @@
 "use client";
-import { useLocalStorage } from "@xionwcfm/hooks";
 import { Button, Stack } from "@xionwcfm/ui";
 import Link from "next/link";
-import { useCustomerSignUpStorage } from "src/feature/customer-sign-up/customer-sign-up-state";
+import { useCustomerSignUpStorage } from "src/feature/customer-sign-up/state";
 import { ROUTES } from "~/shared/routes";
-import { STORAGE_KEY } from "~/shared/storage-key";
 
 export function RootPage() {
   const [customerSignUpState] = useCustomerSignUpStorage();

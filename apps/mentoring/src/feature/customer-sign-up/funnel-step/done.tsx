@@ -1,6 +1,6 @@
 import { Button, Stack } from "@xionwcfm/ui";
 import { FixedBottom } from "~/shared/ui/fixed-bottom";
-import { CustomerSignUpStepProps } from "../customer-sign-up-funnel-options";
+import { CustomerSignUpStepProps } from "../funnel-options";
 
 type CustomerSignUpDoneProps = CustomerSignUpStepProps;
 

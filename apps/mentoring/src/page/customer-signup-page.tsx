@@ -1,7 +1,7 @@
 import { Stack } from "@xionwcfm/ui";
-import { CustomerSignUpBar } from "src/feature/customer-sign-up/customer-sign-up-bar";
-import { CustomerSignUpFunnel } from "src/feature/customer-sign-up/customer-sign-up-funnel";
-import { CustomerSignUpContext } from "src/feature/customer-sign-up/customer-sign-up-state";
+import { CustomerSignUpBar } from "src/feature/customer-sign-up/bar";
+import { CustomerSignUpFunnel } from "src/feature/customer-sign-up/funnel";
+import { CustomerSignUpContext } from "src/feature/customer-sign-up/state";
 
 export function CustomerSignUpPage() {
   return (
