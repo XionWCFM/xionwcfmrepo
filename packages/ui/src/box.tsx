@@ -1,4 +1,4 @@
-import { Slot } from "@radix-ui/react-slot";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import type {
   PolymorphicComponentProps,
   PolymorphicComponentPropsWithRef,

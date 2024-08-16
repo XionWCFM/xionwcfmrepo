@@ -1,5 +1,5 @@
-import { BaristaPage } from "~/page/barista-page";
+import { RootPage } from "~/page/root-page";
 
 export default function Home() {
-  return <BaristaPage />;
+  return <RootPage />;
 }

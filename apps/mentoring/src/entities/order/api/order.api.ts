@@ -12,3 +12,11 @@ export const fetchUpdateOrder = async (order: Partial<OrderType> & { id: string 
 export const fetchOrderById = async (id: string) => {
   return http.get<OrderType>(`/api/order?id=${id}`);
 };
+
+export const fetchOrderIsComplete = async (id: string) => {
+  return http.get<boolean>(`/api/order/is-complete?id=${id}`);
+};
+
+export const fetchOrderIsReady = async (id: string) => {
+  return http.get<boolean>(`/api/order/is-ready?id=${id}`);
+};
