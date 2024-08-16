@@ -1,6 +1,4 @@
-import { setDoc } from "firebase/firestore";
-import { collection, doc, getDoc } from "firebase/firestore/lite";
-import { BaristaType } from "../src/entities/barista/model/barista.model";
+import { collection, doc, getDoc, getDocs, query, setDoc, where } from "firebase/firestore/lite";
 import { CustomerType } from "../src/entities/customer/model/customer.model";
 import { firestore } from "./firestore";
 import { REMOTE_CONSTANT } from "./remote.constant";
@@ -13,7 +11,17 @@ class CustomerRepository {
       const data = docSnap.data();
       return { ...data, id: docSnap.id } as CustomerType;
     }
-    throw new Error("Barista not found");
+    throw new Error("customer not found");
+  }
+  async getCustomerByPhoneNumber(phoneNumber: string): Promise<CustomerType> {
+    const docRef = doc(firestore, REMOTE_CONSTANT.CUSTOMER_COLLECTION_ID);
+    const q = query(collection(firestore, REMOTE_CONSTANT.CUSTOMER_COLLECTION_ID), where("phone", "==", phoneNumber));
+    const snapshot = await getDocs(q);
+    const firstDoc = snapshot.docs[0];
+    if (firstDoc) {
+      return { ...firstDoc.data(), id: firstDoc.id } as CustomerType;
+    }
+    throw new Error("customer not found");
   }
   async createBarista(customer: Omit<CustomerType, "id">): Promise<{ id: string }> {
     const randomId = Math.random().toString(36).substring(7);
