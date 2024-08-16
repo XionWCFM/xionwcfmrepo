@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "^1.3.0",
     "@tanstack/react-query": "^5.51.23",
     "@xionhub/funnel-app-router-adapter": "^0.0.5",
     "@xionhub/funnel-client": "^0.0.5",
