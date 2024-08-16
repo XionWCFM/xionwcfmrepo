@@ -10,7 +10,7 @@ export const CustomerSignUpBar = () => {
   };
   return (
     <Flex justify={"between"} pt="16" mb="32">
-      <Button size={"icon"} onClick={handleBackClick}>
+      <Button onClick={handleBackClick}>
         <ChevronLeftIcon />
       </Button>
     </Flex>

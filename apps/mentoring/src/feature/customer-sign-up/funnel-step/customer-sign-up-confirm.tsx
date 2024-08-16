@@ -1,11 +1,25 @@
-import { ReactNode } from "react";
+import { Button, Paragraph, Stack } from "@xionwcfm/ui";
+import { FixedBottom } from "~/shared/ui/fixed-bottom";
 import { CustomerSignUpStepProps } from "../customer-sign-up-funnel-options";
-
-type CustomerSignUpConfirmProps = {
-  children?: ReactNode;
-} & CustomerSignUpStepProps;
+type CustomerSignUpConfirmProps = CustomerSignUpStepProps;
 
 export function CustomerSignUpConfirm(props: CustomerSignUpConfirmProps) {
-  const { children } = props;
-  return <div></div>;
+  const { onNextStep, name, phone } = props;
+
+  const handleCtaClick = async () => {
+    onNextStep();
+  };
+
+  return (
+    <Stack>
+      <Paragraph>{`이름 : ${name}`}</Paragraph>
+      <Paragraph>{`핸드폰 : ${phone}`}</Paragraph>
+
+      <FixedBottom>
+        <Button onClick={handleCtaClick} variant={"emphasis"} size={"full"}>
+          다음으로
+        </Button>
+      </FixedBottom>
+    </Stack>
+  );
 }

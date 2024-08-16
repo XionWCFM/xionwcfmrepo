@@ -11,6 +11,7 @@ import { Input } from "./input";
 import { Label } from "./label";
 import { UnderlineInput } from "./outline-input";
 import { Paragraph } from "./paragraph";
+import { Portal } from "./portal";
 import { RadioGroup } from "./radio-group";
 import { Separate } from "./separate";
 import { Separated } from "./separated";
@@ -24,6 +25,7 @@ import { type ToastType, Toaster, toast } from "./toast";
 
 export {
   Flex,
+  Portal,
   UnderlineInput,
   Label,
   RadioGroup,
