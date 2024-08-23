@@ -2,7 +2,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import { ResponiveEnumProps } from "./type";
 
 export type FlexDirectionTypeProps = {
-  direction: ResponiveEnumProps<VariantProps<typeof flexDirectionVariants>["initial"]>;
+  direction?: ResponiveEnumProps<VariantProps<typeof flexDirectionVariants>["initial"]>;
 };
 
 export const flexDirectionVariants = cva("", {

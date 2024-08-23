@@ -1,7 +1,7 @@
 import { VariantProps, cva } from "class-variance-authority";
 import { ResponiveEnumProps } from "./type";
 
-export type GapTypeProps = { gap: ResponiveEnumProps<VariantProps<typeof gapVariants>["initial"]> };
+export type GapTypeProps = { gap?: ResponiveEnumProps<VariantProps<typeof gapVariants>["initial"]> };
 
 export const gapVariants = cva("", {
   variants: {

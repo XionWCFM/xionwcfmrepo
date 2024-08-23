@@ -3,7 +3,7 @@ import { ResponiveEnumProps } from "./type";
 
 // FlexAlignTypeProps 타입 정의, align에 사이즈별로 적용할 수 있게 타입 정의
 export type FlexItemsTypeProps = {
-  items: ResponiveEnumProps<VariantProps<typeof flexItemsVariants>["initial"]>;
+  items?: ResponiveEnumProps<VariantProps<typeof flexItemsVariants>["initial"]>;
 };
 
 export const flexItemsVariants = cva("", {

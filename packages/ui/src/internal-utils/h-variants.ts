@@ -1,7 +1,7 @@
 import { VariantProps, cva } from "class-variance-authority";
 import { ResponiveEnumProps } from "./type";
 
-export type HTypeProps = { h: ResponiveEnumProps<VariantProps<typeof hVariants>["initial"]> };
+export type HTypeProps = { h?: ResponiveEnumProps<VariantProps<typeof hVariants>["initial"]> };
 
 export const hVariants = cva("", {
   variants: {
