@@ -13,7 +13,7 @@ export default function RootLayout({
       <InteractiveHeader />
       <Spacing className=" bg-neutral-50" h={"48"} />
       <Stack className="  overflow-hidden" w={"screen"} items={"center"}>
-        <Stack className="  md:max-w-768 " w={"screen"}>
+        <Stack className=" md:max-w-768 " w={"screen"}>
           {children}
         </Stack>
       </Stack>

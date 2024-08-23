@@ -11,11 +11,12 @@ export const StaticHeader = () => {
   return (
     <Stack className={" z-20 w-screen bg-neutral-50  "} as={"header"} items={"center"}>
       <Stack
-        className=" px-16 md:px-0 md:max-w-768 xl:max-w-1024 "
+        className=" md:max-w-768 xl:max-w-1024 "
         w={"screen"}
         direction={"row"}
         items={"center"}
         justify={"between"}
+        px={{ initial: "16", md: "0" }}
         py={"8"}
       >
         <Link href={ROUTES.root()} aria-label={"home 화면으로 돌아갑니다"}>
