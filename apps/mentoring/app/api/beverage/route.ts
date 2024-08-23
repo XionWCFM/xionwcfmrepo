@@ -1,16 +1,16 @@
-import { NextRequest, NextResponse } from "next/server";
 import { beverageRepository } from "remote/beverage-repository";
 import { BeverageType } from "~/entities/beverage/model/beverage.model";
 
-export async function GET(request: NextRequest) {
+export async function GET(request: Request) {
+  console.log("is work?");
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id");
 
   try {
     const result = await fetchBeverage(id);
-    return NextResponse.json(result);
+    return Response.json(result);
   } catch (error) {
-    return NextResponse.json({ error: (error as Error).message }, { status: 404 });
+    return Response.json({ error: (error as Error).message }, { status: 404 });
   }
 }
 

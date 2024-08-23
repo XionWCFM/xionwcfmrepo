@@ -7,7 +7,8 @@ export async function GET(request: NextRequest) {
   const id = searchParams.get("id");
 
   if (!id) {
-    return NextResponse.json({ error: "Missing id parameter" }, { status: 400 });
+    const result = await orderRepository.getOrders();
+    return NextResponse.json(result);
   }
 
   try {

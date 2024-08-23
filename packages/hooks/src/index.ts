@@ -26,6 +26,7 @@ import { useIsomorphicLayoutEffect } from "./use-isomorphic-layout-effect";
 import { useListState } from "./use-list-state";
 import { useLoading } from "./use-loading";
 import { useLocalStorage } from "./use-local-storage";
+import { useLockBody } from "./use-lock-body";
 import { useMergedRef } from "./use-merged-ref";
 import { useMouse } from "./use-mouse";
 import { usePreservedCallback } from "./use-preserved-callback";
@@ -38,6 +39,7 @@ import { useWindowEvent } from "./use-window-event";
 import { useWindowScroll } from "./use-window-scroll";
 export {
   builder,
+  useLockBody,
   useLocalStorage,
   useAnimation,
   useCallbackRef,

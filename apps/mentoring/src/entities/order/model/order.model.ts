@@ -1,6 +1,6 @@
 import { BeverageType } from "../../beverage/model/beverage.model";
 
-export type OrderStatus = "preparing" | "ready" | "completed" | "cancelled";
+export type OrderStatus = "preparing" | "orderReception" | "making" | "ready" | "completed" | "cancelled";
 
 export type OrderType = {
   id: string;

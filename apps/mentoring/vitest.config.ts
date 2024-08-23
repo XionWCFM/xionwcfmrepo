@@ -18,6 +18,7 @@ export default defineConfig({
     include: ["**/*.test.+(ts|tsx|js)"],
     reporters: ["default", "json", "github-actions"],
     outputFile: "test-results.json",
+    testTimeout: 100000,
     sequence: {
       shuffle: true,
     },

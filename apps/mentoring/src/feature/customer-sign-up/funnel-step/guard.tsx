@@ -4,10 +4,10 @@ import { useRouter } from "next/navigation";
 import { overlay } from "overlay-kit";
 import { PropsWithChildren } from "react";
 import { ROUTES } from "~/shared/routes";
-import { useCustomerSignUpState } from "../state";
+import { useCustomerSignUpStorage } from "../state";
 
 export const CustomerSignUpGuard = ({ children }: PropsWithChildren) => {
-  const customerSignUpState = useCustomerSignUpState();
+  const [customerSignUpState] = useCustomerSignUpStorage();
   const router = useRouter();
 
   const condition = Boolean(!customerSignUpState.id);

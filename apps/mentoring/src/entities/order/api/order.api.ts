@@ -13,6 +13,10 @@ export const fetchOrderById = async (id: string) => {
   return http.get<OrderType>(`/api/order?id=${id}`);
 };
 
+export const fetchOrders = async () => {
+  return http.get<OrderType[]>("/api/order");
+};
+
 export const fetchOrderIsComplete = async (id: string) => {
   return http.get<boolean>(`/api/order/is-complete?id=${id}`);
 };

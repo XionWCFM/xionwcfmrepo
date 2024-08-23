@@ -1,5 +1,5 @@
 import { setDoc } from "firebase/firestore";
-import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore/lite";
+import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 import { BaristaType } from "../src/entities/barista/model/barista.model";
 import { firestore } from "./firestore";
 import { REMOTE_CONSTANT } from "./remote.constant";

@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs } from "firebase/firestore/lite";
+import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
 import { BeverageType } from "../src/entities/beverage/model/beverage.model";
 import { firestore } from "./firestore";
 import { REMOTE_CONSTANT } from "./remote.constant";
@@ -15,10 +15,9 @@ class BeverageRepository {
   }
 
   async getBeverages(): Promise<BeverageType[]> {
-    const docRef = collection(firestore, REMOTE_CONSTANT.BEVERAGE_COLLECTION_ID);
-    const docSnap = await getDocs(docRef);
-    const beverages = docSnap.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    return beverages as BeverageType[];
+    const docRef = query(collection(firestore, REMOTE_CONSTANT.BEVERAGE_COLLECTION_ID));
+    const snapshot = await getDocs(docRef);
+    return snapshot.docs.map((doc) => doc.data()) as BeverageType[];
   }
 }
 

@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, query, setDoc, where } from "firebase/firestore/lite";
+import { collection, doc, getDoc, getDocs, query, setDoc, where } from "firebase/firestore";
 import { CustomerType } from "../src/entities/customer/model/customer.model";
 import { firestore } from "./firestore";
 import { REMOTE_CONSTANT } from "./remote.constant";

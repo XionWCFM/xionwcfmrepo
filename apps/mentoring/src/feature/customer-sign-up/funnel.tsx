@@ -10,14 +10,16 @@ import { CustomerSignUpGuard } from "./funnel-step/guard";
 import { CustomerSignUpName } from "./funnel-step/name";
 import { CustomerSignUpPhone } from "./funnel-step/phone";
 import { CustomerSignUpStart } from "./funnel-step/start";
-import { useCustomerSignUpDispatch, useCustomerSignUpState } from "./state";
+import { CustomerSignUpStateType, useCustomerSignUpStorage } from "./state";
 
 export const CustomerSignUpFunnel = () => {
   const [Funnel, { step, createStep }] = useFunnel(customerSignUpFunnelOptions());
   const router = useRouter();
 
-  const customerSignUpState = useCustomerSignUpState();
-  const customerSignUpdispatch = useCustomerSignUpDispatch();
+  const [customerSignUpState, customerSignUpDispatch] = useCustomerSignUpStorage();
+
+  const dispatch = (newValue: Partial<CustomerSignUpStateType>) =>
+    customerSignUpDispatch((prev) => ({ ...prev, ...newValue }));
 
   useFunnelDefaultStep(step, () => router.replace(createStep("start")));
 
@@ -27,7 +29,7 @@ export const CustomerSignUpFunnel = () => {
         <CustomerSignUpGuard>
           <CustomerSignUpStart
             onNextStep={() => router.push(createStep("name"))}
-            onCommit={customerSignUpdispatch}
+            onCommit={dispatch}
             {...customerSignUpState}
           />
         </CustomerSignUpGuard>
@@ -37,7 +39,7 @@ export const CustomerSignUpFunnel = () => {
         <CustomerSignUpGuard>
           <CustomerSignUpName
             onNextStep={() => router.push(createStep("phone"))}
-            onCommit={customerSignUpdispatch}
+            onCommit={dispatch}
             {...customerSignUpState}
           />
         </CustomerSignUpGuard>
@@ -46,7 +48,7 @@ export const CustomerSignUpFunnel = () => {
         <CustomerSignUpGuard>
           <CustomerSignUpPhone
             onNextStep={() => router.push(createStep("confirm"))}
-            onCommit={customerSignUpdispatch}
+            onCommit={dispatch}
             {...customerSignUpState}
           />
         </CustomerSignUpGuard>
@@ -56,7 +58,7 @@ export const CustomerSignUpFunnel = () => {
         <CustomerSignUpGuard>
           <CustomerSignUpConfirm
             onNextStep={() => router.push(createStep("done"))}
-            onCommit={customerSignUpdispatch}
+            onCommit={dispatch}
             {...customerSignUpState}
           />
         </CustomerSignUpGuard>
@@ -65,7 +67,7 @@ export const CustomerSignUpFunnel = () => {
       <Funnel.Step name={"done"}>
         <CustomerSignUpDone
           onNextStep={() => router.push(ROUTES.CUSTOMER())}
-          onCommit={customerSignUpdispatch}
+          onCommit={dispatch}
           {...customerSignUpState}
         />
       </Funnel.Step>
