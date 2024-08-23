@@ -11,7 +11,7 @@ export const stackVariants = cva(" ", {
       around: "justify-around",
       evenly: "justify-evenly",
     },
-    align: {
+    items: {
       default: "",
       start: "items-start",
       end: "items-end",

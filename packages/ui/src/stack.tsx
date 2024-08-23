@@ -16,13 +16,13 @@ export const Stack: StackType = forwardRef(function Stack<C extends ElementType 
   props: Props<C>,
   ref?: PolymorphicRef<C>,
 ) {
-  const { children, direction, gap, w, h, justify, align, className, as, ...rest } = props;
+  const { children, direction, gap, w, h, justify, items: align, className, as, ...rest } = props;
   const typedRest = rest as PolymorphicComponentPropsWithRef<C, PolimophicWithSpacingSystemProps<C>>;
   return (
     <Box
       as={as}
       ref={ref}
-      className={cn(" flex", stackVariants({ direction, gap, w, h, justify, align }), className)}
+      className={cn(" flex", stackVariants({ direction, gap, w, h, justify, items: align }), className)}
       {...typedRest}
     >
       {children}

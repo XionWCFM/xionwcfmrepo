@@ -16,13 +16,13 @@ export const InteractiveHeader = () => {
     <Stack
       className={` z-20 w-screen bg-neutral-50   fixed transition-transform duration-300 ${shouldHiding}`}
       as={"header"}
-      align={"center"}
+      items={"center"}
     >
       <Stack
         className=" px-16 md:px-0 md:max-w-768  "
         w={"screen"}
         direction={"row"}
-        align={"center"}
+        items={"center"}
         justify={"between"}
         py={"8"}
       >

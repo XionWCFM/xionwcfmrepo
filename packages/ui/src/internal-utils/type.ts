@@ -48,4 +48,8 @@ export type ReturnCssSpacingWAndHAndMarginType = "" | `${HAndWType}-${CssSpacing
 
 export type ReturnCssSpacingElementType = "" | `${CssSpacingElementType}-${CssSpacingGapType}`;
 
-export type SpacingSystemProps = Partial<Record<CssSpacingElementType, CssSpacingGapType>>;
+export type SupportBreakPoint = "initial" | "xs" | "md" | "xl";
+
+export type ResponsiveEnum<T> = Partial<Record<SupportBreakPoint, T | undefined>>;
+
+export type ResponiveEnumProps<T> = ResponsiveEnum<T> | T;
