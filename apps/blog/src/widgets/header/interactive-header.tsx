@@ -20,7 +20,7 @@ export const InteractiveHeader = () => {
       items={"center"}
     >
       <Stack
-        className="md:max-w-768 "
+        maxW={{ md: "768" }}
         w={"screen"}
         direction={"row"}
         items={"center"}

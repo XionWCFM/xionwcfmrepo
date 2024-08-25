@@ -11,7 +11,7 @@ export const StaticHeader = () => {
   return (
     <Stack className={" z-20 w-screen bg-neutral-50  "} as={"header"} items={"center"}>
       <Stack
-        className=" md:max-w-768 xl:max-w-1024 "
+        maxW={{ md: "768", xl: "1024" }}
         w={"screen"}
         direction={"row"}
         items={"center"}

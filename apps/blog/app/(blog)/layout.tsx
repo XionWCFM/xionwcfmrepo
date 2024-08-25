@@ -9,11 +9,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Stack className=" min-h-screen">
+    <Stack minH={"screen"}>
       <InteractiveHeader />
-      <Spacing className=" bg-neutral-50" h={"48"} />
-      <Stack className="  overflow-hidden" w={"screen"} items={"center"}>
-        <Stack className=" md:max-w-768 " w={"screen"}>
+      <Spacing className="bg-neutral-50" h={"48"} />
+      <Stack className="overflow-hidden" w={"screen"} items={"center"}>
+        <Stack w={"screen"} maxW={{ md: "768" }}>
           {children}
         </Stack>
       </Stack>

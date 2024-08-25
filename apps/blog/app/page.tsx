@@ -15,7 +15,7 @@ export default async function RootPage() {
       <Stack className=" min-h-screen bg-neutral-50">
         <StaticHeader />
         <Stack w={"100%"} justify={"center"} items={"center"}>
-          <Stack className=" w-screen md:max-w-768 xl:max-w-1024 ">
+          <Stack w={"screen"} maxW={{ md: "768", xl: "1024" }}>
             <MainXionWCFM />
             <Stack px={{ initial: "16", md: "0" }}>
               <Stack>
