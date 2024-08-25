@@ -3,6 +3,7 @@ import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { Image } from "@xionwcfm/adapters/image";
 import { Link } from "@xionwcfm/adapters/link";
 import { useScrollDirection } from "@xionwcfm/hooks/use-scroll-direction";
+import { cn } from "@xionwcfm/ui/cn";
 import { Separate } from "@xionwcfm/ui/separate";
 import { Stack } from "@xionwcfm/ui/stack";
 import { ASSET_XION_BOX_LOGO_48_16 } from "~/shared/assets";
@@ -14,16 +15,17 @@ export const InteractiveHeader = () => {
   const shouldHiding = scrollDirection === "down" ? "-translate-y-[64px]" : "translate-y-0";
   return (
     <Stack
-      className={` z-20 w-screen bg-neutral-50   fixed transition-transform duration-300 ${shouldHiding}`}
+      className={cn("z-20 w-screen bg-neutral-50 fixed transition-transform duration-300", shouldHiding)}
       as={"header"}
-      align={"center"}
+      items={"center"}
     >
       <Stack
-        className=" px-16 md:px-0 md:max-w-768  "
+        maxW={{ md: "768" }}
         w={"screen"}
         direction={"row"}
-        align={"center"}
+        items={"center"}
         justify={"between"}
+        px={{ initial: "16", md: "0" }}
         py={"8"}
       >
         <Link href={ROUTES.root()} aria-label={"home 화면으로 돌아갑니다"}>

@@ -3,6 +3,8 @@ import { type VariantProps, cva } from "class-variance-authority";
 import { type ElementType, type ReactNode, forwardRef } from "react";
 import { Box, type PolimophicWithSpacingSystemProps } from "./box";
 import { cn } from "./external-utils/cn";
+import { formatResponsiveEnum } from "./internal-utils/responsive-enum";
+import { TextSizeTypeProps, textSizeVariants } from "./internal-utils/text-size-variants";
 import type { SemanticHTMLTextContentType } from "./internal-utils/type";
 
 const paragraphVariants = cva(" whitespace-pre-wrap", {
@@ -10,21 +12,6 @@ const paragraphVariants = cva(" whitespace-pre-wrap", {
     overflow: {
       default: "",
       ellipsis: "whitespace-nowrap overflow-hidden max-w-[336px] text-ellipsis",
-    },
-    size: {
-      default: "",
-      "12": "text-size-12",
-      "11": "text-size-11",
-      "10": "text-size-10",
-      "9": "text-size-9",
-      "8": "text-size-8",
-      "7": "text-size-7",
-      "6": "text-size-6",
-      "5": "text-size-5",
-      "4": "text-size-4",
-      "3": "text-size-3",
-      "2": "text-size-2",
-      "1": "text-size-1",
     },
     leading: {
       default: "",
@@ -131,7 +118,6 @@ const paragraphVariants = cva(" whitespace-pre-wrap", {
   },
   defaultVariants: {
     overflow: "default",
-    size: "default",
     color: "default",
     responsive: "default",
     leading: "default",
@@ -142,7 +128,7 @@ const paragraphVariants = cva(" whitespace-pre-wrap", {
 type ParagraphVariantType = Omit<VariantProps<typeof paragraphVariants>, "responsive">;
 
 type Props<C extends ElementType> = PolimophicWithSpacingSystemProps<C> &
-  ParagraphVariantType & { responsive?: boolean };
+  ParagraphVariantType & { responsive?: boolean } & TextSizeTypeProps;
 
 type ParagraphType = <C extends ElementType = SemanticHTMLTextContentType>(
   props: PolymorphicComponentPropsWithRef<C, Props<C>>,
@@ -154,12 +140,20 @@ export const Paragraph: ParagraphType = forwardRef(function Paragraph<C extends 
 ) {
   const { overflow, size, color, leading, weight, responsive, className, children, as, ...rest } = props;
   const typedRest = rest as PolymorphicComponentPropsWithRef<C, PolimophicWithSpacingSystemProps<C>>;
+  const sizeVariant = formatResponsiveEnum(size);
   return (
     <Box
       as={as}
       ref={ref}
       className={cn(
-        paragraphVariants({ overflow, size, color, leading, weight, responsive: responsive ? size : "default" }),
+        paragraphVariants({
+          overflow,
+          color,
+          leading,
+          weight,
+          responsive: responsive ? sizeVariant.initial : "default",
+        }),
+        textSizeVariants(sizeVariant),
         className,
       )}
       {...typedRest}

@@ -2,9 +2,9 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Provider } from "jotai";
+import { OverlayProvider } from "overlay-kit";
 import { PropsWithChildren } from "react";
 import { useState } from "react";
-
 const QueryProvider = ({ children }: PropsWithChildren) => {
   const [queryClient] = useState(
     () =>
@@ -29,7 +29,9 @@ const QueryProvider = ({ children }: PropsWithChildren) => {
 export const Providers = ({ children }: PropsWithChildren) => {
   return (
     <QueryProvider>
-      <Provider>{children}</Provider>
+      <Provider>
+        <OverlayProvider>{children}</OverlayProvider>
+      </Provider>
     </QueryProvider>
   );
 };

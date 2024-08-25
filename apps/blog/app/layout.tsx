@@ -5,7 +5,6 @@ import { Toaster } from "@xionwcfm/ui/toast";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import { ClarityScript } from "~/app/script/clarity.script";
-import { VercelScript } from "~/app/script/vercel.script";
 import { ENVIRONMENT } from "~/shared/environment";
 import { AUTHOR_NAME, BASE_SITE_DESCRIPTION, BASE_SITE_TITLE, BASE_SITE_URL } from "../src/shared/constants";
 import { createMetadata } from "../src/shared/utils/external/create-meta-data";
@@ -42,7 +41,6 @@ export default function RootLayout({
         </AutoRefresh>
       </body>
       <ClarityScript />
-      <VercelScript />
       <GoogleTagManager gtmId={"GTM-52Z3Z37J"} />
       <GoogleAnalytics gaId={"G-59H4F1GZ8B"} />
     </html>

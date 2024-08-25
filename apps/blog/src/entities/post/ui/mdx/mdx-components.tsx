@@ -24,7 +24,7 @@ export const MDXComponents: TMDXComponents = {
   ),
   img: (props) => {
     return (
-      <Stack my="16" as={"span"} align={"center"} className=" relative w-full h-256 md:h-512">
+      <Stack my="16" as={"span"} items={"center"} className=" relative w-full h-256 md:h-512">
         <Image
           className=" transition-all duration-200 rounded-md hover:opacity-70"
           src={props.src ?? ""}

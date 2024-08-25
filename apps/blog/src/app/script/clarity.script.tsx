@@ -6,7 +6,7 @@ export const ClarityScript = () => {
       id="clarityScript"
       type="text/javascript"
       defer
-      strategy={"afterInteractive"}
+      strategy={"lazyOnload"}
       // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
       dangerouslySetInnerHTML={{
         __html: `(function(c,l,a,r,i,t,y){

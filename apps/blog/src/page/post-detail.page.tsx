@@ -14,7 +14,7 @@ type PostPageProps = {
 
 export default function PostDetailPage({ post }: PostPageProps) {
   return (
-    <Stack className=" px-16 md:px-0">
+    <Stack px={{ initial: "16", md: "0" }}>
       <Box my="16">
         <PostDetailTitle>{post.title}</PostDetailTitle>
       </Box>
