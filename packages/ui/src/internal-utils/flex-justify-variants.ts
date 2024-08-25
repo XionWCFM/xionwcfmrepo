@@ -1,8 +1,8 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { ResponiveEnumProps } from "./type";
+import { ResponsiveEnumProps } from "./type";
 
 export type FlexJustifyTypeProps = {
-  justify?: ResponiveEnumProps<VariantProps<typeof flexJustifyVariants>["initial"]>;
+  justify?: ResponsiveEnumProps<VariantProps<typeof flexJustifyVariants>["initial"]>;
 };
 
 export const flexJustifyVariants = cva("", {

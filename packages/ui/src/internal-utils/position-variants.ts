@@ -1,6 +1,6 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { ResponiveEnumProps } from "./type";
-export type PositionTypeProps = { position?: ResponiveEnumProps<VariantProps<typeof positionVariants>["initial"]> };
+import { ResponsiveEnumProps } from "./type";
+export type PositionTypeProps = { position?: ResponsiveEnumProps<VariantProps<typeof positionVariants>["initial"]> };
 
 export const positionVariants = cva("", {
   variants: {

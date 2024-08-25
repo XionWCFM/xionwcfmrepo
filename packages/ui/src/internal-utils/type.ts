@@ -52,4 +52,4 @@ export type SupportBreakPoint = "initial" | "xs" | "md" | "xl";
 
 export type ResponsiveEnum<T> = Partial<Record<SupportBreakPoint, T | undefined>>;
 
-export type ResponiveEnumProps<T> = ResponsiveEnum<T> | T;
+export type ResponsiveEnumProps<T> = ResponsiveEnum<T> | T;

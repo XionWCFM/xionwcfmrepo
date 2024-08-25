@@ -1,7 +1,7 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { ResponiveEnumProps } from "./type";
+import { ResponsiveEnumProps } from "./type";
 
-export type MaxWTypeProps = { maxW?: ResponiveEnumProps<VariantProps<typeof maxWVariants>["initial"]> };
+export type MaxWTypeProps = { maxW?: ResponsiveEnumProps<VariantProps<typeof maxWVariants>["initial"]> };
 
 export const maxWVariants = cva("", {
   variants: {

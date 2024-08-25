@@ -1,12 +1,12 @@
 import { VariantProps } from "class-variance-authority";
 import { formatResponsiveEnum } from "./responsive-enum";
 import { spacingVariants } from "./spacing-variants";
-import type { CssSpacingElementType, CssSpacingGapType, ResponiveEnumProps, ResponsiveEnum } from "./type";
+import type { CssSpacingElementType, CssSpacingGapType, ResponsiveEnum, ResponsiveEnumProps } from "./type";
 
-export type SpacingSystemProps = Partial<Record<CssSpacingElementType, ResponiveEnumProps<CssSpacingGapType>>>;
+export type SpacingSystemProps = Partial<Record<CssSpacingElementType, ResponsiveEnumProps<CssSpacingGapType>>>;
 
 const formatSpacing = (
-  item: ResponiveEnumProps<CssSpacingGapType> | undefined,
+  item: ResponsiveEnumProps<CssSpacingGapType> | undefined,
   id: CssSpacingElementType,
 ): VariantProps<typeof spacingVariants> => {
   if (item === undefined) {

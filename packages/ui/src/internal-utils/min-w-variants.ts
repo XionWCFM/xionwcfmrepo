@@ -1,7 +1,7 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { ResponiveEnumProps } from "./type";
+import { ResponsiveEnumProps } from "./type";
 
-export type MinWTypeProps = { minW?: ResponiveEnumProps<VariantProps<typeof minWVariants>["initial"]> };
+export type MinWTypeProps = { minW?: ResponsiveEnumProps<VariantProps<typeof minWVariants>["initial"]> };
 
 export const minWVariants = cva("", {
   variants: {
