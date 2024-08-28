@@ -10,9 +10,9 @@ import type { IconProps } from "./icon.type";
 const handleEmailClick = throttle(async () => {
   const isSuccess = await clipboard.writeText(AUTHOR_EMAIL);
   if (isSuccess) {
-    toast.success({ content: "이메일이 클립보드에 복사되었어요!" });
+    toast.success("이메일이 클립보드에 복사되었어요!");
   } else {
-    toast.error({ content: "이메일을 복사하는 데에 실패했어요" });
+    toast.error("이메일을 복사하는 데에 실패했어요");
   }
 }, 1500);
 
