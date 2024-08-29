@@ -15,7 +15,7 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: 9 
+          run_install: false
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -30,17 +30,14 @@ jobs:
 
       - uses: actions/cache@v4
         name: Setup pnpm cache
-        id: pnpm-cache
         with:
-          path: |
-            ${{ env.STORE_PATH }}
-            **/node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        if: steps.pnpm-cache.outputs.cache-hit != 'true'
+        if: steps.cache.outputs.cache-hit == false
         run: pnpm install
 
       - name: Code Quality and Security Checks
@@ -59,7 +56,7 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: 9 
+          run_install: false
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -74,17 +71,14 @@ jobs:
 
       - uses: actions/cache@v4
         name: Setup pnpm cache
-        id: pnpm-cache
         with:
-          path: |
-            ${{ env.STORE_PATH }}
-            **/node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        if: steps.pnpm-cache.outputs.cache-hit != 'true'
+        if: steps.cache.outputs.cache-hit == false
         run: pnpm install
 
       - name: Build Project
