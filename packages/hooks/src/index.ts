@@ -34,11 +34,13 @@ import { useRefEffect } from "./use-ref-effect";
 import { useResizeObserver } from "./use-resize-observer";
 import { useScrollDirection } from "./use-scroll-direction";
 import { useShallowEffect } from "./use-shallow-effect";
+import { useThrottle } from "./use-throttle";
 import { useToggleState } from "./use-toggle-state";
 import { useWindowEvent } from "./use-window-event";
 import { useWindowScroll } from "./use-window-scroll";
 export {
   builder,
+  useThrottle,
   useLockBody,
   useLocalStorage,
   useAnimation,

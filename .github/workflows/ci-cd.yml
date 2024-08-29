@@ -37,6 +37,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
+        if: steps.cache.outputs.cache-hit == false
         run: pnpm install
 
       - name: Code Quality and Security Checks
@@ -77,6 +78,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
+        if: steps.cache.outputs.cache-hit == false
         run: pnpm install
 
       - name: Build Project
