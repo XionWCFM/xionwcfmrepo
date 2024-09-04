@@ -14,7 +14,7 @@ export const PostDetailAuthorWithChar = () => {
       <Image {...ASSET_XION_CHAR_GRAY} />
       <Stack justify={"between"}>
         <Stack gap={"12"}>
-          <Link href={ROUTES.root()}>
+          <Link href={ROUTES.root()} aria-label={"navigate root route"}>
             <Paragraph weight={"bold"} color={"neutral-600"} size={"6"}>
               {AUTHOR_NAME}
             </Paragraph>
