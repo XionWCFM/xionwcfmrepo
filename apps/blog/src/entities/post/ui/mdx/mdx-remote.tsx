@@ -1,4 +1,4 @@
-import { Stack } from "@xionwcfm/ui/stack";
+import { Stack } from "@xionwcfm/xds";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";

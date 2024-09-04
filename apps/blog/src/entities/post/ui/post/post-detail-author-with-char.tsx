@@ -1,7 +1,7 @@
 import { Image } from "@xionwcfm/adapters/image";
 import { Link } from "@xionwcfm/adapters/link";
-import { Paragraph } from "@xionwcfm/ui/paragraph";
-import { Stack } from "@xionwcfm/ui/stack";
+import { Paragraph, Stack } from "@xionwcfm/xds";
+
 import { ASSET_XION_CHAR_GRAY } from "~/shared/assets";
 import { AUTHOR_DESCRIPTION, AUTHOR_NAME } from "~/shared/constants";
 import { ROUTES } from "~/shared/routes";

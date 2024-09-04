@@ -1,4 +1,4 @@
-import { Stack } from "@xionwcfm/ui/stack";
+import { Stack } from "@xionwcfm/xds";
 import { StaticHeader } from "~/widgets/header/static-header";
 
 export default function RootLayout({

@@ -1,6 +1,6 @@
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { Link } from "@xionwcfm/adapters/link";
-import { cn } from "@xionwcfm/ui/cn";
+import { cn } from "@xionwcfm/xds";
 import { EXTERNAL_GITHUB } from "~/shared/constants";
 import type { IconProps } from "./icon.type";
 

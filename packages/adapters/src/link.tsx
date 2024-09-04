@@ -7,6 +7,7 @@ type LinkProps = {
   scroll?: boolean;
   prefetch?: boolean;
   children?: ReactNode;
+  "aria-label": string;
 } & ComponentPropsWithoutRef<"a">;
 
 export type LinkType = ComponentType<LinkProps>;

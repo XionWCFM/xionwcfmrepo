@@ -1,7 +1,6 @@
 import { formatDate } from "@xionwcfm/date/format-date";
-import { Box } from "@xionwcfm/ui/box";
-import { Paragraph } from "@xionwcfm/ui/paragraph";
-import { Stack } from "@xionwcfm/ui/stack";
+
+import { Box, Paragraph, Stack } from "@xionwcfm/xds";
 import Link from "next/link";
 import React from "react";
 import { AUTHOR_NICKNAME } from "~/shared/constants";
@@ -29,9 +28,9 @@ export const PostCard = (props: PostCardProps) => {
             as="h2"
             size={"6"}
             color={"neutral-700"}
-            overflow={"ellipsis"}
-            className=" w-full md:max-w-[740px] xl:max-w-[990px] "
+            className=" max-w-[336px]  md:max-w-[700px] xl:max-w-[1000px]"
             responsive
+            overflow={"ellipsis"}
           >
             {post.title}
           </Paragraph>

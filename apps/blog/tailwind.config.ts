@@ -1,14 +1,8 @@
-import baseConfig from "@xionwcfm/tailwindcss-config/base";
 import { XION_STYLE } from "@xionwcfm/token";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  ...baseConfig,
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "../../packages/ui/src/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     colors: XION_STYLE.colors,
     borderRadius: XION_STYLE.borderRadius,
@@ -23,6 +17,5 @@ const config: Config = {
       screens: XION_STYLE.screens,
     },
   },
-  plugins: [...(baseConfig?.plugins ?? []), require("tailwindcss-animate")],
 };
 export default config;

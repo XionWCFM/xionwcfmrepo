@@ -1,7 +1,10 @@
+import "@xionwcfm/token/style";
+import "@xionwcfm/xds/style";
 import "./globals.css";
+
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
-import { Toaster } from "@xionwcfm/ui/toast";
+import { Toaster } from "@xionwcfm/xds/toast";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import { ClarityScript } from "~/app/script/clarity.script";

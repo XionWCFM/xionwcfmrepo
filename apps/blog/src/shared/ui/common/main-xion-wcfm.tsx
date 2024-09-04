@@ -1,6 +1,6 @@
 import { Image } from "@xionwcfm/adapters/image";
-import { Paragraph } from "@xionwcfm/ui/paragraph";
-import { Stack } from "@xionwcfm/ui/stack";
+
+import { Paragraph, Stack } from "@xionwcfm/xds";
 import { ASSET_XION_CHAR_WHITE } from "~/shared/assets";
 import { XionEmailIcon } from "../icon/xion-email-icon";
 import { XionGithubLogoIcon } from "../icon/xion-github-icon";
@@ -9,7 +9,7 @@ import { XionLinkedinIcon } from "../icon/xion-linkedin-icon";
 export const MainXionWCFM = () => {
   return (
     <Stack justify={"between"} px={"20"} py={"20"} className=" relative bg-primary-600 h-[450px]">
-      <Paragraph as="h1" color={"neutral-50"} weight={"bold"} size={"10"} responsive>
+      <Paragraph as="h1" weight={"bold"} size={"10"} responsive color={"neutral-50"}>
         {"FRONTEND DEVELOPER\nXIONWCFM"}
       </Paragraph>
       <Stack className=" " direction={"row"}>

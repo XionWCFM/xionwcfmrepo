@@ -1,5 +1,4 @@
-import { Paragraph } from "@xionwcfm/ui/paragraph";
-import { Stack } from "@xionwcfm/ui/stack";
+import { Paragraph, Stack } from "@xionwcfm/xds";
 import type { MDXComponents as TMDXComponents } from "mdx/types";
 import Image from "next/image";
 import type { AnchorHTMLAttributes, HTMLAttributes } from "react";

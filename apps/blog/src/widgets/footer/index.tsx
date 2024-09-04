@@ -1,5 +1,4 @@
-import { Paragraph } from "@xionwcfm/ui/paragraph";
-import { Stack } from "@xionwcfm/ui/stack";
+import { Paragraph, Stack } from "@xionwcfm/xds";
 import { CONSTANTS } from "~/shared/constants";
 
 export const Footer = () => {
