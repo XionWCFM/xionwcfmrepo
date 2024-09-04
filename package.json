@@ -26,13 +26,11 @@
     "prettier": "^3.2.5",
     "turbo": "^2.1.0",
     "typescript": "^5.4.5",
-    "vitest": "^2.0.5"
+    "vitest": "^2.0.5",
+    "lefthook": "^1.6.16"
   },
-  "packageManager": "pnpm@9.7.0",
+  "packageManager": "pnpm@9.9.0",
   "engines": {
     "node": ">=18"
-  },
-  "dependencies": {
-    "lefthook": "^1.6.16"
   }
 }

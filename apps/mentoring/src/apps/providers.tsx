@@ -1,4 +1,5 @@
 "use client";
+import { Suspense } from "@suspensive/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Provider } from "jotai";
@@ -30,7 +31,9 @@ export const Providers = ({ children }: PropsWithChildren) => {
   return (
     <QueryProvider>
       <Provider>
-        <OverlayProvider>{children}</OverlayProvider>
+        <OverlayProvider>
+          <Suspense>{children}</Suspense>
+        </OverlayProvider>
       </Provider>
     </QueryProvider>
   );

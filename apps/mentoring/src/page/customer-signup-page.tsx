@@ -1,4 +1,4 @@
-import { Stack } from "@xionwcfm/ui";
+import { Stack } from "@xionwcfm/xds";
 import { CustomerSignUpBar } from "src/feature/customer-sign-up/bar";
 import { CustomerSignUpFunnel } from "src/feature/customer-sign-up/funnel";
 

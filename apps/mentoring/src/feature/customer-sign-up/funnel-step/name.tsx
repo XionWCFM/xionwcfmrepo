@@ -1,9 +1,7 @@
-import { useDraft } from "@xionwcfm/hooks";
-import { Button, Paragraph, Stack, UnderlineInput } from "@xionwcfm/ui";
-import { ReactNode } from "react";
+import { useDraft } from "@xionwcfm/react";
+import { Button, Paragraph, Stack, UnderlineInput } from "@xionwcfm/xds";
 import { FixedBottom } from "~/shared/ui/fixed-bottom";
 import { CustomerSignUpStepProps } from "../funnel-options";
-
 type CustomerSignUpNameProps = CustomerSignUpStepProps;
 
 export function CustomerSignUpName(props: CustomerSignUpNameProps) {

@@ -1,6 +1,6 @@
 "use client";
 import { ChevronLeftIcon } from "@radix-ui/react-icons";
-import { Button, Flex } from "@xionwcfm/ui";
+import { Button, Flex } from "@xionwcfm/xds";
 import { useRouter } from "next/navigation";
 
 export const CustomerSignUpBar = () => {
