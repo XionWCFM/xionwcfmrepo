@@ -16,6 +16,7 @@ import AutoRefresh from "./auto-refresh";
 const notoSansKr = Noto_Sans_KR({
   weight: ["200", "300", "500", "700"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
