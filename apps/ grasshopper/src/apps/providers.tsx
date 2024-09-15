@@ -2,8 +2,10 @@
 import { DefaultProps, DefaultPropsProvider, ErrorBoundary, ErrorBoundaryGroup, Suspense } from "@suspensive/react";
 import { QueryClient, QueryClientProvider, QueryErrorResetBoundary } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "@xionwcfm/xds/toast";
 import { OverlayProvider } from "overlay-kit";
 import { PropsWithChildren, useState } from "react";
+
 const QueryProvider = ({ children }: PropsWithChildren) => {
   const [queryClient] = useState(
     () =>
@@ -40,7 +42,10 @@ export const Providers = ({ children }: PropsWithChildren) => {
             {({ reset }) => (
               <ErrorBoundaryGroup>
                 <ErrorBoundary onReset={reset} fallback={null}>
-                  <Suspense>{children}</Suspense>
+                  <Suspense>
+                    {children}
+                    <Toaster />
+                  </Suspense>
                 </ErrorBoundary>
               </ErrorBoundaryGroup>
             )}

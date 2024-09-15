@@ -6,7 +6,7 @@
     "build:p": "turbo build --filter './packages/*'",
     "build:actions": "turbo build --filter './packages/actions'",
     "dev": "turbo dev --filter './apps/blog'",
-    "dev:pg": "turbo dev --filter './apps/playground'",
+    "dev:g": "turbo dev --filter './apps/grasshopper'",
     "storybook": "turbo storybook",
     "push:origin": "git push origin $(git symbolic-ref --short HEAD)",
     "lint": "turbo lint",
