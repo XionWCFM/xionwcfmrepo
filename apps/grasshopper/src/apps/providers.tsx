@@ -3,6 +3,7 @@ import { DefaultProps, DefaultPropsProvider, ErrorBoundary, ErrorBoundaryGroup, 
 import { QueryClient, QueryClientProvider, QueryErrorResetBoundary } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "@xionwcfm/xds/toast";
+import { Provider } from "jotai";
 import { OverlayProvider } from "overlay-kit";
 import { PropsWithChildren, useState } from "react";
 
@@ -36,22 +37,24 @@ const defaultProps = new DefaultProps({ Delay: { ms: 200 } });
 export const Providers = ({ children }: PropsWithChildren) => {
   return (
     <QueryProvider>
-      <OverlayProvider>
-        <DefaultPropsProvider defaultProps={defaultProps}>
-          <QueryErrorResetBoundary>
-            {({ reset }) => (
-              <ErrorBoundaryGroup>
-                <ErrorBoundary onReset={reset} fallback={null}>
-                  <Suspense>
-                    {children}
-                    <Toaster />
-                  </Suspense>
-                </ErrorBoundary>
-              </ErrorBoundaryGroup>
-            )}
-          </QueryErrorResetBoundary>
-        </DefaultPropsProvider>
-      </OverlayProvider>
+      <Provider>
+        <OverlayProvider>
+          <DefaultPropsProvider defaultProps={defaultProps}>
+            <QueryErrorResetBoundary>
+              {({ reset }) => (
+                <ErrorBoundaryGroup>
+                  <ErrorBoundary onReset={reset} fallback={null}>
+                    <Suspense>
+                      {children}
+                      <Toaster />
+                    </Suspense>
+                  </ErrorBoundary>
+                </ErrorBoundaryGroup>
+              )}
+            </QueryErrorResetBoundary>
+          </DefaultPropsProvider>
+        </OverlayProvider>
+      </Provider>
     </QueryProvider>
   );
 };

@@ -6,6 +6,7 @@ import "@xionwcfm/xds/style";
 import "./globals.css";
 import { MobileViewLayout } from "@xionwcfm/xds";
 import { Providers } from "src/apps/providers";
+import { UserContextProvider } from "~/entities/user/user.store";
 
 export const metadata: Metadata = {
   title: "나는 메뚜기의 종류를 100가지 이상 알고 있다.",
@@ -27,7 +28,9 @@ export default function RootLayout({
     <html lang="ko">
       <body className={notoSansKr.className}>
         <MobileViewLayout>
-          <Providers>{children}</Providers>
+          <Providers>
+            <UserContextProvider>{children}</UserContextProvider>
+          </Providers>
         </MobileViewLayout>
       </body>
     </html>
