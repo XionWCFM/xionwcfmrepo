@@ -1,3 +1,9 @@
+import { EnterNameBar } from "~/features/enter-name/enter-name-bar";
+import { PageLayout } from "~/shared/ui/page-layout";
 export default function Page() {
-  return <div></div>;
+  return (
+    <PageLayout>
+      <EnterNameBar />
+    </PageLayout>
+  );
 }
