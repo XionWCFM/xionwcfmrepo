@@ -1,7 +1,7 @@
 import { Link } from "@xionwcfm/adapters/link";
 import { FixedBottom, FixedBottomCta, Paragraph, Pressable, Separator, Spacing } from "@xionwcfm/xds";
 import { Fragment } from "react";
-import { 국릾생물자원관_URL } from "~/shared/constants";
+import { 국립생물자원관_URL } from "~/shared/constants";
 import { StepTitle } from "../components/step-title";
 
 export const EnterNameOnboarding = ({ onStartNext }: { onStartNext: () => void }) => {
@@ -20,16 +20,10 @@ export const EnterNameOnboarding = ({ onStartNext }: { onStartNext: () => void }
         <Paragraph px={"16"} mb={"32"} color={"neutral-500"} weight={"light"} size={"4"} leading={"loose"}>
           메뚜기 퀴즈에 사용된 모든 메뚜기 사진은{"\n"}
           <Pressable>
-            <Paragraph
-              as={Link}
-              color={"success-700"}
-              weight={"medium"}
-              aria-label="국립 생물자원관 링크"
-              className=" underline underline-offset-4"
-              href={국릾생물자원관_URL}
-              target={"_blank"}
-            >
-              국립 생물 자원관
+            <Paragraph color={"success-700"} weight={"medium"} className=" underline underline-offset-4 inline">
+              <Link target={"_blank"} aria-label="국립생물자원관" href={국립생물자원관_URL}>
+                국립 생물 자원관
+              </Link>
             </Paragraph>
           </Pressable>
           에 저작권이 있어요
