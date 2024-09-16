@@ -8,6 +8,7 @@ export const $Routes = {
   result: createRoutes<{
     query: {
       username: string;
+      
     };
   }>("/result"),
 };

@@ -12,13 +12,13 @@ export const EnterNameOnboarding = ({ onStartNext }: { onStartNext: () => void }
       <Spacing h={"16"} />
       <Paragraph color={"neutral-500"} weight={"light"} size={"4"} leading={"loose"}>
         {
-          "메뚜기의 종류를 잘 맞출 수 있는 사람은 그렇지 않은 사람보다 메뚜기를 잘 알고 있을 확률이 높다는 연구 결과도 있으니까요"
+          "메뚜기의 종류를 잘 맞출 수 있는 사람은 그렇지 않은 사람보다 메뚜기를 잘 알고 있을 확률이 높다는 연구 결과도 있을 정도니까요"
         }
       </Paragraph>
 
       <FixedBottom>
         <Paragraph px={"16"} mb={"32"} color={"neutral-500"} weight={"light"} size={"4"} leading={"loose"}>
-          저희 사이트의 메뚜기 사진은{"\n"}
+          메뚜기 퀴즈에 사용된 모든 메뚜기 사진은{"\n"}
           <Pressable>
             <Paragraph
               as={Link}
