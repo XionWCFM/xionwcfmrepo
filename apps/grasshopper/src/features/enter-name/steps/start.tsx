@@ -7,7 +7,7 @@ import { StepTitle } from "../components/step-title";
 export const EnterNameStartStep = ({ onNext }: { onNext: () => void }) => {
   return (
     <Fragment>
-      <StepTitle>{"반가워요!\n먼저 닉네임을 정해볼까요?"}</StepTitle>
+      <StepTitle>{"시작하기 전에\n먼저 닉네임을 정해볼까요?"}</StepTitle>
 
       <Paragraph weight={"thin"} color={"neutral-600"}>
         {"닉네임은 내 테스트 결과를 공유할 때 사용돼요"}

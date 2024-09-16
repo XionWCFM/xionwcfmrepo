@@ -5,7 +5,7 @@ export const EnterNameGuideStep = ({
   onProblemSolveNext,
   userName,
 }: { userName: string; onTutorialNext: () => void; onProblemSolveNext: () => void }) => {
-  const stepTitle = `반가워요 ${userName}님!`;
+  const stepTitle = `반가워요 ${userName}님!\n먼저 간단한 문제를 풀어볼까요?`;
   return (
     <Fragment>
       <StepTitle>{stepTitle}</StepTitle>
