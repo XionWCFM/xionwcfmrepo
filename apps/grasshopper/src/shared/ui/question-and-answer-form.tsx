@@ -1,3 +1,4 @@
+import { Delay } from "@suspensive/react";
 import { Image } from "@xionwcfm/adapters/image";
 import { AspectRatio, Paragraph, Spacing, Stack } from "@xionwcfm/xds";
 import { Fragment } from "react";
@@ -22,7 +23,11 @@ export const QuestionAndAnswerForm = (props: QuestionAndAnswerFormProps) => {
       <AspectRatio ratio={16 / 9}>
         <LoadingImage
           className=" object-scale-down"
-          fallback={<GrasshopperFallbackImage />}
+          fallback={
+            <Delay>
+              <GrasshopperFallbackImage />
+            </Delay>
+          }
           src={grasshopper.imgSrc}
           alt="문제 이미지"
           fill
