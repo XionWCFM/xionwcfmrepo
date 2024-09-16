@@ -1,9 +1,10 @@
-import { EnterNameBar } from "~/features/enter-name/enter-name-bar";
+import { EnterNameFunnel } from "~/features/enter-name/enter-name-funnel";
 import { PageLayout } from "~/shared/ui/page-layout";
+
 export default function Page() {
   return (
     <PageLayout>
-      <EnterNameBar />
+      <EnterNameFunnel />
     </PageLayout>
   );
 }
