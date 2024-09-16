@@ -22,14 +22,7 @@ export const QuestionAndAnswerForm = (props: QuestionAndAnswerFormProps) => {
       <AspectRatio ratio={16 / 9}>
         <LoadingImage
           className=" object-scale-down"
-          fallback={
-            <div className=" rounded-md w-full h-full  animate-pulse px-24 py-32 flex bg-gray-200 flex-col">
-              <div className=" w-48 h-48 bg-gray-100 rounded-full"></div>
-
-              <div className=" mt-16 w-[70%] h-[12px] bg-gray-100 rounded-full"></div>
-              <div className=" mt-8 w-[100%] h-[12px] bg-gray-100 rounded-full"></div>
-            </div>
-          }
+          fallback={<GrasshopperFallbackImage />}
           src={grasshopper.imgSrc}
           alt="문제 이미지"
           fill
@@ -46,5 +39,16 @@ export const QuestionAndAnswerForm = (props: QuestionAndAnswerFormProps) => {
         ))}
       </Stack>
     </Fragment>
+  );
+};
+
+const GrasshopperFallbackImage = () => {
+  return (
+    <div className=" rounded-md w-full h-full  animate-pulse px-24 py-32 flex bg-gray-200 flex-col">
+      <div className=" w-48 h-48 bg-gray-100 rounded-full"></div>
+
+      <div className=" mt-16 w-[70%] h-[12px] bg-gray-100 rounded-full"></div>
+      <div className=" mt-8 w-[100%] h-[12px] bg-gray-100 rounded-full"></div>
+    </div>
   );
 };
