@@ -1,8 +1,8 @@
 "use client";
 import { wrap } from "@suspensive/react";
 import { useMutation, useSuspenseQuery } from "@tanstack/react-query";
-import { Button, Paragraph, Stack } from "@xionwcfm/ui";
 import { delay } from "@xionwcfm/utils/async";
+import { Button, Paragraph, Stack } from "@xionwcfm/xds";
 import { groupBy } from "es-toolkit/array";
 import { beveragesQueryOptions } from "~/entities/beverage/api/beverage.query";
 import { BeverageType } from "~/entities/beverage/model/beverage.model";
@@ -10,7 +10,6 @@ import { fetchUpdateOrder } from "~/entities/order/api/order.api";
 import { orderQueryOptions } from "~/entities/order/api/order.query";
 import { OrderType } from "~/entities/order/model/order.model";
 import { usePollingQuery } from "~/shared/use-polling-query";
-
 export const BaristaPage = wrap.Suspense().on(function BaristaPage() {
   const { data: beverageList } = useSuspenseQuery(beveragesQueryOptions());
   const { mutateAsync: updateOrder } = useMutation({ mutationFn: fetchUpdateOrder });

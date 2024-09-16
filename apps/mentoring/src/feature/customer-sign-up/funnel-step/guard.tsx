@@ -1,5 +1,5 @@
 import { FunnelGuard } from "@xionhub/funnel-core";
-import { Button, ConfirmDialog } from "@xionwcfm/ui";
+import { Button, ConfirmDialog } from "@xionwcfm/xds";
 import { useRouter } from "next/navigation";
 import { overlay } from "overlay-kit";
 import { PropsWithChildren } from "react";

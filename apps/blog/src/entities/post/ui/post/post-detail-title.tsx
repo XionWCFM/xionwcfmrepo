@@ -1,4 +1,4 @@
-import { Paragraph } from "@xionwcfm/ui/paragraph";
+import { Paragraph } from "@xionwcfm/xds";
 import type { PropsWithChildren } from "react";
 
 export const PostDetailTitle = (props: PropsWithChildren) => {

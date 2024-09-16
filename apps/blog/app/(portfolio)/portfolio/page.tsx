@@ -1,4 +1,4 @@
-import { Stack } from "@xionwcfm/ui/stack";
+import { Stack } from "@xionwcfm/xds";
 
 const PortfolioPage = () => {
   return <Stack>.</Stack>;

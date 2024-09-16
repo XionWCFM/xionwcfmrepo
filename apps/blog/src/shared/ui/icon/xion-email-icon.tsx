@@ -1,9 +1,10 @@
 "use client";
 import EmailIcon from "@xionwcfm/icon/email-icon";
-import { cn } from "@xionwcfm/ui/cn";
-import { toast } from "@xionwcfm/ui/toast";
+
 import { throttle } from "@xionwcfm/utils/function";
 import { clipboard } from "@xionwcfm/utils/web";
+import { cn } from "@xionwcfm/xds";
+import { toast } from "@xionwcfm/xds/toast";
 import { AUTHOR_EMAIL } from "~/shared/constants";
 import type { IconProps } from "./icon.type";
 

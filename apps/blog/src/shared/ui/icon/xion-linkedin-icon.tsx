@@ -1,6 +1,6 @@
 import { LinkedInLogoIcon } from "@radix-ui/react-icons";
 import { Link } from "@xionwcfm/adapters/link";
-import { cn } from "@xionwcfm/ui/cn";
+import { cn } from "@xionwcfm/xds";
 import { EXTERNAL_LINKED_IN } from "~/shared/constants";
 import type { IconProps } from "./icon.type";
 

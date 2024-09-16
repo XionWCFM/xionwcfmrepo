@@ -1,7 +1,6 @@
 "use client";
 import { useMutation } from "@tanstack/react-query";
-import { Button, ConfirmDialog, Flex, Stack, toast } from "@xionwcfm/ui";
-import { delay } from "@xionwcfm/utils/async";
+import { Button, ConfirmDialog, Stack } from "@xionwcfm/xds";
 import { useRouter } from "next/navigation";
 import { overlay } from "overlay-kit";
 import { CustomerOrderBar } from "src/feature/customer-order/bar";

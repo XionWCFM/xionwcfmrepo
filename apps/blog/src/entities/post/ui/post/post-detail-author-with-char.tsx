@@ -1,7 +1,7 @@
 import { Image } from "@xionwcfm/adapters/image";
 import { Link } from "@xionwcfm/adapters/link";
-import { Paragraph } from "@xionwcfm/ui/paragraph";
-import { Stack } from "@xionwcfm/ui/stack";
+import { Paragraph, Stack } from "@xionwcfm/xds";
+
 import { ASSET_XION_CHAR_GRAY } from "~/shared/assets";
 import { AUTHOR_DESCRIPTION, AUTHOR_NAME } from "~/shared/constants";
 import { ROUTES } from "~/shared/routes";
@@ -14,7 +14,7 @@ export const PostDetailAuthorWithChar = () => {
       <Image {...ASSET_XION_CHAR_GRAY} />
       <Stack justify={"between"}>
         <Stack gap={"12"}>
-          <Link href={ROUTES.root()}>
+          <Link href={ROUTES.root()} aria-label={"navigate root route"}>
             <Paragraph weight={"bold"} color={"neutral-600"} size={"6"}>
               {AUTHOR_NAME}
             </Paragraph>

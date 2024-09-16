@@ -1,5 +1,5 @@
 "use client";
-import { useLocalStorage } from "@xionwcfm/hooks";
+import { useLocalStorage } from "@xionwcfm/react";
 import { CustomerType } from "~/entities/customer/model/customer.model";
 import { STORAGE_KEY } from "~/shared/storage-key";
 

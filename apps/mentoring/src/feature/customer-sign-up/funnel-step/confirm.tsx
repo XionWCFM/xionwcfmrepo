@@ -1,4 +1,4 @@
-import { Button, Paragraph, Stack } from "@xionwcfm/ui";
+import { Button, Paragraph, Stack } from "@xionwcfm/xds";
 import { FixedBottom } from "~/shared/ui/fixed-bottom";
 import { CustomerSignUpStepProps } from "../funnel-options";
 type CustomerSignUpConfirmProps = CustomerSignUpStepProps;

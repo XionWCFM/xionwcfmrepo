@@ -1,7 +1,7 @@
 import { Image } from "@xionwcfm/adapters/image";
 import { formatDate } from "@xionwcfm/date/format-date";
-import { Paragraph } from "@xionwcfm/ui/paragraph";
-import { Stack } from "@xionwcfm/ui/stack";
+import { Paragraph, Stack } from "@xionwcfm/xds";
+
 import { ASSET_XION_CIRCLE_LOGO_16_16 } from "~/shared/assets";
 import { AUTHOR_NAME } from "~/shared/constants";
 

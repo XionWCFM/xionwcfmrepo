@@ -1,4 +1,4 @@
-import { Portal } from "@xionwcfm/ui";
+import { Portal } from "@xionwcfm/xds";
 import { PropsWithChildren } from "react";
 
 export const FixedBottom = ({ children }: PropsWithChildren) => {

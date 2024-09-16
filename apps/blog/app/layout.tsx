@@ -1,7 +1,10 @@
+import "@xionwcfm/token/style";
+import "@xionwcfm/xds/style";
 import "./globals.css";
+
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
-import { Toaster } from "@xionwcfm/ui/toast";
+import { Toaster } from "@xionwcfm/xds/toast";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import { ClarityScript } from "~/app/script/clarity.script";
@@ -13,6 +16,7 @@ import AutoRefresh from "./auto-refresh";
 const notoSansKr = Noto_Sans_KR({
   weight: ["200", "300", "500", "700"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -37,7 +41,7 @@ export default function RootLayout({
       <body>
         <AutoRefresh>
           {children}
-          <Toaster />
+          <Toaster visibleToasts={1} />
         </AutoRefresh>
       </body>
       <ClarityScript />

@@ -1,5 +1,5 @@
 "use client";
-import { Button, Stack } from "@xionwcfm/ui";
+import { Button, Stack } from "@xionwcfm/xds";
 import Link from "next/link";
 import { useCustomerSignUpStorage } from "src/feature/customer-sign-up/state";
 import { ROUTES } from "~/shared/routes";
