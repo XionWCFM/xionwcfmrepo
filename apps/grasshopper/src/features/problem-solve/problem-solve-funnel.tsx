@@ -63,15 +63,13 @@ export const ProblemSolveFunnel = () => {
 };
 
 export type ProblemSolveResultType = Pick<GrasshopperQuestionAnswerType, "selectedAnswerId"> & {
-  pageNum: number;
   answerId: string;
 };
 
 const createProblemSolveResult = (grasshoppers: GrasshopperQuestionAnswerType[]): ProblemSolveResultType[] => {
   return grasshoppers.map(
-    (question, index) =>
+    (question) =>
       ({
-        pageNum: index,
         selectedAnswerId: question.selectedAnswerId,
         answerId: question.grasshopper.id,
       }) satisfies ProblemSolveResultType,

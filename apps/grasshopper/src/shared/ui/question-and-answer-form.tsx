@@ -3,6 +3,7 @@ import { AspectRatio, Paragraph, Spacing, Stack } from "@xionwcfm/xds";
 import { Fragment } from "react";
 import { Grasshoppers } from "~/entities/grasshoppers/api/grasshopper.data";
 import { GrasshopperQuestionType } from "~/features/grasshopper-question/model/grasshopper-question.model";
+import { LoadingImage } from "./loading-image";
 import { RadioButton } from "./radio-button";
 
 type QuestionAndAnswerFormProps = Pick<GrasshopperQuestionType, "choices" | "grasshopper" | "questionTitle"> & {
@@ -19,7 +20,13 @@ export const QuestionAndAnswerForm = (props: QuestionAndAnswerFormProps) => {
       </Paragraph>
       <Spacing h={"16"} />
       <AspectRatio ratio={16 / 9}>
-        <Image className=" object-scale-down" src={grasshopper.imgSrc} alt="문제 이미지" fill />
+        <LoadingImage
+          className=" object-scale-down"
+          fallback={<GrasshopperFallbackImage />}
+          src={grasshopper.imgSrc}
+          alt="문제 이미지"
+          fill
+        />
       </AspectRatio>
 
       <Spacing h={"16"} />
@@ -32,5 +39,16 @@ export const QuestionAndAnswerForm = (props: QuestionAndAnswerFormProps) => {
         ))}
       </Stack>
     </Fragment>
+  );
+};
+
+const GrasshopperFallbackImage = () => {
+  return (
+    <div className=" rounded-md w-full h-full  animate-pulse px-24 py-32 flex bg-gray-200 flex-col">
+      <div className=" w-48 h-48 bg-gray-100 rounded-full"></div>
+
+      <div className=" mt-16 w-[70%] h-[12px] bg-gray-100 rounded-full"></div>
+      <div className=" mt-8 w-[100%] h-[12px] bg-gray-100 rounded-full"></div>
+    </div>
   );
 };
