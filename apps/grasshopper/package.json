@@ -20,7 +20,7 @@
     "@xionhub/funnel-core": "^0.0.5",
     "@xionwcfm/adapters": "workspace:*",
     "@xionwcfm/jotai": "^0.0.8",
-    "@xionwcfm/react": "^0.0.3",
+    "@xionwcfm/react": "^0.0.7",
     "@xionwcfm/token": "^0.0.7",
     "@xionwcfm/utils": "^0.0.3",
     "@xionwcfm/xds": "^0.0.16",
