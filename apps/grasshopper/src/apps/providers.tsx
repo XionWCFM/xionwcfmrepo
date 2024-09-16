@@ -38,7 +38,7 @@ export const Providers = ({ children }: PropsWithChildren) => {
   return (
     <QueryProvider>
       <Provider>
-        <OverlayProvider >
+        <OverlayProvider>
           <DefaultPropsProvider defaultProps={defaultProps}>
             <QueryErrorResetBoundary>
               {({ reset }) => (
