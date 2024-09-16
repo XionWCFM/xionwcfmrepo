@@ -24,7 +24,7 @@ export const QuestionAndAnswerForm = (props: QuestionAndAnswerFormProps) => {
         <LoadingImage
           className=" object-scale-down"
           fallback={
-            <Delay>
+            <Delay ms={500}>
               <GrasshopperFallbackImage />
             </Delay>
           }

@@ -6,7 +6,7 @@ import { ComponentProps, Fragment, ReactNode, useState } from "react";
 
 export const LoadingImage = (props: ComponentProps<typeof Image> & { fallback?: ReactNode }) => {
   const { onLoadStart, onLoad, fallback, className, ...rest } = props;
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   return (
     <Fragment>
