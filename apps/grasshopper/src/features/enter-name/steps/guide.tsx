@@ -6,6 +6,7 @@ import { toast } from "@xionwcfm/xds/toast";
 import { delay } from "es-toolkit/promise";
 import { Fragment, useState } from "react";
 import { GrasshopperQuestionType } from "~/features/grasshopper-question/model/grasshopper-question.model";
+import { QuestionAndAnswerForm } from "~/shared/ui/question-and-answer-form";
 import { RadioButton } from "~/shared/ui/radio-button";
 import { StepTitle } from "../components/step-title";
 export const EnterNameGuideStep = ({
@@ -33,22 +34,8 @@ export const EnterNameGuideStep = ({
       <StepTitle>{stepTitle}</StepTitle>
 
       <Spacing h={"16"} />
-      <Paragraph color={"neutral-500"} size={"5"} weight={"light"}>
-        Q. 이 메뚜기의 이름은 무엇일까요?
-      </Paragraph>
-      <AspectRatio ratio={16 / 9}>
-        <Image className=" object-cover" src={sampleQuestion.grasshopper.imgSrc} alt="샘플 문제 이미지" fill />
-      </AspectRatio>
 
-      <Spacing h={"16"} />
-
-      <Stack gap={"16"}>
-        {sampleQuestion.choices.map((choice) => (
-          <RadioButton selected={choice.id === selected} onClick={() => setSelected(choice.id)} key={choice.id}>
-            {choice.name}
-          </RadioButton>
-        ))}
-      </Stack>
+      <QuestionAndAnswerForm {...sampleQuestion} selectedId={selected} onClick={(value) => setSelected(value)} />
 
       <FixedBottom>
         <FixedBottomCta disabled={disabled} onClick={handleClick}>
@@ -60,7 +47,9 @@ export const EnterNameGuideStep = ({
 };
 
 const sampleQuestion = {
+  id: "hello",
   type: "객관식",
+  questionTitle: "이 메뚜기의 이름은 무엇일까요?",
   grasshopper: { id: "1", imgSrc: "/grasshoppers/우리벼메뚜기.png", name: "우리벼메뚜기" },
   choices: [
     { id: "2", name: "지네" },

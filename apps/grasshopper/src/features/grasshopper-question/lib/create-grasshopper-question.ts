@@ -16,7 +16,9 @@ export const createGrasshopperQuestion = (
       const otherGrasshoppers = grasshoppers.filter((g) => g.id !== grasshopper.id).concat(GrasshoppersWithNoImage);
       const randomChoices = shuffle(otherGrasshoppers).slice(0, choiceCount - 1);
       const choices = shuffle([grasshopper, ...randomChoices]);
-      return { type, grasshopper, choices };
+      const id = Math.random().toString().slice(0, 16);
+      const questionTitle = "이 메뚜기의 이름은 무엇일까요?";
+      return { type, grasshopper, choices, id, questionTitle };
     }) satisfies GrasshopperQuestionType[];
 
   return shuffledList;

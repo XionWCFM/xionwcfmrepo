@@ -1,4 +1,6 @@
 "use client";
+import { Suspense } from "@suspensive/react";
+import { SuspenseQuery } from "@suspensive/react-query";
 import { useFunnel } from "@xionhub/funnel-app-router-adapter";
 import { funnelOptions, useFunnelDefaultStep } from "@xionhub/funnel-core";
 import { useInternalRouter } from "@xionwcfm/adapters/router";
@@ -10,6 +12,7 @@ import { userStore } from "~/entities/user/user.store";
 import { $Routes } from "~/shared/routes";
 import { Bar } from "~/shared/ui/bar";
 import { PageLayout } from "~/shared/ui/page-layout";
+import { grassHopperQuestionOptions } from "../grasshopper-question/api/grasshopper-question.api";
 import { ProblemSolveInformationStep } from "./steps/information";
 import { ProblemSolveProblemStep } from "./steps/problem";
 
@@ -32,14 +35,24 @@ export const ProblemSolveFunnel = () => {
   return (
     <PageLayout>
       <ProblemSolveBar step={step} />
+
       <Funnel>
         <Funnel.Step name={"information"}>
           <ProblemSolveInformationStep onProblemSolveNext={() => router.push(createStep("problem"))} />
         </Funnel.Step>
+
         <Funnel.Step name={"problem"}>
-          <ProblemSolveProblemStep
-            onResultNext={() => router.push($Routes.result.path({ query: { username: userName } }))}
-          />
+          <Suspense>
+            <SuspenseQuery {...grassHopperQuestionOptions.getQuestions()}>
+              {({ data: questions }) => (
+                <ProblemSolveProblemStep
+                  userName={userName}
+                  grasshopperQuestions={questions}
+                  onResultNext={() => router.push($Routes.result.path({ query: { username: userName } }))}
+                />
+              )}
+            </SuspenseQuery>
+          </Suspense>
         </Funnel.Step>
       </Funnel>
     </PageLayout>
