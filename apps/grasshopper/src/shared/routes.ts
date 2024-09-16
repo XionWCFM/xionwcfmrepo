@@ -1,3 +1,5 @@
+import { GrasshopperQuestionAnswerType } from "~/features/problem-solve/model/problem-solve.action";
+import { ProblemSolveResultType } from "~/features/problem-solve/problem-solve-funnel";
 import { createRoutes } from "./internal/create-routes";
 
 export const $Routes = {
@@ -8,7 +10,7 @@ export const $Routes = {
   result: createRoutes<{
     query: {
       username: string;
-      
+      result: ProblemSolveResultType[];
     };
   }>("/result"),
 };

@@ -41,7 +41,7 @@ export default function RootLayout({
       <body>
         <AutoRefresh>
           {children}
-          <Toaster />
+          <Toaster visibleToasts={1} />
         </AutoRefresh>
       </body>
       <ClarityScript />
