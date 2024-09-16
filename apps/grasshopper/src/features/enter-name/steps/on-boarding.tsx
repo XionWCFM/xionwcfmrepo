@@ -1,6 +1,7 @@
 import { Link } from "@xionwcfm/adapters/link";
 import { FixedBottom, FixedBottomCta, Paragraph, Pressable, Separator, Spacing } from "@xionwcfm/xds";
 import { Fragment } from "react";
+import { 국릾생물자원관_URL } from "~/shared/constants";
 import { StepTitle } from "../components/step-title";
 
 export const EnterNameOnboarding = ({ onStartNext }: { onStartNext: () => void }) => {
@@ -23,12 +24,12 @@ export const EnterNameOnboarding = ({ onStartNext }: { onStartNext: () => void }
               as={Link}
               color={"success-700"}
               weight={"medium"}
-              aria-label="한국 생물 다양성 협회 링크"
+              aria-label="국립 생물자원관 링크"
               className=" underline underline-offset-4"
-              href=""
+              href={국릾생물자원관_URL}
               target={"_blank"}
             >
-              한국 생물 다양성 협회
+              국립 생물 자원관
             </Paragraph>
           </Pressable>
           에 저작권이 있어요

@@ -3,6 +3,7 @@ import { Image } from "@xionwcfm/adapters/image";
 import { useThrottle } from "@xionwcfm/react";
 import { AspectRatio, Button, FixedBottom, FixedBottomCta, Paragraph, Spacing, Stack } from "@xionwcfm/xds";
 import { toast } from "@xionwcfm/xds/toast";
+import { delay } from "es-toolkit/promise";
 import { Fragment, useState } from "react";
 import { GrasshopperQuestionType } from "~/features/grasshopper-question/model/grasshopper-question.model";
 import { RadioButton } from "~/shared/ui/radio-button";
@@ -18,7 +19,9 @@ export const EnterNameGuideStep = ({
 
   const handleClick = useThrottle(async () => {
     if (selected === sampleQuestion.grasshopper.id) {
-      toast.success("잘하셨어요! 이제 진짜 문제를 풀어볼까요?");
+      toast.success("잘하셨어요! 이제 진짜 문제를 풀어볼까요?", { duration: 1000 });
+      await delay(1500);
+      toast.dismiss();
       onProblemSolveNext();
     } else {
       toast.success("다시 한번 생각해볼까요?");

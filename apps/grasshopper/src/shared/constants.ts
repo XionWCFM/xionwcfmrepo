@@ -15,3 +15,5 @@ export const AUTHOR_NICKNAME = "XionWCFM";
 export const AUTHOR_NAME = "유길종(XionWCFM)";
 
 export const LORDICON_LICENSE = "Animated icons by Lordicon.com";
+
+export const 국릾생물자원관_URL = "https://species.nibr.go.kr/index.do";

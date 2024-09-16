@@ -1,4 +1,5 @@
-import { sample, shuffle } from "es-toolkit/array";
+import { shuffle } from "es-toolkit/array";
+import { GrasshoppersWithNoImage } from "~/entities/grasshoppers/api/grasshopper.data";
 import { GrasshopperType } from "../../../entities/grasshoppers/model/grasshopper.model";
 import { GrasshopperQuestionType, GrasshopperQuestionVariantsType } from "../model/grasshopper-question.model";
 
@@ -12,11 +13,11 @@ export const createGrasshopperQuestion = (
   const shuffledList = shuffle(grasshoppers)
     .slice(0, limit)
     .map((grasshopper) => {
-      const otherGrasshoppers = grasshoppers.filter((g) => g.id !== grasshopper.id);
+      const otherGrasshoppers = grasshoppers.filter((g) => g.id !== grasshopper.id).concat(GrasshoppersWithNoImage);
       const randomChoices = shuffle(otherGrasshoppers).slice(0, choiceCount - 1);
       const choices = shuffle([grasshopper, ...randomChoices]);
-      return [{ type, grasshopper, choices }] satisfies GrasshopperQuestionType[];
-    });
+      return { type, grasshopper, choices };
+    }) satisfies GrasshopperQuestionType[];
 
-  return [];
+  return shuffledList;
 };
