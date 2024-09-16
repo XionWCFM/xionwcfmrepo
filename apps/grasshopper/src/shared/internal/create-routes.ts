@@ -36,7 +36,7 @@ export const stringifyPathname = (str?: string[]) => {
 };
 
 export const stringifySearchParams = (query: DefaultQuery, newQuery?: DefaultQuery) => {
-  const querystring = qs.stringify(Object.assign(query, newQuery ?? {}), { arrayFormat: "repeat" });
+  const querystring = qs.stringify(Object.assign(query, newQuery ?? {}));
   const questionMark = querystring.length > 0 ? "?" : "";
   return `${questionMark}${querystring}`;
 };
@@ -56,4 +56,5 @@ export const createInternalPath = <
 
 export const createRoutes = <T extends DefaultRouterType = DefaultRouterType>(basePath: RoutesString) => ({
   path: (arg?: RoutesQueryAndPath<T>["arg"]) => createInternalPath(basePath, arg),
+  getSearchParams: (param: keyof T["query"]) => param,
 });

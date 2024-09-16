@@ -6,6 +6,7 @@ import { Toaster } from "@xionwcfm/xds/toast";
 import { Provider } from "jotai";
 import { OverlayProvider } from "overlay-kit";
 import { PropsWithChildren, useState } from "react";
+import { ClarityScript } from "./clarity-script";
 
 const QueryProvider = ({ children }: PropsWithChildren) => {
   const [queryClient] = useState(
@@ -47,6 +48,7 @@ export const Providers = ({ children }: PropsWithChildren) => {
                     <Suspense>
                       {children}
                       <Toaster />
+                      <ClarityScript />
                     </Suspense>
                   </ErrorBoundary>
                 </ErrorBoundaryGroup>

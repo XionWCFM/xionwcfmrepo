@@ -1,4 +1,3 @@
-import { GrasshopperQuestionAnswerType } from "~/features/problem-solve/model/problem-solve.action";
 import { ProblemSolveResultType } from "~/features/problem-solve/problem-solve-funnel";
 import { createRoutes } from "./internal/create-routes";
 

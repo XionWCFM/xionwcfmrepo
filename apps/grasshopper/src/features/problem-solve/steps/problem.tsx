@@ -1,6 +1,7 @@
 import { useDraft } from "@xionwcfm/react";
 import { FixedBottom, FixedBottomCta, Paragraph, Spacing } from "@xionwcfm/xds";
 import { toast } from "@xionwcfm/xds/toast";
+import { delay } from "es-toolkit/promise";
 import { Fragment, useReducer, useState } from "react";
 import { GrasshopperQuestionType } from "~/features/grasshopper-question/model/grasshopper-question.model";
 import { QuestionAndAnswerForm } from "~/shared/ui/question-and-answer-form";
@@ -31,12 +32,13 @@ export const ProblemSolveProblemStep = ({
   onAnswerClick: (value: { quizId: string } & Pick<GrasshopperQuestionAnswerType, "selectedAnswerId">) => void;
 }) => {
   const [page, setPage] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const isLastQuestion = grasshopperQuestions.length - 1 === page;
   const ctaText = isLastQuestion ? "제출하고 결과지 보기" : "제출하기";
   const isNotAnswered = grasshopperQuestions[page]?.selectedAnswerId === null;
 
-  const handleCtaClick = () => {
+  const handleCtaClick = async () => {
     if (isNotAnswered) {
       return;
     }
@@ -44,6 +46,9 @@ export const ProblemSolveProblemStep = ({
     toast.dismiss();
 
     if (isLastQuestion) {
+      setLoading(true);
+      await delay(3000);
+      setLoading(false);
       return onResultNext();
     }
 
@@ -79,7 +84,7 @@ export const ProblemSolveProblemStep = ({
       )}
 
       <FixedBottom>
-        <FixedBottomCta disabled={isNotAnswered} onClick={handleCtaClick}>
+        <FixedBottomCta loading={loading} disabled={isNotAnswered} onClick={handleCtaClick}>
           {ctaText}
         </FixedBottomCta>
       </FixedBottom>
