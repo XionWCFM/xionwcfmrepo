@@ -26,6 +26,7 @@ export const EnterNameFunnel = () => {
   const [Funnel, { createStep, step }] = useFunnel(enterNameFunnelOptions);
 
   useFunnelDefaultStep(step, () => router.replace(createStep("on-boarding")));
+
   const handleBackClick = () => {
     router.back();
   };
@@ -60,6 +61,7 @@ export const EnterNameFunnel = () => {
             }}
           >
             <EnterNameGuideStep
+              userName={user.userName}
               onProblemSolveNext={() => router.push($Routes.problemSolve.path())}
               onTutorialNext={() => router.push($Routes.tutorial.path())}
             />
