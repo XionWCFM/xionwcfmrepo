@@ -1,14 +1,13 @@
 "use client";
-import { Image } from "@xionwcfm/adapters/image";
 import { useThrottle } from "@xionwcfm/react";
-import { AspectRatio, Button, FixedBottom, FixedBottomCta, Paragraph, Spacing, Stack } from "@xionwcfm/xds";
+import { FixedBottom, FixedBottomCta, Spacing } from "@xionwcfm/xds";
 import { toast } from "@xionwcfm/xds/toast";
 import { delay } from "es-toolkit/promise";
 import { Fragment, useState } from "react";
 import { GrasshopperQuestionType } from "~/features/grasshopper-question/model/grasshopper-question.model";
 import { QuestionAndAnswerForm } from "~/shared/ui/question-and-answer-form";
-import { RadioButton } from "~/shared/ui/radio-button";
 import { StepTitle } from "../components/step-title";
+
 export const EnterNameGuideStep = ({
   onProblemSolveNext,
   userName,
@@ -21,7 +20,7 @@ export const EnterNameGuideStep = ({
   const handleClick = useThrottle(async () => {
     if (selected === sampleQuestion.grasshopper.id) {
       toast.success("잘하셨어요! 이제 진짜 문제를 풀어볼까요?", { duration: 1000 });
-      await delay(1500);
+      await delay(1000);
       toast.dismiss();
       onProblemSolveNext();
     } else {
