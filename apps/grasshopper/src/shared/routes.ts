@@ -8,8 +8,7 @@ export const $Routes = {
   enterName: createRoutes("/enter-name"),
   result: createRoutes<{
     query: {
-      username: string;
-      result: ProblemSolveResultType[];
+      data: string;
     };
   }>("/result"),
 };
