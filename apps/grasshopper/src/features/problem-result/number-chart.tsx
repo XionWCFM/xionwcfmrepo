@@ -5,12 +5,12 @@ export const NumberChart = ({
   skip,
   wrong,
   answer,
-  username,
-}: { skip: number; wrong: number; answer: number; username: string }) => {
+  userName,
+}: { skip: number; wrong: number; answer: number; userName: string }) => {
   return (
     <Fragment>
       <Paragraph color={"neutral-500"} weight={"light"} size={"4"} mb={"32"}>
-        {`${username}님의 테스트 결과를\n숫자로 보면 어떨까요?`}
+        {`${userName}님의 테스트 결과를\n숫자로 보면 어떨까요?`}
       </Paragraph>
 
       <Stack>

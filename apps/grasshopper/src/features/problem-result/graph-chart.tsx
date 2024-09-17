@@ -8,12 +8,12 @@ export const GraphChart = ({
   answer,
   wrong,
   skip,
-  username,
-}: { total: number; answer: number; wrong: number; skip: number; username: string }) => {
+  userName,
+}: { total: number; answer: number; wrong: number; skip: number; userName: string }) => {
   return (
     <Fragment>
       <Paragraph color={"neutral-500"} weight={"light"} size={"4"} mb={"32"}>
-        {`${username}님의 테스트 결과를 \n그래프로 표현하면 다음과 같아요`}
+        {`${userName}님의 테스트 결과를 \n그래프로 표현하면 다음과 같아요`}
       </Paragraph>
       <Flex gap={"32"} justify={"center"}>
         <Stack justify={"center"} items={"center"}>

@@ -7,7 +7,7 @@ export const createResultSearchParams = (param: {
   questionAndAnswers: GrasshopperQuestionAnswerType[];
 }) => {
   return $Routes.result.path({
-    query: { data: encrypt({ username: param.userName, ...calculateProblemResult(param.questionAndAnswers) }) },
+    query: { data: encrypt({ userName: param.userName, ...calculateProblemResult(param.questionAndAnswers) }) },
   });
 };
 

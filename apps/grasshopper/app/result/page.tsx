@@ -20,18 +20,18 @@ import { decrypt } from "~/shared/utils/crypto";
 export default wrap.ErrorBoundary({ fallback: <Navigate to={$Routes.root.path()} /> }).on(function Page() {
   const searchParams = useSearchParams();
   const solveResult = getResultPageSearchParamsData(searchParams);
-  const { username } = solveResult;
+  const { userName } = solveResult;
 
   return (
     <PageLayout>
-      <StepTitle>{`${username}님의\n메뚜기 퀴즈 결과는?`}</StepTitle>
+      <StepTitle>{`${userName}님의\n메뚜기 퀴즈 결과는?`}</StepTitle>
 
       <Stack justify={"center"} items={"center"} w={"100%"}>
         <Lottie className=" w-[180px] h-[180px]" animationData={LOTTIE_EMOJI_HAPPY} autoplay loop />
       </Stack>
 
       <Paragraph color={"neutral-500"} size={"4"}>
-        {`${username}님은 어떤 결과를 얻으셨을까요?`}
+        {`${userName}님은 어떤 결과를 얻으셨을까요?`}
       </Paragraph>
 
       <div className=" bg-gray-200 h-[1px] w-full my-16" />
@@ -65,6 +65,6 @@ const resultPageSearchParamsSchema = z
   .transform(({ data }) => {
     const decrypted = decrypt(data);
     return z
-      .object({ username: z.string(), answer: z.number(), wrong: z.number(), skip: z.number(), total: z.number() })
+      .object({ userName: z.string(), answer: z.number(), wrong: z.number(), skip: z.number(), total: z.number() })
       .parse(decrypted);
   });
