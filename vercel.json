@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "name": "grasshopper",
+      "root": "apps/grasshopper"
+    },
+    {
+      "name": "blog",
+      "root": "apps/blog"
+    }
+  ],
+  "builds": [
+    { "src": "apps/grasshopper/package.json", "use": "@vercel/next" },
+    { "src": "apps/blog/package.json", "use": "@vercel/next" }
+  ]
+}
