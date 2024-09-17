@@ -1,5 +1,4 @@
 "use client";
-import { Link } from "@xionwcfm/adapters/link";
 import { useInternalRouter } from "@xionwcfm/adapters/router";
 import { Button, ConfirmDialog, FixedBottom, FixedBottomCta, Paragraph, Spacing, Stack, cn } from "@xionwcfm/xds";
 import { overlay } from "overlay-kit";
