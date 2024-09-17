@@ -11,6 +11,7 @@ import { userStore } from "~/entities/user/user.store";
 import { $Routes } from "~/shared/routes";
 import { Bar } from "~/shared/ui/bar";
 import { PageLayout } from "~/shared/ui/page-layout";
+import { encrypt } from "~/shared/utils/crypto";
 import { grassHopperQuestionOptions } from "../grasshopper-question/api/grasshopper-question.api";
 import { GrasshopperQuestionAnswerType, useProblemSolveReducer } from "./model/problem-solve.action";
 import { ProblemSolveInformationStep } from "./steps/information";
@@ -51,7 +52,7 @@ export const ProblemSolveFunnel = () => {
             onResultNext={() =>
               router.push(
                 $Routes.result.path({
-                  query: { username: userName, result: createProblemSolveResult(grasshopperQuestions) },
+                  query: { data: encrypt({ username: userName, ...calculateProblemResult(grasshopperQuestions) }) },
                 }),
               )
             }
@@ -67,13 +68,18 @@ export type ProblemSolveResultType = Pick<GrasshopperQuestionAnswerType, "select
   answerId: string;
 };
 
-const createProblemSolveResult = (grasshoppers: GrasshopperQuestionAnswerType[]): ProblemSolveResultType[] => {
-  return grasshoppers.map(
-    (question) =>
-      ({
-        selectedAnswerId: question.selectedAnswerId,
-        answerId: question.grasshopper.id,
-      }) satisfies ProblemSolveResultType,
+const calculateProblemResult = (param: GrasshopperQuestionAnswerType[]) => {
+  return param.reduce(
+    (acc, cur) => {
+      if (cur.selectedAnswerId === null) {
+        return { total: param.length, answer: acc.answer, wrong: acc.wrong, skip: acc.skip + 1 };
+      }
+      if (cur.selectedAnswerId === cur.grasshopper.id) {
+        return { total: param.length, wrong: acc.wrong, skip: acc.skip, answer: acc.answer + 1 };
+      }
+      return { total: param.length, answer: acc.answer, skip: acc.skip, wrong: acc.wrong + 1 };
+    },
+    { answer: 0, wrong: 0, skip: 0, total: param.length },
   );
 };
 
@@ -178,7 +184,7 @@ const ProblemSolveCloseDialog = (props: {
             onClose();
             router.push(
               $Routes.result.path({
-                query: { result: createProblemSolveResult(grasshopperQuestions), username: userName },
+                query: { data: encrypt({ username: userName, ...calculateProblemResult(grasshopperQuestions) }) },
               }),
             );
           }}
