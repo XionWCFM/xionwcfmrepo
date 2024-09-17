@@ -35,7 +35,7 @@ export const EnterNameGuideStep = ({
       <Spacing h={"16"} />
 
       <QuestionAndAnswerForm {...sampleQuestion} selectedId={selected} onClick={(value) => setSelected(value)} />
-
+      <Spacing h={"256"} />
       <FixedBottom>
         <FixedBottomCta disabled={disabled} onClick={handleClick}>
           제출하기
