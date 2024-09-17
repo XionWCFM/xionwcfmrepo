@@ -1,7 +1,8 @@
 "use client";
+import { wrap } from "@suspensive/react";
 import { Separated } from "@xionwcfm/react";
 import { Paragraph, Spacing, Stack } from "@xionwcfm/xds";
-import { redirect, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import qs from "qs";
 import * as z from "zod";
 import { StepTitle } from "~/features/enter-name/components/step-title";
@@ -10,21 +11,17 @@ import { GraphChart } from "~/features/problem-result/graph-chart";
 import { NumberChart } from "~/features/problem-result/number-chart";
 import { ProblemSolveRetry } from "~/features/problem-result/problem-solve-retry";
 import { Lottie } from "~/shared/intergration/lottie";
+import { Navigate } from "~/shared/internal/create-navigate";
 import { LOTTIE_EMOJI_HAPPY } from "~/shared/lotties";
 import { $Routes } from "~/shared/routes";
 import { PageLayout } from "~/shared/ui/page-layout";
 import { decrypt } from "~/shared/utils/crypto";
 
-export default function Page() {
+export default wrap.ErrorBoundary({ fallback: <Navigate to={$Routes.root.path()} /> }).on(function Page() {
   const searchParams = useSearchParams();
-  const { success, data: solveResult } = getResultPageSearchParamsData(searchParams);
-
-  if (!success) {
-    return redirect($Routes.root.path());
-  }
-
+  const solveResult = getResultPageSearchParamsData(searchParams);
   const { username } = solveResult;
-  console.log(solveResult);
+
   return (
     <PageLayout>
       <StepTitle>{`${username}님의\n메뚜기 퀴즈 결과는?`}</StepTitle>
@@ -52,13 +49,13 @@ export default function Page() {
       <Spacing h={"128"} />
     </PageLayout>
   );
-}
+});
 
 const RowSeparator = () => {
   return <div className=" bg-gray-200 h-[1px] w-full my-16" />;
 };
 const getResultPageSearchParamsData = (searchParams: URLSearchParams) => {
-  return resultPageSearchParamsSchema.safeParse(qs.parse(searchParams.toString(), { parseArrays: true }));
+  return resultPageSearchParamsSchema.parse(qs.parse(searchParams.toString(), { parseArrays: true }));
 };
 
 const resultPageSearchParamsSchema = z
