@@ -3,7 +3,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { useFunnel } from "@xionhub/funnel-app-router-adapter";
 import { funnelOptions, useFunnelDefaultStep } from "@xionhub/funnel-core";
 import { useInternalRouter } from "@xionwcfm/adapters/router";
-import { Button, ConfirmDialog } from "@xionwcfm/xds";
+import { Button, ConfirmDialog, Spacing } from "@xionwcfm/xds";
 import { delay } from "es-toolkit/promise";
 import { overlay } from "overlay-kit";
 import { useState } from "react";
@@ -58,6 +58,7 @@ export const ProblemSolveFunnel = () => {
           />
         </Funnel.Step>
       </Funnel>
+      <Spacing h={"256"} />
     </PageLayout>
   );
 };
