@@ -1,7 +1,7 @@
 import { Button, Paragraph } from "@xionwcfm/xds";
 import { toast } from "@xionwcfm/xds/toast";
-import { usePathname, useSearchParams } from "next/navigation";
-import { Fragment, useCallback } from "react";
+import { Fragment } from "react";
+import { useCopyCurrentLink } from "~/shared/hooks/use-copy-current-link";
 
 export const CopyResult = () => {
   const { copyClipboard } = useCopyCurrentLink();
@@ -24,19 +24,4 @@ export const CopyResult = () => {
       </Button>
     </Fragment>
   );
-};
-
-const useCopyCurrentLink = () => {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const copyClipboard = useCallback(() => {
-    try {
-      const url = `${window.location.origin}${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ""}`;
-      navigator.clipboard.writeText(url);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }, [pathname, searchParams]);
-  return { copyClipboard };
 };

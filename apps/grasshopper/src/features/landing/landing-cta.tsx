@@ -1,7 +1,7 @@
 import { useInternalRouter } from "@xionwcfm/adapters/router";
 import { Button, ConfirmDialog, FixedBottom, FixedBottomCta } from "@xionwcfm/xds";
 import { overlay } from "overlay-kit";
-import { userStore } from "~/entities/user/user.store";
+import { userStore } from "~/entities/user/model/user.store";
 import { $Routes } from "~/shared/routes";
 
 export const FixedLandingCta = () => {

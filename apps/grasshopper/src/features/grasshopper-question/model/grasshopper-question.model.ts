@@ -1,11 +1,11 @@
-import { GrasshopperType } from "../../../entities/grasshoppers/model/grasshopper.model";
+import { Grasshopper } from "../../../entities/grasshoppers/model/grasshopper.model";
 
 export type GrasshopperQuestionVariantsType = "객관식";
 
 export type GrasshopperQuestionType = {
   id: string;
   type: GrasshopperQuestionVariantsType;
-  grasshopper: GrasshopperType;
+  grasshopper: Grasshopper;
   questionTitle: string;
-  choices: Omit<GrasshopperType, "imgSrc">[];
+  choices: Omit<Grasshopper, "imgSrc">[];
 };

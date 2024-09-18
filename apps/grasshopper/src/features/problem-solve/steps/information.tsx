@@ -2,13 +2,13 @@ import { CheckCircledIcon } from "@radix-ui/react-icons";
 import { FixedBottom, FixedBottomCta, Paragraph, Spacing, Stack } from "@xionwcfm/xds";
 import Lottie from "lottie-react";
 import { Fragment } from "react";
-import { StepTitle } from "~/features/enter-name/components/step-title";
 import { LOTTIE_EMOJI_MEH } from "~/shared/lotties";
+import { Title } from "~/shared/ui/title";
 
 export const ProblemSolveInformationStep = ({ onProblemSolveNext }: { onProblemSolveNext: () => void }) => {
   return (
     <Fragment>
-      <StepTitle>메뚜기 퀴즈는 이렇게 진행돼요</StepTitle>
+      <Title>메뚜기 퀴즈는 이렇게 진행돼요</Title>
 
       <Spacing h={"8"} />
       <Stack gap={"16"}>

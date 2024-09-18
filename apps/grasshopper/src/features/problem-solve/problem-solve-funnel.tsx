@@ -4,7 +4,7 @@ import { useFunnel } from "@xionhub/funnel-app-router-adapter";
 import { funnelOptions, useFunnelDefaultStep } from "@xionhub/funnel-core";
 import { useInternalRouter } from "@xionwcfm/adapters/router";
 import { Spacing } from "@xionwcfm/xds";
-import { userStore } from "~/entities/user/user.store";
+import { userStore } from "~/entities/user/model/user.store";
 import { $Routes } from "~/shared/routes";
 import { PageLayout } from "~/shared/ui/page-layout";
 import { grassHopperQuestionOptions } from "../grasshopper-question/api/grasshopper-question.api";

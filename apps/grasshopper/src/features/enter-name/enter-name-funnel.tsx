@@ -3,10 +3,10 @@
 import { useFunnel } from "@xionhub/funnel-app-router-adapter";
 import { funnelOptions, useFunnelDefaultStep } from "@xionhub/funnel-core";
 import { useInternalRouter } from "@xionwcfm/adapters/router";
-import { Fragment } from "react";
-import { userStore } from "~/entities/user/user.store";
+import { userStore } from "~/entities/user/model/user.store";
 import { $Routes } from "~/shared/routes";
 import { Bar } from "~/shared/ui/bar";
+import { PageLayout } from "~/shared/ui/page-layout";
 import { EnterNameEnterStep } from "./steps/enter";
 import { EnterNameGuideStep } from "./steps/guide";
 import { EnterNameOnboarding } from "./steps/on-boarding";
@@ -19,21 +19,16 @@ const enterNameFunnelOptions = funnelOptions({
 });
 
 export const EnterNameFunnel = () => {
-  const setUser = userStore.useSetAtom();
-  const user = userStore.useAtomValue();
+  const [user, setUser] = userStore.useAtom();
   const router = useInternalRouter();
-
   const [Funnel, { createStep, step }] = useFunnel(enterNameFunnelOptions);
 
   useFunnelDefaultStep(step, () => router.replace(createStep("on-boarding")));
 
-  const handleBackClick = () => {
-    router.back();
-  };
-
   return (
-    <Fragment>
-      <Bar.Root left={<Bar.BackIcon onClick={handleBackClick} />} />
+    <PageLayout>
+      <EnterNameBar />
+
       <Funnel>
         <Funnel.Step name={"on-boarding"}>
           <EnterNameOnboarding onStartNext={() => router.push(createStep("start"))} />
@@ -55,7 +50,7 @@ export const EnterNameFunnel = () => {
 
         <Funnel.Step name={"guide"}>
           <Funnel.Guard
-            condition={user.userName.length > 0}
+            condition={isUserNameValid(user.userName)}
             onRestrict={() => {
               router.replace(createStep("enter"));
             }}
@@ -68,6 +63,20 @@ export const EnterNameFunnel = () => {
           </Funnel.Guard>
         </Funnel.Step>
       </Funnel>
-    </Fragment>
+    </PageLayout>
   );
+};
+
+const EnterNameBar = () => {
+  const router = useInternalRouter();
+
+  const handleBackClick = () => {
+    router.back();
+  };
+
+  return <Bar.Root left={<Bar.BackIcon onClick={handleBackClick} />} />;
+};
+
+const isUserNameValid = (userName: string) => {
+  return userName.length > 0;
 };

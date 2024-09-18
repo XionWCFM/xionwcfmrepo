@@ -1,8 +1,6 @@
 import { Delay } from "@suspensive/react";
-import { Image } from "@xionwcfm/adapters/image";
 import { AspectRatio, Paragraph, Spacing, Stack } from "@xionwcfm/xds";
 import { Fragment } from "react";
-import { Grasshoppers } from "~/entities/grasshoppers/api/grasshopper.data";
 import { GrasshopperQuestionType } from "~/features/grasshopper-question/model/grasshopper-question.model";
 import { LoadingImage } from "./loading-image";
 import { RadioButton } from "./radio-button";

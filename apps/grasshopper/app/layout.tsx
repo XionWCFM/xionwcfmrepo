@@ -2,7 +2,7 @@ import { MobileViewLayout } from "@xionwcfm/xds";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import { Providers } from "src/apps/providers";
-import { UserContextProvider } from "~/entities/user/user.store";
+import { UserContextProvider } from "~/entities/user/model/user.store";
 import { createMetadata } from "~/shared/intergration/create-meta-data";
 
 import "@xionwcfm/token/style";

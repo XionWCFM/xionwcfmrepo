@@ -1,23 +1,22 @@
 "use client";
-import { useThrottle } from "@xionwcfm/react";
+import { ThrottleEvent } from "@xionwcfm/react";
 import { FixedBottom, FixedBottomCta, Spacing } from "@xionwcfm/xds";
 import { toast } from "@xionwcfm/xds/toast";
 import { delay } from "es-toolkit/promise";
 import { Fragment, useState } from "react";
 import { GrasshopperQuestionType } from "~/features/grasshopper-question/model/grasshopper-question.model";
 import { QuestionAndAnswerForm } from "~/shared/ui/question-and-answer-form";
-import { StepTitle } from "../components/step-title";
+import { Title } from "../../../shared/ui/title";
 
 export const EnterNameGuideStep = ({
   onProblemSolveNext,
   userName,
 }: { userName: string; onTutorialNext: () => void; onProblemSolveNext: () => void }) => {
-  const stepTitle = `반가워요 ${userName}님!\n먼저 간단한 문제를 풀어볼까요?`;
   const [selected, setSelected] = useState<string | null>(null);
 
   const disabled = selected === null;
 
-  const handleClick = useThrottle(async () => {
+  const handleClick = async () => {
     if (selected === sampleQuestion.grasshopper.id) {
       toast.success("잘하셨어요! 이제 진짜 문제를 풀어볼까요?", { duration: 1000 });
       await delay(1000);
@@ -26,23 +25,36 @@ export const EnterNameGuideStep = ({
     } else {
       toast.success("다시 한번 생각해볼까요?");
     }
-  }, 1000);
+  };
 
   return (
     <Fragment>
-      <StepTitle>{stepTitle}</StepTitle>
+      <Title>{getTitle(userName)}</Title>
 
       <Spacing h={"16"} />
 
-      <QuestionAndAnswerForm {...sampleQuestion} selectedId={selected} onClick={(value) => setSelected(value)} />
+      <QuestionAndAnswerForm
+        choices={sampleQuestion.choices}
+        questionTitle={sampleQuestion.questionTitle}
+        grasshopper={sampleQuestion.grasshopper}
+        selectedId={selected}
+        onClick={(value) => setSelected(value)}
+      />
+
       <Spacing h={"256"} />
       <FixedBottom>
-        <FixedBottomCta disabled={disabled} onClick={handleClick}>
-          제출하기
-        </FixedBottomCta>
+        <ThrottleEvent delay={1000}>
+          <FixedBottomCta disabled={disabled} onClick={handleClick}>
+            제출하기
+          </FixedBottomCta>
+        </ThrottleEvent>
       </FixedBottom>
     </Fragment>
   );
+};
+
+const getTitle = (userName: string) => {
+  return `반가워요 ${userName}님!\n먼저 간단한 문제를 풀어볼까요?`;
 };
 
 const sampleQuestion = {

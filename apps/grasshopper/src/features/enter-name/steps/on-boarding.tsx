@@ -2,12 +2,12 @@ import { Link } from "@xionwcfm/adapters/link";
 import { FixedBottom, FixedBottomCta, Paragraph, Pressable, Separator, Spacing } from "@xionwcfm/xds";
 import { Fragment } from "react";
 import { 국립생물자원관_URL } from "~/shared/constants";
-import { StepTitle } from "../components/step-title";
+import { Title } from "../../../shared/ui/title";
 
 export const EnterNameOnboarding = ({ onStartNext }: { onStartNext: () => void }) => {
   return (
     <Fragment>
-      <StepTitle>{"메뚜기의 종류를 잘 외우는 것은 \n우리에게 정말 필요한 일이죠!"}</StepTitle>
+      <Title>{"메뚜기의 종류를 잘 외우는 것은 \n우리에게 정말 필요한 일이죠!"}</Title>
 
       <Spacing h={"16"} />
       <Paragraph color={"neutral-500"} weight={"light"} size={"4"} leading={"loose"}>

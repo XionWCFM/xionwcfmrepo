@@ -4,7 +4,7 @@ import { cn } from "@xionwcfm/xds";
 import { Fragment, useState } from "react";
 import { HomeTab } from "~/features/landing/home-tab";
 import { FixedLandingCta } from "~/features/landing/landing-cta";
-import { RankingTab } from "~/features/ranking/ranking-tab";
+import { RankingTab } from "~/features/landing/ranking-tab";
 import { Tab } from "~/shared/ui/tab";
 
 const TAB_HOME_VALUE = "home";

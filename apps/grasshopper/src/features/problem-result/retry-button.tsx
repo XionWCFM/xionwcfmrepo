@@ -3,7 +3,7 @@ import { Button, Paragraph } from "@xionwcfm/xds";
 import { Fragment } from "react";
 import { $Routes } from "~/shared/routes";
 
-export const ProblemSolveRetry = () => {
+export const RetryButton = () => {
   const router = useInternalRouter();
   const handleHomeClick = () => {
     router.push($Routes.root.path());

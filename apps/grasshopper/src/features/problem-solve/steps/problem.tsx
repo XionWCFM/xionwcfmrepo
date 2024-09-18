@@ -1,9 +1,7 @@
-import { useDraft } from "@xionwcfm/react";
 import { FixedBottom, FixedBottomCta, Paragraph, Spacing } from "@xionwcfm/xds";
 import { toast } from "@xionwcfm/xds/toast";
 import { delay } from "es-toolkit/promise";
-import { Fragment, useReducer, useState } from "react";
-import { GrasshopperQuestionType } from "~/features/grasshopper-question/model/grasshopper-question.model";
+import { Fragment, useState } from "react";
 import { QuestionAndAnswerForm } from "~/shared/ui/question-and-answer-form";
 import { GrasshopperQuestionAnswerType } from "../model/problem-solve.action";
 
@@ -20,17 +18,13 @@ const calculateAnswer = (questions: GrasshopperQuestionAnswerType[], index: numb
   return { isAnswer, rightAnswer, selectedAnswer };
 };
 
-export const ProblemSolveProblemStep = ({
-  onResultNext,
-  grasshopperQuestions,
-  userName,
-  onAnswerClick,
-}: {
+export const ProblemSolveProblemStep = (props: {
   onResultNext: () => void;
   grasshopperQuestions: GrasshopperQuestionAnswerType[];
   userName: string;
   onAnswerClick: (value: { quizId: string } & Pick<GrasshopperQuestionAnswerType, "selectedAnswerId">) => void;
 }) => {
+  const { onResultNext, grasshopperQuestions, userName, onAnswerClick } = props;
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
 
@@ -53,11 +47,13 @@ export const ProblemSolveProblemStep = ({
     }
 
     const { isAnswer, rightAnswer } = calculateAnswer(grasshopperQuestions, page);
+
     if (isAnswer) {
       toast.success("정답이에요! 🔥");
     } else {
       toast.error(`정답은 ${rightAnswer}였어요 😭`);
     }
+
     return setPage((prev) => prev + 1);
   };
 
