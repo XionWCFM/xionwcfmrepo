@@ -1,7 +1,7 @@
 import { useInternalRouter } from "@xionwcfm/adapters/router";
+import { useLoading } from "@xionwcfm/react";
 import { Button, ConfirmDialog } from "@xionwcfm/xds";
 import { delay } from "es-toolkit/promise";
-import { useState } from "react";
 import { createResultSearchParams } from "./lib/create-result-search-params";
 import { GrasshopperQuestionAnswerType } from "./model/problem-solve.action";
 
@@ -12,19 +12,17 @@ export const ProblemSolveCloseDialog = (props: {
   userName: string;
 }) => {
   const { userName, isOpen, onClose, grasshopperQuestions } = props;
-  const [loading, setLoading] = useState(false);
+  const [isLoading, startTransition] = useLoading();
   const router = useInternalRouter();
 
   const handleClose = () => {
-    if (!loading) {
+    if (!isLoading) {
       onClose();
     }
   };
 
   const handleGetReportClick = async () => {
-    setLoading(true);
-    await delay(3000);
-    setLoading(false);
+    await startTransition(delay(3000));
     onClose();
     router.push(createResultSearchParams({ userName, questionAndAnswers: grasshopperQuestions }));
   };
@@ -36,12 +34,12 @@ export const ProblemSolveCloseDialog = (props: {
       title="결과지를 받으실건가요?"
       description="문제를 다 풀지 않아도 결과지를 받을 수 있어요"
       primaryButton={
-        <Button loading={loading} className=" w-full" onClick={handleGetReportClick} variant={"primary"} size={"md"}>
+        <Button loading={isLoading} className=" w-full" onClick={handleGetReportClick} variant={"primary"} size={"md"}>
           네
         </Button>
       }
       secondaryButton={
-        <Button as="button" disabled={loading} onClick={onClose} className=" w-full" variant={"outline"} size={"md"}>
+        <Button as="button" disabled={isLoading} onClick={onClose} className=" w-full" variant={"outline"} size={"md"}>
           취소
         </Button>
       }

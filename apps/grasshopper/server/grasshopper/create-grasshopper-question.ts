@@ -1,7 +1,10 @@
 import { shuffle } from "es-toolkit/array";
 import { GRASSHOPPER_WITH_NO_IMAGE } from "server/grasshopper/grasshopper.data";
-import { Grasshopper } from "../../../entities/grasshoppers/model/grasshopper.model";
-import { GrasshopperQuestionType, GrasshopperQuestionVariantsType } from "../model/grasshopper-question.model";
+import { Grasshopper } from "../../src/entities/grasshoppers/model/grasshopper.model";
+import {
+  GrasshopperQuestionType,
+  GrasshopperQuestionVariantsType,
+} from "../../src/features/grasshopper-question/model/grasshopper-question.model";
 
 export const createGrasshopperQuestion = (
   grasshoppers: Grasshopper[],
