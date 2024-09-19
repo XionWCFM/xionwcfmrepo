@@ -58,3 +58,5 @@ export const createRoutes = <T extends DefaultRouterType = DefaultRouterType>(ba
   path: (arg?: RoutesQueryAndPath<T>["arg"]) => createInternalPath(basePath, arg),
   getSearchParams: (param: keyof T["query"]) => param,
 });
+
+

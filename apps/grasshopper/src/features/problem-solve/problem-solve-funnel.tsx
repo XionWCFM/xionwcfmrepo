@@ -9,7 +9,7 @@ import { $Routes } from "~/shared/routes";
 import { PageLayout } from "~/shared/ui/page-layout";
 import { grassHopperQuestionOptions } from "../grasshopper-question/api/grasshopper-question.api";
 import { createResultSearchParams } from "./lib/create-result-search-params";
-import { GrasshopperQuestionAnswerType, useProblemSolveReducer } from "./model/problem-solve.action";
+import { GrasshopperQuestionAnswerType, useQuestionAnswer } from "./model/problem-solve.action";
 import { ProblemSolveBar } from "./problem-solve-bar";
 import { ProblemSolveInformationStep } from "./steps/information";
 import { ProblemSolveProblemStep } from "./steps/problem";
@@ -24,7 +24,7 @@ export const ProblemSolveFunnel = () => {
   const [Funnel, { step, createStep }] = useFunnel(problemSolveFunnelOptions);
   const { userName } = userStore.useAtomValue();
   const { data: questions } = useSuspenseQuery(grassHopperQuestionOptions.getQuestions());
-  const [questionAndAnswers, dispatch] = useProblemSolveReducer(questions);
+  const questionAnswer = useQuestionAnswer(questions);
 
   const router = useInternalRouter();
 
@@ -34,7 +34,7 @@ export const ProblemSolveFunnel = () => {
 
   return (
     <PageLayout>
-      <ProblemSolveBar userName={userName} step={step} grasshopperQuestions={questionAndAnswers} />
+      <ProblemSolveBar userName={userName} step={step} grasshopperQuestions={questionAnswer.state} />
 
       <Funnel>
         <Funnel.Step name={"information"}>
@@ -44,9 +44,11 @@ export const ProblemSolveFunnel = () => {
         <Funnel.Step name={"problem"}>
           <ProblemSolveProblemStep
             userName={userName}
-            grasshopperQuestions={questionAndAnswers}
-            onAnswerClick={(payload) => dispatch({ type: "SET_ANSWER", payload })}
-            onResultNext={() => router.push(createResultSearchParams({ userName, questionAndAnswers }))}
+            grasshopperQuestions={questionAnswer.state}
+            onAnswerClick={(payload) => questionAnswer.update(payload)}
+            onResultNext={() =>
+              router.push(createResultSearchParams({ userName, questionAndAnswers: questionAnswer.state }))
+            }
           />
         </Funnel.Step>
       </Funnel>

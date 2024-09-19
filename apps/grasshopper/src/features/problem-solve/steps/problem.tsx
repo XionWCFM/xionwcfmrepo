@@ -67,7 +67,7 @@ export const ProblemSolveProblemStep = (props: {
             key={question.id}
             grasshopper={question.grasshopper}
             choices={question.choices}
-            questionTitle={question.questionTitle}
+            questionTitle={`Q${index + 1}. ${question.questionTitle}`}
             selectedId={question.selectedAnswerId}
             onClick={(answerId) => {
               onAnswerClick({ quizId: question.id, selectedAnswerId: answerId });
