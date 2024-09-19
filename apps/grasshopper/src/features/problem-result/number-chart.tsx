@@ -6,10 +6,10 @@ export const NumberChart = (props: { skip: number; wrong: number; answer: number
   const { skip, wrong, answer, userName } = props;
 
   const numberCharts = [
-    { content: "스킵한 문제", count: skip },
-    { content: "틀린 문제", count: wrong },
-    { content: "맞춘 문제", count: answer },
-  ];
+    { content: "스킵한 문제", count: skip, color: "warning-400" },
+    { content: "틀린 문제", count: wrong, color: "danger-400" },
+    { content: "맞춘 문제", count: answer, color: "primary-500" },
+  ] as const;
 
   return (
     <Fragment>
@@ -25,7 +25,7 @@ export const NumberChart = (props: { skip: number; wrong: number; answer: number
                 {chart.content}
               </Paragraph>
               <BlurText>
-                <Paragraph color={"warning-400"} size={"4"}>
+                <Paragraph color={chart.color} size={"4"}>
                   {chart.count}개
                 </Paragraph>
               </BlurText>

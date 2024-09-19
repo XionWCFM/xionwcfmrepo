@@ -6,7 +6,7 @@ import { Fragment, useCallback, useState } from "react";
 import { QuestionAndAnswerForm } from "~/shared/ui/question-and-answer-form";
 import { GrasshopperQuestionAnswerType } from "../model/problem-solve.action";
 
-const isAnswer = (question: GrasshopperQuestionAnswerType) => {
+const isAnswerCorrect = (question: GrasshopperQuestionAnswerType) => {
   return question.selectedAnswerId === question.grasshopper.id;
 };
 
@@ -18,6 +18,7 @@ export const ProblemSolveProblemStep = (props: {
 }) => {
   const { onResultNext, grasshopperQuestions, userName, onAnswerClick } = props;
   const { currentQuestion, navigateToNext, page } = useQuestionNavigation(grasshopperQuestions);
+
   const [isLoading, startTransition] = useLoading();
 
   const isLastQuestion = grasshopperQuestions.length - 1 === page;
@@ -27,15 +28,13 @@ export const ProblemSolveProblemStep = (props: {
   const isNotAnswered = currentQuestion.selectedAnswerId === null;
 
   const handleLastQuestion = async () => {
-    if (isLastQuestion) {
-      await startTransition(delay(3000));
-      return onResultNext();
-    }
+    await startTransition(delay(3000));
+    return onResultNext();
   };
 
   const handleQuestion = () => {
     toast.dismiss();
-    if (isAnswer(currentQuestion)) {
+    if (isAnswerCorrect(currentQuestion)) {
       toast.success("정답이에요! 🔥");
     } else {
       toast.error(`정답은 ${currentQuestion.grasshopper.name}였어요 😭`);
@@ -61,20 +60,15 @@ export const ProblemSolveProblemStep = (props: {
         mb={"8"}
       >{`${userName}님은 지금까지 ${grasshopperQuestions.length}문제 중 ${page}문제를 풀었어요`}</Paragraph>
 
-      {grasshopperQuestions.map((question, index) =>
-        index === page ? (
-          <QuestionAndAnswerForm
-            key={question.id}
-            grasshopper={question.grasshopper}
-            choices={question.choices}
-            questionTitle={`Q${index + 1}. ${question.questionTitle}`}
-            selectedId={question.selectedAnswerId}
-            onClick={(answerId) => {
-              onAnswerClick({ quizId: question.id, selectedAnswerId: answerId });
-            }}
-          />
-        ) : null,
-      )}
+      <QuestionAndAnswerForm
+        grasshopper={currentQuestion.grasshopper}
+        choices={currentQuestion.choices}
+        questionTitle={`Q.${page + 1} ${currentQuestion.questionTitle}`}
+        selectedId={currentQuestion.selectedAnswerId}
+        onClick={(answerId) => {
+          onAnswerClick({ quizId: currentQuestion.id, selectedAnswerId: answerId });
+        }}
+      />
 
       <FixedBottom>
         <FixedBottomCta loading={isLoading} disabled={isNotAnswered} onClick={handleCtaClick}>
@@ -84,6 +78,9 @@ export const ProblemSolveProblemStep = (props: {
     </Fragment>
   );
 };
+
+const getProgressText = (userName: string, totalQuestions: number, currentPage: number) =>
+  `${userName}님은 지금까지 ${totalQuestions}문제 중 ${currentPage}문제를 풀었어요`;
 
 const useQuestionNavigation = (grasshopperQuestions: GrasshopperQuestionAnswerType[]) => {
   const [page, navigate] = useState(0);
