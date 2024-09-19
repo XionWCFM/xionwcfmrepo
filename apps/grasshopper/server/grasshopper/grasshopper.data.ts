@@ -1,6 +1,6 @@
-import { GrasshopperType } from "../model/grasshopper.model";
+import { Grasshopper } from "../../src/entities/grasshoppers/model/grasshopper.model";
 
-export const Grasshoppers: GrasshopperType[] = [
+export const GRASSHOPPERS_WITH_IMAGE: Grasshopper[] = [
   { id: "1", name: "가시모메뚜기", imgSrc: "/grasshoppers/가시모메뚜기.png" },
   { id: "2", name: "각시메뚜기", imgSrc: "/grasshoppers/각시메뚜기.jpg" },
   { id: "3", name: "검정수염메뚜기", imgSrc: "/grasshoppers/검정수염메뚜기.jpg" },
@@ -38,7 +38,7 @@ export const Grasshoppers: GrasshopperType[] = [
   { id: "35", name: "홍날개메뚜기", imgSrc: "/grasshoppers/홍날개메뚜기.jpg" },
 ];
 
-export const GrasshoppersWithNoImage: GrasshopperType[] = [
+export const GRASSHOPPER_WITH_NO_IMAGE: Grasshopper[] = [
   { id: "36", name: "알락방울벌레", imgSrc: "/grasshoppers/알락방울벌레.png" },
   { id: "37", name: "청솔귀뚜라미", imgSrc: "/grasshoppers/청솔귀뚜라미.png" },
   { id: "38", name: "분홍눈여치", imgSrc: "/grasshoppers/분홍눈여치.png" },
