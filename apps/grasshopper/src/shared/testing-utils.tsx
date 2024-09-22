@@ -2,6 +2,7 @@ import { Suspense } from "@suspensive/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MatcherFunction, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { Toaster } from "@xionwcfm/xds/toast";
 import { Provider } from "jotai";
 import { PropsWithChildren, ReactNode } from "react";
 
@@ -37,7 +38,10 @@ export const wrapper =
     return (
       <QueryClientProvider client={testingClient()}>
         <Provider>
-          <Suspense>{children}</Suspense>
+          <Suspense>
+            {children}
+            <Toaster />
+          </Suspense>
         </Provider>
       </QueryClientProvider>
     );

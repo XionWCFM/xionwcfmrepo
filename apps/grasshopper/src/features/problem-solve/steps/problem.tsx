@@ -43,7 +43,6 @@ export const ProblemSolveProblemStep = (props: {
           onAnswerClick({ quizId: currentQuestion.id, selectedAnswerId: answerId });
         }}
       />
-
       <FixedBottom>
         <FixedBottomCta
           loading={isLoading}
@@ -89,7 +88,7 @@ const useQuestionNavigation = (grasshopperQuestions: GrasshopperQuestionAnswerTy
   }
 
   const navigateToNext = useCallback(() => {
-    navigate((prev) => (prev + 1 < grasshopperQuestions.length ? prev + 1 : prev));
+    navigate((prev) => prev + 1);
   }, [navigate]);
 
   const navigateToPrev = useCallback(() => {

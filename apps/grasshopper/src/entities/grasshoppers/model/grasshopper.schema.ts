@@ -14,7 +14,7 @@ const createResultSearchParams = (param: {
   });
 };
 
-const calculateProblemResult = (questionAnswers: GrasshopperQuestionAnswerType[]) => {
+export const calculateProblemResult = (questionAnswers: GrasshopperQuestionAnswerType[]) => {
   return questionAnswers.reduce(
     (acc, cur) => {
       if (cur.selectedAnswerId === null) {

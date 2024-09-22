@@ -10,7 +10,7 @@ import { userStore } from "~/entities/user/model/user.store";
 import { $Routes } from "~/shared/routes";
 import { PageLayout } from "~/shared/ui/page-layout";
 import { grassHopperQuestionOptions } from "../../entities/grasshoppers/api/grasshopper.api";
-import { useQuestionAnswer } from "./model/use-question-answer";
+import { useQuestionAnswer } from "./lib/use-question-answer";
 import { ProblemSolveBar } from "./problem-solve-bar";
 import { ProblemSolveInformationStep } from "./steps/information";
 import { ProblemSolveProblemStep } from "./steps/problem";
