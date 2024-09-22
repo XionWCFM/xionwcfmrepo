@@ -4,7 +4,7 @@ import { Separated } from "@xionwcfm/react";
 import { Paragraph, Spacing, Stack } from "@xionwcfm/xds";
 import { useSearchParams } from "next/navigation";
 import { Fragment } from "react";
-import { grasshopperResultSearchParams } from "~/entities/grasshoppers/model/grasshopper-searchparams";
+import { grasshopperResultSearchParams } from "~/entities/grasshoppers/model/grasshopper.schema";
 import { CopyResult } from "~/features/problem-result/copy-result";
 import { GraphChart } from "~/features/problem-result/graph-chart";
 import { NumberChart } from "~/features/problem-result/number-chart";

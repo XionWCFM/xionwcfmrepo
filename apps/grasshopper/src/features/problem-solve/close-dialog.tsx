@@ -2,8 +2,8 @@ import { useInternalRouter } from "@xionwcfm/adapters/router";
 import { useLoading } from "@xionwcfm/react";
 import { Button, ConfirmDialog } from "@xionwcfm/xds";
 import { delay } from "es-toolkit/promise";
-import { grasshopperResultSearchParams } from "~/entities/grasshoppers/model/grasshopper-searchparams";
 import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
+import { grasshopperResultSearchParams } from "~/entities/grasshoppers/model/grasshopper.schema";
 
 export const ProblemSolveCloseDialog = (props: {
   questionAnswers: GrasshopperQuestionAnswerType[];

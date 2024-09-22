@@ -5,7 +5,7 @@ import { decrypt } from "~/shared/utils/crypto";
 import { encrypt } from "~/shared/utils/crypto";
 import { GrasshopperQuestionAnswerType } from "./grasshopper.model";
 
-export const createResultSearchParams = (param: {
+const createResultSearchParams = (param: {
   userName: string;
   questionAnswers: GrasshopperQuestionAnswerType[];
 }) => {
@@ -40,7 +40,7 @@ const resultPageSearchParamsSchema = z
       .parse(decrypted);
   });
 
-export const getResultPageSearchParamsData = (searchParams: URLSearchParams) => {
+const getResultPageSearchParamsData = (searchParams: URLSearchParams) => {
   return resultPageSearchParamsSchema.parse(qs.parse(searchParams.toString(), { parseArrays: true }));
 };
 
