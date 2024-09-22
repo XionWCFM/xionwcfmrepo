@@ -4,12 +4,13 @@ import { useFunnel } from "@xionhub/funnel-app-router-adapter";
 import { funnelOptions, useFunnelDefaultStep } from "@xionhub/funnel-core";
 import { useInternalRouter } from "@xionwcfm/adapters/router";
 import { Spacing } from "@xionwcfm/xds";
+import { grasshopperResultSearchParams } from "~/entities/grasshoppers/model/grasshopper-searchparams";
+import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
 import { userStore } from "~/entities/user/model/user.store";
 import { $Routes } from "~/shared/routes";
 import { PageLayout } from "~/shared/ui/page-layout";
-import { grassHopperQuestionOptions } from "../grasshopper-question/api/grasshopper-question.api";
-import { createResultSearchParams } from "./lib/create-result-search-params";
-import { GrasshopperQuestionAnswerType, useQuestionAnswer } from "./model/problem-solve.action";
+import { grassHopperQuestionOptions } from "../../entities/grasshoppers/api/grasshopper.api";
+import { useQuestionAnswer } from "./model/use-question-answer";
 import { ProblemSolveBar } from "./problem-solve-bar";
 import { ProblemSolveInformationStep } from "./steps/information";
 import { ProblemSolveProblemStep } from "./steps/problem";
@@ -33,7 +34,7 @@ export const ProblemSolveFunnel = () => {
 
   return (
     <PageLayout>
-      <ProblemSolveBar userName={userName} step={step} grasshopperQuestions={questionAnswer.state} />
+      <ProblemSolveBar userName={userName} step={step} questionAnswers={questionAnswer.state} />
 
       <Funnel>
         <Funnel.Step name={"information"}>
@@ -46,7 +47,7 @@ export const ProblemSolveFunnel = () => {
             grasshopperQuestions={questionAnswer.state}
             onAnswerClick={(payload) => questionAnswer.update(payload)}
             onResultNext={() =>
-              router.push(createResultSearchParams({ userName, questionAndAnswers: questionAnswer.state }))
+              router.push(grasshopperResultSearchParams.create({ userName, questionAnswers: questionAnswer.state }))
             }
           />
         </Funnel.Step>

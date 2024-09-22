@@ -4,8 +4,8 @@ import { Separated } from "@xionwcfm/react";
 import { Paragraph, Spacing, Stack } from "@xionwcfm/xds";
 import { useSearchParams } from "next/navigation";
 import { Fragment } from "react";
+import { grasshopperResultSearchParams } from "~/entities/grasshoppers/model/grasshopper-searchparams";
 import { CopyResult } from "~/features/problem-result/copy-result";
-import { getResultPageSearchParamsData } from "~/features/problem-result/get-result-by-search-params";
 import { GraphChart } from "~/features/problem-result/graph-chart";
 import { NumberChart } from "~/features/problem-result/number-chart";
 import { RetryButton } from "~/features/problem-result/retry-button";
@@ -33,7 +33,7 @@ export const ResultPage = wrap.ErrorBoundary({ fallback: <Navigate to={$Routes.r
 
 const ResultTopSection = wrap.Suspense().on(() => {
   const searchParams = useSearchParams();
-  const { userName } = getResultPageSearchParamsData(searchParams);
+  const { userName } = grasshopperResultSearchParams.parse(searchParams);
   return (
     <Fragment>
       <Title>{`${userName}님의\n메뚜기 퀴즈 결과는?`}</Title>
@@ -51,7 +51,7 @@ const ResultTopSection = wrap.Suspense().on(() => {
 
 const ResultStatistics = wrap.Suspense().on(() => {
   const searchParams = useSearchParams();
-  const { userName, answer, wrong, skip, total } = getResultPageSearchParamsData(searchParams);
+  const { userName, answer, wrong, skip, total } = grasshopperResultSearchParams.parse(searchParams);
   return (
     <Separated with={<RowSeparator className=" my-16" />}>
       <GraphChart answer={answer} wrong={wrong} skip={skip} userName={userName} total={total} />

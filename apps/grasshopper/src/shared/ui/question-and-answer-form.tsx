@@ -1,11 +1,11 @@
 import { Delay } from "@suspensive/react";
 import { AspectRatio, Paragraph, Spacing, Stack } from "@xionwcfm/xds";
 import { Fragment } from "react";
-import { GrasshopperQuestionType } from "~/features/grasshopper-question/model/grasshopper-question.model";
+import { GrasshopperQuestion } from "~/entities/grasshoppers/model/grasshopper.model";
 import { LoadingImage } from "./loading-image";
 import { RadioButton } from "./radio-button";
 
-type QuestionAndAnswerFormProps = Pick<GrasshopperQuestionType, "choices" | "grasshopper" | "questionTitle"> & {
+type QuestionAndAnswerFormProps = Pick<GrasshopperQuestion, "choices" | "grasshopper" | "questionTitle"> & {
   selectedId: string | null;
   onClick: (id: string) => void;
 };

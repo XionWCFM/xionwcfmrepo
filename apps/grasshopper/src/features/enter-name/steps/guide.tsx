@@ -1,10 +1,9 @@
-"use client";
 import { ThrottleEvent } from "@xionwcfm/react";
 import { FixedBottom, FixedBottomCta, Spacing } from "@xionwcfm/xds";
 import { toast } from "@xionwcfm/xds/toast";
 import { delay } from "es-toolkit/promise";
 import { Fragment, useState } from "react";
-import { GrasshopperQuestionType } from "~/features/grasshopper-question/model/grasshopper-question.model";
+import { GrasshopperQuestion } from "~/entities/grasshoppers/model/grasshopper.model";
 import { QuestionAndAnswerForm } from "~/shared/ui/question-and-answer-form";
 import { Title } from "../../../shared/ui/title";
 
@@ -14,16 +13,13 @@ export const EnterNameGuideStep = ({
 }: { userName: string; onTutorialNext: () => void; onProblemSolveNext: () => void }) => {
   const [selected, setSelected] = useState<string | null>(null);
 
-  const disabled = selected === null;
-
   const handleClick = async () => {
-    if (selected === sampleQuestion.grasshopper.id) {
-      toast.success("잘하셨어요! 이제 진짜 문제를 풀어볼까요?", { duration: 1000 });
-      await delay(1000);
-      toast.dismiss();
-      onProblemSolveNext();
-    } else {
-      toast.success("다시 한번 생각해볼까요?");
+    const isCorrectAnswer = selected === sampleQuestion.grasshopper.id;
+
+    showAnswerToast(isCorrectAnswer);
+
+    if (isCorrectAnswer) {
+      return onProblemSolveNext();
     }
   };
 
@@ -43,14 +39,26 @@ export const EnterNameGuideStep = ({
 
       <Spacing h={"256"} />
       <FixedBottom>
-        <ThrottleEvent delay={1000}>
-          <FixedBottomCta disabled={disabled} onClick={handleClick}>
+        <ThrottleEvent delay={THROTTLE_DELAY_POLICY}>
+          <FixedBottomCta disabled={selected === null} onClick={handleClick}>
             제출하기
           </FixedBottomCta>
         </ThrottleEvent>
       </FixedBottom>
     </Fragment>
   );
+};
+
+const THROTTLE_DELAY_POLICY = 1000;
+
+const showAnswerToast = async (isCorrectAnswer: boolean) => {
+  if (isCorrectAnswer) {
+    toast.success("잘하셨어요! 이제 진짜 문제를 풀어볼까요?", { duration: 1000 });
+    await delay(1000);
+    toast.dismiss();
+  } else {
+    toast.success("다시 한번 생각해볼까요?");
+  }
 };
 
 const getTitle = (userName: string) => {
@@ -68,4 +76,4 @@ const sampleQuestion = {
     { id: "4", name: "소금쟁이" },
     { id: "1", name: "우리벼메뚜기" },
   ],
-} satisfies GrasshopperQuestionType;
+} satisfies GrasshopperQuestion;

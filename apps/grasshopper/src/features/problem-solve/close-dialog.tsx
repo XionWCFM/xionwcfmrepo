@@ -2,16 +2,16 @@ import { useInternalRouter } from "@xionwcfm/adapters/router";
 import { useLoading } from "@xionwcfm/react";
 import { Button, ConfirmDialog } from "@xionwcfm/xds";
 import { delay } from "es-toolkit/promise";
-import { createResultSearchParams } from "./lib/create-result-search-params";
-import { GrasshopperQuestionAnswerType } from "./model/problem-solve.action";
+import { grasshopperResultSearchParams } from "~/entities/grasshoppers/model/grasshopper-searchparams";
+import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
 
 export const ProblemSolveCloseDialog = (props: {
-  grasshopperQuestions: GrasshopperQuestionAnswerType[];
+  questionAnswers: GrasshopperQuestionAnswerType[];
   isOpen: boolean;
   onClose: () => void;
   userName: string;
 }) => {
-  const { userName, isOpen, onClose, grasshopperQuestions } = props;
+  const { userName, isOpen, onClose, questionAnswers } = props;
   const [isLoading, startTransition] = useLoading();
   const router = useInternalRouter();
 
@@ -24,7 +24,7 @@ export const ProblemSolveCloseDialog = (props: {
   const handleGetReportClick = async () => {
     await startTransition(delay(3000));
     onClose();
-    router.push(createResultSearchParams({ userName, questionAndAnswers: grasshopperQuestions }));
+    router.push(grasshopperResultSearchParams.create({ userName, questionAnswers: questionAnswers }));
   };
 
   return (

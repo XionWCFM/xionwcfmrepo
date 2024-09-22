@@ -1,19 +1,19 @@
 import { useInternalRouter } from "@xionwcfm/adapters/router";
 import { overlay } from "overlay-kit";
+import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
 import { Bar } from "~/shared/ui/bar";
 import { ProblemSolveBackDialog } from "./back-dialog";
 import { ProblemSolveCloseDialog } from "./close-dialog";
 import { InformationCloseDialog } from "./information-close-dialog";
-import { GrasshopperQuestionAnswerType } from "./model/problem-solve.action";
 
 export const ProblemSolveBar = ({
   userName,
   step,
-  grasshopperQuestions,
+  questionAnswers,
 }: {
   userName: string;
   step: "information" | "problem" | undefined;
-  grasshopperQuestions: GrasshopperQuestionAnswerType[];
+  questionAnswers: GrasshopperQuestionAnswerType[];
 }) => {
   const router = useInternalRouter();
 
@@ -33,7 +33,7 @@ export const ProblemSolveBar = ({
       overlay.open(({ isOpen, unmount }) => (
         <ProblemSolveCloseDialog
           userName={userName}
-          grasshopperQuestions={grasshopperQuestions}
+          questionAnswers={questionAnswers}
           isOpen={isOpen}
           onClose={unmount}
         />

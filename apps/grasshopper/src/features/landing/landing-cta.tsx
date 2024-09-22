@@ -7,10 +7,11 @@ import { StartDialog } from "./start-dialog";
 
 export const FixedLandingCta = () => {
   const { userName } = userStore.useAtomValue();
-  const isFirstUser = userName.length === 0;
   const router = useInternalRouter();
 
   const handleCtaClick = () => {
+    const isFirstUser = userName.length === 0;
+
     if (isFirstUser) {
       return router.push($Routes.enterName.path());
     }

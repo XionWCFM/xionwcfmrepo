@@ -1,15 +1,13 @@
 import { shuffle } from "es-toolkit/array";
 import { GRASSHOPPER_WITH_NO_IMAGE } from "server/grasshopper/grasshopper.data";
+import { GrasshopperQuestion } from "~/entities/grasshoppers/model/grasshopper.model";
+import { GrasshopperQuestionVariants } from "~/entities/grasshoppers/model/grasshopper.model";
 import { Grasshopper } from "../../src/entities/grasshoppers/model/grasshopper.model";
-import {
-  GrasshopperQuestionType,
-  GrasshopperQuestionVariantsType,
-} from "../../src/features/grasshopper-question/model/grasshopper-question.model";
 
 export const createGrasshopperQuestion = (
   grasshoppers: Grasshopper[],
-  options?: { type?: GrasshopperQuestionVariantsType; limit?: number },
-): GrasshopperQuestionType[] => {
+  options?: { type?: GrasshopperQuestionVariants; limit?: number },
+): GrasshopperQuestion[] => {
   const { type = "객관식", limit = grasshoppers.length } = options ?? {};
   const choiceCount = 5;
 
@@ -22,7 +20,7 @@ export const createGrasshopperQuestion = (
       const id = Math.random().toString().slice(0, 16);
       const questionTitle = "이 메뚜기의 이름은 무엇일까요?";
       return { type, grasshopper, choices, id, questionTitle };
-    }) satisfies GrasshopperQuestionType[];
+    }) satisfies GrasshopperQuestion[];
 
   return shuffledList;
 };

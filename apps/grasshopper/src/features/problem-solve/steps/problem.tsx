@@ -3,8 +3,8 @@ import { FixedBottom, FixedBottomCta, Paragraph, Spacing } from "@xionwcfm/xds";
 import { toast } from "@xionwcfm/xds/toast";
 import { delay } from "es-toolkit/promise";
 import { Fragment, useCallback, useState } from "react";
+import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
 import { QuestionAndAnswerForm } from "~/shared/ui/question-and-answer-form";
-import { GrasshopperQuestionAnswerType } from "../model/problem-solve.action";
 
 export const ProblemSolveProblemStep = (props: {
   onResultNext: () => void;

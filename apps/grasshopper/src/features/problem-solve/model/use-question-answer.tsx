@@ -1,10 +1,8 @@
 import { useDraft } from "@xionwcfm/react";
 import { useCallback } from "react";
-import { GrasshopperQuestionType } from "~/features/grasshopper-question/model/grasshopper-question.model";
+import { GrasshopperQuestion, GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
 
-export type GrasshopperQuestionAnswerType = GrasshopperQuestionType & { selectedAnswerId: string | null };
-
-const createInitialState = (grasshopperQuestions: GrasshopperQuestionType[]) => {
+const createInitialState = (grasshopperQuestions: GrasshopperQuestion[]) => {
   return grasshopperQuestions.map((question) => ({
     ...question,
     selectedAnswerId: null,
@@ -23,7 +21,7 @@ const updateQuestionAnswerState = (
   });
 };
 
-export const useQuestionAnswer = (questions: GrasshopperQuestionType[]) => {
+export const useQuestionAnswer = (questions: GrasshopperQuestion[]) => {
   const [state, dispatch] = useDraft<GrasshopperQuestionAnswerType[]>(createInitialState(questions));
   const update = useCallback(
     (param: { quizId: string; selectedAnswerId: string | null }) =>

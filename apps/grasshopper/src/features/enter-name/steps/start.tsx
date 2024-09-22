@@ -1,9 +1,9 @@
-"use client";
 import { FixedBottom, FixedBottomCta, Paragraph, Stack } from "@xionwcfm/xds";
 import { Fragment } from "react";
 import { Lottie } from "~/shared/intergration/lottie";
 import { LOTTIE_EMOJI_HAPPY } from "~/shared/lotties";
 import { Title } from "../../../shared/ui/title";
+
 export const EnterNameStartStep = ({ onNext }: { onNext: () => void }) => {
   return (
     <Fragment>
