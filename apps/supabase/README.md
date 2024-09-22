@@ -28,6 +28,8 @@ NEXT_SUPABASE_DB_PASSWORD= db 생성시 입력한 password
 
 로그인을 수행하여 supabase의 내 프로젝트에 권한이 있음을 인증해야 정상적인 동작 가능 || 모노레포 이용시 해당 모노레포 워크스페이스에서 로그인 수행이 필요함
 
+왜인지 모르겠지만 프로젝트 의존성으로 supabase가 있어야 로그인이 가능;
+
 
 
 ## pnpm type error
@@ -185,4 +187,20 @@ export const config = {
 };
 
 ```
+
+
+
+## RLS 에러
+
+```ts
+{
+  code: '42501',
+  details: null,
+  hint: null,
+  message: 'new row violates row-level security policy for table "todo"'
+}
+```
+
+RLS 권한을 풀어주면 해결됨
+
 

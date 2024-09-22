@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import "@xionwcfm/token/style";
+import "@xionwcfm/xds/style";
 import "./globals.css";
+import { Noto_Sans_KR } from "next/font/google";
+import { Providers } from "src/apps/providers";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const notoSansKr = Noto_Sans_KR({
+  weight: ["200", "300", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,11 +22,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="ko">
+      <body className={notoSansKr.className}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
