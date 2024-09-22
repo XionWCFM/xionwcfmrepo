@@ -6,10 +6,6 @@ import { Fragment, useCallback, useState } from "react";
 import { QuestionAndAnswerForm } from "~/shared/ui/question-and-answer-form";
 import { GrasshopperQuestionAnswerType } from "../model/problem-solve.action";
 
-const isAnswerCorrect = (question: GrasshopperQuestionAnswerType) => {
-  return question.selectedAnswerId === question.grasshopper.id;
-};
-
 export const ProblemSolveProblemStep = (props: {
   onResultNext: () => void;
   grasshopperQuestions: GrasshopperQuestionAnswerType[];
@@ -17,53 +13,31 @@ export const ProblemSolveProblemStep = (props: {
   onAnswerClick: (value: { quizId: string } & Pick<GrasshopperQuestionAnswerType, "selectedAnswerId">) => void;
 }) => {
   const { onResultNext, grasshopperQuestions, userName, onAnswerClick } = props;
-  const { currentQuestion, navigateToNext, page } = useQuestionNavigation(grasshopperQuestions);
-
+  const { currentQuestion, navigateToNext, page, isLastQuestion } = useQuestionNavigation(grasshopperQuestions);
   const [isLoading, startTransition] = useLoading();
-
-  const isLastQuestion = grasshopperQuestions.length - 1 === page;
-
-  const ctaText = isLastQuestion ? "제출하고 결과지 보기" : "제출하기";
-
-  const isNotAnswered = currentQuestion.selectedAnswerId === null;
-
-  const handleLastQuestion = async () => {
-    await startTransition(delay(3000));
-    return onResultNext();
-  };
-
-  const handleQuestion = () => {
-    toast.dismiss();
-    if (isAnswerCorrect(currentQuestion)) {
-      toast.success("정답이에요! 🔥");
-    } else {
-      toast.error(`정답은 ${currentQuestion.grasshopper.name}였어요 😭`);
-    }
-    return navigateToNext();
-  };
 
   const handleCtaClick = async () => {
     if (isLastQuestion) {
-      return handleLastQuestion();
+      await startTransition(delay(3000));
+      return onResultNext();
     }
-    return handleQuestion();
+
+    showAnswerToast(currentQuestion);
+    navigateToNext();
   };
 
   return (
     <Fragment>
       <Spacing h={"40"} />
 
-      <Paragraph
-        size={"3"}
-        color={"neutral-400"}
-        weight={"light"}
-        mb={"8"}
-      >{`${userName}님은 지금까지 ${grasshopperQuestions.length}문제 중 ${page}문제를 풀었어요`}</Paragraph>
+      <Paragraph size={"3"} color={"neutral-400"} weight={"light"} mb={"8"}>
+        {getProgressText(userName, grasshopperQuestions.length, page)}
+      </Paragraph>
 
       <QuestionAndAnswerForm
         grasshopper={currentQuestion.grasshopper}
         choices={currentQuestion.choices}
-        questionTitle={`Q.${page + 1} ${currentQuestion.questionTitle}`}
+        questionTitle={getQuestionTitle(currentQuestion.questionTitle, page)}
         selectedId={currentQuestion.selectedAnswerId}
         onClick={(answerId) => {
           onAnswerClick({ quizId: currentQuestion.id, selectedAnswerId: answerId });
@@ -71,12 +45,36 @@ export const ProblemSolveProblemStep = (props: {
       />
 
       <FixedBottom>
-        <FixedBottomCta loading={isLoading} disabled={isNotAnswered} onClick={handleCtaClick}>
-          {ctaText}
+        <FixedBottomCta
+          loading={isLoading}
+          disabled={currentQuestion.selectedAnswerId === null}
+          onClick={handleCtaClick}
+        >
+          {getCtaText(isLastQuestion)}
         </FixedBottomCta>
       </FixedBottom>
     </Fragment>
   );
+};
+
+const isAnswerCorrect = (question: GrasshopperQuestionAnswerType) => {
+  return question.selectedAnswerId === question.grasshopper.id;
+};
+
+const showAnswerToast = (grasshopperQuestion: GrasshopperQuestionAnswerType) => {
+  toast.dismiss();
+  if (isAnswerCorrect(grasshopperQuestion)) {
+    return toast.success("정답이에요! 🔥");
+  }
+  toast.error(`정답은 ${grasshopperQuestion.grasshopper.name}였어요 😭`);
+};
+
+const getCtaText = (isLastQuestion: boolean) => {
+  return isLastQuestion ? "제출하고 결과지 보기" : "제출하기";
+};
+
+const getQuestionTitle = (questionTitle: string, pageIndex: number) => {
+  return `Q.${pageIndex + 1} ${questionTitle}`;
 };
 
 const getProgressText = (userName: string, totalQuestions: number, currentPage: number) =>
@@ -98,5 +96,6 @@ const useQuestionNavigation = (grasshopperQuestions: GrasshopperQuestionAnswerTy
     navigate((prev) => (prev - 1 > -1 ? prev - 1 : prev));
   }, [navigate]);
 
-  return { page, currentQuestion, navigateToNext, navigateToPrev };
+  const isLastQuestion = grasshopperQuestions.length - 1 === page;
+  return { page, currentQuestion, navigateToNext, navigateToPrev, isLastQuestion };
 };

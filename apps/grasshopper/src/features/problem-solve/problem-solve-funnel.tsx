@@ -25,7 +25,6 @@ export const ProblemSolveFunnel = () => {
   const { userName } = userStore.useAtomValue();
   const { data: questions } = useSuspenseQuery(grassHopperQuestionOptions.getQuestions());
   const questionAnswer = useQuestionAnswer(questions);
-
   const router = useInternalRouter();
 
   useFunnelDefaultStep(step, () => {
