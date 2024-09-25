@@ -6,6 +6,9 @@ import "@testing-library/jest-dom";
 
 createFetchMock(vi).enableMocks();
 
+console.error = () => {};
+console.warn = () => {};
+
 // react 카나리로 인한 워닝 문제 해결을 위해 이미지 컴포넌트를 모킹합니다.
 vi.mock("lottie-react", () => ({
   default: () => <div data-testid="mock-lottie">Mocked Lottie</div>,
@@ -32,3 +35,16 @@ afterEach(() => {
   vi.clearAllMocks();
   cleanup();
 });
+
+export const mockRouter = {
+  push: vi.fn(),
+  replace: vi.fn(),
+  back: vi.fn(),
+  refresh: vi.fn(),
+  prefetch: vi.fn(),
+  forward: vi.fn(),
+};
+
+vi.mock("@xionwcfm/adapters/router", () => ({
+  useInternalRouter: () => mockRouter,
+}));

@@ -3,8 +3,9 @@ import { FixedBottom, FixedBottomCta, Paragraph, Spacing } from "@xionwcfm/xds";
 import { toast } from "@xionwcfm/xds/toast";
 import { delay } from "es-toolkit/promise";
 import { Fragment, useCallback, useState } from "react";
-import { QuestionAndAnswerForm } from "~/shared/ui/question-and-answer-form";
-import { GrasshopperQuestionAnswerType } from "../model/problem-solve.action";
+import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
+import { QuestionForm } from "~/shared/ui/question-and-answer-form";
+import { RadioButton } from "~/shared/ui/radio-button";
 
 export const ProblemSolveProblemStep = (props: {
   onResultNext: () => void;
@@ -34,15 +35,21 @@ export const ProblemSolveProblemStep = (props: {
         {getProgressText(userName, grasshopperQuestions.length, page)}
       </Paragraph>
 
-      <QuestionAndAnswerForm
-        grasshopper={currentQuestion.grasshopper}
-        choices={currentQuestion.choices}
-        questionTitle={getQuestionTitle(currentQuestion.questionTitle, page)}
-        selectedId={currentQuestion.selectedAnswerId}
-        onClick={(answerId) => {
-          onAnswerClick({ quizId: currentQuestion.id, selectedAnswerId: answerId });
-        }}
-      />
+      <QuestionForm.Layout>
+        <QuestionForm.Title>{getQuestionTitle(currentQuestion.questionTitle, page)}</QuestionForm.Title>
+        <QuestionForm.Image src={currentQuestion.grasshopper.imgSrc} />
+        <QuestionForm.ChoiceLayout>
+          {currentQuestion.choices.map((choice) => (
+            <RadioButton
+              selected={currentQuestion.selectedAnswerId === choice.id}
+              onClick={() => onAnswerClick({ quizId: currentQuestion.id, selectedAnswerId: choice.id })}
+              key={choice.id}
+            >
+              {choice.name}
+            </RadioButton>
+          ))}
+        </QuestionForm.ChoiceLayout>
+      </QuestionForm.Layout>
 
       <FixedBottom>
         <FixedBottomCta
@@ -89,7 +96,7 @@ const useQuestionNavigation = (grasshopperQuestions: GrasshopperQuestionAnswerTy
   }
 
   const navigateToNext = useCallback(() => {
-    navigate((prev) => (prev + 1 < grasshopperQuestions.length ? prev + 1 : prev));
+    navigate((prev) => prev + 1);
   }, [navigate]);
 
   const navigateToPrev = useCallback(() => {

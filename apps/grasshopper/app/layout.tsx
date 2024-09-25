@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import { Providers } from "src/apps/providers";
 import { UserContextProvider } from "~/entities/user/model/user.store";
+import { BASE_SITE_URL } from "~/shared/constants";
 import { createMetadata } from "~/shared/intergration/create-meta-data";
 
 import "@xionwcfm/token/style";
 import "@xionwcfm/xds/style";
 import "./globals.css";
-import { BASE_SITE_URL } from "~/shared/constants";
 
 export const metadata: Metadata = createMetadata({
   title: "나는 메뚜기의 종류를 100가지 이상 알고 있다.",

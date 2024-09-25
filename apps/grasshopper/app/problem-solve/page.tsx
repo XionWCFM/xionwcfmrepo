@@ -1,5 +1,5 @@
-import { ProblemSolveFunnel } from "~/features/problem-solve/problem-solve-funnel";
+import { ProblemSolvePage } from "~/page/problem-solve-page";
 
 export default function Page() {
-  return <ProblemSolveFunnel />;
+  return <ProblemSolvePage />;
 }

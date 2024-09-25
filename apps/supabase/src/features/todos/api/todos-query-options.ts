@@ -1,3 +1,4 @@
+"use client";
 import { queryOptions } from "@tanstack/react-query";
 import { getTodos } from "actions/todo-actions";
 

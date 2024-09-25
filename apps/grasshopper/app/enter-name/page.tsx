@@ -1,5 +1,5 @@
-import { EnterNameFunnel } from "~/features/enter-name/enter-name-funnel";
+import { EnterNamePage } from "~/page/enter-name-page";
 
 export default function Page() {
-  return <EnterNameFunnel />;
+  return <EnterNamePage />;
 }

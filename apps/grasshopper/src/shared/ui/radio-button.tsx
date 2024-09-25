@@ -8,6 +8,7 @@ export const RadioButton = (props: ComponentPropsWithoutRef<"button"> & { select
   return (
     <button
       type="button"
+      aria-selected={selected}
       className={cn(
         " w-full px-12 py-8 flex justify-center items-center rounded-sm",
         " duration-200 transition-all",

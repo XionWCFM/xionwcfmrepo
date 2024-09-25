@@ -1,11 +1,11 @@
 import { Delay } from "@suspensive/react";
 import { AspectRatio, Paragraph, Spacing, Stack } from "@xionwcfm/xds";
-import { Fragment } from "react";
-import { GrasshopperQuestionType } from "~/features/grasshopper-question/model/grasshopper-question.model";
+import { Fragment, PropsWithChildren, ReactNode } from "react";
+import { GrasshopperQuestion } from "~/entities/grasshoppers/model/grasshopper.model";
 import { LoadingImage } from "./loading-image";
 import { RadioButton } from "./radio-button";
 
-type QuestionAndAnswerFormProps = Pick<GrasshopperQuestionType, "choices" | "grasshopper" | "questionTitle"> & {
+type QuestionAndAnswerFormProps = Pick<GrasshopperQuestion, "choices" | "grasshopper" | "questionTitle"> & {
   selectedId: string | null;
   onClick: (id: string) => void;
 };
@@ -13,11 +13,11 @@ type QuestionAndAnswerFormProps = Pick<GrasshopperQuestionType, "choices" | "gra
 export const QuestionAndAnswerForm = (props: QuestionAndAnswerFormProps) => {
   const { grasshopper, choices, questionTitle, selectedId, onClick } = props;
   return (
-    <Fragment>
+    <Stack gap={"16"}>
       <Paragraph color={"neutral-500"} size={"5"} weight={"medium"}>
         {questionTitle}
       </Paragraph>
-      <Spacing h={"16"} />
+
       <AspectRatio ratio={16 / 9}>
         <LoadingImage
           className=" object-scale-down"
@@ -32,8 +32,6 @@ export const QuestionAndAnswerForm = (props: QuestionAndAnswerFormProps) => {
         />
       </AspectRatio>
 
-      <Spacing h={"16"} />
-
       <Stack gap={"16"}>
         {choices.map((choice) => (
           <RadioButton selected={choice.id === selectedId} onClick={() => onClick(choice.id)} key={choice.id}>
@@ -41,8 +39,51 @@ export const QuestionAndAnswerForm = (props: QuestionAndAnswerFormProps) => {
           </RadioButton>
         ))}
       </Stack>
-    </Fragment>
+    </Stack>
   );
+};
+
+const Title = ({ children }: PropsWithChildren) => {
+  return (
+    <Paragraph color={"neutral-500"} size={"5"} weight={"medium"}>
+      {children}
+    </Paragraph>
+  );
+};
+
+const Image = ({ src, fallback, alt }: { src: string; fallback?: ReactNode; alt?: string }) => {
+  return (
+    <AspectRatio ratio={16 / 9}>
+      <LoadingImage
+        className=" object-scale-down"
+        fallback={
+          fallback ?? (
+            <Delay ms={500}>
+              <GrasshopperFallbackImage />
+            </Delay>
+          )
+        }
+        src={src}
+        alt={alt ?? "문제 이미지"}
+        fill
+      />
+    </AspectRatio>
+  );
+};
+
+const Layout = ({ children }: PropsWithChildren) => {
+  return <Stack gap={"16"}>{children}</Stack>;
+};
+
+const ChoiceLayout = ({ children }: PropsWithChildren) => {
+  return <Stack gap={"16"}>{children}</Stack>;
+};
+
+export const QuestionForm = {
+  Layout,
+  ChoiceLayout,
+  Title,
+  Image,
 };
 
 const GrasshopperFallbackImage = () => {
