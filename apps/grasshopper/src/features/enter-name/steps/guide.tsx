@@ -2,19 +2,23 @@ import { ThrottleEvent } from "@xionwcfm/react";
 import { FixedBottom, FixedBottomCta, Spacing } from "@xionwcfm/xds";
 import { toast } from "@xionwcfm/xds/toast";
 import { delay } from "es-toolkit/promise";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { GrasshopperQuestion } from "~/entities/grasshoppers/model/grasshopper.model";
-import { QuestionAndAnswerForm } from "~/shared/ui/question-and-answer-form";
+import { useSelect } from "~/shared/hooks/use-select";
+import { QuestionForm } from "~/shared/ui/question-and-answer-form";
+import { RadioButton } from "~/shared/ui/radio-button";
 import { Title } from "../../../shared/ui/title";
 
-export const EnterNameGuideStep = ({
-  onProblemSolveNext,
-  userName,
-}: { userName: string; onTutorialNext: () => void; onProblemSolveNext: () => void }) => {
-  const [selected, setSelected] = useState<string | null>(null);
+export const EnterNameGuideStep = (props: {
+  userName: string;
+  onTutorialNext: () => void;
+  onProblemSolveNext: () => void;
+}) => {
+  const { onProblemSolveNext, userName } = props;
+  const answer = useSelect<string>();
 
   const handleClick = async () => {
-    const isCorrectAnswer = selected === sampleQuestion.grasshopper.id;
+    const isCorrectAnswer = answer.isSelected(sampleQuestion.grasshopper.id);
 
     showAnswerToast(isCorrectAnswer);
 
@@ -29,18 +33,27 @@ export const EnterNameGuideStep = ({
 
       <Spacing h={"16"} />
 
-      <QuestionAndAnswerForm
-        choices={sampleQuestion.choices}
-        questionTitle={sampleQuestion.questionTitle}
-        grasshopper={sampleQuestion.grasshopper}
-        selectedId={selected}
-        onClick={(value) => setSelected(value)}
-      />
+      <QuestionForm.Layout>
+        <QuestionForm.Title>{sampleQuestion.questionTitle}</QuestionForm.Title>
+        <QuestionForm.Image src={sampleQuestion.grasshopper.imgSrc} />
+        <QuestionForm.ChoiceLayout>
+          {sampleQuestion.choices.map((choice) => (
+            <RadioButton
+              selected={answer.isSelected(choice.id)}
+              onClick={() => answer.toggle(choice.id)}
+              key={choice.id}
+            >
+              {choice.name}
+            </RadioButton>
+          ))}
+        </QuestionForm.ChoiceLayout>
+      </QuestionForm.Layout>
 
       <Spacing h={"256"} />
+
       <FixedBottom>
         <ThrottleEvent delay={THROTTLE_DELAY_POLICY}>
-          <FixedBottomCta disabled={selected === null} onClick={handleClick}>
+          <FixedBottomCta disabled={answer.isNoneChosen()} onClick={handleClick}>
             제출하기
           </FixedBottomCta>
         </ThrottleEvent>
