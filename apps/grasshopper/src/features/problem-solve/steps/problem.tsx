@@ -36,7 +36,7 @@ export const ProblemSolveProblemStep = (props: {
       </Paragraph>
 
       <QuestionForm.Layout>
-        <QuestionForm.Title>{currentQuestion.questionTitle}</QuestionForm.Title>
+        <QuestionForm.Title>{getQuestionTitle(currentQuestion.questionTitle, page)}</QuestionForm.Title>
         <QuestionForm.Image src={currentQuestion.grasshopper.imgSrc} />
         <QuestionForm.ChoiceLayout>
           {currentQuestion.choices.map((choice) => (
