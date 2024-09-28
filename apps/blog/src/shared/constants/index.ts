@@ -27,7 +27,17 @@ export const EXTERNAL_LINKED_IN = "https://www.linkedin.com/in/giljong-yu-289195
 
 export const EXTERNAL_GITHUB = "https://github.com/XionWCFM";
 
+const GRASSHOPPER_SITE_URL = "https://grasshopper.xionwcfm.com";
+
+const XDS_STORYBOOK_SITE_URL = "https://xionwcfm-lib.vercel.app/?path=/docs/xds-button--docs";
+
+const RESUME_URL = `${BASE_SITE_URL}/resume`;
+
+const TECH_BLOG_URL = "https://xionwcfm.tistory.com/";
+
 export const CONSTANTS = {
+  TECH_BLOG_URL,
+  RESUME_URL,
   BASE_TEMPLETE_TITLE,
   BASE_SITE_URL,
   BASE_SITE_DESCRIPTION,
@@ -41,4 +51,6 @@ export const CONSTANTS = {
   LORDICON_LICENSE,
   EXTERNAL_GITHUB,
   EXTERNAL_LINKED_IN,
+  GRASSHOPPER_SITE_URL,
+  XDS_STORYBOOK_SITE_URL,
 };
