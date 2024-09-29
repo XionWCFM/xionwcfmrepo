@@ -1,9 +1,71 @@
 # xionwcfm monorepo
 
-## Blog Deployment
+Turbo Repo와 Pnpm Workspace로 구성된 모노레포 프로젝트입니다.
 
-[xionwcfm.com](https://www.xionwcfm.com/) 
+[xionwcfm-lib Repository](https://github.com/XionWCFM/xionwcfm-lib)에 의존성을 갖습니다.
 
+```
+git clone https://github.com/XionWCFM/xionwcfmrepo.git
+pnpm i
+pnpm run build:p
+```
+
+`apps`의 프로젝트는 `packages`의 빌드산출물에 의존하기때문에 처음 프로젝트를 clone 받았다면 패키지를 빌드해야합니다.
+
+```
+pnpm run build:p
+```
+
+명령어를 통해 packages 폴더 전체를 빌드하세요
+
+
+## Project
+
+### **[xionwcfm blog project](https://www.xionwcfm.com/)**
+
+next.js app router와 next-mdx-remotes를 기반으로 구성된 블로그 프로젝트입니다.
+
+
+#### Link
+
+**[이 블로그에 방문해보세요!](https://www.xionwcfm.com/)**
+
+**[이 블로그의 초기 디자인 기획 및 구현 과정을 확인해보세요](https://www.xionwcfm.com/posts/retrospect/blog-migration)**
+
+**[mdx 작성 시의 개발자 경험을 개선하기 위한 MDX 파일 자동 Refresh 기능 구현 과정](https://xionwcfm.tistory.com/457)**
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="./.asset/blog-1.webp" alt="grasshopper landing" width="33%">
+  <img src="./.asset/blog-2.webp" alt="grasshopper problem" width="33%">
+</div>
+
+
+### **[나는 메뚜기의 종류를 100가지 이상 알고있다.](https://grasshopper.xionwcfm.com/)**
+
+랜덤하게 주어지는 메뚜기의 사진을 토대로 올바른 선지를 맞춰나가는 퀴즈 사이트입니다.
+
+**[이 사이트에 방문해보세요!](https://grasshopper.xionwcfm.com/)**
+
+<br/>
+
+이 프로젝트를 구성하면서 저는
+
+- FSD 구조를 적용하여 각 기능들을 최대한 모듈화하고자 노력했어요
+
+- 어떻게하면 테스트하기 쉬운 구조를 만들 수 있을지 고민하면서 코드를 작성했어요
+
+- UI와 비즈니스 로직 간의 관심사를 최대한 분리하기 위해 노력했어요
+
+
+
+
+<div style="display: flex; justify-content: space-around;">
+  <img src="./.asset/grasshopper-1.webp" alt="grasshopper landing" width="33%">
+  <img src="./.asset/grasshopper-2.webp" alt="grasshopper problem" width="33%">
+  <img src="./.asset/grasshopper-3.webp" alt="grasshopper result" width="33%">
+</div>
+
+---
 
 ## Folder Structure
 
