@@ -2,7 +2,6 @@ import { Link } from "@xionwcfm/adapters/link";
 import { Button, Flex, Paragraph, Pressable, Spacing, Stack } from "@xionwcfm/xds";
 import { Fragment, ReactNode } from "react";
 import { CONSTANTS } from "~/shared/constants";
-import { Iframe } from "~/shared/ui/iframe";
 
 export default function Page() {
   return (
@@ -16,10 +15,6 @@ export default function Page() {
           ))}
         </Stack>
       </SectionLayout>
-
-      <Stack>
-        <Iframe src={CONSTANTS.GRASSHOPPER_SITE_URL} title="grasshopper site" device={"IPHONE_14_PRO_MAX"} />
-      </Stack>
     </Stack>
   );
 }
