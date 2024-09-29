@@ -1,6 +1,11 @@
 import Script from "next/script";
+import { isDevelopment } from "~/shared/utils/is-development";
 
 export const ClarityScript = () => {
+  if (isDevelopment()) {
+    return null;
+  }
+
   return (
     <Script
       id="clarityScript"
