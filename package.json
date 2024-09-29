@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "build:g": "turbo build --filter './packages/*'",
+    "build:p": "turbo build --filter './packages/*'",
     "build:actions": "turbo build --filter './packages/actions'",
     "dev": "turbo dev --filter './apps/blog'",
     "dev:g": "turbo dev --filter './apps/grasshopper'",
