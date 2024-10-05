@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider, QueryErrorResetBoundary } from "@tans
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "@xionwcfm/xds/toast";
 import { Provider } from "jotai";
-import { OverlayProvider } from "overlay-kit";
 import { PropsWithChildren, useState } from "react";
 
 const QueryProvider = ({ children }: PropsWithChildren) => {
@@ -38,22 +37,20 @@ export const Providers = ({ children }: PropsWithChildren) => {
   return (
     <QueryProvider>
       <Provider>
-        <OverlayProvider>
-          <DefaultPropsProvider defaultProps={defaultProps}>
-            <QueryErrorResetBoundary>
-              {({ reset }) => (
-                <ErrorBoundaryGroup>
-                  <ErrorBoundary onReset={reset} fallback={null}>
-                    <Suspense>
-                      {children}
-                      <Toaster />
-                    </Suspense>
-                  </ErrorBoundary>
-                </ErrorBoundaryGroup>
-              )}
-            </QueryErrorResetBoundary>
-          </DefaultPropsProvider>
-        </OverlayProvider>
+        <DefaultPropsProvider defaultProps={defaultProps}>
+          <QueryErrorResetBoundary>
+            {({ reset }) => (
+              <ErrorBoundaryGroup>
+                <ErrorBoundary onReset={reset} fallback={null}>
+                  <Suspense>
+                    {children}
+                    <Toaster />
+                  </Suspense>
+                </ErrorBoundary>
+              </ErrorBoundaryGroup>
+            )}
+          </QueryErrorResetBoundary>
+        </DefaultPropsProvider>
       </Provider>
     </QueryProvider>
   );

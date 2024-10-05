@@ -7,7 +7,7 @@ import "@xionwcfm/xds/style";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "environment to ts",
+  title: "Env to TypeScript",
   description: "env to ts",
 };
 

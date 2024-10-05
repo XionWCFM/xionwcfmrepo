@@ -4,7 +4,6 @@ import { MatcherFunction, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Toaster } from "@xionwcfm/xds/toast";
 import { Provider } from "jotai";
-import { OverlayProvider } from "overlay-kit";
 import { PropsWithChildren, ReactNode } from "react";
 
 const createRender = (wrapper: (param: PropsWithChildren) => ReactNode) => {
@@ -39,12 +38,10 @@ export const wrapper =
     return (
       <QueryClientProvider client={testingClient()}>
         <Provider>
-          <OverlayProvider>
-            <Suspense>
-              {children}
-              <Toaster />
-            </Suspense>
-          </OverlayProvider>
+          <Suspense>
+            {children}
+            <Toaster />
+          </Suspense>
         </Provider>
       </QueryClientProvider>
     );
