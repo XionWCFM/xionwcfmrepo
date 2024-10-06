@@ -20,26 +20,23 @@ const createZodCode = (input: string, type: SupportEnv) => {
 
   const DECLARE_MAP: Record<SupportEnv, string> = {
     node: `declare global {
-        namespace NodeJS {
-        interface ProcessEnv extends TypeOf<typeof zodEnv> {}
-    }`,
-    vite: `
-        declare interface ImportMetaEnv extends TypeOf<typeof zodEnv> {}
-    `,
+  namespace NodeJS {
+  interface ProcessEnv extends TypeOf<typeof zodEnv> {}
+}`,
+    vite: `declare interface ImportMetaEnv extends TypeOf<typeof zodEnv> {}`,
   };
 
   return `import { z, TypeOf } from "zod"
-    const zodEnv = z.object({
-    ${splitEnv(input)
-      .map(([key, value]) => `${key}:${calculateZodSchema(value)}`)
-      .join("\n")}
-    })
 
-    ${DECLARE_MAP[type]}
+const zodEnv = z.object({
+${splitEnv(input)
+  .map(([key, value]) => `  ${key}: ${calculateZodSchema(value)}`)
+  .join("\n")}
+})
 
-    zodEnv.parse(${IMPORT_MAP[type]})
-      
-    `;
+${DECLARE_MAP[type]}
+
+zodEnv.parse(${IMPORT_MAP[type]})`;
 };
 
 const calculateZodSchema = (input: string) => {
