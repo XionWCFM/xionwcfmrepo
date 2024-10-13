@@ -6,6 +6,7 @@ import { Toaster } from "@xionwcfm/xds/toast";
 import { Provider } from "jotai";
 import { OverlayProvider } from "overlay-kit";
 import { PropsWithChildren, useState } from "react";
+import { logger } from "./logger";
 
 const QueryProvider = ({ children }: PropsWithChildren) => {
   const [queryClient] = useState(
@@ -46,6 +47,10 @@ export const Providers = ({ children }: PropsWithChildren) => {
                   <ErrorBoundary onReset={reset} fallback={null}>
                     <Suspense>
                       {children}
+                      <Suspense>
+                        <logger.Tracker />
+                        <logger.Routes />
+                      </Suspense>
                       <Toaster />
                     </Suspense>
                   </ErrorBoundary>

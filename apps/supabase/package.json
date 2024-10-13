@@ -20,6 +20,7 @@
     "@xionwcfm/token": "^0.0.7",
     "@xionwcfm/utils": "^0.0.3",
     "@xionwcfm/xds": "^0.0.16",
+    "@xionwcfm/logger": "workspace:*",
     "es-toolkit": "^1.16.0",
     "jotai": "^2.9.3",
     "lottie-react": "^2.4.0",
