@@ -1,0 +1,514 @@
+---
+title: 리액트, 메모 없이 리렌더링을 최소화하는 5가지 방법
+description: 그냥 시그널로 바꿔주면 안될까..?
+thumbnail: fallback
+categories: react
+writeDate: 2024-10-26T08:29:07.053Z
+releaseDate: 2024-10-26T14:32:00.053Z
+canView: true
+authority: public
+---
+
+오늘은 리액트를 다루는 프론트엔드 개발자라면 피해갈 수 없는 상태관리 전략에 대해 이야기하고자 합니다.
+
+Solid, Qwik, Preact, Vue등 다른 프레임워크들은 Signal을 채택하며 상태관리에 대한 고민이 상대적으로 덜한 반면 리액트 진영은 아직 상태관리를 신경써야만 하는 상황인 것 같습니다. 리액트 컴파일러 등이 논의되고 있으나 리액트 컴파일러가 얼마나 유의미할지는 아직 미지수인 것 같기도 하고요
+
+상황이 이렇다보니 리액트 개발자들은 유지보수하기 편한 상태 구조를 설계하면서도 한편으로는 성능이 너무 망가지지는 않는지를 항상 고려해야했습니다. 그럼 어떻게하면 높은 유지보수성과 성능 최적화 두 목표를 모두 달성할 수 있을까요?
+
+사실 저도 잘 모르겠지만 아무튼 시작해봅시다
+
+
+## 불필요한 리렌더링은 나쁜걸까요? 
+
+불필요한 리렌더링은 성능 최적화에 있어 최대의 적처럼 여겨지곤 합니다. 그러나 실제로 불필요한 리렌더링이 성능에 큰 영향을 주는 경우는 생각보다 적습니다. 할 수 있다면 물론 불필요한 리렌더링을 없애는 게 좋겠지만 최우선 가치로 삼을 필요까진 없는 것 같습니다.
+
+[React Developer Tools Chrome Extension](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)을 통해 각 컴포넌트의 리렌더링 비용을 측정해볼 수 있습니다. 다음 사진은 지금 보고 계신 이 페이지의 렌더링 결과물을 확장 프로그램으로 측정한 것입니다. Link 컴포넌트 한개의 렌더링 비용은 대략 0.1ms 인 것을 알 수 있습니다.
+
+![rendering cost](/posts/state/1.webp)
+
+한 렌더링당 가용가능한 시간이 **1000ms / 60 = 16.666666ms** 인 것을 감안하면 조금 비효율적으로 렌더링되더라도 제 Link 컴포넌트는 성능에 큰 영향을 미치지 않을 것이라고 예상할 수 있습니다.
+
+
+
+## 가능하다면 리액트만으로 해결하자
+
+리액트가 자체적으로 제공하는 상태관리 전략이 부족한 부분이 많기 때문에 우리는 상태관리 라이브러리를 도입합니다. 그러나 상태관리 라이브러리의 도입은 필연적으로 프로젝트에 복잡도를 추가합니다. 구성원 모두가 사용법을 익혀야하며 나중에 마이그레이션을 원하게 될 가능성도 높습니다. 
+
+앞서 살펴보았듯이 일반적인 경우 리렌더링은 큰 비용이 아닌 경우가 많습니다. **상태끌어올리기 , Context API** 등 리액트에서 제공하는 방법으로 해결하는 것이 장기적인 관점에서 더 좋은 선택일 수 있습니다.
+
+
+
+### 상태끌어올리기로 관리하기
+
+
+이 코드는 상태끌어올리기를 이용한 간단한 코드입니다.
+
+서로다른 두 컴포넌트가 세터를 알아야하기 때문에 두 컴포넌트를 묶어주는 컴포넌트를 두는것이죠 가장 간단하고 직관적인 방법이라는 점에서 좋습니다. 
+
+다만 이 컴포넌트가 렌더링하는 다른 컴포넌트들은 isOpen 상태가 변하는 순간 모두 리렌더링됩니다. 심지어 아무 연관이 없는 AnotherComponent 마저도요!
+
+
+
+```tsx
+export default function Page() {
+  const [isOpen, dispatch] = useState(false);
+
+  return (
+    <Center>
+      <StateConsumer isOpen={isOpen} dispatch={dispatch} />
+      <Dispatcher dispatch={dispatch} />
+      <AnotherComponent />
+    </Center>
+  );
+}
+```
+
+아래 페이지의 Open 버튼을 클릭해보면 리렌더링되는 컴포넌트의 Toast가 띄워집니다.
+
+한번에 총 세개의 토스트가 뜨는 것을 확인할 수 있을 것입니다.
+
+<iframe
+  src="https://react-state-management-mu.vercel.app/lifting-state"
+  width="100%"
+  height="500"
+  style={{ border: 'none' }}
+  title="Example Iframe"
+/>
+
+
+## 리렌더링을 최소화하는 5가지 방법
+
+### 1. Context API로 관리하기
+
+컴포넌트의 계층구조가 깊어질수록 Props를 통해 세터나 상태를 넘겨주는 것은 번거로워집니다. 이럴때는 Context API를 사용할 수 있습니다. 덤으로 코드를 조금 많이 쓴다면 제한적이게나마 비효율적인 렌더링도 줄일 수 있고요
+
+리액트 공식문서의 [scaling-up-with-reducer-and-context](https://react.dev/learn/scaling-up-with-reducer-and-context)를 토대로 위에서 다루었던 다이얼로그 컴포넌트를 재작성해보겠습니다.
+
+```tsx
+
+const DialogContext = createContext<boolean>(false);
+
+const DialogDispatchContext = createContext<Dispatch<boolean>>(() => {});
+
+const reducer = (state: boolean, action: boolean) => {
+  return action;
+};
+
+const DialogProvider = ({ children }: { children: ReactNode }) => {
+  const [isOpen, dispatch] = useReducer(reducer, false);
+  return (
+    <DialogDispatchContext.Provider value={dispatch}>
+      <DialogContext.Provider value={isOpen}>{children}</DialogContext.Provider>
+    </DialogDispatchContext.Provider>
+  );
+};
+
+export default function Page() {
+  return (
+    <DialogProvider>
+      <Center>
+        <Dispatcher />
+        <StateConsumer />
+        <AnotherComponent />
+      </Center>
+    </DialogProvider>
+  );
+}
+
+const Dispatcher = () => {
+  const dispatch = useContext(DialogDispatchContext);
+  toast.success("dispatcher render");
+  return (
+    <Button variant={"emphasis"} size={"full"} onClick={() => dispatch(true)}>
+      open
+    </Button>
+  );
+};
+
+```
+
+이제 아래의 Open 버튼을 눌러보면 toast가 뜨는 것은 오직 state consumer 뿐이라는 것을 알 수 있습니다. 더이상 dispatcher와 anotherComponent는 isOpen이 바뀌었다는 이유로인해 렌더링되지 않습니다.
+
+
+<iframe
+  src="https://react-state-management-mu.vercel.app/context-good"
+  width="100%"
+  height="500"
+  style={{ border: 'none' }}
+  title="Example Iframe"
+/>
+
+
+제법 좋아보입니다. Reducer와 2개의 Context API 쌍을 작성할 각오가 되어있다면 꽤 유용한 방법입니다.
+
+그러나 요구되는 상용구가 많다는 점은 확실히 단점입니다.
+
+
+### 전역 상태 라이브러리를 지역적으로 쓰자
+
+단 하나의 스토어를 두는 Redux에서는 사용하기 어려운 방법이었지만 jotai, zustand 등 비교적 최근에 출시한 상태관리 라이브러리에서는 충분히 선택할 수 있는 전략입니다.
+
+상태 관리 라이브러리를 지역적으로 이용하게되면 조금 더 세밀한 최적화를 수행할 수 있고 코드를 조금 덜 쓰는 효과를 얻을 수 있습니다.
+
+#### 2. zustand 
+
+tkdodo가 작성한 [zustand-and-react-context](https://tkdodo.eu/blog/zustand-and-react-context)를 참고해보면 좋습니다.
+
+```tsx
+
+const DialogStoreContext = createContext<StoreApi<{
+  isOpen: boolean;
+  dispatch: (bool: boolean) => void;
+}> | null>(null);
+
+const Provider = ({
+  children,
+  isOpen,
+}: {
+  children: React.ReactNode;
+  isOpen?: boolean;
+}) => {
+  const [store] = useState(() =>
+    createStore<{ isOpen: boolean; dispatch: (bool: boolean) => void }>(
+      (set) => ({
+        isOpen: isOpen ?? false,
+        dispatch: (value: boolean) => set({ isOpen: value }),
+      })
+    )
+  );
+
+  return (
+    <DialogStoreContext.Provider value={store}>
+      {children}
+    </DialogStoreContext.Provider>
+  );
+};
+
+const useDialogStore = () => {
+  const store = useContext(DialogStoreContext);
+  if (!store) {
+    throw new Error("useDialogStore must be used within a Provider");
+  }
+  return store;
+};
+```
+
+이렇게 스토어를 동적으로 생성하고 Context로 스토어를 내려주는 것을 통해 지역상태를 구현할 수 있습니다.
+
+zustand의 멋진점은 selector를 이용하여 좀 더 세밀한 최적화를 수행할 수 있다는 것인데요
+
+```tsx
+const Dispatcher = () => {
+  const dispatch = useStore(useDialogStore(), (state) => state.dispatch);
+  toast.success("dispatcher render");
+  return (
+    <Button variant={"emphasis"} size={"full"} onClick={() => dispatch(true)}>
+      open
+    </Button>
+  );
+};
+```
+
+이렇게 셀렉터를 통해 구독하고자 하는 상태를 핀포인트로 지정할 수 있습니다. 페이지내에서 관리해야하는 상태가 복잡해질수록 유용해질거라고 예상할 수 있습니다.
+
+<iframe
+  src="https://react-state-management-mu.vercel.app/zustand"
+  width="100%"
+  height="500"
+  style={{ border: 'none' }}
+  title="Example Iframe"
+/>
+
+ 
+
+#### 3. jotai
+
+
+jotai의 경우에는 atom을 동적으로 생성하는 것을 통해 지역 상태를 구현할 수 있습니다. 개인적인 생각으로는 jotai를 이용하면 Context API에 비해 작성할 코드가 확연히 줄어든다는 점이 매력적인 것 같습니다.
+
+```tsx
+
+const DialogAtomContext = createContext<PrimitiveAtom<boolean> | null>(null);
+
+const Provider = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
+  const [dialogAtom] = useState(() => atom(false));
+  return (
+    <DialogAtomContext.Provider value={dialogAtom}>
+      {children}
+    </DialogAtomContext.Provider>
+  );
+};
+
+const useDialogAtom = () => {
+  const dialogAtom = useContext(DialogAtomContext);
+  if (!dialogAtom) {
+    throw new Error("DialogAtomContext is not provided");
+  }
+  return dialogAtom;
+};
+
+const StateConsumer = () => {
+  const [isOpen, dispatch] = useAtom(useDialogAtom());
+  return <Dialog isOpen={isOpen} onClose={() => dispatch(false)} />;
+};
+
+const Dispatcher = () => {
+  const dispatch = useSetAtom(useDialogAtom());
+  return (
+    <Button variant={"emphasis"} size={"full"} onClick={() => dispatch(true)}>
+      open
+    </Button>
+  );
+};
+
+```
+
+jotai를 사용한 사례 역시 실제로 상태를 구독하는 컴포넌트만 리렌더링이 되는 것을 확인할 수 있습니다.
+
+
+<iframe
+  src="https://react-state-management-mu.vercel.app/jotai-reuse"
+  width="100%"
+  height="500"
+  style={{ border: 'none' }}
+  title="Example Iframe"
+/>
+
+저는 여기서 좀 더 간결하게 이 사용사례를 구현하고 싶었어요 그래서 이런 패키지도 만들어봤습니다.
+
+```
+pnpm i @xionwcfm/jotai
+```
+
+```tsx
+import { createReusableAtom } from "@xionwcfm/jotai";
+
+const dialogStore = createReusableAtom<boolean>(false);
+
+const Provider = ({ children }: { children: ReactNode }) => {
+  return <dialogStore.Provider>{children}</dialogStore.Provider>;
+};
+
+
+const StateConsumer = () => {
+  const [isOpen, dispatch] = dialogStore.useAtom();
+  return <Dialog isOpen={isOpen} onClose={() => dispatch(false)} />;
+};
+
+const Dispatcher = () => {
+  const dispatch = dialogStore.useSetAtom();
+  return (
+    <Button variant={"emphasis"} size={"full"} onClick={() => dispatch(true)}>
+      open
+    </Button>
+  );
+};
+
+export default function Page() {
+  return (
+    <Provider>
+        <StateConsumer />
+        <Dispatcher />
+    </Provider>
+  );
+}
+
+```
+
+훨씬 간결해지니까 혹시 jotai가 마음에 드신다면 이것도 한번.. ㅎ;ㅎ;;
+
+
+
+### 디자인 패턴으로 렌더링을 회피하자
+
+옵저버 패턴, Pubsub 패턴 등을 통해 불필요한 렌더링을 회피할 수 있습니다. 
+
+이 방법들은 복잡도가 있긴하지만 다른 방법들과 달리 hook에 의존하지 않을 수 있다는 점에서 유연성이 높습니다. 개인적으로는 이렇게 옵저버, Pubsub 등을 이용하는 경우는 toast, dialog와 같이 훅에 의존하지 않으면 더 편리한 상황이 많은 사용사례에서 적용했을 때 효용이 컸습니다.
+
+
+
+#### 4. 옵저버 패턴으로 회피하기
+
+
+```tsx
+type Observer<T> = (data: T) => void;
+
+class Observable<T> {
+  private observers: Observer<T>[] = [];
+
+  subscribe(observer: Observer<T>): void {
+    this.observers.push(observer);
+  }
+
+  unsubscribe(observer: Observer<T>): void {
+    this.observers = this.observers.filter((obs) => obs !== observer);
+  }
+
+  notify(data: T): void {
+    // biome-ignore lint/complexity/noForEach: <explanation>
+    this.observers.forEach((observer) => observer(data));
+  }
+}
+```
+
+먼저 기본적인 옵저버 클래스를 정의하겠습니다.
+
+```tsx
+
+class DialogObserver extends Observable<boolean> {
+  isOpen = false;
+}
+
+const dialogObservable = new DialogObserver();
+
+const StateConsumer = () => {
+  const [isOpen, setIsOpen] = useState(() => dialogObservable.isOpen);
+  useEffect(() => {
+    const handleStateChange = (value: boolean) => setIsOpen(value);
+    dialogObservable.subscribe(handleStateChange);
+    return () => dialogObservable.unsubscribe(handleStateChange);
+  }, []);
+
+  return (
+    <Dialog isOpen={isOpen} onClose={() => dialogObservable.notify(false)} />
+  );
+};
+
+const Dispatcher = () => {
+  return (
+    <Button
+      variant={"emphasis"}
+      size={"full"}
+      onClick={() => dialogObservable.notify(true)}
+    >
+      open
+    </Button>
+  );
+};
+```
+
+Dispatcher의 onClick 부분을 주목해보면 Dispatcher는 훅을 사용하지도않았고 props로 세터를 넘겨받지도 않았지만 StateConsumer의 상태를 적절히 변경하고 있다는 것을 알 수 있습니다.
+
+<iframe
+  src="https://react-state-management-mu.vercel.app/observer"
+  width="100%"
+  height="500"
+  style={{ border: 'none' }}
+  title="Example Iframe"
+/>
+
+
+#### 5. Pubsub 패턴으로 회피하기
+
+```tsx
+type DefaultFunction = (...param: any[]) => void;
+class Pubsub<EventName extends string = string> {
+  private events: Record<string, DefaultFunction[]>;
+  constructor() {
+    this.events = {};
+  }
+  subscribe(eventName: EventName, func: DefaultFunction) {
+    if (!this.events[eventName]) {
+      this.events[eventName] = [];
+    }
+    //@ts-ignore
+    this.events[eventName].push(func);
+  }
+  unsubscribe(eventName: EventName, func: DefaultFunction) {
+    const handlers = this.events[eventName];
+    if (handlers) {
+      this.events[eventName] = handlers.filter((handler) => handler !== func);
+    }
+  }
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  publish<T = Record<string, any>>(eventName: EventName, context?: T) {
+    if (!this.events[eventName]) {
+      return;
+    }
+    //@ts-ignore
+    // biome-ignore lint/complexity/noForEach: <explanation>
+    this.events[eventName].forEach((func) => func(context));
+  }
+  clear(eventName?: EventName) {
+    if (eventName) {
+      delete this.events[eventName];
+    } else {
+      this.events = {};
+    }
+  }
+}
+
+const pubsub = new Pubsub<"dispatch">();
+
+const StateConsumer = () => {
+  const [isOpen, dispatch] = useState(false);
+  toast.success("state consumer render");
+  useEffect(() => {
+    const handler = (value: boolean) => {
+      dispatch(value);
+    };
+    pubsub.subscribe("dispatch", handler);
+    return () => pubsub.unsubscribe("dispatch", handler);
+  }, []);
+
+  return (
+    <Dialog isOpen={isOpen} onClose={() => pubsub.publish("dispatch", false)} />
+  );
+};
+
+const Dispatcher = () => {
+  toast.success("dispatcher render");
+  return (
+    <Button
+      variant={"emphasis"}
+      size={"full"}
+      onClick={() => pubsub.publish("dispatch", true)}
+    >
+      open
+    </Button>
+  );
+};
+
+```
+
+Pubsub 역시 크게 다르지 않습니다만 일반적으로 상태 변경의 시나리오가 복잡해질수록 Pubsub 보다는 옵저버 패턴을 사용하는 편이 코드가 적습니다.
+
+<iframe
+  src="https://react-state-management-mu.vercel.app/pubsub"
+  width="100%"
+  height="500"
+  style={{ border: 'none' }}
+  title="Example Iframe"
+/>
+
+
+
+## 일반적으로 마주치는 문제
+
+일반적으로 렌더링 최적화가 필요한 상황들은 
+
+1. 많은 리스트를 렌더링해야하기때문에 렌더링 비용이 높은 경우, 
+
+2. input form, 타이머 등 자주 변경되는 컴포넌트들로 인해서
+
+와 같은 경우들이 잦은 것 같습니다.  그런데 이런 경우는 이번 포스트에서 다룬 방법들로 해결을 시도하기 보다는 해당 상황에 특화된 솔루션을 택하는 것이 일반적으로 좋습니다.
+
+예를 들어 리스트의 경우 애초에 모든 리스트를 렌더링하는 대신 가상화를 적용하는 것을 통해 리렌더링의 비용 자체를 줄일 수 있습니다. [react-virtuoso](https://github.com/petyosi/react-virtuoso)와 같은 가상화 라이브러리들을 참고해보세요
+
+form의 경우에는 react-hook-form 과 같은 솔루션을 통해 최적화를 시도하는 것이 더 효과적일 수 있구용
+
+
+
+## 마치며
+
+이번 포스트를 위해 다양한 예제들을 작성했습니다. 분량이 너무 길어질 것을 우려하여 모든 예제를 다루진 않았습니다만 혹시 궁금하신 분들은 아래 링크와 github를 참고해주세요
+
+iframe page : [https://react-state-management-mu.vercel.app/](https://react-state-management-mu.vercel.app/) 
+
+github : [https://github.com/xionwcfm/react-state-management](https://github.com/xionwcfm/react-state-management)
+
+
