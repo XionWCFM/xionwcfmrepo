@@ -1,5 +1,5 @@
 {
-  "name": "@xionwcfm/adapters",
+  "name": "@repo/router",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -43,13 +43,13 @@
   },
   "devDependencies": {
     "@types/react": "^18",
-    "@xionwcfm/typescript-config": "workspace:*",
-    "next": "15.0.0-rc.0",
-    "tsup": "^8.1.0",
+    "@repo/typescript-config": "workspace:*",
+    "next": "15.0.3",
+    "tsup": "^8.3.5",
     "typescript": "latest"
   },
   "peerDependencies": {
-    "next": "^14",
+    "next": "^15",
     "react": "^18"
   }
 }

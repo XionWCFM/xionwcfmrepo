@@ -1,4 +1,4 @@
-import { Image } from "@xionwcfm/adapters/image";
+import { Image } from "@repo/router/image";
 
 import { Paragraph, Stack } from "@xionwcfm/xds";
 import { ASSET_XION_CHAR_WHITE } from "~/shared/assets";

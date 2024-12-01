@@ -1,5 +1,5 @@
 {
-  "name": "@xionwcfm/error",
+  "name": "@repo/error",
   "scripts": {
     "build": "tsup"
   },
@@ -16,8 +16,8 @@
     }
   },
   "devDependencies": {
-    "@xionwcfm/typescript-config": "workspace:*",
-    "tsup": "^8.1.0",
+    "@repo/typescript-config": "workspace:*",
+    "tsup": "^8.3.5",
     "typescript": "latest"
   }
 }

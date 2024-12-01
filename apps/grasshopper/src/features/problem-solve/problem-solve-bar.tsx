@@ -1,4 +1,4 @@
-import { useInternalRouter } from "@xionwcfm/adapters/router";
+import { useInternalRouter } from "@repo/router/router";
 import { overlay } from "overlay-kit";
 import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
 import { Bar } from "~/shared/ui/bar";

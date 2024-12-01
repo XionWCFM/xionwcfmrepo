@@ -45,6 +45,6 @@ export const mockRouter = {
   forward: vi.fn(),
 };
 
-vi.mock("@xionwcfm/adapters/router", () => ({
+vi.mock("@repo/router/router", () => ({
   useInternalRouter: () => mockRouter,
 }));

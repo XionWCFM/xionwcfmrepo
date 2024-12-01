@@ -1,6 +1,6 @@
 "use client";
 
-import { Image } from "@xionwcfm/adapters/image";
+import { Image } from "@repo/router/image";
 import { cn } from "@xionwcfm/xds";
 import { ComponentProps, Fragment, ReactNode, useState } from "react";
 

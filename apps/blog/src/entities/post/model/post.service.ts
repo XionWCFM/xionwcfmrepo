@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import { safeGetIso } from "@xionwcfm/date/safe-get-iso";
-import { toDate } from "@xionwcfm/date/to-date";
+import { safeGetIso } from "@repo/date/safe-get-iso";
+import { toDate } from "@repo/date/to-date";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { ENVIRONMENT } from "~/shared/environment";
 import { getKoreanToday } from "~/shared/utils/date/get-korean-today";

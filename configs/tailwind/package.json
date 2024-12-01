@@ -12,9 +12,9 @@
     }
   },
   "devDependencies": {
-    "@xionwcfm/token": "^0.0.7",
-    "@xionwcfm/typescript-config": "workspace:*",
-    "tailwindcss": "^3.4.1",
+    "@xionwcfm/token": "^0.2.0",
+    "@repo/typescript-config": "workspace:*",
+    "tailwindcss": "^3.4.15",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "latest"
   },

@@ -1,4 +1,4 @@
-import { formatDate } from "@xionwcfm/date/format-date";
+import { formatDate } from "@repo/date/format-date";
 
 import { Box, Paragraph, Stack } from "@xionwcfm/xds";
 import Link from "next/link";

@@ -1,4 +1,4 @@
-import { useInternalRouter } from "@xionwcfm/adapters/router";
+import { useInternalRouter } from "@repo/router/router";
 import { Button, Paragraph } from "@xionwcfm/xds";
 import { Fragment } from "react";
 import { $Routes } from "~/shared/routes";

@@ -1,6 +1,6 @@
-import { useInternalRouter } from "@xionwcfm/adapters/router";
-import { Button, ConfirmDialog } from "@xionwcfm/xds";
-
+import { useInternalRouter } from "@repo/router/router";
+import { Button } from "@xionwcfm/xds";
+import { ConfirmDialog } from "@xionwcfm/xds/confirm-dialog";
 export const ProblemSolveBackDialog = (props: { isOpen: boolean; onClose: () => void }) => {
   const { isOpen, onClose } = props;
   const router = useInternalRouter();

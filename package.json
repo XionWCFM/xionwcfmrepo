@@ -1,35 +1,35 @@
 {
-  "name": "turbo-repo",
+  "name": "@repo/root",
   "private": true,
   "scripts": {
     "build": "turbo build",
     "build:p": "turbo build --filter './packages/*'",
-    "build:actions": "turbo build --filter './packages/actions'",
     "dev": "turbo dev --filter './apps/blog'",
     "dev:g": "turbo dev --filter './apps/grasshopper'",
     "storybook": "turbo storybook",
-    "push:origin": "git push origin $(git symbolic-ref --short HEAD)",
     "lint": "turbo lint",
     "dev:xion": "turbo dev:xion",
     "test": "turbo run test",
-    "test:ci": "turbo run test:ci",
+    "ci:test": "turbo run ci:test",
+    "ci:knip": "pnpm knip --no-exit-code",
     "lint:biome": "npx @biomejs/biome lint .",
     "check:biome": "npx @biomejs/biome check --write .",
     "format:biome": "npx @biomejs/biome format --write .",
     "clean:all": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf packages/*/node_modules && pnpm store prune && pnpm install",
-    "comment:ci": "node ./.github/scripts/comment-ci.js"
+    "bump-deps": "pnpm dlx npm-check-updates && pnpm install"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
-    "@xionwcfm/actions": "workspace:*",
-    "@xionwcfm/typescript-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "knip": "^5.38.3",
     "lefthook": "^1.8.4",
-    "prettier": "^3.3.3",
-    "turbo": "^2.3.1",
+    "turbo": "^2.3.3",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.5"
+    "vitest": "^2.1.6"
   },
-  "packageManager": "pnpm@9.12.0",
+  "packageManager": "pnpm@9.14.4",
   "engines": {
     "node": ">=18"
   }

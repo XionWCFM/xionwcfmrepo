@@ -1,5 +1,5 @@
-import { Link } from "@xionwcfm/adapters/link";
-import { FixedBottom, FixedBottomCta, Paragraph, Pressable, Separator, Spacing } from "@xionwcfm/xds";
+import { Link } from "@repo/router/link";
+import { FixedBottom, FixedBottomCta, Paragraph, Pressable, Spacing } from "@xionwcfm/xds";
 import { Fragment } from "react";
 import { 국립생물자원관_URL } from "~/shared/constants";
 import { Title } from "../../../shared/ui/title";

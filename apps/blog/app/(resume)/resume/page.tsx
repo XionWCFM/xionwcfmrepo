@@ -1,4 +1,4 @@
-import { Link } from "@xionwcfm/adapters/link";
+import { Link } from "@repo/router/link";
 import { Button, Flex, Paragraph, Pressable, Spacing, Stack } from "@xionwcfm/xds";
 import { Fragment, ReactNode } from "react";
 import { CONSTANTS } from "~/shared/constants";

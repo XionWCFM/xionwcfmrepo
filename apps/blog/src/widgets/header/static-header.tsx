@@ -1,6 +1,6 @@
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { Image } from "@xionwcfm/adapters/image";
-import { Link } from "@xionwcfm/adapters/link";
+import { Image } from "@repo/router/image";
+import { Link } from "@repo/router/link";
 import { Stack } from "@xionwcfm/xds";
 
 import { ASSET_XION_BOX_LOGO_48_16 } from "~/shared/assets";

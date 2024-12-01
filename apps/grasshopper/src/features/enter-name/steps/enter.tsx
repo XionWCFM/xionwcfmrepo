@@ -1,5 +1,6 @@
 import { useInputState } from "@xionwcfm/react";
-import { FixedBottom, FixedBottomCta, Paragraph, Spacing, UnderlineInput } from "@xionwcfm/xds";
+import { FixedBottom, FixedBottomCta, Paragraph, Spacing } from "@xionwcfm/xds";
+import { UnderlineInput } from "@xionwcfm/xds/underline-input";
 import { Fragment } from "react";
 import { Title } from "../../../shared/ui/title";
 
