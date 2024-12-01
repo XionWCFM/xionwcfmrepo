@@ -1,5 +1,5 @@
 "use client";
-import { useInternalRouter } from "@repo/adapters/router";
+import { useInternalRouter } from "@repo/router/router";
 import { $Routes } from "~/shared/routes";
 
 import { Bar } from "~/shared/ui/bar";

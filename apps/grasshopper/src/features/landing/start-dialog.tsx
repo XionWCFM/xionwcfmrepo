@@ -1,4 +1,4 @@
-import { useInternalRouter } from "@repo/adapters/router";
+import { useInternalRouter } from "@repo/router/router";
 import { Button, ConfirmDialog } from "@xionwcfm/xds";
 import { $Routes } from "~/shared/routes";
 

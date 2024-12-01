@@ -1,5 +1,5 @@
-import { Image } from "@repo/adapters/image";
-import { Link } from "@repo/adapters/link";
+import { Image } from "@repo/router/image";
+import { Link } from "@repo/router/link";
 import { Paragraph, Stack } from "@xionwcfm/xds";
 
 import { ASSET_XION_CHAR_GRAY } from "~/shared/assets";

@@ -2,7 +2,7 @@
 
 import { useFunnel } from "@xionhub/funnel-app-router-adapter";
 import { funnelOptions, useFunnelDefaultStep } from "@xionhub/funnel-core";
-import { useInternalRouter } from "@repo/adapters/router";
+import { useInternalRouter } from "@repo/router/router";
 import { userStore } from "~/entities/user/model/user.store";
 import { $Routes } from "~/shared/routes";
 import { Bar } from "~/shared/ui/bar";

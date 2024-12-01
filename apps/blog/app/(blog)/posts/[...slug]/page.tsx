@@ -6,13 +6,13 @@ import { BASE_SITE_URL } from "~/shared/constants";
 import { createMetadata } from "~/shared/utils/external/create-meta-data";
 
 type PostProps = {
-  params: {
+  params: Promise<{
     slug: string[];
-  };
+  }>;
 };
 
-export const generateMetadata = async (params: PostProps): Promise<Metadata> => {
-  const slug = params.params.slug;
+export const generateMetadata = async ({ params }: PostProps): Promise<Metadata> => {
+  const slug = (await params).slug;
   const post = await getPost(slug);
   if (!post) throw new Error("Post not found");
   const url = `${BASE_SITE_URL}/posts/${post.filePath.join("/")}`;
@@ -29,8 +29,8 @@ export async function generateStaticParams() {
 
 export const dynamic = "force-static";
 
-export default async function Post(params: PostProps) {
-  const slug = params.params.slug;
+export default async function Post({ params }: PostProps) {
+  const slug = (await params).slug;
   const post = await getPost(slug);
   if (!post) return redirect("/");
   return <PostDetailPage post={post} />;

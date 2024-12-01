@@ -1,6 +1,19 @@
 {
   "upgrade": true,
   "target": "minor",
-  "reject": ["tailwind-merge", "react", "react-dom", "@types/react", "@types/react-dom", "@biomejs/biome", "next"],
+  "reject": [
+    "tailwind-merge",
+    "react",
+    "react-dom",
+    "@types/react",
+    "@types/react-dom",
+    "@biomejs/biome",
+    "next",
+    "remark-gfm",
+    "remark-breaks",
+    "rehype-slug",
+    "rehype-pretty-code",
+    "rehype-autolink-headings"
+  ],
   "deep": true
 }

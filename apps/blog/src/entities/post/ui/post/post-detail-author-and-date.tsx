@@ -1,4 +1,4 @@
-import { Image } from "@repo/adapters/image";
+import { Image } from "@repo/router/image";
 import { formatDate } from "@repo/date/format-date";
 import { Paragraph, Stack } from "@xionwcfm/xds";
 
