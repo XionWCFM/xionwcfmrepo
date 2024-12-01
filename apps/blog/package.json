@@ -9,7 +9,7 @@
     "lint": "next lint",
     "dev:xion": "next dev --turbo",
     "test": "vitest",
-    "test:ci": "vitest run --coverage",
+    "ci:test": "vitest run --coverage",
     "next-dev": "next dev",
     "watch-content": "node ./watcher.cjs"
   },

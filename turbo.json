@@ -13,7 +13,7 @@
       "cache": false,
       "persistent": true
     },
-    "test:ci": {
+    "ci:test": {
       "cache": true,
       "persistent": false,
       "outputs": ["test-results.json"]
