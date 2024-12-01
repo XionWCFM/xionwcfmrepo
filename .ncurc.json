@@ -13,7 +13,12 @@
     "remark-breaks",
     "rehype-slug",
     "rehype-pretty-code",
-    "rehype-autolink-headings"
+    "rehype-autolink-headings",
+    "@mdx-js/loader",
+    "@mdx-js/react",
+    "@next/mdx",
+    "next-mdx-remote",
+    "markdown-wasm"
   ],
   "deep": true
 }
