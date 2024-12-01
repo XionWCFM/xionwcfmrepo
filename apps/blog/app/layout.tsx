@@ -7,7 +7,7 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Toaster } from "@xionwcfm/xds/toast";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
-import { ClarityScript } from "~/app/script/clarity.script";
+import { ClarityScript } from "~/apps/script/clarity.script";
 import { ENVIRONMENT } from "~/shared/environment";
 import { AUTHOR_NAME, BASE_SITE_DESCRIPTION, BASE_SITE_TITLE, BASE_SITE_URL } from "../src/shared/constants";
 import { createMetadata } from "../src/shared/utils/external/create-meta-data";

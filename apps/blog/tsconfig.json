@@ -13,7 +13,8 @@
       "~/features/*": ["./src/features/*"],
       "~/widgets/*": ["./src/widgets/*"],
       "~/shared/*": ["./src/shared/*"],
-      "~/app/*": ["./src/app/*"]
+      "~/apps/*": ["./src/apps/*"],
+      "@repo/*": ["../../packages/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts"],
