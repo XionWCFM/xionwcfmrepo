@@ -1,0 +1,11 @@
+"@apps/blog":
+  - changed-files:
+      - any-glob-to-any-file: "apps/blog/**"
+
+"@apps/grasshopper":
+  - changed-files:
+      - any-glob-to-any-file: "apps/grasshopper/**"
+
+"packages":
+  - changed-files:
+      - any-glob-to-any-file: "packages/**"
