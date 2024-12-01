@@ -1,14 +1,12 @@
 {
-  "name": "turbo-repo",
+  "name": "@repo/root",
   "private": true,
   "scripts": {
     "build": "turbo build",
     "build:p": "turbo build --filter './packages/*'",
-    "build:actions": "turbo build --filter './packages/actions'",
     "dev": "turbo dev --filter './apps/blog'",
     "dev:g": "turbo dev --filter './apps/grasshopper'",
     "storybook": "turbo storybook",
-    "push:origin": "git push origin $(git symbolic-ref --short HEAD)",
     "lint": "turbo lint",
     "dev:xion": "turbo dev:xion",
     "test": "turbo run test",
@@ -17,14 +15,12 @@
     "check:biome": "npx @biomejs/biome check --write .",
     "format:biome": "npx @biomejs/biome format --write .",
     "clean:all": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf packages/*/node_modules && pnpm store prune && pnpm install",
-    "comment:ci": "node ./.github/scripts/comment-ci.js"
+    "bump-deps:project": "pnpm dlx npm-check-updates && pnpm install"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
-    "@repo/actions": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "lefthook": "^1.8.4",
-    "prettier": "^3.3.3",
     "turbo": "^2.3.1",
     "typescript": "^5.7.2",
     "vitest": "^2.1.5"
