@@ -1,5 +1,6 @@
 import { useInternalRouter } from "@repo/router/router";
-import { Button, ConfirmDialog } from "@xionwcfm/xds";
+import { Button } from "@xionwcfm/xds";
+import { ConfirmDialog } from "@xionwcfm/xds/confirm-dialog";
 import { $Routes } from "~/shared/routes";
 
 export const StartDialog = ({

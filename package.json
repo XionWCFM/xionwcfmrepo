@@ -15,17 +15,17 @@
     "check:biome": "npx @biomejs/biome check --write .",
     "format:biome": "npx @biomejs/biome format --write .",
     "clean:all": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf packages/*/node_modules && pnpm store prune && pnpm install",
-    "bump-deps:project": "pnpm dlx npm-check-updates && pnpm install"
+    "bump-deps": "pnpm dlx npm-check-updates && pnpm install"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
     "@repo/typescript-config": "workspace:*",
     "lefthook": "^1.8.4",
-    "turbo": "^2.3.1",
+    "turbo": "^2.3.3",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.5"
+    "vitest": "^2.1.6"
   },
-  "packageManager": "pnpm@9.12.0",
+  "packageManager": "pnpm@9.14.4",
   "engines": {
     "node": ">=18"
   }

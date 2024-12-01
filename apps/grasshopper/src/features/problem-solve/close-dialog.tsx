@@ -1,6 +1,7 @@
 import { useInternalRouter } from "@repo/router/router";
 import { useLoading } from "@xionwcfm/react";
-import { Button, ConfirmDialog } from "@xionwcfm/xds";
+import { Button } from "@xionwcfm/xds";
+import { ConfirmDialog } from "@xionwcfm/xds/confirm-dialog";
 import { delay } from "es-toolkit/promise";
 import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
 import { grasshopperResultSearchParams } from "~/entities/grasshoppers/model/grasshopper.schema";

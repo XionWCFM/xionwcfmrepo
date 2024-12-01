@@ -1,4 +1,5 @@
-import { Box, Chip, Spacing, Stack } from "@xionwcfm/xds";
+import { Box, Spacing, Stack } from "@xionwcfm/xds";
+import { Chip } from "@xionwcfm/xds/chip";
 import type { PostWithFrontmatterType } from "~/entities/post/model/post.model";
 import { MdxRemote } from "~/entities/post/ui/mdx/mdx-remote";
 import { PostDetailAuthorAndDate } from "~/entities/post/ui/post/post-detail-author-and-date";
