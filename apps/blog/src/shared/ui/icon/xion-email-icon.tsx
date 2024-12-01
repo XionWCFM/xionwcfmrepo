@@ -1,5 +1,5 @@
 "use client";
-import EmailIcon from "@xionwcfm/icon/email-icon";
+import EmailIcon from "@repo/icon/email-icon";
 
 import { throttle } from "@xionwcfm/utils/function";
 import { clipboard } from "@xionwcfm/utils/web";

@@ -1,5 +1,5 @@
 {
-  "name": "@xionwcfm/actions",
+  "name": "@repo/actions",
   "exports": {
     ".": {
       "import": {
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^2.0.4",
-    "@xionwcfm/typescript-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "tsup": "^8.1.0",
     "typescript": "latest",
     "vite": "^5.3.5",

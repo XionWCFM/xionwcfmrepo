@@ -1,4 +1,4 @@
-import { useInternalRouter } from "@xionwcfm/adapters/router";
+import { useInternalRouter } from "@repo/adapters/router";
 import { FixedBottom, FixedBottomCta } from "@xionwcfm/xds";
 import { overlay } from "overlay-kit";
 import { userStore } from "~/entities/user/model/user.store";

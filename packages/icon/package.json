@@ -1,5 +1,5 @@
 {
-  "name": "@xionwcfm/icon",
+  "name": "@repo/icon",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@types/react": "^18",
-    "@xionwcfm/typescript-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "tsup": "^8.1.0",
     "typescript": "latest"
   },

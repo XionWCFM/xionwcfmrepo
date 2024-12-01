@@ -1,4 +1,4 @@
-import { useInternalRouter } from "@xionwcfm/adapters/router";
+import { useInternalRouter } from "@repo/adapters/router";
 import { useLoading } from "@xionwcfm/react";
 import { Button, ConfirmDialog } from "@xionwcfm/xds";
 import { delay } from "es-toolkit/promise";

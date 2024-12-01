@@ -9,6 +9,7 @@ import { createMetadata } from "~/shared/intergration/create-meta-data";
 import "@xionwcfm/token/style";
 import "@xionwcfm/xds/style";
 import "./globals.css";
+import { Suspense } from "@suspensive/react";
 
 export const metadata: Metadata = createMetadata({
   title: "나는 메뚜기의 종류를 100가지 이상 알고 있다.",
@@ -33,7 +34,9 @@ export default function RootLayout({
       <body className={notoSansKr.className}>
         <MobileViewLayout>
           <Providers>
-            <UserContextProvider>{children}</UserContextProvider>
+            <UserContextProvider>
+              <Suspense clientOnly>{children}</Suspense>
+            </UserContextProvider>
           </Providers>
         </MobileViewLayout>
       </body>

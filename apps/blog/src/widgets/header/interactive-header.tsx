@@ -1,7 +1,7 @@
 "use client";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { Image } from "@xionwcfm/adapters/image";
-import { Link } from "@xionwcfm/adapters/link";
+import { Image } from "@repo/adapters/image";
+import { Link } from "@repo/adapters/link";
 
 import { useScrollDirection } from "@xionwcfm/react";
 import { Stack, cn } from "@xionwcfm/xds";

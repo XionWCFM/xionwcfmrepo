@@ -19,7 +19,7 @@
     "@xionhub/funnel-app-router-adapter": "^0.0.5",
     "@xionhub/funnel-client": "^0.0.5",
     "@xionhub/funnel-core": "^0.0.5",
-    "@xionwcfm/adapters": "workspace:*",
+    "@repo/adapters": "workspace:*",
     "@xionwcfm/jotai": "^0.0.8",
     "@xionwcfm/react": "^0.0.8",
     "@xionwcfm/token": "^0.0.7",
