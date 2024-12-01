@@ -1,5 +1,5 @@
-import { Image } from "@repo/router/image";
 import { formatDate } from "@repo/date/format-date";
+import { Image } from "@repo/router/image";
 import { Paragraph, Stack } from "@xionwcfm/xds";
 
 import { ASSET_XION_CIRCLE_LOGO_16_16 } from "~/shared/assets";
