@@ -1,24 +1,6 @@
 {
   "upgrade": true,
   "target": "minor",
-  "reject": [
-    "tailwind-merge",
-    "react",
-    "react-dom",
-    "@types/react",
-    "@types/react-dom",
-    "@biomejs/biome",
-    "next",
-    "remark-gfm",
-    "remark-breaks",
-    "rehype-slug",
-    "rehype-pretty-code",
-    "rehype-autolink-headings",
-    "@mdx-js/loader",
-    "@mdx-js/react",
-    "@next/mdx",
-    "next-mdx-remote",
-    "markdown-wasm"
-  ],
+  "reject": ["tailwind-merge", "react", "react-dom", "@types/react", "@types/react-dom", "@biomejs/biome", "next"],
   "deep": true
 }
