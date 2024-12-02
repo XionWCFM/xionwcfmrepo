@@ -5,9 +5,9 @@ import { Paragraph, Stack } from "@xionwcfm/xds";
 import { ASSET_XION_CHAR_GRAY } from "~/shared/assets";
 import { AUTHOR_DESCRIPTION, AUTHOR_NAME } from "~/shared/constants";
 import { ROUTES } from "~/shared/routes";
-import { XionEmailIcon } from "~/shared/ui/icon/xion-email-icon";
-import { XionGithubLogoIcon } from "~/shared/ui/icon/xion-github-icon";
-import { XionLinkedinIcon } from "~/shared/ui/icon/xion-linkedin-icon";
+import { XionEmailIcon } from "~/shared/ui/icon/XionEmailIcon";
+import { XionGithubLogoIcon } from "~/shared/ui/icon/XionGithubIcon";
+import { XionLinkedinIcon } from "~/shared/ui/icon/XionLinkedInIcon";
 export const PostDetailAuthorWithChar = () => {
   return (
     <Stack direction={"row"} gap={"16"}>

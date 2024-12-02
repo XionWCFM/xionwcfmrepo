@@ -2,9 +2,9 @@ import { Image } from "@repo/router/image";
 
 import { Paragraph, Stack } from "@xionwcfm/xds";
 import { ASSET_XION_CHAR_WHITE } from "~/shared/assets";
-import { XionEmailIcon } from "../icon/xion-email-icon";
-import { XionGithubLogoIcon } from "../icon/xion-github-icon";
-import { XionLinkedinIcon } from "../icon/xion-linkedin-icon";
+import { XionEmailIcon } from "../icon/XionEmailIcon";
+import { XionGithubLogoIcon } from "../icon/XionGithubIcon";
+import { XionLinkedinIcon } from "../icon/XionLinkedInIcon";
 
 export const MainXionWCFM = () => {
   return (

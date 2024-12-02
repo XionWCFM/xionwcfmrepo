@@ -6,7 +6,7 @@ import { Stack } from "@xionwcfm/xds";
 import { ASSET_XION_BOX_LOGO_48_16 } from "~/shared/assets";
 import { isEnabled } from "~/shared/feature-flag";
 import { ROUTES } from "~/shared/routes";
-import { Separate } from "~/shared/ui/common/separate";
+import { Separate } from "~/shared/ui/common/Separate";
 
 export const StaticHeader = () => {
   return (

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getAllPosts, getPost } from "~/entities/post/model/post.service";
-import PostDetailPage from "~/page/post-detail.page";
+import PostDetailPage from "~/page/PostDetailPage";
 import { BASE_SITE_URL } from "~/shared/constants";
 import { createMetadata } from "~/shared/utils/external/create-meta-data";
 

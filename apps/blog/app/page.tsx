@@ -1,9 +1,9 @@
 import { Paragraph, Stack } from "@xionwcfm/xds";
 import { getAllPostsSortedByReleaseDate } from "~/entities/post/model/post.service";
-import { PostCard } from "~/entities/post/ui/post/post-card";
+import { PostCard } from "~/entities/post/ui/post/PostCard";
 import { AUTHOR_NICKNAME } from "~/shared/constants";
-import { MainXionWCFM } from "~/shared/ui/common/main-xion-wcfm";
-import { Separate } from "~/shared/ui/common/separate";
+import { MainXionWCFM } from "~/shared/ui/common/MainXionWCFM";
+import { Separate } from "~/shared/ui/common/Separate";
 import { Footer } from "~/widgets/footer";
 import { StaticHeader } from "~/widgets/header/static-header";
 export default async function RootPage() {

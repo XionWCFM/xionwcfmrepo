@@ -3,7 +3,7 @@ import type { MDXComponents as TMDXComponents } from "mdx/types";
 import Image from "next/image";
 import type { AnchorHTMLAttributes, HTMLAttributes } from "react";
 import { CallOut } from "./CallOut";
-import { MdxNextLink } from "./mdx-next-link";
+import { MdxNextLink } from "./MdxNextLink";
 
 type AProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 type HProps = HTMLAttributes<HTMLHeadingElement>;

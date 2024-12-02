@@ -4,7 +4,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkBreaks from "remark-breaks";
-import { MDXComponents } from "./mdx-components";
+import { MDXComponents } from "./MdxComponents";
 
 interface MdxRemoteProps {
   source: string;
