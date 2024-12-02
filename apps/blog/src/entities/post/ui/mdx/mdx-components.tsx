@@ -2,6 +2,7 @@ import { Paragraph, Stack } from "@xionwcfm/xds";
 import type { MDXComponents as TMDXComponents } from "mdx/types";
 import Image from "next/image";
 import type { AnchorHTMLAttributes, HTMLAttributes } from "react";
+import { CallOut } from "./CallOut";
 import { MdxNextLink } from "./mdx-next-link";
 
 type AProps = AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -58,17 +59,22 @@ export const MDXComponents: TMDXComponents = {
     <Paragraph size={"5"} mt="24" className=" leading-[240%]" weight={"light"} color={"neutral-600"} {...props} />
   ),
   pre: ({ className, ...props }: PreProps) => (
-    <pre className={" my-24 overflow-x-auto rounded-sm bg-neutral-200 px-24 py-12 text-neutral-700"} {...props} />
+    <pre className={" my-24 overflow-x-auto rounded-sm bg-primary-50 px-24 py-12 text-neutral-700"} {...props} />
   ),
   hr: (props) => <hr className=" border-t border-neutral-300 my-24" />,
-  code: ({ className, ...props }: CProps) => <code className={" text-size-3"} {...props} />,
+  code: ({ className, ...props }: CProps) => (
+    <code className={" whitespace-pre-wrap text-gray-800 text-size-4"} {...props} />
+  ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={" px-20 py-12 list-disc font-thin text-neutral-600"} {...props} />
+    <ul
+      className={" px-32 py-24 flex  rounded-md flex-col gap-y-16 list-disc font-regular text-neutral-600"}
+      {...props}
+    />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
     <ol className={" text-neutral-600 font-thin px-20 py-12 list-decimal "} {...props} />
   ),
-  li: ({ className, ...props }: React.LiHTMLAttributes<HTMLLIElement>) => <li className={" "} {...props} />,
+  li: ({ className, ...props }: React.LiHTMLAttributes<HTMLLIElement>) => <li className={""} {...props} />,
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className=" my-6 w-full overflow-y-auto">
       <table className={"w-full"} {...props} />
@@ -86,4 +92,5 @@ export const MDXComponents: TMDXComponents = {
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <td className={"border px-8 py-4 text-left [&[align=center]]:text-center [&[align=right]]:text-right"} {...props} />
   ),
+  CallOut: CallOut,
 };
