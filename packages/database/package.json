@@ -1,0 +1,20 @@
+{
+  "name": "@repo/database",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "generate-types": "pnpm dlx supabase gen types typescript --project-id pzvsmsqfsintouhjavhp --schema public > ./src/types_db.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.10.1"
+  },
+  "peerDependencies": {
+    "@repo/env": "workspace:*",
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.46.2",
+    "next": ">=15"
+  }
+}
