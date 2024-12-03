@@ -16,6 +16,6 @@
       "~/app/*": ["./src/app/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts"],
+  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts", "vitest.config.mts"],
   "exclude": ["node_modules"]
 }
