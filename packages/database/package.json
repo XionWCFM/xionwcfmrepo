@@ -15,6 +15,7 @@
     "@repo/env": "workspace:*",
     "@supabase/ssr": "^0.5.2",
     "@supabase/supabase-js": "^2.46.2",
-    "next": ">=15"
+    "next": ">=15",
+    "zod": ">=3"
   }
 }

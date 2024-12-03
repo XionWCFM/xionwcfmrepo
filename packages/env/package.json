@@ -2,10 +2,15 @@
   "name": "@repo/env",
   "version": "0.0.0",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@t3-oss/env-nextjs": "^0.11.1"
+  },
   "devDependencies": {
-    "typescript": "^5.7.2",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.10.1"
+    "@types/node": "22.10.1",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "zod": ">=3"
   }
 }

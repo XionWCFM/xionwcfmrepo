@@ -1,13 +1,14 @@
 "use server";
 
+import { env } from "@repo/env";
 import { type CookieOptions, createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import type { Database } from "./types_db";
 
 export const createServerSupabaseClient = async (cookieStore: Awaited<ReturnType<typeof cookies>>, admin = false) => {
   return createServerClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    admin ? process.env.NEXT_SUPABASE_SERVICE_ROLE! : process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    env.NEXT_PUBLIC_SUPABASE_URL!,
+    admin ? env.NEXT_SUPABASE_SERVICE_ROLE! : env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
         get(name: string) {

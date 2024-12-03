@@ -11,6 +11,7 @@ export const env = createEnv({
   },
   server: {
     NODE_ENV: z.enum(["development", "production", "test"]),
+    NEXT_SUPABASE_SERVICE_ROLE: z.string().min(1),
   },
   runtimeEnv: {
     NEXT_PUBLIC_GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
@@ -18,6 +19,7 @@ export const env = createEnv({
     NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    NEXT_SUPABASE_SERVICE_ROLE: process.env.NEXT_SUPABASE_SERVICE_ROLE,
     NODE_ENV: process.env.NODE_ENV,
   },
   emptyStringAsUndefined: true,

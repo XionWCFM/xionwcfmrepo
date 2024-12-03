@@ -4,6 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "build:p": "turbo build --filter './packages/*'",
+    "build:blog": "turbo build --filter './apps/blog'",
     "dev": "turbo dev --filter './apps/blog'",
     "dev:g": "turbo dev --filter './apps/grasshopper'",
     "storybook": "turbo storybook",
@@ -20,14 +21,25 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/js": "^9.16.0",
     "@repo/typescript-config": "workspace:*",
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0",
-    "knip": "^5.38.3",
-    "lefthook": "^1.8.4",
+    "@rushstack/eslint-config": "^4.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^9.16.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-project-structure": "^3.10.6",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "knip": "^5.39.1",
+    "lefthook": "^1.8.5",
     "turbo": "^2.3.3",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.6"
+    "vitest": "^2.1.8"
   },
   "packageManager": "pnpm@9.14.4",
   "engines": {
