@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build:no": "next build",
     "start": "next start",
-    "test": "vitest",
-    "ci:test": "vitest run --coverage",
+    "_test": "vitest",
+    "_ci:test": "vitest run --coverage",
     "lint": "next lint"
   },
   "dependencies": {
