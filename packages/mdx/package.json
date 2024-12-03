@@ -16,7 +16,7 @@
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
-    "@next/mdx": "^14.2.18",
+    "@next/mdx": "^15.0.3",
     "@types/mdx": "^2.0.13",
     "markdown-wasm": "^1.2.0",
     "next-mdx-remote": "^5.0.0",
