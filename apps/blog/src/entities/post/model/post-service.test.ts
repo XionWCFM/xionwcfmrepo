@@ -1,7 +1,7 @@
 import { canViewPost } from "./post.service";
 describe("canViewPost의 동작을 테스트합니다.", () => {
-  it("canView가 false라면 반환은 false", () => {
-    expect(canViewPost({ canView: false, releaseDate: "" }, new Date())).toBe(false);
+  it("개발환경에서는 무조건 true", () => {
+    expect(canViewPost({ canView: false, releaseDate: "" }, new Date())).toBe(true);
   });
 
   it("canView가 true면서 releaseDate가 오늘보다 이르다면 true", () => {
