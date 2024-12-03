@@ -2,8 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { safeGetIso } from "@repo/date/safe-get-iso";
 import { toDate } from "@repo/date/to-date";
+import { env } from "@repo/env";
 import { compileMDX } from "next-mdx-remote/rsc";
-import { ENVIRONMENT } from "~/shared/environment";
 import { getKoreanToday } from "~/shared/utils/date/get-korean-today";
 import type { FrontmatterType, PostType, PostWithFrontmatterType } from "./post.model";
 const POST_REPOSITORY_FOLDER_NAME = "posts";
@@ -45,7 +45,7 @@ const findPostFile = (directory: string, filePath: string[]): PostType | null =>
 };
 
 export const canViewPost = (frontmatter: Pick<PostWithFrontmatterType, "canView" | "releaseDate">, today: Date) => {
-  if (ENVIRONMENT.NODE_ENV === "development") return true;
+  if (env.NODE_ENV === "development") return true;
   if (!frontmatter.canView) {
     return false;
   }

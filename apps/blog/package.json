@@ -21,6 +21,7 @@
     "@radix-ui/react-separator": "^1.1.0",
     "@repo/analytics": "workspace:*",
     "@repo/database": "workspace:*",
+    "@repo/font": "workspace:*",
     "@repo/date": "workspace:*",
     "@repo/icon": "workspace:*",
     "@repo/mdx": "workspace:*",
@@ -36,8 +37,8 @@
     "graphql": "^16.9.0",
     "next": "15.0.3",
     "next-mdx-remote": "^5.0.0",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18"
   },
   "devDependencies": {
     "@repo/tailwindcss-config": "workspace:^",
@@ -46,8 +47,8 @@
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/node": "^22",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "catalog:react18",
+    "@types/react-dom": "catalog:react18",
     "@types/ws": "^8.5.13",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-v8": "^2.1.8",

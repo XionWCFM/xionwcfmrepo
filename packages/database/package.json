@@ -5,7 +5,10 @@
   "scripts": {
     "generate-types": "pnpm dlx supabase gen types typescript --project-id pzvsmsqfsintouhjavhp --schema public > ./src/types_db.ts"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18"
+  },
   "devDependencies": {
     "typescript": "^5.7.2",
     "@repo/typescript-config": "workspace:*",

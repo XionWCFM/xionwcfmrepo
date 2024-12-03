@@ -1,8 +1,8 @@
+import { env } from "@repo/env";
 import Script from "next/script";
-import { isDevelopment } from "~/shared/utils/is-development";
 
 export const ClarityScript = () => {
-  if (isDevelopment()) {
+  if (env.NODE_ENV === "development") {
     return null;
   }
 

@@ -5,7 +5,9 @@ export const env = createEnv({
   client: {
     NEXT_PUBLIC_POSTHOG_KEY: z.string().min(1).startsWith("phc_"),
     NEXT_PUBLIC_POSTHOG_HOST: z.string().min(1),
-    NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().min(1).optional(),
+    NEXT_PUBLIC_GA_ID: z.string().min(1),
+    NEXT_PUBLIC_GTM_ID: z.string().min(1),
+    NEXT_PUBLIC_GSC_ID: z.string().min(1),
     NEXT_PUBLIC_SUPABASE_URL: z.string().min(1),
     NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
   },
@@ -14,7 +16,9 @@ export const env = createEnv({
     NEXT_SUPABASE_SERVICE_ROLE: z.string().min(1),
   },
   runtimeEnv: {
-    NEXT_PUBLIC_GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
+    NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
+    NEXT_PUBLIC_GTM_ID: process.env.NEXT_PUBLIC_GTM_ID,
+    NEXT_PUBLIC_GSC_ID: process.env.NEXT_PUBLIC_GSC_ID,
     NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
     NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,

@@ -13,7 +13,7 @@
     }
   },
   "scripts": {
-    "build": "tsup",
+    "build:no": "tsup",
     "test": "vitest",
     "ci:test": "vitest run --coverage"
   },

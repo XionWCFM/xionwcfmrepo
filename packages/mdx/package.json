@@ -26,6 +26,8 @@
     "remark-breaks": "^4.0.0",
     "remark-gfm": "^4.0.0",
     "shiki": "^1.24.0",
-    "shikiji": "^0.10.2"
+    "shikiji": "^0.10.2",
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18"
   }
 }
