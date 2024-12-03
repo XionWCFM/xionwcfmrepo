@@ -1,11 +1,12 @@
+import { MdxRemote } from "@repo/mdx";
 import { Box, Spacing, Stack } from "@xionwcfm/xds";
 import { Chip } from "@xionwcfm/xds/chip";
 import type { PostWithFrontmatterType } from "~/entities/post/model/post.model";
-import { MdxRemote } from "~/entities/post/ui/mdx/MdxRemote";
 import { PostDetailAuthorAndDate } from "~/entities/post/ui/post/PostDetailAuthorAndDate";
 import { PostDetailAuthorWithChar } from "~/entities/post/ui/post/PostDetailAuthorWithChar";
 import { PostDetailTitle } from "~/entities/post/ui/post/PostDetailTitle";
 import { Separate } from "~/shared/ui/common/Separate";
+
 type PostPageProps = {
   post: PostWithFrontmatterType;
 };
