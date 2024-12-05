@@ -48,7 +48,7 @@ export const ProblemSolveInformationStep = ({ onProblemSolveNext }: { onProblemS
       <Spacing h={"48"} />
 
       <Stack justify={"center"} items={"center"}>
-        <Lottie className=" w-[200px] h-[200px]" animationData={LOTTIE_EMOJI_MEH} autoplay loop />
+        <Lottie className=" w-[200px] h-[200px]" animationData={LOTTIE_EMOJI_MEH} autoplay={true} loop={true} />
       </Stack>
 
       <FixedBottom>

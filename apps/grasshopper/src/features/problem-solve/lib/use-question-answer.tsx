@@ -1,6 +1,9 @@
 import { useDraft } from "@xionwcfm/react";
 import { useCallback } from "react";
-import { GrasshopperQuestion, GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
+import type {
+  GrasshopperQuestion,
+  GrasshopperQuestionAnswerType,
+} from "~/entities/grasshoppers/model/grasshopper.model";
 
 const createInitialState = (grasshopperQuestions: GrasshopperQuestion[]) => {
   return grasshopperQuestions.map((question) => ({

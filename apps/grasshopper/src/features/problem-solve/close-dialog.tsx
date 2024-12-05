@@ -3,7 +3,7 @@ import { useLoading } from "@xionwcfm/react";
 import { Button } from "@xionwcfm/xds";
 import { ConfirmDialog } from "@xionwcfm/xds/confirm-dialog";
 import { delay } from "es-toolkit/promise";
-import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
+import type { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
 import { grasshopperResultSearchParams } from "~/entities/grasshoppers/model/grasshopper.schema";
 
 export const ProblemSolveCloseDialog = (props: {

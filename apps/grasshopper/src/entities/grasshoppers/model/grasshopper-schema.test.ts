@@ -1,6 +1,6 @@
 import { calculateProblemResult } from "./grasshopper.schema";
 
-import { GrasshopperQuestionAnswerType } from "./grasshopper.model";
+import type { GrasshopperQuestionAnswerType } from "./grasshopper.model";
 
 describe("calculateProblemResult", () => {
   it("모든 문제를 맞춘 경우 올바른 결과를 반환해야 한다", () => {

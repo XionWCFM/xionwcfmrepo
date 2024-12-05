@@ -1,8 +1,6 @@
 import { screen } from "@testing-library/react";
 import { atom } from "jotai";
-import { overlay } from "overlay-kit";
-import { describe, expect, it, vi } from "vitest";
-import { User } from "~/entities/user/model/user.model";
+import { describe, expect, it } from "vitest";
 import { userStore } from "~/entities/user/model/user.store";
 import { renderWithUser, textContentMatcher } from "~/shared/testing-utils";
 import { FixedLandingCta } from "./landing-cta";

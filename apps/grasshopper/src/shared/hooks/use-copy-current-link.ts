@@ -9,7 +9,7 @@ export const useCopyCurrentLink = () => {
       const url = `${window.location.origin}${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ""}`;
       navigator.clipboard.writeText(url);
       return true;
-    } catch (e) {
+    } catch (_e) {
       return false;
     }
   }, [pathname, searchParams]);

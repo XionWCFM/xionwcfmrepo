@@ -1,4 +1,4 @@
-import { combineTestComment, createTestComment } from "../create-test-comment";
+import { combineTestComment } from "../create-test-comment";
 import { MOCK_TEST_RESULTS } from "../mocks/mock-test-results";
 
 describe("Createtestcomment를 테스트합니다.", () => {

@@ -6,7 +6,7 @@ type FeatureFlagContextType = {
 };
 
 export const isEnabled = (type: FeatureFlagType, context?: FeatureFlagContextType) => {
-  const today = context?.today ?? new Date();
+  const _today = context?.today ?? new Date();
   switch (type) {
     case "header-hambuger":
       return env.NODE_ENV === "development";

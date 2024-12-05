@@ -1,4 +1,4 @@
-import { Grasshopper } from "../../src/entities/grasshoppers/model/grasshopper.model";
+import type { Grasshopper } from "../../src/entities/grasshoppers/model/grasshopper.model";
 
 export const GRASSHOPPERS_WITH_IMAGE: Grasshopper[] = [
   { id: "1", name: "가시모메뚜기", imgSrc: "/grasshoppers/가시모메뚜기.png" },

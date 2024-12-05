@@ -1,11 +1,11 @@
 import { Suspense } from "@suspensive/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { MatcherFunction, render } from "@testing-library/react";
+import { type MatcherFunction, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Toaster } from "@xionwcfm/xds/toast";
 import { Provider } from "jotai";
 import { OverlayProvider } from "overlay-kit";
-import { PropsWithChildren, ReactNode } from "react";
+import type { PropsWithChildren, ReactNode } from "react";
 import { UserContextProvider } from "~/entities/user/model/user.store";
 
 const createRender = (wrapper: (param: PropsWithChildren) => ReactNode) => {

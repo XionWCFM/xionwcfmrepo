@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { useState } from "react";
-import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
+import type { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
 import { renderWithUser } from "~/shared/testing-utils";
 import { ProblemSolveProblemStep } from "./problem";
 

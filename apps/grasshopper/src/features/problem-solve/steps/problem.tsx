@@ -3,7 +3,7 @@ import { FixedBottom, FixedBottomCta, Paragraph, Spacing } from "@xionwcfm/xds";
 import { toast } from "@xionwcfm/xds/toast";
 import { delay } from "es-toolkit/promise";
 import { Fragment, useCallback, useState } from "react";
-import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
+import type { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
 import { QuestionForm } from "~/shared/ui/question-and-answer-form";
 import { RadioButton } from "~/shared/ui/radio-button";
 
@@ -97,11 +97,11 @@ const useQuestionNavigation = (grasshopperQuestions: GrasshopperQuestionAnswerTy
 
   const navigateToNext = useCallback(() => {
     navigate((prev) => prev + 1);
-  }, [navigate]);
+  }, []);
 
   const navigateToPrev = useCallback(() => {
     navigate((prev) => (prev - 1 > -1 ? prev - 1 : prev));
-  }, [navigate]);
+  }, []);
 
   const isLastQuestion = grasshopperQuestions.length - 1 === page;
   return { page, currentQuestion, navigateToNext, navigateToPrev, isLastQuestion };

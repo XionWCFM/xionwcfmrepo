@@ -3,7 +3,9 @@ import type { HTMLProps } from "react";
 
 export const MdxNextLink = (props: HTMLProps<HTMLAnchorElement>) => {
   const { href, ...rest } = props;
-  if (!href) return null;
+  if (!href) {
+    return null;
+  }
   const isAnchorLink = href.startsWith("#");
 
   if (isAnchorLink) {

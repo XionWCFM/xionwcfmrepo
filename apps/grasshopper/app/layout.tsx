@@ -35,7 +35,7 @@ export default function RootLayout({
         <MobileViewLayout>
           <Providers>
             <UserContextProvider>
-              <Suspense clientOnly>{children}</Suspense>
+              <Suspense clientOnly={true}>{children}</Suspense>
             </UserContextProvider>
           </Providers>
         </MobileViewLayout>

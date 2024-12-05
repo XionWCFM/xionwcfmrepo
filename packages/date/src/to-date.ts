@@ -16,6 +16,8 @@ import { parseISO } from "date-fns";
  * console.log(convertedDate); // Current date object
  */
 export const toDate = (date: string | Date): Date => {
-  if (typeof date === "string") return parseISO(date);
+  if (typeof date === "string") {
+    return parseISO(date);
+  }
   return date;
 };

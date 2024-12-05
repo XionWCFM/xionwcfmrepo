@@ -1,7 +1,7 @@
-import { MatcherFunction, render } from "@testing-library/react";
+import { type MatcherFunction, render } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 
-import { PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 
 const createRender = (wrapper: (param: PropsWithChildren) => JSX.Element) => {
   return <T extends JSX.Element>(

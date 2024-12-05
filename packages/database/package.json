@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "generate-types": "pnpm dlx supabase gen types typescript --project-id pzvsmsqfsintouhjavhp --schema public > ./src/types_db.ts"
+    "generate-types": "pnpm dlx supabase gen types typescript --project-id pzvsmsqfsintouhjavhp --schema public > ./src/typesDb.ts"
   },
   "dependencies": {
     "react": "catalog:react18",

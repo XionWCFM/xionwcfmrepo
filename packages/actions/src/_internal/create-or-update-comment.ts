@@ -5,12 +5,12 @@ export const createOrUpdateComment = async (
 ) => {
   const owner = context.repo.owner;
   const repo = context.repo.repo;
-  const issue_number = context.issue.number;
+  const issueNumber = context.issue.number;
 
   const { data: comments } = await github.rest.issues.listComments({
     owner,
     repo,
-    issue_number,
+    issue_number: issueNumber,
   });
 
   //@ts-ignore
@@ -27,7 +27,7 @@ export const createOrUpdateComment = async (
     await github.rest.issues.createComment({
       owner,
       repo,
-      issue_number,
+      issue_number: issueNumber,
       body,
     });
   }

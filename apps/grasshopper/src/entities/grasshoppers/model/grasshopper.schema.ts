@@ -3,7 +3,7 @@ import * as z from "zod";
 import { $Routes } from "~/shared/routes";
 import { decrypt } from "~/shared/utils/crypto";
 import { encrypt } from "~/shared/utils/crypto";
-import { GrasshopperQuestionAnswerType } from "./grasshopper.model";
+import type { GrasshopperQuestionAnswerType } from "./grasshopper.model";
 
 const createResultSearchParams = (param: {
   userName: string;

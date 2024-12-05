@@ -2,7 +2,7 @@
 
 import { env } from "@repo/env";
 import { type CookieOptions, createServerClient } from "@supabase/ssr";
-import { cookies } from "next/headers";
+import type { cookies } from "next/headers";
 import type { Database } from "./types_db";
 
 export const createServerSupabaseClient = async (cookieStore: Awaited<ReturnType<typeof cookies>>, admin = false) => {
@@ -17,7 +17,7 @@ export const createServerSupabaseClient = async (cookieStore: Awaited<ReturnType
         set(name: string, value: string, options: CookieOptions) {
           try {
             cookieStore.set({ name, value, ...options });
-          } catch (error) {
+          } catch (_error) {
             // The `set` method was called from a Server Component.
             // This can be ignored if you have middleware refreshing
             // user sessions.
@@ -26,7 +26,7 @@ export const createServerSupabaseClient = async (cookieStore: Awaited<ReturnType
         remove(name: string, options: CookieOptions) {
           try {
             cookieStore.set({ name, value: "", ...options });
-          } catch (error) {
+          } catch (_error) {
             // The `delete` method was called from a Server Component.
             // This can be ignored if you have middleware refreshing
             // user sessions.

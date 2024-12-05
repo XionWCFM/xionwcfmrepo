@@ -14,7 +14,7 @@ export const EnterNameStartStep = ({ onNext }: { onNext: () => void }) => {
       </Paragraph>
 
       <Stack justify={"center"} items={"center"} className=" h-[400px]">
-        <Lottie className=" w-[240px] h-[240px]" animationData={LOTTIE_EMOJI_HAPPY} autoplay loop={false} />
+        <Lottie className=" w-[240px] h-[240px]" animationData={LOTTIE_EMOJI_HAPPY} autoplay={true} loop={false} />
       </Stack>
 
       <FixedBottom>

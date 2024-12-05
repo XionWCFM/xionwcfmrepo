@@ -17,7 +17,7 @@ export const safeGetIso = (input: string) => {
   try {
     toDate(input);
     return input;
-  } catch (e) {
+  } catch (_e) {
     return null;
   }
 };

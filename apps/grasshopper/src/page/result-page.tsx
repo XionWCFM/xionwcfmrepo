@@ -39,7 +39,7 @@ const ResultTopSection = wrap.Suspense().on(() => {
       <Title>{`${userName}님의\n메뚜기 퀴즈 결과는?`}</Title>
 
       <Stack justify={"center"} items={"center"} w={"100%"}>
-        <Lottie className=" w-[180px] h-[180px]" animationData={LOTTIE_EMOJI_HAPPY} autoplay loop />
+        <Lottie className=" w-[180px] h-[180px]" animationData={LOTTIE_EMOJI_HAPPY} autoplay={true} loop={true} />
       </Stack>
 
       <Paragraph color={"neutral-500"} size={"4"}>

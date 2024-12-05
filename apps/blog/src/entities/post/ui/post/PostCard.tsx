@@ -2,7 +2,6 @@ import { formatDate } from "@repo/date/format-date";
 
 import { Box, Paragraph, Stack } from "@xionwcfm/xds";
 import Link from "next/link";
-import React from "react";
 import { AUTHOR_NICKNAME } from "~/shared/constants";
 import { ROUTES } from "~/shared/routes";
 import type { PostWithFrontmatterType } from "../../model/post.model";
@@ -18,7 +17,7 @@ export const PostCard = (props: PostCardProps) => {
   return (
     <Stack className="hover:opacity-80 hover:rounded-sm hover:bg-neutral-200 duration-200 transition-colors">
       <Box px="8">
-        <Paragraph color={"gray-600"} size={"3"} responsive>
+        <Paragraph color={"gray-600"} size={"3"} responsive={true}>
           {post.categories}
         </Paragraph>
       </Box>
@@ -29,18 +28,18 @@ export const PostCard = (props: PostCardProps) => {
             size={"6"}
             color={"neutral-700"}
             className=" max-w-[336px]  md:max-w-[700px] xl:max-w-[1000px]"
-            responsive
+            responsive={true}
             overflow={"ellipsis"}
           >
             {post.title}
           </Paragraph>
-          <Paragraph responsive my="12" leading={"loose"} weight={"thin"} size={"4"} color={"neutral-600"}>
+          <Paragraph responsive={true} my="12" leading={"loose"} weight={"thin"} size={"4"} color={"neutral-600"}>
             {post.description}
           </Paragraph>
-          <Paragraph responsive mt="4" size={"4"} weight={"medium"} color={"neutral-700"}>
+          <Paragraph responsive={true} mt="4" size={"4"} weight={"medium"} color={"neutral-700"}>
             {AUTHOR_NICKNAME}
           </Paragraph>
-          <Paragraph responsive as="time" size={"3"} weight={"thin"} color={"neutral-600"}>
+          <Paragraph responsive={true} as="time" size={"3"} weight={"thin"} color={"neutral-600"}>
             {date}
           </Paragraph>
         </Stack>

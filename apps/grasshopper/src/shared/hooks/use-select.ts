@@ -91,11 +91,12 @@ export function shallowEqual(objA: any, objB: any): boolean {
   }
 
   // Test for A's keys different from B.
+  // biome-ignore lint/style/useForOf: <explanation>
   for (let i = 0; i < keysA.length; i++) {
     const currentKey = keysA[i];
     if (
-      //@ts-expect-error
-      !hasOwnProperty.call(objB, currentKey) ||
+      // biome-ignore lint/complexity/useSimplifiedLogicExpression: <explanation>
+      !Object.hasOwnProperty.call(objB, currentKey ?? "") ||
       //@ts-expect-error
       !objectIs(objA[currentKey], objB[currentKey])
     ) {

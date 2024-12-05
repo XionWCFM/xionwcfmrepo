@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "@xionwcfm/xds/toast";
 import { Provider } from "jotai";
 import { OverlayProvider } from "overlay-kit";
-import { PropsWithChildren, useState } from "react";
+import { type PropsWithChildren, useState } from "react";
 import { ClarityScript } from "./clarity-script";
 
 const QueryProvider = ({ children }: PropsWithChildren) => {

@@ -13,7 +13,7 @@ export const Graph = (props: {
   const [isAnimation, setIsAnimation] = useState(false);
   return (
     <InView
-      once
+      once={true}
       onIntersectStart={() => {
         setTimeout(() => {
           setIsAnimation(true);

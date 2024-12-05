@@ -10,10 +10,11 @@ export const ClarityScript = () => {
     <Script
       id="clarityScript"
       type="text/javascript"
-      defer
+      defer={true}
       strategy={"lazyOnload"}
       // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
       dangerouslySetInnerHTML={{
+        // biome-ignore lint/style/useNamingConvention: <explanation>
         __html: `(function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;

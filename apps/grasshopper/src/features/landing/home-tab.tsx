@@ -6,7 +6,7 @@ export const HomeTab = () => {
   return (
     <Stack items={"center"} justify={"center"}>
       <Stack className=" w-screen max-w-[450px] h-[100vw] max-h-[450px] ">
-        <Lottie autoplay loop animationData={LOTTIE_READING_BOOK} />
+        <Lottie autoplay={true} loop={true} animationData={LOTTIE_READING_BOOK} />
       </Stack>
       <Spacing h={"24"} />
       <Paragraph color={"neutral-500"} weight={"light"} size={"8"} className=" text-center">

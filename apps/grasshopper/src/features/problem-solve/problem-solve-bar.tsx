@@ -1,6 +1,6 @@
 import { useInternalRouter } from "@repo/router/router";
 import { overlay } from "overlay-kit";
-import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
+import type { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
 import { Bar } from "~/shared/ui/bar";
 import { ProblemSolveBackDialog } from "./back-dialog";
 import { ProblemSolveCloseDialog } from "./close-dialog";

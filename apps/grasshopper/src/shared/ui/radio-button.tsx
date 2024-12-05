@@ -1,6 +1,5 @@
 import { cn } from "@xionwcfm/xds";
-import React from "react";
-import { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef } from "react";
 
 export const RadioButton = (props: ComponentPropsWithoutRef<"button"> & { selected?: boolean }) => {
   const { className, children, selected = false, ...rest } = props;

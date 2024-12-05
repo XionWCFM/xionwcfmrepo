@@ -1,5 +1,3 @@
-import * as z from "zod";
-
 // 메타데이터에 대한 상수값입니다.
 export const BASE_SITE_URL = "https://grasshopper.xionwcfm.com";
 
@@ -18,4 +16,4 @@ export const AUTHOR_NAME = "유길종(XionWCFM)";
 
 export const LORDICON_LICENSE = "Animated icons by Lordicon.com";
 
-export const 국립생물자원관_URL = "https://species.nibr.go.kr/index.do";
+export const NATIONAL_BIOLOGICAL_RESOURCES_MANAGEMENT_URL = "https://species.nibr.go.kr/index.do";

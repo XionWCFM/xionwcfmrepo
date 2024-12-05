@@ -56,7 +56,7 @@ const createGithubCoverageComment = async (githubContext: { github: any; context
   console.log("🔥 coverage comment created");
 };
 
-export const createXionWCFMComment = async (githubContext: { github: any; context: any }) => {
+export const createXionWcfmComment = async (githubContext: { github: any; context: any }) => {
   createGithubTestComment(githubContext);
   createGithubCoverageComment(githubContext);
 };

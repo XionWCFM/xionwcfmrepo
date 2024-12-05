@@ -1,6 +1,6 @@
 import * as RadixTabs from "@radix-ui/react-tabs";
 import { cn } from "@xionwcfm/xds";
-import React, { ComponentProps, ComponentPropsWithoutRef, ElementRef, forwardRef } from "react";
+import { type ComponentProps, type ComponentPropsWithoutRef, type ElementRef, forwardRef } from "react";
 
 const Root = RadixTabs.Root;
 

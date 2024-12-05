@@ -3,7 +3,7 @@ import { FixedBottom, FixedBottomCta, Spacing } from "@xionwcfm/xds";
 import { toast } from "@xionwcfm/xds/toast";
 import { delay } from "es-toolkit/promise";
 import { Fragment } from "react";
-import { GrasshopperQuestion } from "~/entities/grasshoppers/model/grasshopper.model";
+import type { GrasshopperQuestion } from "~/entities/grasshoppers/model/grasshopper.model";
 import { useSelect } from "~/shared/hooks/use-select";
 import { QuestionForm } from "~/shared/ui/question-and-answer-form";
 import { RadioButton } from "~/shared/ui/radio-button";

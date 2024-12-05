@@ -1,5 +1,5 @@
 import { cn } from "@xionwcfm/xds";
-import { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef } from "react";
 
 const MOBILE_SIZE = {
   IPHONE_14_PRO_MAX: {

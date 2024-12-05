@@ -1,13 +1,13 @@
 import * as qs from "qs";
 
 type DefaultQuery = Record<string, any>;
-type DefaultPathname = Array<[string, any]>;
+type DefaultPathname = [string, any][];
 export type DefaultRouterType = {
   query?: DefaultQuery;
   pathname?: DefaultPathname;
   catchAll?: string;
 };
-type TupleArrayToRecord<T extends Array<[string, any]>> = {
+type TupleArrayToRecord<T extends [string, any][]> = {
   [K in T[number][0]]: Extract<T[number], [K, any]>[1];
 };
 type ExtractPathnameValue<T extends DefaultPathname> = {

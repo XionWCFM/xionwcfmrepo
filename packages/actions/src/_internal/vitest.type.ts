@@ -27,12 +27,12 @@ export type VitestTestResultsType = {
   success: boolean;
   testResults: Array<{
     assertionResults: Array<{
-      ancestorTitles: Array<string>;
+      ancestorTitles: string[];
       fullName: string;
       status: string;
       title: string;
       duration: number;
-      failureMessages: Array<string>;
+      failureMessages: string[];
     }>;
     startTime: number;
     endTime: number;

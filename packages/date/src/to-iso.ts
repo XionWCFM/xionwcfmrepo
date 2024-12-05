@@ -15,6 +15,8 @@
  * console.log(isoDateString); // "2022-01-01"
  */
 export const toIso = (date: string | Date): string => {
-  if (typeof date === "string") return date;
+  if (typeof date === "string") {
+    return date;
+  }
   return date.toISOString();
 };

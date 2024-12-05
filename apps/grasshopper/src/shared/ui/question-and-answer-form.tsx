@@ -1,7 +1,7 @@
 import { Delay } from "@suspensive/react";
-import { AspectRatio, Paragraph, Spacing, Stack } from "@xionwcfm/xds";
-import { Fragment, PropsWithChildren, ReactNode } from "react";
-import { GrasshopperQuestion } from "~/entities/grasshoppers/model/grasshopper.model";
+import { AspectRatio, Paragraph, Stack } from "@xionwcfm/xds";
+import type { PropsWithChildren, ReactNode } from "react";
+import type { GrasshopperQuestion } from "~/entities/grasshoppers/model/grasshopper.model";
 import { LoadingImage } from "./loading-image";
 import { RadioButton } from "./radio-button";
 
@@ -28,7 +28,7 @@ export const QuestionAndAnswerForm = (props: QuestionAndAnswerFormProps) => {
           }
           src={grasshopper.imgSrc}
           alt="문제 이미지"
-          fill
+          fill={true}
         />
       </AspectRatio>
 
@@ -65,7 +65,7 @@ const Image = ({ src, fallback, alt }: { src: string; fallback?: ReactNode; alt?
         }
         src={src}
         alt={alt ?? "문제 이미지"}
-        fill
+        fill={true}
       />
     </AspectRatio>
   );

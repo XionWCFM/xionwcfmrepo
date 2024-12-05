@@ -1,5 +1,5 @@
 import { cn } from "@xionwcfm/xds";
-import { PropsWithChildren, useState } from "react";
+import { type PropsWithChildren, useState } from "react";
 
 export const BlurText = ({ children }: PropsWithChildren) => {
   const [state, setState] = useState(true);

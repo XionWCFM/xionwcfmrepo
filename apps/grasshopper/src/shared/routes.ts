@@ -1,4 +1,3 @@
-import { ProblemSolveResultType } from "~/features/problem-solve/problem-solve-funnel";
 import { createRoutes } from "./internal/create-routes";
 
 export const $Routes = {

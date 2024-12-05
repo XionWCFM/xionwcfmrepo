@@ -1,4 +1,4 @@
-import ky, { KyInstance, Options, HTTPError } from "ky";
+import ky, { type KyInstance, type Options, HTTPError } from "ky";
 
 function isKyInstance(instance: any): instance is KyInstance {
   return instance && typeof instance.get === "function" && typeof instance.post === "function";

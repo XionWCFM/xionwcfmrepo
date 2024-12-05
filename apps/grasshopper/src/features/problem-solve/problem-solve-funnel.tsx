@@ -4,7 +4,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { useFunnel } from "@xionhub/funnel-app-router-adapter";
 import { funnelOptions, useFunnelDefaultStep } from "@xionhub/funnel-core";
 import { Spacing } from "@xionwcfm/xds";
-import { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
+import type { GrasshopperQuestionAnswerType } from "~/entities/grasshoppers/model/grasshopper.model";
 import { grasshopperResultSearchParams } from "~/entities/grasshoppers/model/grasshopper.schema";
 import { userStore } from "~/entities/user/model/user.store";
 import { $Routes } from "~/shared/routes";

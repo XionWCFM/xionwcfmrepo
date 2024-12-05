@@ -1,8 +1,8 @@
 "use client";
 import { createSafeAtom } from "@xionwcfm/jotai";
 import { atomWithStorage } from "jotai/utils";
-import { PropsWithChildren } from "react";
-import { User } from "./user.model";
+import type { PropsWithChildren } from "react";
+import type { User } from "./user.model";
 
 const STORAGE_KEY_USER_STORE = "storage-key-user-store";
 

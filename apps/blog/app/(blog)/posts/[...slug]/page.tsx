@@ -14,7 +14,9 @@ type PostProps = {
 export const generateMetadata = async ({ params }: PostProps): Promise<Metadata> => {
   const slug = (await params).slug;
   const post = await getPost(slug);
-  if (!post) throw new Error("Post not found");
+  if (!post) {
+    throw new Error("Post not found");
+  }
   const url = `${BASE_SITE_URL}/posts/${post.filePath.join("/")}`;
   const metaData = createMetadata({ description: post.description, title: post.title, url });
   return metaData;
@@ -32,6 +34,8 @@ export const dynamic = "force-static";
 export default async function Post({ params }: PostProps) {
   const slug = (await params).slug;
   const post = await getPost(slug);
-  if (!post) return redirect("/");
+  if (!post) {
+    return redirect("/");
+  }
   return <PostDetailPage post={post} />;
 }

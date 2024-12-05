@@ -11,11 +11,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(),
   }));
 
-  const MAIN_URL = {
+  const mainUrl = {
     url: BASE_SITE_URL,
     lastModified: new Date(),
   };
 
-  const allSitesMap = postUrls.concat(MAIN_URL);
+  const allSitesMap = postUrls.concat(mainUrl);
   return allSitesMap;
 }

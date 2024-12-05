@@ -1,6 +1,6 @@
-import { CaretLeftIcon, Cross1Icon, Cross2Icon } from "@radix-ui/react-icons";
+import { CaretLeftIcon, Cross1Icon } from "@radix-ui/react-icons";
 import { Pressable, cn } from "@xionwcfm/xds";
-import { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef } from "react";
 interface BarProps extends ComponentPropsWithoutRef<"header"> {
   left?: React.ReactNode;
   right?: React.ReactNode;
