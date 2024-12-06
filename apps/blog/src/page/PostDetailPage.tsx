@@ -24,13 +24,13 @@ export default function PostDetailPage({ post }: PostPageProps) {
         <PostDetailAuthorAndDate date={post.releaseDate} />
       </Box>
       <Separate />
-      <Spacing h={"16"} w={undefined} />
+      <Spacing h={"16"} />
       <MdxRemote source={post.content} />
       <Box my="40">
         <PostDetailAuthorWithChar />
       </Box>
       <Separate />
-      <Spacing h={"40"} w={undefined} />
+      <Spacing h={"40"} />
     </Stack>
   );
 }

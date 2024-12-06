@@ -12,8 +12,10 @@ export const env = createEnv({
     NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
   },
   server: {
-    NODE_ENV: z.enum(["development", "production", "test"]),
     NEXT_SUPABASE_SERVICE_ROLE: z.string().min(1),
+  },
+  shared: {
+    NODE_ENV: z.enum(["development", "production", "test"]),
   },
   runtimeEnv: {
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,

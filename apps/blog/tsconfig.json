@@ -15,7 +15,8 @@
       "~/shared/*": ["./src/shared/*"],
       "~/apps/*": ["./src/apps/*"],
       "@repo/*": ["../../packages/*"]
-    }
+    },
+    "types": ["vitest/globals"]
   },
   "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts", "vitest.config.mts"],
   "exclude": ["node_modules"]

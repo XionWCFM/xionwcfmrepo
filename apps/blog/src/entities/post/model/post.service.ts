@@ -6,6 +6,7 @@ import { env } from "@repo/env";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { getKoreanToday } from "~/shared/utils/date/get-korean-today";
 import type { FrontmatterType, PostType, PostWithFrontmatterType } from "./post.model";
+
 const POST_REPOSITORY_FOLDER_NAME = "posts";
 
 const getPostsDirectory = () => {
@@ -13,7 +14,6 @@ const getPostsDirectory = () => {
 };
 
 const MDX_REGEX = /\.mdx$/;
-const SLASH_REGEX = /^\/+/;
 
 const readDirectory = (directory: string): Pick<PostType, "filePath">[] => {
   const postsDirectory = getPostsDirectory();
@@ -23,7 +23,8 @@ const readDirectory = (directory: string): Pick<PostType, "filePath">[] => {
       return posts.concat(readDirectory(fullPath));
     }
     if (file.isFile() && path.extname(file.name) === ".mdx") {
-      const filePath = fullPath.replace(MDX_REGEX, "").replace(SLASH_REGEX, "").replace(postsDirectory, "").split("/");
+      const relativePath = path.relative(postsDirectory, fullPath);
+      const filePath = relativePath.replace(MDX_REGEX, "").split("/");
       posts.push({ filePath });
     }
     return posts;
