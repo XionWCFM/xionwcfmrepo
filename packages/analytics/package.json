@@ -2,7 +2,10 @@
   "name": "@repo/analytics",
   "version": "0.0.0",
   "private": true,
-  "main": "./index.tsx",
+  "main": "./src/index.tsx",
+  "exports": {
+    ".": "./src/index.tsx"
+  },
   "dependencies": {
     "@next/third-parties": "^15.0.3",
     "@repo/env": "workspace:*",

@@ -1,3 +1,4 @@
+import { MDXRemote as RscMdxRemote } from "next-mdx-remote/rsc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
@@ -9,7 +10,8 @@ interface MdxRemoteProps {
 }
 export const MdxRemote = ({ source }: MdxRemoteProps) => {
   return (
-    <rscmdxRemote
+    //@ts-ignore
+    <RscMdxRemote
       source={source}
       components={MdxComponents}
       options={{
