@@ -64,7 +64,6 @@ describe("useSelect 훅", () => {
   describe("커스텀 매처 함수", () => {
     it("커스텀 매처 함수를 사용하여 선택을 비교해야 함", () => {
       const customMatcher = (prev: { id: number; name: string }, current: { id: number; name: string }) => {
-        console.log("test", prev.id === current.id);
         return prev.id === current.id;
       };
       const { result } = renderHook(() => useSelect<{ id: number; name: string }>(null, { matcher: customMatcher }));

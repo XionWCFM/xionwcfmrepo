@@ -64,8 +64,6 @@ async function createPackage() {
       exclude: ["node_modules", "dist"],
     };
     writeFileSync(tsconfigPath, JSON.stringify(tsconfigContent, null, 2));
-
-    console.log(chalk.green(`✅ 패키지 "${projectName}"가 생성되었습니다!`));
   } catch (err) {
     if (err instanceof Error) {
       console.error(chalk.red(`❌ 패키지 생성 중 에러가 발생했습니다: ${err.message}`));

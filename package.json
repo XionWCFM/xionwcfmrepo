@@ -12,10 +12,10 @@
     "dev:xion": "turbo dev:xion",
     "test": "turbo run test",
     "ci:test": "turbo run ci:test",
-    "ci:knip": "pnpm knip --no-exit-code",
+    "ci:knip": "pnpm knip --no-exit-code --workspace apps/blog",
     "lint:biome": "npx @biomejs/biome lint .",
-    "check:biome": "npx @biomejs/biome check --write --config biome-ci.json .",
-    "format:biome": "npx @biomejs/biome format --write --config biome-ci.json .",
+    "check:biome": "npx @biomejs/biome check --config-path=./biome-ci.json --write .",
+    "format:biome": "npx @biomejs/biome format --write .",
     "clean:all": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf packages/*/node_modules && pnpm store prune && pnpm install",
     "bump-deps": "pnpm dlx npm-check-updates && pnpm install",
     "gen:p": "pnpm dlx tsx .cli/package.cts"
