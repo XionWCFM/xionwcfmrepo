@@ -13,9 +13,11 @@
       "~/features/*": ["./src/features/*"],
       "~/widgets/*": ["./src/widgets/*"],
       "~/shared/*": ["./src/shared/*"],
-      "~/app/*": ["./src/app/*"]
-    }
+      "~/apps/*": ["./src/apps/*"],
+      "@repo/*": ["../../packages/*"]
+    },
+    "types": ["vitest/globals"]
   },
-  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts"],
+  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts", "vitest.config.mts"],
   "exclude": ["node_modules"]
 }

@@ -4,12 +4,13 @@ pre-push:
     test:
       run: pnpm run ci:test
     format:
-      run: |
-        pnpm run check:biome
-        if ! git diff --exit-code; then
-          git add .
-          git commit -m 'format code by biome'
-        fi
+      run: pnpm run check:biome
+      stage_fixed: true
+
+pre-commit:
+  commands:
+    format:
+      run: pnpm run check:biome
       stage_fixed: true
 
 commit-msg:

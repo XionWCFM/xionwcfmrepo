@@ -12,6 +12,7 @@ type ImageProps = {
   placeholder?: "empty" | "blur";
   layout?: string;
   unoptimized?: boolean;
+  // biome-ignore lint/style/useNamingConvention: <explanation>
   blurDataURL?: string;
 } & Omit<ComponentPropsWithoutRef<"img">, "src">;
 

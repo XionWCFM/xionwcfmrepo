@@ -2,15 +2,18 @@ import fs from "node:fs";
 import path from "node:path";
 import { safeGetIso } from "@repo/date/safe-get-iso";
 import { toDate } from "@repo/date/to-date";
+import { env } from "@repo/env";
 import { compileMDX } from "next-mdx-remote/rsc";
-import { ENVIRONMENT } from "~/shared/environment";
 import { getKoreanToday } from "~/shared/utils/date/get-korean-today";
 import type { FrontmatterType, PostType, PostWithFrontmatterType } from "./post.model";
+
 const POST_REPOSITORY_FOLDER_NAME = "posts";
 
 const getPostsDirectory = () => {
   return path.join(process.cwd(), POST_REPOSITORY_FOLDER_NAME);
 };
+
+const MDX_REGEX = /\.mdx$/;
 
 const readDirectory = (directory: string): Pick<PostType, "filePath">[] => {
   const postsDirectory = getPostsDirectory();
@@ -20,11 +23,8 @@ const readDirectory = (directory: string): Pick<PostType, "filePath">[] => {
       return posts.concat(readDirectory(fullPath));
     }
     if (file.isFile() && path.extname(file.name) === ".mdx") {
-      const filePath = fullPath
-        .replace(postsDirectory, "")
-        .replace(/^\/+/, "")
-        .replace(/\.mdx$/, "")
-        .split("/");
+      const relativePath = path.relative(postsDirectory, fullPath);
+      const filePath = relativePath.replace(MDX_REGEX, "").split("/");
       posts.push({ filePath });
     }
     return posts;
@@ -45,13 +45,17 @@ const findPostFile = (directory: string, filePath: string[]): PostType | null =>
 };
 
 export const canViewPost = (frontmatter: Pick<PostWithFrontmatterType, "canView" | "releaseDate">, today: Date) => {
-  if (ENVIRONMENT.NODE_ENV === "development") return true;
+  if (env.NODE_ENV === "development") {
+    return true;
+  }
   if (!frontmatter.canView) {
     return false;
   }
 
   const date = safeGetIso(frontmatter.releaseDate);
-  if (!date) throw new Error("invalid Post Release Date by canViewPost");
+  if (!date) {
+    throw new Error("invalid Post Release Date by canViewPost");
+  }
   const todayTime = getKoreanToday(today).getTime();
   const dateTime = toDate(date).getTime();
   const isOverReleaseDate = todayTime > dateTime;
@@ -69,16 +73,20 @@ export const getFrontmatter = async (source: string): Promise<FrontmatterType> =
 export const getPost = async (filePath: string[]): Promise<PostWithFrontmatterType | null> => {
   const postsDirectory = getPostsDirectory();
   const post = findPostFile(postsDirectory, filePath);
-  if (!post) return null;
+  if (!post) {
+    return null;
+  }
   const frontmatter = await getFrontmatter(post.content);
-  if (!canViewPost(frontmatter, new Date())) return null;
+  if (!canViewPost(frontmatter, new Date())) {
+    return null;
+  }
   return Object.assign(post, frontmatter);
 };
 
 export const getAllPosts = async () => {
   const postsDirectory = getPostsDirectory();
   const posts = await Promise.all(readDirectory(postsDirectory).map((path) => getPost(path.filePath)));
-  const validPosts = posts.filter((post) => post !== null) as Array<PostWithFrontmatterType>;
+  const validPosts = posts.filter((post) => post !== null) as PostWithFrontmatterType[];
   const canViewPosts = validPosts.filter((post) => canViewPost(post, new Date()));
   return canViewPosts;
 };

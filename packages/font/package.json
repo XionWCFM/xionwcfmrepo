@@ -1,0 +1,15 @@
+{
+  "name": "@repo/font",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.10.1",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "next": ">=14",
+    "react": "catalog:react18"
+  }
+}

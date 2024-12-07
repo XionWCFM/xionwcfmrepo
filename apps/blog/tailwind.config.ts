@@ -2,7 +2,11 @@ import { XION_STYLE } from "@xionwcfm/token";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./app/**/*.{js,ts,jsx,tsx,mdx}"],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "../../packages/mdx/src/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     colors: XION_STYLE.colors,
     borderRadius: XION_STYLE.borderRadius,

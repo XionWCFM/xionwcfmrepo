@@ -13,33 +13,96 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
-
+      "all": true,
+      "suspicious": {
+        "noReactSpecificProps": "off",
+        "noExplicitAny": "off",
+        "useAwait": "off",
+        "noEmptyBlockStatements": "off",
+        "noConsole": "off",
+        "noConsoleLog": "off"
+      },
+      "performance": {
+        "useTopLevelRegex": {
+          "level": "off"
+        }
+      },
       "style": {
+        "recommended": true,
+        "noDefaultExport": "off",
+        "noNamespaceImport": "off",
         "useSelfClosingElements": "off",
         "noNonNullAssertion": "off",
         "noUnusedTemplateLiteral": "off",
         "noParameterAssign": "off",
         "useDefaultParameterLast": "off",
-        "useImportType": "off"
+        "useFragmentSyntax": "off",
+        "useConsistentArrayType": {
+          "fix": "safe",
+          "level": "error",
+          "options": { "syntax": "shorthand" }
+        },
+        "useShorthandArrayType": {
+          "fix": "safe",
+          "level": "error"
+        },
+        "useNamingConvention": {
+          "fix": "safe",
+          "level": "error",
+          "options": {
+            "conventions": [
+              {
+                "selector": {
+                  "kind": "objectLiteralProperty"
+                },
+                "formats": ["camelCase", "PascalCase", "CONSTANT_CASE", "snake_case"]
+              },
+              {
+                "selector": { "kind": "typeProperty" },
+                "formats": ["snake_case", "camelCase", "CONSTANT_CASE", "PascalCase"]
+              }
+            ]
+          }
+        },
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "filenameCases": ["camelCase", "PascalCase", "kebab-case"]
+          }
+        },
+        "useBlockStatements": {
+          "fix": "safe",
+          "level": "error"
+        },
+        "useImportType": {
+          "fix": "safe",
+          "level": "error"
+        }
       },
-      "suspicious": {
-        "noExplicitAny": "off",
-        "noDoubleEquals": "off",
-        "noArrayIndexKey": "off",
-        "noPrototypeBuiltins": "off",
-        "noImplicitAnyLet": "off",
-        "noAssignInExpressions": "off"
+      "correctness": {
+        "recommended": true,
+        "useImportExtensions": "off",
+        "noUndeclaredDependencies": "off",
+        "noNodejsModules": {
+          "level": "off"
+        },
+        "noUnusedImports": {
+          "fix": "safe",
+          "level": "warn"
+        },
+        "noUnusedVariables": {
+          "fix": "safe",
+          "level": "warn"
+        }
       },
       "complexity": {
+        "recommended": true,
         "noForEach": "off",
         "noUselessFragments": "off",
         "noStaticOnlyClass": "off"
       },
-      "correctness": {
-        "useExhaustiveDependencies": "off"
-      },
       "a11y": {
+        "recommended": true,
         "noAccessKey": "error",
         "noAriaUnsupportedElements": "error",
         "noAutofocus": "error",
@@ -68,6 +131,10 @@
         "useValidAriaValues": "error"
       }
     }
+  },
+
+  "javascript": {
+    "globals": ["describe", "it", "test", "expect", "JSX", "React", "beforeEach", "afterEach", "vi"]
   },
   "files": {
     "ignore": [

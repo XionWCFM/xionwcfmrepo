@@ -1,6 +1,6 @@
 {
   "upgrade": true,
-  "target": "minor",
+  "target": "latest",
   "reject": ["tailwind-merge", "react", "react-dom", "@types/react", "@types/react-dom", "@biomejs/biome", "next"],
   "deep": true
 }

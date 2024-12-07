@@ -4,6 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "build:p": "turbo build --filter './packages/*'",
+    "build:blog": "turbo build --filter './apps/blog'",
     "dev": "turbo dev --filter './apps/blog'",
     "dev:g": "turbo dev --filter './apps/grasshopper'",
     "storybook": "turbo storybook",
@@ -11,23 +12,32 @@
     "dev:xion": "turbo dev:xion",
     "test": "turbo run test",
     "ci:test": "turbo run ci:test",
-    "ci:knip": "pnpm knip --no-exit-code",
+    "ci:knip": "pnpm knip --no-exit-code --workspace apps/blog",
     "lint:biome": "npx @biomejs/biome lint .",
-    "check:biome": "npx @biomejs/biome check --write .",
+    "check:biome": "npx @biomejs/biome check --config-path=./biome-ci.json --write .",
     "format:biome": "npx @biomejs/biome format --write .",
     "clean:all": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf packages/*/node_modules && pnpm store prune && pnpm install",
-    "bump-deps": "pnpm dlx npm-check-updates && pnpm install"
+    "bump-deps": "pnpm dlx npm-check-updates && pnpm install",
+    "gen:p": "pnpm dlx tsx .cli/package.cts"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@repo/typescript-config": "workspace:*",
-    "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^19.5.0",
-    "knip": "^5.38.3",
-    "lefthook": "^1.8.4",
+    "@rushstack/eslint-config": "^4.1.0",
+    "@types/fs-extra": "^11.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^12.1.0",
+    "knip": "^5.39.1",
+    "lefthook": "^1.8.5",
     "turbo": "^2.3.3",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.6"
+    "vitest": "^2.1.8"
   },
   "packageManager": "pnpm@9.14.4",
   "engines": {

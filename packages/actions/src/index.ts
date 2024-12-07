@@ -32,7 +32,6 @@ const createGithubTestComment = async (githubContext: { github: any; context: an
       githubContext,
     );
   }
-  console.log("🔥 test comment created");
 };
 
 const createGithubCoverageComment = async (githubContext: { github: any; context: any }) => {
@@ -53,10 +52,9 @@ const createGithubCoverageComment = async (githubContext: { github: any; context
       githubContext,
     );
   }
-  console.log("🔥 coverage comment created");
 };
 
-export const createXionWCFMComment = async (githubContext: { github: any; context: any }) => {
+export const createXionWcfmComment = async (githubContext: { github: any; context: any }) => {
   createGithubTestComment(githubContext);
   createGithubCoverageComment(githubContext);
 };

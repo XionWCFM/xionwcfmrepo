@@ -5,6 +5,7 @@ const createBaseUrl = (path: string, context?: RoutesContextType) => {
   return `${baseurl}${path}`;
 };
 type RoutesContextType = { withBaseUrl?: boolean };
+
 export const ROUTES = {
   root: () => "/",
   postDetail: (postsPath: string[], context?: RoutesContextType) =>
