@@ -3,6 +3,7 @@ import { vi } from "vitest";
 import createFetchMock from "vitest-fetch-mock";
 
 import "@testing-library/jest-dom";
+import "@testing-library/jest-dom/vitest";
 
 createFetchMock(vi).enableMocks();
 

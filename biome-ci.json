@@ -2,12 +2,27 @@
   "$schema": "https://biomejs.dev/schemas/1.9.3/schema.json",
   "extends": ["./biome.json"],
   "linter": {
+    "ignore": ["**/vitest.setup.tsx"],
     "rules": {
       "suspicious": {
         "noConsole": {
           "level": "error",
           "fix": "safe",
           "options": { "allow": ["error"] }
+        }
+      },
+      "correctness": {
+        "recommended": true,
+        "noNodejsModules": {
+          "level": "off"
+        },
+        "noUnusedImports": {
+          "fix": "safe",
+          "level": "warn"
+        },
+        "noUnusedVariables": {
+          "fix": "safe",
+          "level": "warn"
         }
       }
     }
