@@ -1,3 +1,11 @@
+"use client";
+
+import { MdxViewer } from "@repo/mdx";
+
 export default function Page() {
-  return <div>write</div>;
+  return (
+    <div>
+      <MdxViewer source="## Hello World **hello**" />
+    </div>
+  );
 }
