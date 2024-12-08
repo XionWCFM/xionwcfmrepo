@@ -18,7 +18,8 @@
     "format:biome": "npx @biomejs/biome format --write .",
     "clean:all": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf packages/*/node_modules && pnpm store prune && pnpm install",
     "bump-deps": "pnpm dlx npm-check-updates && pnpm install",
-    "gen:p": "pnpm dlx tsx .cli/package.cts"
+    "gen:p": "pnpm dlx tsx .cli/package.cts",
+    "test:type": "turbo test:type"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",

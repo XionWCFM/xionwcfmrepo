@@ -5,6 +5,6 @@
     "moduleResolution": "bundler",
     "baseUrl": "."
   },
-  "include": ["./*.ts", "./*.tsx", "src/types_db.ts"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
