@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "run-p next-dev watch-content",
+    "dev": "run-p dev:next watch-content",
+    "dev:next": "next dev --experimental-https",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,7 +13,6 @@
     "ci:test": "vitest run --coverage",
     "next-dev": "next dev",
     "watch-content": "node ./watcher.cjs",
-    "generate-types": "pnpm dlx supabase gen types typescript --project-id pzvsmsqfsintouhjavhp --schema public > types_db.ts",
     "test:type": "tsc --noEmit"
   },
   "dependencies": {
@@ -23,9 +23,12 @@
     "@radix-ui/react-icons": "^1.3.2",
     "@radix-ui/react-separator": "^1.1.0",
     "@repo/analytics": "workspace:*",
+    "@repo/auth": "workspace:*",
     "@repo/database": "workspace:*",
     "@repo/date": "workspace:*",
+    "@repo/env": "workspace:*",
     "@repo/font": "workspace:*",
+    "@repo/http": "workspace:*",
     "@repo/icon": "workspace:*",
     "@repo/mdx": "workspace:*",
     "@repo/router": "workspace:*",
@@ -35,6 +38,7 @@
     "@xionwcfm/token": "^0.2.0",
     "@xionwcfm/utils": "^0.0.3",
     "@xionwcfm/xds": "^0.2.0",
+    "arctic": "^2.3.0",
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "next": "15.0.3",

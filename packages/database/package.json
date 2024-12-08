@@ -2,6 +2,11 @@
   "name": "@repo/database",
   "version": "0.0.0",
   "private": true,
+  "exports": {
+    "./server": "./src/server.ts",
+    "./client": "./src/client.ts",
+    "./typesDb": "./src/typesDb.ts"
+  },
   "scripts": {
     "generate-types": "pnpm dlx supabase gen types typescript --project-id pzvsmsqfsintouhjavhp --schema public > ./src/typesDb.ts"
   },

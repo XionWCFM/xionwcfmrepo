@@ -1,0 +1,26 @@
+{
+  "name": "@repo/auth",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./google": "./src/google.ts",
+    "./jwt": "./src/jwt.ts"
+  },
+  "scripts": {},
+  "dependencies": {
+    "@types/jsonwebtoken": "^9.0.7",
+    "arctic": "^2.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "@repo/database": "workspace:*"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.10.1",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "@repo/env": "workspace:*",
+    "next": ">=15",
+    "zod": ">=3"
+  }
+}

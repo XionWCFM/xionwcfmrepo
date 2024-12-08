@@ -119,23 +119,29 @@ export type Database = {
       users: {
         Row: {
           created_at: string;
-          "\bemail": string;
+          gmail: string;
+          google_id: string;
           id: string;
-          password: string;
+          name: string;
+          picture: string | null;
           role: Database["public"]["Enums"]["role"];
         };
         Insert: {
           created_at?: string;
-          "\bemail"?: string;
+          gmail?: string;
+          google_id?: string;
           id?: string;
-          password?: string;
+          name?: string;
+          picture?: string | null;
           role?: Database["public"]["Enums"]["role"];
         };
         Update: {
           created_at?: string;
-          "\bemail"?: string;
+          gmail?: string;
+          google_id?: string;
           id?: string;
-          password?: string;
+          name?: string;
+          picture?: string | null;
           role?: Database["public"]["Enums"]["role"];
         };
         Relationships: [];
