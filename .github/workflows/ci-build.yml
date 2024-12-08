@@ -47,6 +47,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
+      - name: Inject environment variables
+        run: |
+          echo "NEXT_PUBLIC_CLOUD_FRONT_URL=${{ secrets.NEXT_PUBLIC_CLOUD_FRONT_URL }}" >> apps/blog/.env
+          echo "NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}" >> apps/blog/.env
+          echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}" >> apps/blog/.env
+          echo "NEXT_PUBLIC_POSTHOG_KEY=${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}" >> apps/blog/.env
+          echo "NEXT_PUBLIC_POSTHOG_HOST=${{ secrets.NEXT_PUBLIC_POSTHOG_HOST }}" >> apps/blog/.env
+          echo "NEXT_PUBLIC_GTM_ID=${{ secrets.NEXT_PUBLIC_GTM_ID }}" >> apps/blog/.env
+          echo "NEXT_PUBLIC_GA_ID=${{ secrets.NEXT_PUBLIC_GA_ID }}" >> apps/blog/.env
+          echo "NEXT_PUBLIC_GSC_ID=${{ secrets.NEXT_PUBLIC_GSC_ID }}" >> apps/blog/.env
+          echo "NEXT_PUBLIC_SUPABASE_PROJECT_ID=${{ secrets.NEXT_PUBLIC_SUPABASE_PROJECT_ID }}" >> apps/blog/.env
+          echo "NEXT_SUPABASE_SERVICE_ROLE=${{ secrets.NEXT_SUPABASE_SERVICE_ROLE }}" >> apps/blog/.env
+
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit == false
         run: pnpm install --frozen-lockfile
