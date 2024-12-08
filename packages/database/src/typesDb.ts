@@ -82,7 +82,7 @@ export type Database = {
       };
       posts: {
         Row: {
-          authority: Database["public"]["Enums"]["authority"];
+          authority: Database["public"]["Enums"]["role"];
           can_view: boolean;
           content: string;
           created_at: string;
@@ -93,7 +93,7 @@ export type Database = {
           title: string;
         };
         Insert: {
-          authority: Database["public"]["Enums"]["authority"];
+          authority: Database["public"]["Enums"]["role"];
           can_view?: boolean;
           content?: string;
           created_at?: string;
@@ -104,7 +104,7 @@ export type Database = {
           title?: string;
         };
         Update: {
-          authority?: Database["public"]["Enums"]["authority"];
+          authority?: Database["public"]["Enums"]["role"];
           can_view?: boolean;
           content?: string;
           created_at?: string;
@@ -116,6 +116,30 @@ export type Database = {
         };
         Relationships: [];
       };
+      users: {
+        Row: {
+          created_at: string;
+          "\bemail": string;
+          id: string;
+          password: string;
+          role: Database["public"]["Enums"]["role"];
+        };
+        Insert: {
+          created_at?: string;
+          "\bemail"?: string;
+          id?: string;
+          password?: string;
+          role?: Database["public"]["Enums"]["role"];
+        };
+        Update: {
+          created_at?: string;
+          "\bemail"?: string;
+          id?: string;
+          password?: string;
+          role?: Database["public"]["Enums"]["role"];
+        };
+        Relationships: [];
+      };
     };
     Views: {
       [_ in never]: never;
@@ -124,7 +148,7 @@ export type Database = {
       [_ in never]: never;
     };
     Enums: {
-      authority: "admin" | "editor" | "viewer";
+      role: "admin" | "editor" | "viewer";
     };
     CompositeTypes: {
       [_ in never]: never;

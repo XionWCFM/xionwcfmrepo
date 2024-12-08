@@ -2,8 +2,8 @@ import { Paragraph, Stack } from "@xionwcfm/xds";
 import { getAllPostsSortedByReleaseDate } from "~/entities/post/model/post.service";
 import { PostCard } from "~/entities/post/ui/post/PostCard";
 import { AUTHOR_NICKNAME } from "~/shared/constants";
-import { MainXionWcfm } from "~/shared/ui/common/MainXionWcfm";
-import { Separate } from "~/shared/ui/common/Separate";
+import { Border } from "~/shared/ui/common/Border";
+import { MainTitle } from "~/shared/ui/common/MainTitle";
 import { Footer } from "~/widgets/footer";
 import { StaticHeader } from "~/widgets/header/static-header";
 
@@ -17,13 +17,13 @@ export default async function RootPage() {
         <StaticHeader />
         <Stack w={"100%"} justify={"center"} items={"center"}>
           <Stack w={"screen"} maxW={{ md: "768", xl: "1024" }}>
-            <MainXionWcfm />
+            <MainTitle />
             <Stack px={{ initial: "16", md: "0" }}>
               <Stack>
                 <Paragraph color={"neutral-800"} weight={"light"} size={"7"} responsive={true} mt={"24"} mb={"12"}>
                   {currentPostTitle}
                 </Paragraph>
-                <Separate />
+                <Border />
               </Stack>
               <Stack my={"28"} gap={"16"}>
                 {posts.map((post) => (

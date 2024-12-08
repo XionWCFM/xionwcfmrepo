@@ -6,7 +6,7 @@ import { XionEmailIcon } from "../icon/XionEmailIcon";
 import { XionGithubLogoIcon } from "../icon/XionGithubIcon";
 import { XionLinkedinIcon } from "../icon/XionLinkedInIcon";
 
-export const MainXionWcfm = () => {
+export const MainTitle = () => {
   return (
     <Stack justify={"between"} px={"20"} py={"20"} className=" relative bg-primary-600 h-[450px]">
       <Paragraph as="h1" weight={"bold"} size={"10"} responsive={true} color={"neutral-50"}>

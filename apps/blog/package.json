@@ -12,7 +12,8 @@
     "ci:test": "vitest run --coverage",
     "next-dev": "next dev",
     "watch-content": "node ./watcher.cjs",
-    "generate-types": "pnpm dlx supabase gen types typescript --project-id pzvsmsqfsintouhjavhp --schema public > types_db.ts"
+    "generate-types": "pnpm dlx supabase gen types typescript --project-id pzvsmsqfsintouhjavhp --schema public > types_db.ts",
+    "test:type": "tsc --noEmit"
   },
   "dependencies": {
     "@apollo/client": "^3.11.10",

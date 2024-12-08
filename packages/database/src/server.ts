@@ -3,7 +3,7 @@
 import { env } from "@repo/env";
 import { type CookieOptions, createServerClient } from "@supabase/ssr";
 import type { cookies } from "next/headers";
-import type { Database } from "./types_db";
+import type { Database } from "./typesDb";
 
 export const createServerSupabaseClient = async (cookieStore: Awaited<ReturnType<typeof cookies>>, admin = false) => {
   return createServerClient<Database>(
