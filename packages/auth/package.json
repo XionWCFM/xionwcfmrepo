@@ -8,10 +8,11 @@
   },
   "scripts": {},
   "dependencies": {
+    "@repo/database": "workspace:*",
     "@types/jsonwebtoken": "^9.0.7",
     "arctic": "^2.3.0",
-    "jsonwebtoken": "^9.0.2",
-    "@repo/database": "workspace:*"
+    "jose": "^5.9.6",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

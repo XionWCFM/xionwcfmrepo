@@ -6,7 +6,6 @@ import { Border } from "~/shared/ui/common/Border";
 import { MainTitle } from "~/shared/ui/common/MainTitle";
 import { Footer } from "~/widgets/footer";
 import { StaticHeader } from "~/widgets/header/static-header";
-
 export default async function RootPage() {
   const posts = await getAllPostsSortedByReleaseDate();
   const currentPostTitle = `${AUTHOR_NICKNAME}의 최신 포스트 보기`;

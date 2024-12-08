@@ -1,9 +1,6 @@
-import jwt from "jsonwebtoken";
-
 import type { Database } from "@repo/database/typesDb";
 import { env } from "@repo/env";
-
-const secret = env.JWT_SECRET; // 환경 변수에서 비밀 키를 가져옴
+import { SignJWT, decodeJwt as joseDecodeJwt, jwtVerify } from "jose";
 
 export type JwtPayload = {
   google_id: string;
@@ -12,14 +9,27 @@ export type JwtPayload = {
   role: Database["public"]["Enums"]["role"];
 };
 
-export function generateJwt(payload: JwtPayload) {
-  return jwt.sign(payload, secret, { expiresIn: "1h" });
+const secret = new TextEncoder().encode(env.JWT_SECRET);
+
+export async function generateJwt(payload: JwtPayload): Promise<string> {
+  return await new SignJWT(payload).setProtectedHeader({ alg: "HS256" }).setExpirationTime("30d").sign(secret);
 }
 
-export function verifyJwt(token: string): JwtPayload | null {
+export async function verifyJwt(token: string): Promise<JwtPayload | null> {
   try {
-    return jwt.verify(token, secret) as JwtPayload;
-  } catch (_err) {
+    const { payload } = await jwtVerify<JwtPayload>(token, secret);
+    return payload;
+  } catch (err) {
+    console.error("JWT verification error:", err);
+    return null;
+  }
+}
+
+export function decodeJwt(token: string): JwtPayload | null {
+  try {
+    return joseDecodeJwt(token) as JwtPayload;
+  } catch (err) {
+    console.error("JWT decode error:", err);
     return null;
   }
 }

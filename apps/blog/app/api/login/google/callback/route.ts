@@ -1,6 +1,6 @@
 import { type GoogleClaim, google } from "@repo/auth/google";
 import { generateJwt } from "@repo/auth/jwt";
-import { createServerSupabaseClient } from "@repo/database/server";
+import { createServerSupabaseAdminClient } from "@repo/database/server";
 import { env } from "@repo/env";
 import { decodeIdToken } from "arctic";
 import { cookies } from "next/headers";
@@ -28,14 +28,15 @@ export async function GET(req: NextRequest) {
     const { sub: googleId, email, name, picture } = decodeIdToken(idToken) as GoogleClaim;
 
     const cookie = await cookies();
-    const supabase = await createServerSupabaseClient(cookie);
+    const supabase = await createServerSupabaseAdminClient(cookie);
+
     const { error } = await supabase.from("users").upsert(
       [
         {
           google_id: googleId,
-          email,
+          gmail: email,
           name,
-          picture,
+          picture: picture ?? null,
         },
       ],
       { onConflict: "google_id" },
@@ -47,15 +48,14 @@ export async function GET(req: NextRequest) {
 
     const { data: userData, error: fetchError } = await supabase
       .from("users")
-      .select("google_id, role")
+      .select("google_id, role, name, gmail")
       .eq("google_id", googleId)
       .single();
 
     if (fetchError) {
       return NextResponse.redirect(`${env.NEXT_PUBLIC_BASE_URL}/login?error=authentication_failed`);
     }
-
-    const jwtToken = generateJwt({
+    const jwtToken = await generateJwt({
       google_id: googleId,
       mail: email,
       name,
@@ -64,8 +64,8 @@ export async function GET(req: NextRequest) {
 
     cookie.set("session_token", jwtToken, {
       httpOnly: true,
-      secure: true,
-      sameSite: "strict",
+      secure: env.NODE_ENV === "production",
+      sameSite: "lax",
     });
 
     return NextResponse.redirect(`${env.NEXT_PUBLIC_BASE_URL}`);
