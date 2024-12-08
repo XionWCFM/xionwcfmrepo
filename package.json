@@ -19,7 +19,8 @@
     "clean:all": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf packages/*/node_modules && pnpm store prune && pnpm install",
     "bump-deps": "pnpm dlx npm-check-updates && pnpm install",
     "gen:p": "pnpm dlx tsx .cli/package.cts",
-    "test:type": "turbo test:type"
+    "test:type": "turbo test:type",
+    "generate-types": "turbo generate-types"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
