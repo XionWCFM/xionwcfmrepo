@@ -8,12 +8,13 @@ import { type NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 export async function GET(req: NextRequest) {
-  const result = getSearchParams(req.url);
+  const { searchParams } = new URL(req.url);
+  const { success: codeSuccess, data: code } = schema.safeParse(searchParams.get("code"));
+  const { success: stateSuccess, data: state } = schema.safeParse(searchParams.get("state"));
 
-  if (!result.success) {
+  if (!(codeSuccess && stateSuccess)) {
     return NextResponse.redirect(`${env.NEXT_PUBLIC_BASE_URL}/login?error=invalid_request`);
   }
-  const { code, state } = result;
 
   const storedState = req.cookies.get("google_oauth_state")?.value;
   const codeVerifier = req.cookies.get("google_code_verifier")?.value;
@@ -75,16 +76,3 @@ export async function GET(req: NextRequest) {
 }
 
 const schema = z.string().min(1);
-
-const getSearchParams = (url: string) => {
-  try {
-    const { searchParams } = new URL(url);
-    return {
-      success: true,
-      code: schema.parse(searchParams.get("code")),
-      state: schema.parse(searchParams.get("state")),
-    } as const;
-  } catch (_e) {
-    return { success: false } as const;
-  }
-};
