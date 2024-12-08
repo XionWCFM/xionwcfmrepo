@@ -6,7 +6,7 @@ import { Stack } from "@xionwcfm/xds";
 import { ASSET_XION_BOX_LOGO_48_16 } from "~/shared/assets";
 import { isEnabled } from "~/shared/feature-flag";
 import { ROUTES } from "~/shared/routes";
-import { Separate } from "~/shared/ui/common/Separate";
+import { Border } from "~/shared/ui/common/Border";
 
 export const StaticHeader = () => {
   return (
@@ -34,7 +34,7 @@ export const StaticHeader = () => {
           </button>
         ) : null}
       </Stack>
-      <Separate />
+      <Border />
     </Stack>
   );
 };

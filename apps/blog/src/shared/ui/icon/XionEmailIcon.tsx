@@ -17,10 +17,6 @@ const handleEmailClick = throttle(async () => {
   }
 }, 1500);
 
-// context api 를 쓴다 -> 상태관리 -> 전부리렌더링 -> 메모를해줘야돼 -> 메모하느라 또 메모리낭비하고
-// jotai , redux , zustand -> selector -> 외부 라이브러리에 의존성이 생기겠죠 -> 외부라이브러리에 의존성이 생기면 -> 나중에 다른라이브러리 갈아탈때 힘들어지고
-// 훅에 의존안하면서 / 라이브러리에도 의존안하기 -> toast.success()
-
 export const XionEmailIcon = (props: IconProps) => {
   const { className } = props;
 
