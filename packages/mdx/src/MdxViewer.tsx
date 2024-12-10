@@ -1,24 +1,24 @@
-import { evaluate } from "@mdx-js/mdx";
-import { MDXProvider } from "@mdx-js/react";
-import type React from "react";
+"use client";
+import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
 import { useEffect, useState } from "react";
-import * as runtime from "react/jsx-runtime";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkBreaks from "remark-breaks";
 import { MdxComponents } from "./MdxComponents";
 
-export const MdxViewer = ({ source }: { source: string }) => {
-  const [Content, setContent] = useState<React.FC | null>(null);
+interface Props {
+  source: string;
+}
+
+export const MdxViewer = (props: Props) => {
+  const { source } = props;
+  const [content, setContent] = useState<MDXRemoteSerializeResult | null>(null);
 
   useEffect(() => {
-    const compileMdx = async () => {
-      //@ts-expect-error
-      const { default: mdxContent } = await evaluate(source, {
-        ...runtime,
-        // biome-ignore lint/style/useNamingConvention: <explanation>
-        useMDXComponents: () => MdxComponents,
+    serialize(source, {
+      mdxOptions: {
         remarkPlugins: [remarkBreaks],
         rehypePlugins: [
           rehypeSlug,
@@ -35,33 +35,27 @@ export const MdxViewer = ({ source }: { source: string }) => {
             rehypePrettyCode,
             {
               theme: "slack-dark",
-              //@ts-expect-error
-              onVisitLine(node) {
+              onVisitLine(node: any) {
                 if (node.children.length === 0) {
                   node.children = [{ type: "text", value: " " }];
                 }
               },
-              //@ts-expect-error
-              onVisitHighlightedLine(node) {
+              onVisitHighlightedLine(node: any) {
                 node.properties.className.push("line--highlighted");
               },
-              //@ts-expect-error
-              onVisitHighlightedWord(node) {
+              onVisitHighlightedWord(node: any) {
                 node.properties.className = ["word--highlighted"];
               },
             },
           ],
         ],
-      });
-      setContent(() => mdxContent);
-    };
-
-    compileMdx();
+      },
+    }).then((res) => setContent(res));
   }, [source]);
 
-  return Content ? (
-    <MDXProvider components={MdxComponents}>
-      <Content />
-    </MDXProvider>
-  ) : null;
+  if (!content) {
+    return null;
+  }
+
+  return <MDXRemote {...content} components={MdxComponents} />;
 };

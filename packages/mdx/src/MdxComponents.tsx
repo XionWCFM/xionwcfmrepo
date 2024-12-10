@@ -56,10 +56,10 @@ export const MdxComponents: tmdxComponents = {
     <Paragraph mt="20" mb="12" as={"h6"} size={"6"} weight={"bold"} color={"neutral-700"} {...props} />
   ),
   p: ({ className, color, ...props }: ParagraphProps) => (
-    <Paragraph size={"5"} mt="24" className=" leading-[240%]" weight={"light"} color={"neutral-600"} {...props} />
+    <Paragraph size={"5"} mt="8" weight={"light"} leading={"tight"} color={"neutral-600"} {...props} />
   ),
   pre: ({ className, ...props }: PreProps) => (
-    <pre className={" my-24 overflow-x-auto rounded-sm bg-primary-50 px-24 py-12 text-neutral-700"} {...props} />
+    <pre className={" my-16 overflow-x-auto rounded-sm bg-primary-50 px-24 py-12 text-neutral-700"} {...props} />
   ),
   hr: (_props) => <hr className=" border-t border-neutral-300 my-24" />,
   code: ({ className, ...props }: ElementProps) => (
@@ -83,6 +83,7 @@ export const MdxComponents: tmdxComponents = {
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr className={"m-0 border-t p-0 even:bg-muted"} {...props} />
   ),
+  br: () => null,
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th
       className={"border px-8 py-4 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right"}
