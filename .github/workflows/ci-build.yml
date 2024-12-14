@@ -59,7 +59,11 @@ jobs:
           echo "NEXT_PUBLIC_GSC_ID=${{ secrets.NEXT_PUBLIC_GSC_ID }}" >> apps/blog/.env
           echo "NEXT_PUBLIC_SUPABASE_PROJECT_ID=${{ secrets.NEXT_PUBLIC_SUPABASE_PROJECT_ID }}" >> apps/blog/.env
           echo "NEXT_SUPABASE_SERVICE_ROLE=${{ secrets.NEXT_SUPABASE_SERVICE_ROLE }}" >> apps/blog/.env
-
+          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> apps/blog/.env
+          echo "NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}" >> apps/blog/.env
+          echo "GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}" >> apps/blog/.env
+          echo "NEXT_PUBLIC_GOOGLE_CLIENT_ID=${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}" >> apps/blog/.env
+          
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit == false
         run: pnpm install --frozen-lockfile
