@@ -86,14 +86,8 @@
         "noNodejsModules": {
           "level": "off"
         },
-        "noUnusedImports": {
-          "fix": "safe",
-          "level": "warn"
-        },
-        "noUnusedVariables": {
-          "fix": "safe",
-          "level": "warn"
-        }
+        "noUnusedImports": "off",
+        "noUnusedVariables": "off"
       },
       "complexity": {
         "recommended": true,

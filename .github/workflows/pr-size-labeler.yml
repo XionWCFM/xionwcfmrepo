@@ -1,34 +1,29 @@
-name: Pr Size Labeler
+name: PR Size Labeler
 
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
-  labeler:
+  size-label:
     permissions:
-      pull-requests: write
       contents: read
-      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
-    name: Label the PR size
     steps:
-      - uses: codelytv/pr-size-labeler@v1
+      - name: Assign PR Size Label
+        uses: pascalgn/size-label-action@v0.5.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          xs_label: 'size/xs'
-          xs_max_size: '10'
-          s_label: 'size/s'
-          s_max_size: '100'
-          m_label: 'size/m'
-          m_max_size: '500'
-          l_label: 'size/l'
-          l_max_size: '1000'
-          xl_label: 'size/xl'
-          fail_if_xl: 'false'
-          message_if_xl: >
-            This PR exceeds the recommended size of 1000 lines.
-            Please make sure you are NOT addressing multiple issues with one PR.
-            Note this PR might be rejected due to its size.
-          github_api_url: "https://api.github.com"
-          files_to_ignore: |
+          sizes: |
+            {
+              "0": "size/XS",
+              "10": "size/S",
+              "30": "size/M",
+              "100": "size/L",
+              "500": "size/XL",
+              "1000": "size/XXL"
+            }
+          ignore: |
             pnpm-lock.yaml
-            package-lock.json
-            yarn.lock

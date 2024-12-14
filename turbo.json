@@ -5,7 +5,9 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**", "storybook-static/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", "storybook-static/**"],
+      "cache": true,
+      "persistent": false
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -30,6 +32,14 @@
     "dev:xion": {
       "cache": false,
       "persistent": true
+    },
+    "test:type": {
+      "cache": false,
+      "persistent": false
+    },
+    "generate-types": {
+      "cache": false,
+      "persistent": false
     }
   },
   "remoteCache": {
