@@ -1,4 +1,4 @@
-import { MdxRemote } from "@repo/mdx/src";
+import { MdxRemote } from "@repo/mdx";
 import { Box, Spacing, Stack } from "@xionwcfm/xds";
 import { Chip } from "@xionwcfm/xds/chip";
 import type { Metadata } from "next";
