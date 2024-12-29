@@ -56,7 +56,7 @@ export const MdxComponents: tmdxComponents = {
     <Paragraph mt="20" mb="12" as={"h6"} size={"6"} weight={"bold"} color={"neutral-700"} {...props} />
   ),
   p: ({ className, color, ...props }: ParagraphProps) => (
-    <Paragraph size={"5"} mt="8" weight={"light"} leading={"tight"} color={"neutral-600"} {...props} />
+    <Paragraph size={"6"} mt="16" weight={"regular"} leading={"loose"} color={"neutral-600"} {...props} />
   ),
   pre: ({ className, ...props }: PreProps) => (
     <pre className={" my-16 overflow-x-auto rounded-sm bg-primary-50 px-24 py-12 text-neutral-700"} {...props} />
@@ -92,6 +92,9 @@ export const MdxComponents: tmdxComponents = {
   ),
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <td className={"border px-8 py-4 text-left [&[align=center]]:text-center [&[align=right]]:text-right"} {...props} />
+  ),
+  strong: ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => (
+    <span className={"text-primary-600 font-bold"} {...props} />
   ),
   CallOut: CallOut,
 };
