@@ -6,6 +6,7 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**", "storybook-static/**"],
+      "env": ["GOOGLE_CLIENT_SECRET", "JWT_SECRET"],
       "cache": true,
       "persistent": false
     },
