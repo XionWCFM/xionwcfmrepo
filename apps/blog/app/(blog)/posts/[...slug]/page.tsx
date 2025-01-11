@@ -24,7 +24,6 @@ export default async function Post({ params }: PostProps) {
   if (!post) {
     return redirect("/");
   }
-  const _posts = await getAllPosts();
   return (
     <Stack as="main" px={{ initial: "16", md: "0" }}>
       <Box my="16">
@@ -45,7 +44,7 @@ export default async function Post({ params }: PostProps) {
 
       <Border className=" my-16" />
 
-      <PostRecommend />
+      <PostRecommend currentPostTitle={post.title} />
 
       <Box my="40">
         <PostDetailAuthorWithChar />
