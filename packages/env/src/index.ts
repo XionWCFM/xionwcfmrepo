@@ -1,4 +1,4 @@
-import { createEnv } from "@t3-oss/env-nextjs";
+import { createEnv } from "@t3-oss/env-core";
 import { z } from "zod";
 
 export const env = createEnv({
@@ -22,6 +22,7 @@ export const env = createEnv({
   shared: {
     NODE_ENV: z.enum(["development", "production", "test"]),
   },
+  clientPrefix: "NEXT_PUBLIC",
   runtimeEnv: {
     NEXT_PUBLIC_GOOGLE_CLIENT_ID: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,

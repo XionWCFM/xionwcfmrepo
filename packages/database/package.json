@@ -15,9 +15,9 @@
     "react-dom": "catalog:react18"
   },
   "devDependencies": {
-    "typescript": "^5.7.2",
+    "typescript": "^5.7.3",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.10.1"
+    "@types/node": "22.10.10"
   },
   "peerDependencies": {
     "@repo/env": "workspace:*",

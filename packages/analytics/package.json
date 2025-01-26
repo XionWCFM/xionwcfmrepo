@@ -7,17 +7,17 @@
     ".": "./src/index.tsx"
   },
   "dependencies": {
-    "@next/third-parties": "^15.0.3",
+    "@next/third-parties": "^15.1.6",
     "@repo/env": "workspace:*",
-    "posthog-js": "^1.194.2",
-    "posthog-node": "^4.3.1",
+    "posthog-js": "^1.210.2",
+    "posthog-node": "^4.4.1",
     "server-only": "^0.0.1",
     "react": "catalog:react18",
     "react-dom": "catalog:react18"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.10.1",
+    "@types/node": "22.10.10",
     "@types/react": "catalog:react18",
     "@types/react-dom": "catalog:react18"
   },
