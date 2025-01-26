@@ -1,6 +1,16 @@
 {
   "upgrade": true,
   "target": "latest",
-  "reject": ["tailwind-merge", "react", "react-dom", "@types/react", "@types/react-dom", "@biomejs/biome", "next"],
+  "reject": [
+    "tailwindcss",
+    "shiki",
+    "tailwind-merge",
+    "react",
+    "react-dom",
+    "@types/react",
+    "@types/react-dom",
+    "@biomejs/biome",
+    "next"
+  ],
   "deep": true
 }
