@@ -8,7 +8,7 @@ import { XionLinkedinIcon } from "../icon/XionLinkedInIcon";
 
 export const MainTitle = () => {
   return (
-    <Stack justify={"between"} px={"20"} py={"20"} className=" relative bg-primary-600 h-[450px]">
+    <Stack justify={"between"} px={"20"} py={"20"} className=" bg-primary-600 relative h-[450px]">
       <Paragraph as="h1" weight={"bold"} size={"10"} responsive={true} color={"neutral-50"}>
         {"FRONTEND DEVELOPER\nXIONWCFM"}
       </Paragraph>

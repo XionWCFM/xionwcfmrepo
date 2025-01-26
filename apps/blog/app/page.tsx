@@ -12,7 +12,7 @@ export default async function RootPage() {
 
   return (
     <>
-      <Stack className=" min-h-screen bg-neutral-50">
+      <Stack className=" min-h-screen bg-neutral-50 ">
         <StaticHeader />
         <Stack w={"100%"} justify={"center"} items={"center"}>
           <Stack w={"screen"} maxW={{ md: "768", xl: "1024" }}>
