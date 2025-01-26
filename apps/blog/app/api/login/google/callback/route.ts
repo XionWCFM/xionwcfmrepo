@@ -32,14 +32,13 @@ export async function GET(req: NextRequest) {
     const supabase = await createServerSupabaseAdminClient(cookie);
 
     const { error } = await supabase.from("users").upsert(
-      [
-        {
-          google_id: googleId,
-          gmail: email,
-          name,
-          picture: picture ?? null,
-        },
-      ],
+      {
+        google_id: googleId,
+        gmail: email,
+        name,
+        picture: picture ?? null,
+        role: "viewer",
+      },
       { onConflict: "google_id" },
     );
 
