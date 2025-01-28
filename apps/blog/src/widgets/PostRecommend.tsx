@@ -1,13 +1,15 @@
 import { Link } from "@repo/router/link";
 import { Flex, Paragraph, Stack } from "@xionwcfm/xds";
 import { shuffle } from "es-toolkit";
-import type { PostWithFrontmatterType } from "~/entities/post/model/post.model";
-import { getAllPosts } from "~/entities/post/model/post.service";
+import { cookies } from "next/headers";
+import { getAllPosts } from "~/entities/post/api/getAllPosts";
 import { ROUTES } from "~/shared/routes";
 
 export const PostRecommend = async (props: { currentPostTitle: string }) => {
   const { currentPostTitle } = props;
-  const posts = await getAllPosts();
+  const cookieStore = await cookies();
+  const posts = await getAllPosts(cookieStore);
+
   return (
     <Stack as="section" className="  bg-primary-alpha-200 ring-[1px] ring-primary-300  px-16 py-8 rounded-md">
       <Paragraph as="span" className=" mb-24 text-primary-600" size={"7"} weight={"bold"}>
@@ -17,7 +19,7 @@ export const PostRecommend = async (props: { currentPostTitle: string }) => {
         {createRecommendPosts(currentPostTitle, posts).map((post) => (
           <Link
             aria-label={post.title}
-            href={ROUTES.postDetail(post.filePath)}
+            href={ROUTES.postDetail([post.slug])}
             key={post.title}
             className=" hover:underline hover:underline-offset-4 peer active:scale-[0.998] transition-all duration-200"
           >
@@ -31,6 +33,6 @@ export const PostRecommend = async (props: { currentPostTitle: string }) => {
   );
 };
 
-const createRecommendPosts = (currentPostTitle: string, posts: PostWithFrontmatterType[]) => {
+const createRecommendPosts = <T extends { title: string }>(currentPostTitle: string, posts: T[]) => {
   return shuffle(posts.filter((item) => item.title !== currentPostTitle)).slice(0, 5);
 };

@@ -3,7 +3,8 @@ import { Box, Flex, Stack } from "@xionwcfm/xds";
 import { Chip } from "@xionwcfm/xds/chip";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
-import { getAllPosts, getPost } from "~/entities/post/model/post.service";
+import { getAllPosts } from "~/entities/post/api/getAllPosts";
+import { getPostBySlug } from "~/entities/post/api/getPostBySlug";
 import { PostDetailAuthorAndDate } from "~/entities/post/ui/post/PostDetailAuthorAndDate";
 import { PostDetailAuthorWithChar } from "~/entities/post/ui/post/PostDetailAuthorWithChar";
 import { PostDetailTitle } from "~/entities/post/ui/post/PostDetailTitle";
@@ -20,10 +21,12 @@ type PostProps = {
 
 export default async function Post({ params }: PostProps) {
   const slug = (await params).slug;
-  const post = await getPost(slug);
+  const post = await getPostBySlug(slug.join("/"));
+
   if (!post) {
     return redirect("/");
   }
+
   return (
     <Stack as="main" px={{ initial: "16", md: "0" }}>
       <Box my="16">
@@ -31,11 +34,11 @@ export default async function Post({ params }: PostProps) {
       </Box>
 
       <Flex>
-        <Chip>{post.categories}</Chip>
+        <Chip>{post.category}</Chip>
       </Flex>
 
       <Box my="16">
-        <PostDetailAuthorAndDate date={post.releaseDate} />
+        <PostDetailAuthorAndDate date={post.release_date} />
       </Box>
 
       <Border className=" my-16" />
@@ -57,11 +60,11 @@ export default async function Post({ params }: PostProps) {
 
 export const generateMetadata = async ({ params }: PostProps): Promise<Metadata> => {
   const slug = (await params).slug;
-  const post = await getPost(slug);
+  const post = await getPostBySlug(slug.join("/"));
   if (!post) {
     throw new Error("Post not found");
   }
-  const url = `${BASE_SITE_URL}/posts/${post.filePath.join("/")}`;
+  const url = `${BASE_SITE_URL}/posts/${post.slug}`;
   const metaData = createMetadata({ description: post.description, title: post.title, url });
   return metaData;
 };
@@ -69,7 +72,7 @@ export const generateMetadata = async ({ params }: PostProps): Promise<Metadata>
 export async function generateStaticParams() {
   const posts = await getAllPosts();
   return posts.map((post) => ({
-    slug: post.filePath,
+    slug: [post.slug],
   }));
 }
 
