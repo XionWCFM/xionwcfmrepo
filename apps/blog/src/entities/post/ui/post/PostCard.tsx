@@ -15,14 +15,14 @@ export const PostCard = (props: PostCardProps) => {
   const date = formatDate(post.releaseDate, "yyyy.MM.dd. HH:mm");
   const label = `ReadMore : ${post.title}`;
   return (
-    <Stack className="hover:opacity-80 hover:rounded-sm hover:bg-neutral-200 duration-200 transition-colors">
-      <Box px="8">
+    <Stack className=" py-16 px-12 transition-all rounded-[14px] duration-300 hover:opacity-80  hover:bg-neutral-200 active:opacity-56 active:scale-[0.99] ">
+      <Box>
         <Paragraph color={"gray-600"} size={"3"} responsive={true}>
           {post.categories}
         </Paragraph>
       </Box>
       <Link href={ROUTES.postDetail(post.filePath)} aria-label={label} title={label}>
-        <Stack px="8" pt="4" pb="8">
+        <Stack>
           <Paragraph
             as="h2"
             size={"6"}
