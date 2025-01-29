@@ -1,6 +1,7 @@
 import { MdxRemote } from "@repo/mdx";
 import { Box, Flex, Stack } from "@xionwcfm/xds";
 import { Chip } from "@xionwcfm/xds/chip";
+import { last } from "es-toolkit";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getAllPosts } from "~/entities/post/api/getAllPosts";
@@ -21,7 +22,8 @@ type PostProps = {
 
 export default async function Post({ params }: PostProps) {
   const slug = (await params).slug;
-  const post = await getPostBySlug(slug.join("/"));
+  const lastSlug = last(slug) ?? "";
+  const post = await getPostBySlug(lastSlug);
 
   if (!post) {
     return redirect("/");
@@ -60,11 +62,13 @@ export default async function Post({ params }: PostProps) {
 
 export const generateMetadata = async ({ params }: PostProps): Promise<Metadata> => {
   const slug = (await params).slug;
-  const post = await getPostBySlug(slug.join("/"));
+  const lastSlug = last(slug) ?? "";
+  const post = await getPostBySlug(lastSlug);
   if (!post) {
     throw new Error("Post not found");
   }
-  const url = `${BASE_SITE_URL}/posts/${post.slug}`;
+
+  const url = `${BASE_SITE_URL}/posts/${post.category}/${post.slug}`;
   const metaData = createMetadata({ description: post.description, title: post.title, url });
   return metaData;
 };
@@ -72,7 +76,7 @@ export const generateMetadata = async ({ params }: PostProps): Promise<Metadata>
 export async function generateStaticParams() {
   const posts = await getAllPosts();
   return posts.map((post) => ({
-    slug: [post.slug],
+    slug: [post.category, post.slug],
   }));
 }
 

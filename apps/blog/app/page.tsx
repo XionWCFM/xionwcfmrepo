@@ -38,7 +38,7 @@ export default async function RootPage() {
                     title={post.title}
                     category={post.category}
                     description={post.description}
-                    href={ROUTES.postDetail([post.slug])}
+                    href={ROUTES.postDetail([post.category, post.slug])}
                     authorNickname={AUTHOR_NICKNAME}
                     date={format(parseISO(post.release_date), "yyyy.MM.dd. HH:mm")}
                   />
