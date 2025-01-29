@@ -18,6 +18,44 @@ export type Database = {
         };
         Relationships: [];
       };
+      comment: {
+        Row: {
+          content: string;
+          created_at: string;
+          id: number;
+          is_deleted: boolean;
+          nickname: string;
+          post_id: number;
+          updated_at: string | null;
+        };
+        Insert: {
+          content?: string;
+          created_at?: string;
+          id?: number;
+          is_deleted: boolean;
+          nickname?: string;
+          post_id: number;
+          updated_at?: string | null;
+        };
+        Update: {
+          content?: string;
+          created_at?: string;
+          id?: number;
+          is_deleted?: boolean;
+          nickname?: string;
+          post_id?: number;
+          updated_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "comment_post_id_fkey";
+            columns: ["post_id"];
+            isOneToOne: false;
+            referencedRelation: "posts";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       likes: {
         Row: {
           created_at: string;
@@ -83,34 +121,37 @@ export type Database = {
       posts: {
         Row: {
           authority: Database["public"]["Enums"]["role"];
-          can_view: boolean;
+          category: string;
           content: string;
           created_at: string;
           description: string;
           id: number;
           release_date: string;
+          slug: string;
           thumbnail: string | null;
           title: string;
         };
         Insert: {
           authority: Database["public"]["Enums"]["role"];
-          can_view?: boolean;
+          category?: string;
           content?: string;
           created_at?: string;
           description?: string;
           id?: number;
           release_date?: string;
+          slug?: string;
           thumbnail?: string | null;
           title?: string;
         };
         Update: {
           authority?: Database["public"]["Enums"]["role"];
-          can_view?: boolean;
+          category?: string;
           content?: string;
           created_at?: string;
           description?: string;
           id?: number;
           release_date?: string;
+          slug?: string;
           thumbnail?: string | null;
           title?: string;
         };
