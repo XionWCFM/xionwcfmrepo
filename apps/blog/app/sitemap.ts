@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getAllPosts(cookieStore);
 
   const postUrls = posts.map((post) => ({
-    url: `${BASE_SITE_URL}${ROUTES.postDetail([post.slug])}`,
+    url: `${BASE_SITE_URL}${ROUTES.postDetail([post.category, post.slug])}`,
     lastModified: new Date(),
   }));
 
