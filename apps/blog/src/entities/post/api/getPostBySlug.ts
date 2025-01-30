@@ -1,9 +1,9 @@
 import "server-only";
 import { createServerSupabaseClient } from "@repo/database/server";
-import type { cookies } from "next/headers";
+import type { CookieStore } from "~/shared/types/cookieStore";
 
-export const getPostBySlug = async (slug: string, cookieStore?: Awaited<ReturnType<typeof cookies>>) => {
-  const supabase = await createServerSupabaseClient(cookieStore);
+export const getPostBySlug = async (slug: string, context?: { cookieStore?: CookieStore }) => {
+  const supabase = await createServerSupabaseClient(context?.cookieStore);
   const { data, error } = await supabase.from("posts").select("*").eq("slug", slug).single();
 
   if (error) {
