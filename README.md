@@ -40,42 +40,6 @@ next.js app router와 next-mdx-remotes를 기반으로 구성된 블로그 프�
 </div>
 
 
-### **[나는 메뚜기의 종류를 100가지 이상 알고있다.](https://grasshopper.xionwcfm.com/)**
-
-랜덤하게 주어지는 메뚜기의 사진을 토대로 올바른 선지를 맞춰나가는 퀴즈 사이트입니다.
-
-**[이 사이트에 방문해보세요!](https://grasshopper.xionwcfm.com/)**
-
-<br/>
-
-이 프로젝트를 구성하면서 저는
-
-- FSD 구조를 적용하여 각 기능들을 최대한 모듈화하고자 노력했어요
-
-- 어떻게하면 테스트하기 쉬운 구조를 만들 수 있을지 고민하면서 코드를 작성했어요
-
-- UI와 비즈니스 로직 간의 관심사를 최대한 분리하기 위해 노력했어요
-
-
-
-
-<div style="display: flex; justify-content: space-around;">
-  <img src="./.asset/grasshopper-1.webp" alt="grasshopper landing" width="33%">
-  <img src="./.asset/grasshopper-2.webp" alt="grasshopper problem" width="33%">
-  <img src="./.asset/grasshopper-3.webp" alt="grasshopper result" width="33%">
-</div>
-
----
-
-## Folder Structure
-
-- apps : configs, packages에게 의존 당하지 않는 프로젝트 코드들이 포함됩니다.
-
-- packages : apps 간 공유해서 사용할 수 있는 범용적인 코드조각들이 포함됩니다.
-
-- configs : typescript, tailwindcss 등 다양한 패키지에서 필요로하는 구성 설정이 포함됩니다.
-
----
 
 # CONVENTION
 
