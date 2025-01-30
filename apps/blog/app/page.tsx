@@ -11,10 +11,7 @@ import { StaticHeader } from "~/widgets/header/static-header";
 
 export default async function RootPage() {
   const rawPosts = await getAllPosts();
-  const posts = rawPosts
-    .filter((post) => post.authority === "viewer" && isAfter(new Date(), parseISO(post.release_date)))
-    .sort((a, b) => compareDesc(parseISO(a.release_date), parseISO(b.release_date)));
-
+  const posts = createCurrentPost(rawPosts);
   const currentPostTitle = `${AUTHOR_NICKNAME}의 최신 포스트 보기`;
 
   return (
@@ -52,3 +49,9 @@ export default async function RootPage() {
     </>
   );
 }
+
+const createCurrentPost = <T extends { authority?: string; release_date: string }>(posts: T[]) => {
+  return posts
+    .filter((post) => post.authority === "viewer" && isAfter(new Date(), parseISO(post.release_date)))
+    .sort((a, b) => compareDesc(parseISO(a.release_date), parseISO(b.release_date)));
+};

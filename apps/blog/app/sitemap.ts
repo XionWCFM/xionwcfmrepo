@@ -1,12 +1,10 @@
 import type { MetadataRoute } from "next";
-import { cookies } from "next/headers";
 import { getAllPosts } from "~/entities/post/api/getAllPosts";
 import { BASE_SITE_URL } from "~/shared/constants";
 import { ROUTES } from "~/shared/routes";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const cookieStore = await cookies();
-  const posts = await getAllPosts(cookieStore);
+  const posts = await getAllPosts();
 
   const postUrls = posts.map((post) => ({
     url: `${BASE_SITE_URL}${ROUTES.postDetail([post.category, post.slug])}`,

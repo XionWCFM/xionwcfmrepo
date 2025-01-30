@@ -1,14 +1,12 @@
 import { Link } from "@repo/router/link";
 import { Flex, Paragraph, Stack } from "@xionwcfm/xds";
 import { shuffle } from "es-toolkit";
-import { cookies } from "next/headers";
 import { getAllPosts } from "~/entities/post/api/getAllPosts";
 import { ROUTES } from "~/shared/routes";
 
 export const PostRecommend = async (props: { currentPostTitle: string }) => {
   const { currentPostTitle } = props;
-  const cookieStore = await cookies();
-  const posts = await getAllPosts(cookieStore);
+  const posts = await getAllPosts();
 
   return (
     <Stack as="section" className="  bg-primary-alpha-200 ring-[1px] ring-primary-300  px-16 py-8 rounded-md">
