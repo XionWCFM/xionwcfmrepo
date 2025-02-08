@@ -22,15 +22,17 @@
     "gen:p": "pnpm dlx tsx .cli/package.cts",
     "test:type": "turbo test:type",
     "generate-types": "turbo generate-types",
-    "plop": "plop"
+    "plop": "cross-env NODE_OPTIONS='--import tsx' plop --plopfile=plopfile.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@repo/typescript-config": "workspace:*",
+    "cross-env": "^7.0.3",
     "lefthook": "^1.10.10",
     "plop": "^4.0.1",
+    "tsx": "^4.19.2",
     "turbo": "^2.4.0",
     "typescript": "^5.7.3",
     "vitest": "^3.0.4"
