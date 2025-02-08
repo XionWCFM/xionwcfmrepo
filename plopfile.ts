@@ -87,4 +87,27 @@ export default function (plop: NodePlopAPI) {
       },
     ],
   });
+
+  plop.setGenerator("animation-component-generator", {
+    description: "애니메이션 컴포넌트 생성",
+    prompts: [
+      {
+        type: "input",
+        name: "folderName",
+        message: "생성할 컴포넌트의 이름을 입력하세요:",
+      },
+    ],
+    actions: [
+      {
+        type: "add",
+        path: "./apps/blog/src/shared/ui/animations/{{pascalCase folderName}}/{{pascalCase folderName}}.tsx",
+        templateFile: "./.templates/animation-component.tsx.hbs",
+      },
+      {
+        type: "add",
+        path: "./apps/blog/src/shared/ui/animations/{{pascalCase folderName}}/{{pascalCase folderName}}.css",
+        templateFile: "",
+      },
+    ],
+  });
 }
