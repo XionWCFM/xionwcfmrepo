@@ -4,7 +4,9 @@
   "private": true,
   "main": "./src/index.tsx",
   "exports": {
-    ".": "./src/index.tsx"
+    ".": "./src/index.tsx",
+    "./use-feature-flag": "./src/useFeatureFlag.ts",
+    "./ab-test": "./src/AbTest.tsx"
   },
   "dependencies": {
     "@next/third-parties": "^15.1.6",
