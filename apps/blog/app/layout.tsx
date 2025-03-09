@@ -3,10 +3,13 @@ import "@xionwcfm/xds/style";
 import "./globals.css";
 
 import { AnalyticsProvider } from "@repo/analytics";
+import { PostHogProvider } from "@repo/analytics/posthog/client";
 import { env } from "@repo/env";
 import { Pretendard } from "@repo/font";
+import { Suspense } from "@suspensive/react";
 import { Toaster } from "@xionwcfm/xds/toast";
 import type { Metadata } from "next";
+import { PosthogDevTools } from "~/shared/feature-flag/DevTools";
 import { AUTHOR_NAME, BASE_SITE_DESCRIPTION, BASE_SITE_TITLE, BASE_SITE_URL } from "../src/shared/constants";
 import { createMetadata } from "../src/shared/utils/external/create-meta-data";
 import AutoRefresh from "./auto-refresh";
@@ -31,10 +34,15 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={Pretendard.className}>
-        <AnalyticsProvider>
-          <AutoRefresh>{children}</AutoRefresh>
-          <Toaster visibleToasts={1} />
-        </AnalyticsProvider>
+        <Suspense>
+          <AnalyticsProvider>
+            <PostHogProvider>
+              <AutoRefresh>{children}</AutoRefresh>
+              <PosthogDevTools />
+              <Toaster visibleToasts={1} />
+            </PostHogProvider>
+          </AnalyticsProvider>
+        </Suspense>
       </body>
     </html>
   );

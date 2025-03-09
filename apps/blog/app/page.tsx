@@ -6,6 +6,7 @@ import { AUTHOR_NICKNAME } from "~/shared/constants";
 import { ROUTES } from "~/shared/routes";
 import { Border } from "~/shared/ui/common/Border";
 import { MainTitle } from "~/shared/ui/common/MainTitle";
+
 import { Footer } from "~/widgets/footer";
 import { StaticHeader } from "~/widgets/header/static-header";
 
@@ -45,6 +46,7 @@ export default async function RootPage() {
           </Stack>
         </Stack>
       </Stack>
+
       <Footer />
     </>
   );
