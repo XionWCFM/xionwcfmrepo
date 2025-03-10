@@ -8,7 +8,6 @@ import { Border } from "~/shared/ui/common/Border";
 import { MainTitle } from "~/shared/ui/common/MainTitle";
 
 import { Footer } from "~/widgets/footer";
-import { StaticHeader } from "~/widgets/header/static-header";
 
 export default async function RootPage() {
   const rawPosts = await getAllPosts();
@@ -18,7 +17,6 @@ export default async function RootPage() {
   return (
     <>
       <Stack className=" min-h-screen bg-neutral-50 ">
-        <StaticHeader />
         <Stack w={"100%"} justify={"center"} items={"center"}>
           <Stack w={"screen"} maxW={{ md: "768", xl: "1024" }}>
             <MainTitle />
