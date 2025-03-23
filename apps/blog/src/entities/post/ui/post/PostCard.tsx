@@ -1,4 +1,4 @@
-import { Box, Paragraph, Stack } from "@xionwcfm/xds";
+import { Box, Flex, Paragraph, Stack } from "@xionwcfm/xds";
 import Link from "next/link";
 
 type PostCardProps = {
@@ -17,29 +17,31 @@ export const PostCard = (props: PostCardProps) => {
   return (
     <Stack className=" py-16 px-12 transition-all rounded-[14px] duration-300 hover:opacity-80  hover:bg-neutral-200 active:opacity-56 active:scale-[0.99] ">
       <Box className="w-fit ">
-        <Paragraph color={"neutral-700"}>{category}</Paragraph>
+        <Paragraph color={"neutral-500"} size={"3"}>
+          {category}
+        </Paragraph>
       </Box>
       <Link href={href} aria-label={label} title={label}>
         <Stack>
           <Paragraph
             as="h2"
-            size={"6"}
+            size={"5"}
             color={"neutral-700"}
-            className=" max-w-[336px]  md:max-w-[700px] xl:max-w-[1000px]"
+            className=" max-w-[336px] md:max-w-[700px]"
             responsive={true}
             overflow={"ellipsis"}
           >
             {title}
           </Paragraph>
-          <Paragraph responsive={true} my="12" leading={"loose"} weight={"thin"} size={"4"} color={"neutral-600"}>
+          <Paragraph responsive={true} my="4" leading={"loose"} weight={"thin"} size={"2"} color={"neutral-600"}>
             {description}
           </Paragraph>
-          <Paragraph responsive={true} mt="4" size={"4"} weight={"medium"} color={"neutral-700"}>
-            {authorNickname}
-          </Paragraph>
-          <Paragraph responsive={true} as="time" size={"3"} weight={"thin"} color={"neutral-600"}>
-            {date}
-          </Paragraph>
+
+          <Flex className=" gap-x-4 items-center">
+            <Paragraph responsive={true} as="time" size={"1"} weight={"thin"} color={"neutral-600"}>
+              {`${date} - ${authorNickname}`}
+            </Paragraph>
+          </Flex>
         </Stack>
       </Link>
     </Stack>
