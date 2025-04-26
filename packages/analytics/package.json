@@ -11,15 +11,15 @@
     "./posthog/server": "./src/posthog/server.tsx"
   },
   "dependencies": {
-    "@next/third-parties": "^15.1.6",
+    "@next/third-parties": "15.3.1",
     "@repo/env": "workspace:*",
-    "server-only": "^0.0.1",
+    "server-only": "0.0.1",
     "react": "catalog:react18",
     "react-dom": "catalog:react18"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.10.10",
+    "@types/node": "22.15.2",
     "@types/react": "catalog:react18",
     "@types/react-dom": "catalog:react18"
   },

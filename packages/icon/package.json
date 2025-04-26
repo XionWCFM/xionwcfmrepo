@@ -17,11 +17,11 @@
     "@types/react": "catalog:react18",
     "@types/react-dom": "catalog:react18",
     "@repo/typescript-config": "workspace:*",
-    "tsup": "^8.3.6",
+    "tsup": "8.4.0",
     "typescript": "latest"
   },
   "peerDependencies": {
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18"
+    "react": ">=18",
+    "react-dom": ">=18"
   }
 }
