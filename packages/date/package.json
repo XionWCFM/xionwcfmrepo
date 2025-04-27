@@ -67,11 +67,11 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "date-fns": "^4.1.0",
-    "tsup": "^8.3.6",
-    "typescript": "latest"
+    "date-fns": "4.1.0",
+    "tsup": "8.4.0",
+    "typescript": "5.8.3"
   },
   "peerDependencies": {
-    "date-fns": "^3"
+    "date-fns": ">=3"
   }
 }

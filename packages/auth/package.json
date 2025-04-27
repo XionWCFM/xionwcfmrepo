@@ -9,15 +9,15 @@
   "scripts": {},
   "dependencies": {
     "@repo/database": "workspace:*",
-    "@types/jsonwebtoken": "^9.0.8",
-    "arctic": "^3.2.1",
-    "jose": "^5.9.6",
-    "jsonwebtoken": "^9.0.2"
+    "@types/jsonwebtoken": "9.0.9",
+    "arctic": "3.6.0",
+    "jose": "6.0.10",
+    "jsonwebtoken": "9.0.2"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.10.10",
-    "typescript": "^5.7.3"
+    "@types/node": "22.15.2",
+    "typescript": "5.8.3"
   },
   "peerDependencies": {
     "@repo/env": "workspace:*",

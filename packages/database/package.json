@@ -15,14 +15,14 @@
     "react-dom": "catalog:react18"
   },
   "devDependencies": {
-    "typescript": "^5.7.3",
+    "typescript": "5.8.3",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.10.10"
+    "@types/node": "22.15.2"
   },
   "peerDependencies": {
     "@repo/env": "workspace:*",
-    "@supabase/ssr": "^0.5.2",
-    "@supabase/supabase-js": "^2.46.2",
+    "@supabase/ssr": ">=0.5.2",
+    "@supabase/supabase-js": ">=2.46.2",
     "next": ">=15",
     "zod": ">=3"
   }
