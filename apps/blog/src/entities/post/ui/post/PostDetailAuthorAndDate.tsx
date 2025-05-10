@@ -1,7 +1,6 @@
-import { formatDate } from "@repo/date/format-date";
 import { Image } from "@repo/router/image";
 import { Paragraph, Stack } from "@xionwcfm/xds";
-
+import { format } from "date-fns";
 import { ASSET_XION_CIRCLE_LOGO_16_16 } from "~/shared/assets";
 import { AUTHOR_NAME } from "~/shared/constants";
 
@@ -10,7 +9,8 @@ type PostDetailAuthorAndDateProps = {
 };
 
 export const PostDetailAuthorAndDate = (props: PostDetailAuthorAndDateProps) => {
-  const date = formatDate(props.date, "yyyy.MM.dd. HH:mm");
+  const date = format(props.date, "yyyy.MM.dd. HH:mm");
+
   return (
     <Stack className="gap-x-16 gap-y-8 items-end">
       <Stack direction={"row"} gap={"4"} items={"center"}>

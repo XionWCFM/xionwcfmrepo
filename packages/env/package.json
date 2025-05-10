@@ -7,11 +7,11 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@t3-oss/env-core": "0.13.0"
+    "@t3-oss/env-core": "0.13.4"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.15.2",
+    "@types/node": "22.15.17",
     "typescript": "5.8.3"
   },
   "peerDependencies": {
