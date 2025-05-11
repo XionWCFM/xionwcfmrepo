@@ -1,7 +1,7 @@
 import { Link } from "@repo/router/link";
 import { Flex, Paragraph, Stack } from "@xionwcfm/xds";
 import { shuffle } from "es-toolkit";
-import { getAllPosts } from "~/entities/post/api/getAllPosts";
+import { getAllPosts } from "~/entities/post/libs/getAllPosts";
 import { ROUTES } from "~/shared/routes";
 
 export const PostRecommend = async (props: { currentPostTitle: string }) => {
