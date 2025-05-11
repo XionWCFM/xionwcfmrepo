@@ -11,7 +11,6 @@ import { Toaster } from "@xionwcfm/xds/toast";
 import type { Metadata } from "next";
 import { AUTHOR_NAME, BASE_SITE_DESCRIPTION, BASE_SITE_TITLE, BASE_SITE_URL } from "../src/shared/constants";
 import { createMetadata } from "../src/shared/utils/external/create-meta-data";
-import AutoRefresh from "./auto-refresh";
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -36,7 +35,7 @@ export default function RootLayout({
         <Suspense>
           <AnalyticsProvider>
             <PostHogProvider>
-              <AutoRefresh>{children}</AutoRefresh>
+              {children}
               <Toaster visibleToasts={1} />
             </PostHogProvider>
           </AnalyticsProvider>

@@ -11,7 +11,6 @@ import { Footer } from "~/widgets/footer";
 export default async function RootPage() {
   const rawPosts = await getAllPosts();
   const posts = createCurrentPost(rawPosts);
-
   return (
     <>
       <MainTitle />
