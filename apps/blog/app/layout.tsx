@@ -5,13 +5,12 @@ import "./globals.css";
 import { AnalyticsProvider } from "@repo/analytics";
 import { PostHogProvider } from "@repo/analytics/posthog/client";
 import { env } from "@repo/env";
-import { Pretendard } from "@repo/font";
 import { Suspense } from "@suspensive/react";
 import { Toaster } from "@xionwcfm/xds/toast";
 import type { Metadata } from "next";
+import { Pretendard } from "../src/shared/assets/fonts";
 import { AUTHOR_NAME, BASE_SITE_DESCRIPTION, BASE_SITE_TITLE, BASE_SITE_URL } from "../src/shared/constants";
 import { createMetadata } from "../src/shared/utils/external/create-meta-data";
-import AutoRefresh from "./auto-refresh";
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -36,7 +35,7 @@ export default function RootLayout({
         <Suspense>
           <AnalyticsProvider>
             <PostHogProvider>
-              <AutoRefresh>{children}</AutoRefresh>
+              {children}
               <Toaster visibleToasts={1} />
             </PostHogProvider>
           </AnalyticsProvider>

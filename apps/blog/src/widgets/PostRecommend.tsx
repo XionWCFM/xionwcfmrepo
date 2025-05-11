@@ -1,8 +1,7 @@
 import { Link } from "@repo/router/link";
 import { Flex, Paragraph, Stack } from "@xionwcfm/xds";
 import { shuffle } from "es-toolkit";
-import { getAllPosts } from "~/entities/post/api/getAllPosts";
-import { ROUTES } from "~/shared/routes";
+import { getAllPosts } from "~/entities/post/libs/getAllPosts";
 
 export const PostRecommend = async (props: { currentPostTitle: string }) => {
   const { currentPostTitle } = props;
@@ -17,7 +16,7 @@ export const PostRecommend = async (props: { currentPostTitle: string }) => {
         {createRecommendPosts(currentPostTitle, posts).map((post) => (
           <Link
             aria-label={post.title}
-            href={ROUTES.postDetail([post.slug])}
+            href={`/posts/${post.filePath.join("/")}`}
             key={post.title}
             className=" hover:underline hover:underline-offset-4 peer active:scale-[0.998] transition-all duration-200"
           >

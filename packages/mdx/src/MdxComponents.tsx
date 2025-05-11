@@ -94,7 +94,7 @@ export const MdxComponents: tmdxComponents = {
     <td className={"border px-8 py-4 text-left [&[align=center]]:text-center [&[align=right]]:text-right"} {...props} />
   ),
   strong: ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => (
-    <span className={"text-primary-600 font-bold"} {...props} />
+    <span className={" text-neutral-700 font-bold"} {...props} />
   ),
   CallOut: CallOut,
 };

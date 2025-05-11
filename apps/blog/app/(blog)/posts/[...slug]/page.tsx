@@ -1,11 +1,9 @@
 import { MdxRemote } from "@repo/mdx";
 import { Box, Flex, Stack } from "@xionwcfm/xds";
 import { Chip } from "@xionwcfm/xds/chip";
-import { last } from "es-toolkit";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
-import { getAllPosts } from "~/entities/post/api/getAllPosts";
-import { getPostBySlug } from "~/entities/post/api/getPostBySlug";
+import { getPost } from "~/entities/post/libs/getAllPosts";
 import { PostDetailAuthorAndDate } from "~/entities/post/ui/post/PostDetailAuthorAndDate";
 import { PostDetailAuthorWithChar } from "~/entities/post/ui/post/PostDetailAuthorWithChar";
 import { PostDetailTitle } from "~/entities/post/ui/post/PostDetailTitle";
@@ -23,8 +21,7 @@ type PostProps = {
 
 export default async function Post({ params }: PostProps) {
   const slug = (await params).slug;
-  const lastSlug = last(slug) ?? "";
-  const post = await getPostBySlug(lastSlug);
+  const post = await getPost(slug);
 
   if (!post) {
     return redirect("/");
@@ -42,7 +39,7 @@ export default async function Post({ params }: PostProps) {
         </Flex>
 
         <Box my="16">
-          <PostDetailAuthorAndDate date={post.release_date} />
+          <PostDetailAuthorAndDate date={post.createdAt} />
         </Box>
 
         <Border className=" my-16" />
@@ -65,22 +62,12 @@ export default async function Post({ params }: PostProps) {
 
 export const generateMetadata = async ({ params }: PostProps): Promise<Metadata> => {
   const slug = (await params).slug;
-  const lastSlug = last(slug) ?? "";
-  const post = await getPostBySlug(lastSlug);
+  const post = await getPost(slug);
   if (!post) {
     throw new Error("Post not found");
   }
 
-  const url = `${BASE_SITE_URL}/posts/${post.category}/${post.slug}`;
+  const url = `${BASE_SITE_URL}/posts/${post.filePath}`;
   const metaData = createMetadata({ description: post.description, title: post.title, url });
   return metaData;
 };
-
-export async function generateStaticParams() {
-  const posts = await getAllPosts();
-  return posts.map((post) => ({
-    slug: [post.category, post.slug],
-  }));
-}
-
-export const dynamic = "force-static";

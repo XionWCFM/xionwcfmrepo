@@ -2,7 +2,6 @@ import { Image } from "@repo/router/image";
 
 import { Flex, Paragraph, Stack } from "@xionwcfm/xds";
 import { ASSET_XION_CHAR_WHITE } from "~/shared/assets";
-import { XionEmailIcon } from "../icon/XionEmailIcon";
 import { XionGithubLogoIcon } from "../icon/XionGithubIcon";
 import { XionLinkedinIcon } from "../icon/XionLinkedInIcon";
 
@@ -21,7 +20,6 @@ export const MainTitle = () => {
           <Flex className=" mt-16 gap-x-8 h-fit">
             <XionLinkedinIcon className=" text-neutral-50" />
             <XionGithubLogoIcon className=" text-neutral-50" />
-            <XionEmailIcon className="  text-neutral-50" />
           </Flex>
         </Stack>
       </Flex>
