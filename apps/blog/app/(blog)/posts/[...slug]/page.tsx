@@ -8,6 +8,7 @@ import { PostDetailAuthorAndDate } from "~/entities/post/ui/post/PostDetailAutho
 import { PostDetailAuthorWithChar } from "~/entities/post/ui/post/PostDetailAuthorWithChar";
 import { PostDetailTitle } from "~/entities/post/ui/post/PostDetailTitle";
 import { BASE_SITE_URL } from "~/shared/constants";
+import { getPostPaths } from "~/shared/routes/createRoutes";
 import FadeContent from "~/shared/ui/animations/FadeContent/FadeContent";
 import { Border } from "~/shared/ui/common/Border";
 import { createMetadata } from "~/shared/utils/external/create-meta-data";
@@ -71,3 +72,12 @@ export const generateMetadata = async ({ params }: PostProps): Promise<Metadata>
   const metaData = createMetadata({ description: post.description, title: post.title, url });
   return metaData;
 };
+
+export const generateStaticParams = async () => {
+  const posts = getPostPaths();
+  return posts.map((post) => ({
+    slug: post.replace("/posts/", "").split("/"),
+  }));
+};
+
+export const dynamic = "force-static";
