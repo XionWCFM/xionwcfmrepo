@@ -1,5 +1,4 @@
 "use client";
-import {} from "posthog-js";
 import type { ReactNode } from "react";
 import { ClarityScript } from "./clarity";
 import { GoogleAnalyticsScript } from "./google";

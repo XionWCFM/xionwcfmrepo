@@ -25,8 +25,6 @@
   },
   "peerDependencies": {
     "next": ">=15",
-    "react": "catalog:react18",
-    "posthog-js": ">=1.2",
-    "posthog-node": ">=4.4"
+    "react": "catalog:react18"
   }
 }
