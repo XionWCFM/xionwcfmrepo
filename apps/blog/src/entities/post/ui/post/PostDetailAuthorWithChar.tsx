@@ -1,6 +1,6 @@
 import { Image } from "@repo/router";
 import { Link } from "@repo/router";
-import { Paragraph, Stack } from "@xionwcfm/xds";
+import { Flex, Paragraph } from "@xionwcfm/xds";
 
 import { ASSET_XION_CHAR_GRAY } from "~/shared/assets";
 import { AUTHOR_DESCRIPTION, AUTHOR_NAME } from "~/shared/constants";
@@ -10,12 +10,17 @@ import { XionGithubLogoIcon } from "~/shared/ui/icon/XionGithubIcon";
 import { XionLinkedinIcon } from "~/shared/ui/icon/XionLinkedInIcon";
 export const PostDetailAuthorWithChar = () => {
   return (
-    <Stack direction={"row"} gap={"16"}>
+    <Flex className=" gap-[16px]">
       <Image {...ASSET_XION_CHAR_GRAY} />
-      <Stack justify={"between"}>
-        <Stack gap={"12"}>
+      <Flex className=" flex-col justify-between">
+        <Flex className=" flex-col gap-[12px]">
           <Link href={ROUTES.root()} aria-label={"navigate root route"}>
-            <Paragraph weight={"bold"} color={"neutral-600"} size={"6"}>
+            <Paragraph
+              className=" text-size-6 bg-neutral-600 font-bold"
+              weight={"bold"}
+              color={"neutral-600"}
+              size={"6"}
+            >
               {AUTHOR_NAME}
             </Paragraph>
           </Link>
@@ -23,14 +28,14 @@ export const PostDetailAuthorWithChar = () => {
           <Paragraph size={"4"} weight={"thin"} color={"neutral-600"}>
             {AUTHOR_DESCRIPTION}
           </Paragraph>
-        </Stack>
+        </Flex>
 
-        <Stack direction={"row"} gap={"12"}>
+        <Flex className=" gap-[12px]">
           <XionGithubLogoIcon />
           <XionLinkedinIcon />
           <XionEmailIcon />
-        </Stack>
-      </Stack>
-    </Stack>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 };

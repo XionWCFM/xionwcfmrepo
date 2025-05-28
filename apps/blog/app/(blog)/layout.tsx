@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <Flex className=" flex-col min-h-screen">
       <InteractiveHeader />
-      <Spacing className="bg-neutral-50 h-48" />
+      <Spacing className="bg-neutral-50 h-[48px]" />
       <Flex className=" flex-col overflow-hidden w-screen items-center">
         <Flex className=" flex-col w-screen max-w-[768px]">{children}</Flex>
       </Flex>

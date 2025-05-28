@@ -1,4 +1,4 @@
-import { Stack } from "@xionwcfm/xds";
+import { Flex } from "@xionwcfm/xds";
 import { getAllPosts } from "~/entities/post/libs/getAllPosts";
 import { PostCard } from "~/entities/post/ui/post/PostCard";
 import { AUTHOR_NICKNAME } from "~/shared/constants";
@@ -12,16 +12,16 @@ export default async function RootPage() {
   return (
     <>
       <MainTitle />
-      <Stack className=" w-full items-center">
-        <Stack className=" max-w-[768px]">
-          <Stack my={"28"} gap={"16"}>
+      <Flex className=" flex-col w-full items-center">
+        <Flex className=" flex-col max-w-[768px]">
+          <Flex className=" flex-col my-[28px] gap-[16px]">
             {rawPosts.map((post) => (
               <PostCard key={post.title} {...createPostCardViewModel(post)} />
             ))}
-          </Stack>
+          </Flex>
           <Footer />
-        </Stack>
-      </Stack>
+        </Flex>
+      </Flex>
     </>
   );
 }

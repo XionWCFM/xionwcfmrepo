@@ -1,5 +1,5 @@
 import { Link } from "@repo/router";
-import { Flex, Paragraph, Stack } from "@xionwcfm/xds";
+import { Flex, Paragraph } from "@xionwcfm/xds";
 import { shuffle } from "es-toolkit";
 import { getAllPosts } from "~/entities/post/libs/getAllPosts";
 
@@ -8,11 +8,14 @@ export const PostRecommend = async (props: { currentPostTitle: string }) => {
   const posts = await getAllPosts();
 
   return (
-    <Stack as="section" className="  bg-primary-alpha-200 ring-[1px] ring-primary-300  px-16 py-8 rounded-md">
-      <Paragraph as="span" className=" mb-24 text-primary-600" size={"7"} weight={"bold"}>
+    <Flex
+      as="section"
+      className=" flex-col  bg-primary-alpha-200 ring-[1px] ring-primary-300  px-[16px] py-[8px] rounded-md"
+    >
+      <Paragraph as="span" className=" mb-[24px] text-primary-600" size={"7"} weight={"bold"}>
         이런 글은 어때요?
       </Paragraph>
-      <Stack className="overflow-x-scroll gap-y-16">
+      <Flex className=" flex-col overflow-x-scroll gap-y-[16px]">
         {createRecommendPosts(currentPostTitle, posts).map((post) => (
           <Link
             aria-label={post.title}
@@ -25,8 +28,8 @@ export const PostRecommend = async (props: { currentPostTitle: string }) => {
             </Flex>
           </Link>
         ))}
-      </Stack>
-    </Stack>
+      </Flex>
+    </Flex>
   );
 };
 

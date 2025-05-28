@@ -1,4 +1,4 @@
-import { Paragraph, Stack } from "@xionwcfm/xds";
+import { Flex, Paragraph } from "@xionwcfm/xds";
 import type { MDXComponents as tmdxComponents } from "mdx/types";
 import Image from "next/image";
 import type { AnchorHTMLAttributes, HTMLAttributes, ReactNode } from "react";
@@ -23,7 +23,7 @@ export const MdxComponents: tmdxComponents = {
   ),
   img: (props) => {
     return (
-      <Stack my="16" as={"span"} items={"center"} className=" relative w-full h-256 md:h-512">
+      <Flex my="16" as={"span"} items={"center"} className=" flex-col relative w-full h-256 md:h-512">
         <Image
           className=" transition-all duration-200 rounded-md hover:opacity-70"
           src={props.src ?? ""}
@@ -33,7 +33,7 @@ export const MdxComponents: tmdxComponents = {
           objectFit="contain"
           fill={true}
         />
-      </Stack>
+      </Flex>
     );
   },
   h1: ({ className, color, ...props }: HeadingProps) => (
