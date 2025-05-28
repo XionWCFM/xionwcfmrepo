@@ -5,14 +5,9 @@ import matter from "gray-matter";
 
 const __dirname = process.cwd();
 
-const asyncReadFileStat = async (filePath: string, { cwd }: { cwd: string }) => {
-  const file = await fg(filePath, { cwd });
+const asyncReadFileStat = async (filePath: string) => {
   return new Promise<fs.Stats>((resolve, reject) => {
-    if (!file[0]) {
-      reject(new Error("File not found"));
-    }
-
-    fs.stat(path.join(cwd, file[0]!), (err, stats) => {
+    fs.stat(filePath, (err, stats) => {
       if (err) {
         reject(err);
       }
@@ -21,12 +16,8 @@ const asyncReadFileStat = async (filePath: string, { cwd }: { cwd: string }) => 
   });
 };
 
-const asyncReadFile = async (filePath: string, { cwd }: { cwd: string }) => {
-  const file = await fg(filePath, { cwd });
-  if (!file[0]) {
-    throw new Error("File not found");
-  }
-  return fs.promises.readFile(path.join(cwd, file[0]!), "utf8");
+const asyncReadFile = async (filePath: string) => {
+  return fs.promises.readFile(filePath, "utf8");
 };
 
 export class MdxRepository<T> {
@@ -96,14 +87,21 @@ export class MdxRepository<T> {
     return sorted;
   }
 
-  async getFileByFileName(fileName: string) {
-    const fileNameWithExt = fileName.endsWith(".mdx") ? fileName : `${fileName}.mdx`;
+  async getFileByFileName(inputFileName: string) {
+    const fileNameWithExt = inputFileName.endsWith(".mdx") ? inputFileName : `${inputFileName}.mdx`;
     const globFile = `**/${fileNameWithExt}`;
-    const [file, stats] = await Promise.all([
-      asyncReadFile(globFile, { cwd: this.rootDir }),
-      asyncReadFileStat(globFile, { cwd: this.rootDir }),
-    ]);
-    return { file, stats };
+    const result = await fg(globFile, { cwd: this.rootDir });
+    if (!result[0]) {
+      throw new Error("File not found");
+    }
+    const finalPath = path.join(this.rootDir, result[0]);
+    const [file, stats] = await Promise.all([asyncReadFile(finalPath), asyncReadFileStat(finalPath)]);
+
+    const fullPath = `${"/"}${result[0].replace(/\\/g, "/")}`;
+    const fileName = path.basename(result[0]).replace(/\.mdx$/, "");
+    const dirPath = `${"/"}${path.dirname(result[0]).replace(/\\/g, "/")}`;
+
+    return { file, stats, fullPath, fileName, path: dirPath };
   }
 
   readFileByName(fileName: string) {
@@ -127,8 +125,8 @@ export class MdxRepository<T> {
     };
   }
 
-  async compileMdxByFileName(fileName: string) {
-    const { file, stats } = await this.getFileByFileName(fileName);
+  async compileMdxByFileName(inputFileName: string) {
+    const { file, stats, fullPath, fileName, path } = await this.getFileByFileName(inputFileName);
     const result = matter(file);
     return {
       frontmatter: this.validate(result.data),
@@ -136,6 +134,9 @@ export class MdxRepository<T> {
         updatedAt: stats.mtime.toISOString(),
         createdAt: stats.birthtime.toISOString(),
       },
+      fullPath,
+      fileName,
+      path,
       code: result.content,
     };
   }

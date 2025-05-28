@@ -6,5 +6,7 @@ const contentsDir = "contents";
 export const contentsRepository = new MdxRepository({
   globPattern: "**/*.mdx",
   rootDir: contentsDir,
-  validate: (value) => contentSchema.parse(value),
+  validate: (value) => {
+    return contentSchema.parse(value);
+  },
 });
