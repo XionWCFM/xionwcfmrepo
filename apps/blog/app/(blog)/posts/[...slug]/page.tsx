@@ -1,4 +1,3 @@
-import { MdxRemote } from "@repo/mdx";
 import { Box, Flex, Stack } from "@xionwcfm/xds";
 import { Chip } from "@xionwcfm/xds/chip";
 import type { Metadata } from "next";
@@ -8,6 +7,7 @@ import { PostDetailAuthorAndDate } from "~/entities/post/ui/post/PostDetailAutho
 import { PostDetailAuthorWithChar } from "~/entities/post/ui/post/PostDetailAuthorWithChar";
 import { PostDetailTitle } from "~/entities/post/ui/post/PostDetailTitle";
 import { BASE_SITE_URL } from "~/shared/constants";
+import { MdxRemote } from "~/shared/packages/mdx/MdxRemote";
 import { getPostPaths } from "~/shared/routes/createRoutes";
 import FadeContent from "~/shared/ui/animations/FadeContent/FadeContent";
 import { Border } from "~/shared/ui/common/Border";
@@ -45,7 +45,7 @@ export default async function Post({ params }: PostProps) {
 
         <Border className=" my-16" />
 
-        <MdxRemote source={post.content} />
+        <MdxRemote mdx={post.content} />
 
         <Border className=" my-16" />
 

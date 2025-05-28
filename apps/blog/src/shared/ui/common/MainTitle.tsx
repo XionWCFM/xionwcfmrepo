@@ -1,4 +1,4 @@
-import { Image } from "@repo/router/image";
+import { Image } from "@repo/router";
 
 import { Flex, Paragraph, Stack } from "@xionwcfm/xds";
 import { ASSET_XION_CHAR_WHITE } from "~/shared/assets";

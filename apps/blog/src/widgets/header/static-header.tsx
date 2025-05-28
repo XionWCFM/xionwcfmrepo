@@ -1,6 +1,5 @@
 "use client";
-import { Image } from "@repo/router/image";
-import { Link } from "@repo/router/link";
+import { Image, Link } from "@repo/router";
 import { Stack } from "@xionwcfm/xds";
 import { ASSET_XION_BOX_LOGO_48_16 } from "~/shared/assets";
 import { ROUTES } from "~/shared/routes";

@@ -1,4 +1,4 @@
-import { Link } from "@repo/router/link";
+import { Link } from "@repo/router";
 import { Flex, Paragraph, Stack } from "@xionwcfm/xds";
 import { shuffle } from "es-toolkit";
 import { getAllPosts } from "~/entities/post/libs/getAllPosts";

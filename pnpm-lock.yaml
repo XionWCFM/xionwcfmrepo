@@ -62,9 +62,15 @@ importers:
       '@hookform/resolvers':
         specifier: 5.0.1
         version: 5.0.1(react-hook-form@7.56.4(react@19.0.0))
+      '@mdx-js/loader':
+        specifier: 3.1.0
+        version: 3.1.0(acorn@8.14.0)(webpack@5.94.0(esbuild@0.25.3))
       '@mdx-js/mdx':
         specifier: 3.1.0
         version: 3.1.0(acorn@8.14.0)
+      '@mdx-js/react':
+        specifier: 3.1.0
+        version: 3.1.0(@types/react@18.3.12)(react@19.0.0)
       '@next/third-parties':
         specifier: 15.3.2
         version: 15.3.2(next@15.3.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
@@ -83,9 +89,6 @@ importers:
       '@repo/env':
         specifier: workspace:*
         version: link:../../packages/env
-      '@repo/mdx':
-        specifier: workspace:*
-        version: link:../../packages/mdx
       '@repo/router':
         specifier: workspace:*
         version: link:../../packages/router
@@ -98,6 +101,9 @@ importers:
       '@suspensive/react':
         specifier: 3.2.1
         version: 3.2.1(react@19.0.0)
+      '@types/mdx':
+        specifier: 2.0.13
+        version: 2.0.13
       '@xionwcfm/react':
         specifier: 0.1.3
         version: 0.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -126,7 +132,7 @@ importers:
         specifier: 1.38.0
         version: 1.38.0
       gray-matter:
-        specifier: ^4.0.3
+        specifier: 4.0.3
         version: 4.0.3
       ky:
         specifier: 1.8.1
@@ -152,6 +158,21 @@ importers:
       react-hook-form:
         specifier: 7.56.4
         version: 7.56.4(react@19.0.0)
+      rehype-autolink-headings:
+        specifier: 7.1.0
+        version: 7.1.0
+      rehype-pretty-code:
+        specifier: 0.14.1
+        version: 0.14.1(shiki@1.24.0)
+      rehype-slug:
+        specifier: 6.0.0
+        version: 6.0.0
+      remark-breaks:
+        specifier: 4.0.0
+        version: 4.0.0
+      remark-gfm:
+        specifier: 4.0.1
+        version: 4.0.1
       zod:
         specifier: 3.25.7
         version: 3.25.7
@@ -396,6 +417,9 @@ importers:
       class-variance-authority:
         specifier: '>=0.0.1'
         version: 0.7.1
+      gray-matter:
+        specifier: 4.0.3
+        version: 4.0.3
       markdown-wasm:
         specifier: 1.2.0
         version: 1.2.0
@@ -452,10 +476,10 @@ importers:
   packages/router:
     dependencies:
       next:
-        specifier: '>=15'
+        specifier: ^15
         version: 15.3.1(@babel/core@7.26.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react:
-        specifier: '>=18'
+        specifier: ^18 || ^19
         version: 19.0.0
     devDependencies:
       '@repo/typescript-config':
@@ -6187,6 +6211,16 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  '@mdx-js/loader@3.1.0(acorn@8.14.0)(webpack@5.94.0(esbuild@0.25.3))':
+    dependencies:
+      '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
+      source-map: 0.7.4
+    optionalDependencies:
+      webpack: 5.94.0(esbuild@0.25.3)
+    transitivePeerDependencies:
+      - acorn
+      - supports-color
+
   '@mdx-js/loader@3.1.0(acorn@8.14.0)(webpack@5.94.0)':
     dependencies:
       '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
@@ -10930,6 +10964,18 @@ snapshots:
       mkdirp: 3.0.1
       yallist: 5.0.0
 
+  terser-webpack-plugin@5.3.10(esbuild@0.25.3)(webpack@5.94.0(esbuild@0.25.3)):
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.25
+      jest-worker: 27.5.1
+      schema-utils: 3.3.0
+      serialize-javascript: 6.0.2
+      terser: 5.36.0
+      webpack: 5.94.0(esbuild@0.25.3)
+    optionalDependencies:
+      esbuild: 0.25.3
+    optional: true
+
   terser-webpack-plugin@5.3.10(webpack@5.94.0):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
@@ -11433,6 +11479,37 @@ snapshots:
       schema-utils: 3.3.0
       tapable: 2.2.1
       terser-webpack-plugin: 5.3.10(webpack@5.94.0)
+      watchpack: 2.4.2
+      webpack-sources: 3.2.3
+    transitivePeerDependencies:
+      - '@swc/core'
+      - esbuild
+      - uglify-js
+    optional: true
+
+  webpack@5.94.0(esbuild@0.25.3):
+    dependencies:
+      '@types/estree': 1.0.7
+      '@webassemblyjs/ast': 1.14.1
+      '@webassemblyjs/wasm-edit': 1.14.1
+      '@webassemblyjs/wasm-parser': 1.14.1
+      acorn: 8.14.0
+      acorn-import-attributes: 1.9.5(acorn@8.14.0)
+      browserslist: 4.24.2
+      chrome-trace-event: 1.0.4
+      enhanced-resolve: 5.18.1
+      es-module-lexer: 1.7.0
+      eslint-scope: 5.1.1
+      events: 3.3.0
+      glob-to-regexp: 0.4.1
+      graceful-fs: 4.2.11
+      json-parse-even-better-errors: 2.3.1
+      loader-runner: 4.3.0
+      mime-types: 2.1.35
+      neo-async: 2.6.2
+      schema-utils: 3.3.0
+      tapable: 2.2.1
+      terser-webpack-plugin: 5.3.10(esbuild@0.25.3)(webpack@5.94.0(esbuild@0.25.3))
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
