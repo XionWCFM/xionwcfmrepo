@@ -1,5 +1,5 @@
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import { env } from "@repo/env";
+import { env } from "../env";
 
 export const GoogleAnalyticsScript = () => {
   return (
