@@ -216,18 +216,12 @@ importers:
       happy-dom:
         specifier: 17.5.6
         version: 17.5.6
-      markdown-wasm:
-        specifier: 1.2.0
-        version: 1.2.0
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
       postcss:
         specifier: 8.5.3
         version: 8.5.3
-      react-fast-marquee:
-        specifier: 1.6.5
-        version: 1.6.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       sharp:
         specifier: 0.34.2
         version: 0.34.2
@@ -3769,9 +3763,6 @@ packages:
   markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
 
-  markdown-wasm@1.2.0:
-    resolution: {integrity: sha512-S12OTkyXCkOgI1n1rZY9cg4bK/PGu80Emjpvwp8BEjwCxhPV3yddF0U6+QhCitdBsI1tzWcoeahmW7k0Pq81OA==}
-
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
@@ -4400,12 +4391,6 @@ packages:
     resolution: {integrity: sha512-gdlJjD7NWr0IfkPlaREN2d9uUZUlksrfOx7SX62VRerwXbMY6ftGCIZua1VG1aXFNOimhISsTq+Owp725b9SiA==}
     peerDependencies:
       react: '>=16.13.1'
-
-  react-fast-marquee@1.6.5:
-    resolution: {integrity: sha512-swDnPqrT2XISAih0o74zQVE2wQJFMvkx+9VZXYYNSLb/CUcAzU9pNj637Ar2+hyRw6b4tP6xh4GQZip2ZCpQpg==}
-    peerDependencies:
-      react: '>= 16.8.0 || ^18.0.0'
-      react-dom: '>= 16.8.0 || ^18.0.0'
 
   react-github-calendar@4.5.7:
     resolution: {integrity: sha512-R1VBhSMM6NTeKkpvlHaAnIue1XPHhGHx6RpnyIfT7p1lq9PpNsIgwYGZ5I8FhX+J/F4ps+DAPMr+qdYj7lzQWQ==}
@@ -9108,8 +9093,6 @@ snapshots:
 
   markdown-table@3.0.3: {}
 
-  markdown-wasm@1.2.0: {}
-
   math-intrinsics@1.1.0: {}
 
   mdast-util-find-and-replace@3.0.1:
@@ -10024,11 +10007,6 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.26.0
       react: 19.0.0
-
-  react-fast-marquee@1.6.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
-    dependencies:
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
 
   react-github-calendar@4.5.7(react@19.0.0):
     dependencies:
