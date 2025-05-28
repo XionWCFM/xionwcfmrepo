@@ -72,12 +72,11 @@ export const generateMetadata = async ({ params }: PostProps): Promise<Metadata>
   return metaData;
 };
 
-export const generateStaticParams = async () => {
-  // const posts = getPostPaths();
-  // return posts.map((post) => ({
-  //   slug: post.replace("/posts/", "").split("/"),
-  // }));
-  return [{ slug: [""] }];
-};
+// export const generateStaticParams = async () => {
+//   const posts = getPostPaths();
+//   return posts.map((post) => ({
+//     slug: post.replace("/posts/", "").split("/"),
+//   }));
+// };
 
 export const dynamic = "force-static";
