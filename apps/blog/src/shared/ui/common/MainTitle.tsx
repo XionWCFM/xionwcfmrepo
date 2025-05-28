@@ -7,7 +7,7 @@ import { XionLinkedinIcon } from "../icon/XionLinkedInIcon";
 
 export const MainTitle = () => {
   return (
-    <Flex className=" flex-col justify-between p-[20px] w-full items-center bg-primary-600 relative h-[450px]">
+    <Flex className=" flex-col justify-between p-[20px] w-full items-center bg-primary-600 relative">
       <Flex className=" w-full  max-w-1440 justify-between">
         <Flex className=" flex-col">
           <Paragraph className=" mb-[8px]" as="h1" weight={"bold"} size={"10"} responsive={true} color={"neutral-50"}>
