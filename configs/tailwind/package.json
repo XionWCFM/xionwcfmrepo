@@ -24,7 +24,7 @@
   "devDependencies": {
     "@repo/tsup-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "tsup": "8.4.0"
+    "tsup": "8.5.0"
   },
   "peerDependencies": {
     "tailwindcss-animate": ">=0.0.0",

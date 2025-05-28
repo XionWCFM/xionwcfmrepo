@@ -19,14 +19,12 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.15.17",
+    "@types/node": "22.15.19",
     "@types/react": "catalog:react18",
     "@types/react-dom": "catalog:react18"
   },
   "peerDependencies": {
     "next": ">=15",
-    "react": "catalog:react18",
-    "posthog-js": ">=1.2",
-    "posthog-node": ">=4.4"
+    "react": "catalog:react18"
   }
 }

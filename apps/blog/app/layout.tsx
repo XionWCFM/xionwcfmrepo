@@ -3,7 +3,6 @@ import "@xionwcfm/xds/style";
 import "./globals.css";
 
 import { AnalyticsProvider } from "@repo/analytics";
-import { PostHogProvider } from "@repo/analytics/posthog/client";
 import { env } from "@repo/env";
 import { Suspense } from "@suspensive/react";
 import { Toaster } from "@xionwcfm/xds/toast";
@@ -34,10 +33,8 @@ export default function RootLayout({
       <body className={Pretendard.className}>
         <Suspense>
           <AnalyticsProvider>
-            <PostHogProvider>
-              {children}
-              <Toaster visibleToasts={1} />
-            </PostHogProvider>
+            {children}
+            <Toaster visibleToasts={1} />
           </AnalyticsProvider>
         </Suspense>
       </body>

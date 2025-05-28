@@ -1,5 +1,5 @@
-import { Image } from "@repo/router/image";
-import { Paragraph, Stack } from "@xionwcfm/xds";
+import { Image } from "@repo/router";
+import { Flex, Paragraph } from "@xionwcfm/xds";
 import { format } from "date-fns";
 import { ASSET_XION_CIRCLE_LOGO_16_16 } from "~/shared/assets";
 import { AUTHOR_NAME } from "~/shared/constants";
@@ -12,16 +12,14 @@ export const PostDetailAuthorAndDate = (props: PostDetailAuthorAndDateProps) => 
   const date = format(props.date, "yyyy.MM.dd. HH:mm");
 
   return (
-    <Stack className="gap-x-16 gap-y-8 items-end">
-      <Stack direction={"row"} gap={"4"} items={"center"}>
-        <Image className=" translate-y-2" {...ASSET_XION_CIRCLE_LOGO_16_16} width={24} height={24} />
-        <Paragraph size={"5"} color={"neutral-600"} weight={"bold"}>
-          {AUTHOR_NAME}
-        </Paragraph>
-      </Stack>
+    <Flex className=" gap-x-[16px] gap-y-[8px] items-end">
+      <Flex className=" items-center gap-[4px]">
+        <Image className=" translate-y-[2px]" {...ASSET_XION_CIRCLE_LOGO_16_16} width={24} height={24} />
+        <Paragraph className=" text-size-5 bg-neutral-600 font-bold">{AUTHOR_NAME}</Paragraph>
+      </Flex>
       <Paragraph size={"3"} color={"neutral-600"} weight={"thin"}>
         {date}
       </Paragraph>
-    </Stack>
+    </Flex>
   );
 };

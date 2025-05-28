@@ -32,7 +32,7 @@ export const MdxRemote = ({ source }: MdxRemoteProps) => {
             [
               rehypePrettyCode,
               {
-                theme: "slack-dark",
+                theme: "github-light",
                 //@ts-expect-error
                 onVisitLine(node) {
                   if (node.children.length === 0) {

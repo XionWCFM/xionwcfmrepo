@@ -6,49 +6,21 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "build": "tsup"
-  },
+  "scripts": {},
   "exports": {
-    "./link": {
-      "import": {
-        "types": "./dist/link.d.mts",
-        "default": "./dist/link.mjs"
-      },
-      "require": {
-        "types": "./dist/link.d.ts",
-        "default": "./dist/link.js"
-      }
-    },
-    "./image": {
-      "import": {
-        "types": "./dist/image.d.mts",
-        "default": "./dist/image.mjs"
-      },
-      "require": {
-        "types": "./dist/image.d.ts",
-        "default": "./dist/image.js"
-      }
-    },
-    "./router": {
-      "import": {
-        "types": "./dist/router.d.mts",
-        "default": "./dist/router.mjs"
-      },
-      "require": {
-        "types": "./dist/router.d.ts",
-        "default": "./dist/router.js"
-      }
-    }
+    ".": "./src/index.ts",
+    "./link": "./src/link.ts",
+    "./image": "./src/image.ts",
+    "./router": "./src/router.ts"
   },
   "devDependencies": {
     "@types/react": "18.3.12",
     "@repo/typescript-config": "workspace:*",
-    "tsup": "8.4.0",
+    "tsup": "8.5.0",
     "typescript": "5.8.3"
   },
   "peerDependencies": {
-    "next": ">=15",
-    "react": ">=18"
+    "next": "^15",
+    "react": "^18 || ^19"
   }
 }

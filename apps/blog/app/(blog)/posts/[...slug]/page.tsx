@@ -1,5 +1,4 @@
-import { MdxRemote } from "@repo/mdx";
-import { Box, Flex, Stack } from "@xionwcfm/xds";
+import { Box, Flex } from "@xionwcfm/xds";
 import { Chip } from "@xionwcfm/xds/chip";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
@@ -8,6 +7,7 @@ import { PostDetailAuthorAndDate } from "~/entities/post/ui/post/PostDetailAutho
 import { PostDetailAuthorWithChar } from "~/entities/post/ui/post/PostDetailAuthorWithChar";
 import { PostDetailTitle } from "~/entities/post/ui/post/PostDetailTitle";
 import { BASE_SITE_URL } from "~/shared/constants";
+import { MdxRemote } from "~/shared/packages/mdx/MdxRemote";
 import { getPostPaths } from "~/shared/routes/createRoutes";
 import FadeContent from "~/shared/ui/animations/FadeContent/FadeContent";
 import { Border } from "~/shared/ui/common/Border";
@@ -30,8 +30,8 @@ export default async function Post({ params }: PostProps) {
 
   return (
     <FadeContent>
-      <Stack as="main" px={{ initial: "16", md: "0" }}>
-        <Box my="16">
+      <Flex className=" flex-col px-[16px] md:px-[0px]" as="main">
+        <Box className=" my-[16px]">
           <PostDetailTitle>{post.title}</PostDetailTitle>
         </Box>
 
@@ -39,24 +39,24 @@ export default async function Post({ params }: PostProps) {
           <Chip>{post.category}</Chip>
         </Flex>
 
-        <Box my="16">
+        <Box className=" my-[16px]">
           <PostDetailAuthorAndDate date={post.createdAt} />
         </Box>
 
-        <Border className=" my-16" />
+        <Border className=" my-[16px]" />
 
-        <MdxRemote source={post.content} />
+        <MdxRemote mdx={post.content} />
 
-        <Border className=" my-16" />
+        <Border className=" my-[16px]" />
 
         <PostRecommend currentPostTitle={post.title} />
 
-        <Box my="40">
+        <Box className=" my-[40px]">
           <PostDetailAuthorWithChar />
         </Box>
 
-        <Border className=" mb-40" />
-      </Stack>
+        <Border className=" mb-[40px]" />
+      </Flex>
     </FadeContent>
   );
 }

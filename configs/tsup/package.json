@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "tsup": "8.4.0"
+    "tsup": "8.5.0"
   },
   "publishConfig": {
     "access": "public"
