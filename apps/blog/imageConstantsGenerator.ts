@@ -58,6 +58,7 @@ const generateOutputData = async () => {
       src: "${cur.src}",
       width: ${cur.width},
       height: ${cur.height},
+      ratio: ${cur.height / cur.width},
     };
   `;
   }, "");
