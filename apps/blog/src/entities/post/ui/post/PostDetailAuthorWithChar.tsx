@@ -14,7 +14,7 @@ export const PostDetailAuthorWithChar = () => {
         <Flex className=" flex-col gap-[12px]">
           <Link href={"/"} aria-label={"navigate root route"}>
             <Paragraph
-              className=" text-size-6 bg-neutral-600 font-bold"
+              className=" text-size-6 text-neutral-600 font-bold"
               weight={"bold"}
               color={"neutral-600"}
               size={"6"}
