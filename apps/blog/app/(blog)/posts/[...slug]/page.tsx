@@ -6,7 +6,7 @@ import { getPost } from "~/entities/post/libs/getAllPosts";
 import { PostDetailAuthorAndDate } from "~/entities/post/ui/post/PostDetailAuthorAndDate";
 import { PostDetailAuthorWithChar } from "~/entities/post/ui/post/PostDetailAuthorWithChar";
 import { PostDetailTitle } from "~/entities/post/ui/post/PostDetailTitle";
-import { BASE_SITE_URL } from "~/shared/constants";
+import { BASE_SITE_URL } from "~/shared/constants/constants";
 import { MdxRemote } from "~/shared/packages/mdx/MdxRemote";
 import FadeContent from "~/shared/ui/animations/FadeContent/FadeContent";
 import { Border } from "~/shared/ui/common/Border";

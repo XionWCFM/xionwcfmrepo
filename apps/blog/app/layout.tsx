@@ -7,8 +7,8 @@ import { Toaster } from "@xionwcfm/xds/toast";
 import type { Metadata } from "next";
 import { AnalyticsProvider } from "~/shared/packages/analytics";
 import { env } from "~/shared/packages/env";
-import { Pretendard } from "../src/shared/assets/fonts";
-import { AUTHOR_NAME, BASE_SITE_DESCRIPTION, BASE_SITE_TITLE, BASE_SITE_URL } from "../src/shared/constants";
+import { AUTHOR_NAME, BASE_SITE_DESCRIPTION, BASE_SITE_TITLE, BASE_SITE_URL } from "../src/shared/constants/constants";
+import { Pretendard } from "../src/shared/constants/fonts";
 import { createMetadata } from "../src/shared/utils/external/createMetaData";
 
 export const metadata: Metadata = {

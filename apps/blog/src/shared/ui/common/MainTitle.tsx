@@ -1,7 +1,7 @@
 import { Image } from "@repo/router";
 
 import { Flex, Paragraph } from "@xionwcfm/xds";
-import { ASSET_XION_CHAR_WHITE } from "~/shared/assets";
+import { ASSET_XION_CHAR_WHITE } from "~/shared/constants/images";
 import { XionGithubLogoIcon } from "../icon/XionGithubIcon";
 import { XionLinkedinIcon } from "../icon/XionLinkedInIcon";
 

@@ -3,7 +3,7 @@ import { Image, Link } from "@repo/router";
 
 import { useScrollDirection } from "@xionwcfm/react";
 import { Flex, cn } from "@xionwcfm/xds";
-import { ASSET_XION_BOX_LOGO_48_16 } from "~/shared/assets";
+import { ASSET_XION_BOX_LOGO_48_16 } from "~/shared/constants/images";
 import { Border } from "~/shared/ui/common/Border";
 
 export const InteractiveHeader = () => {

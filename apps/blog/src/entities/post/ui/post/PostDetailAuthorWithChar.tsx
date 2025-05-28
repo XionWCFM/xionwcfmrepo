@@ -1,8 +1,8 @@
 import { Image, Link } from "@repo/router";
 import { Flex, Paragraph } from "@xionwcfm/xds";
 
-import { ASSET_XION_CHAR_GRAY } from "~/shared/assets";
-import { AUTHOR_DESCRIPTION, AUTHOR_NAME } from "~/shared/constants";
+import { AUTHOR_DESCRIPTION, AUTHOR_NAME } from "~/shared/constants/constants";
+import { ASSET_XION_CHAR_GRAY } from "~/shared/constants/images";
 import { XionEmailIcon } from "~/shared/ui/icon/XionEmailIcon";
 import { XionGithubLogoIcon } from "~/shared/ui/icon/XionGithubIcon";
 import { XionLinkedinIcon } from "~/shared/ui/icon/XionLinkedInIcon";

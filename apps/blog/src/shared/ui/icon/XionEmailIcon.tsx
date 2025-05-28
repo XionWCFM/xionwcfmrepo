@@ -3,7 +3,7 @@
 import { throttle } from "@xionwcfm/utils/function";
 import { clipboard } from "@xionwcfm/utils/web";
 import { toast } from "@xionwcfm/xds/toast";
-import { AUTHOR_EMAIL } from "~/shared/constants";
+import { AUTHOR_EMAIL } from "~/shared/constants/constants";
 
 const handleEmailClick = throttle(async () => {
   const isSuccess = await clipboard.writeText(AUTHOR_EMAIL);

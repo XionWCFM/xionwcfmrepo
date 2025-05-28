@@ -1,7 +1,7 @@
 import { Flex } from "@xionwcfm/xds";
 import { getAllPosts } from "~/entities/post/libs/getAllPosts";
 import { PostCard } from "~/entities/post/ui/post/PostCard";
-import { AUTHOR_NICKNAME } from "~/shared/constants";
+import { AUTHOR_NICKNAME } from "~/shared/constants/constants";
 import { MainTitle } from "~/shared/ui/common/MainTitle";
 import { getFormattedDate } from "~/shared/utils/date/getFormattedDate";
 import { Footer } from "~/widgets/footer";

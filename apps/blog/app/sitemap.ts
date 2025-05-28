@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { BASE_SITE_URL } from "~/shared/constants";
+import { BASE_SITE_URL } from "~/shared/constants/constants";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // const postPaths = getPostPaths();

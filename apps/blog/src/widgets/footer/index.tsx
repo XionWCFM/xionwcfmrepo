@@ -1,8 +1,8 @@
 import { Flex, Paragraph } from "@xionwcfm/xds";
-import { CONSTANTS } from "~/shared/constants";
+import { AUTHOR_COPYRIGHT, LORDICON_LICENSE } from "~/shared/constants/constants";
 
 export const Footer = () => {
-  const paragraphsList = [CONSTANTS.AUTHOR_COPYRIGHT, CONSTANTS.LORDICON_LICENSE];
+  const paragraphsList = [AUTHOR_COPYRIGHT, LORDICON_LICENSE];
   return (
     <Flex className=" flex-col px-[16px] pb-[16px]">
       {paragraphsList.map((text) => (
