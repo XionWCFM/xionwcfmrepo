@@ -9,7 +9,7 @@ import { Toaster } from "@xionwcfm/xds/toast";
 import type { Metadata } from "next";
 import { Pretendard } from "../src/shared/assets/fonts";
 import { AUTHOR_NAME, BASE_SITE_DESCRIPTION, BASE_SITE_TITLE, BASE_SITE_URL } from "../src/shared/constants";
-import { createMetadata } from "../src/shared/utils/external/create-meta-data";
+import { createMetadata } from "../src/shared/utils/external/createMetaData";
 
 export const metadata: Metadata = {
   ...createMetadata({

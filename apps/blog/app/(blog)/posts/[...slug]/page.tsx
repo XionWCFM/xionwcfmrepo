@@ -8,10 +8,9 @@ import { PostDetailAuthorWithChar } from "~/entities/post/ui/post/PostDetailAuth
 import { PostDetailTitle } from "~/entities/post/ui/post/PostDetailTitle";
 import { BASE_SITE_URL } from "~/shared/constants";
 import { MdxRemote } from "~/shared/packages/mdx/MdxRemote";
-import { getPostPaths } from "~/shared/routes/createRoutes";
 import FadeContent from "~/shared/ui/animations/FadeContent/FadeContent";
 import { Border } from "~/shared/ui/common/Border";
-import { createMetadata } from "~/shared/utils/external/create-meta-data";
+import { createMetadata } from "~/shared/utils/external/createMetaData";
 import { PostRecommend } from "~/widgets/PostRecommend";
 
 type PostProps = {
@@ -74,10 +73,11 @@ export const generateMetadata = async ({ params }: PostProps): Promise<Metadata>
 };
 
 export const generateStaticParams = async () => {
-  const posts = getPostPaths();
-  return posts.map((post) => ({
-    slug: post.replace("/posts/", "").split("/"),
-  }));
+  // const posts = getPostPaths();
+  // return posts.map((post) => ({
+  //   slug: post.replace("/posts/", "").split("/"),
+  // }));
+  return [{ slug: [""] }];
 };
 
 export const dynamic = "force-static";
