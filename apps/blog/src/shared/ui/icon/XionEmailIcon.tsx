@@ -1,8 +1,8 @@
 "use client";
 
-import { throttle } from "@xionwcfm/utils/function";
 import { clipboard } from "@xionwcfm/utils/web";
 import { toast } from "@xionwcfm/xds/toast";
+import { throttle } from "es-toolkit";
 import { AUTHOR_EMAIL } from "~/shared/constants/constants";
 
 const handleEmailClick = throttle(async () => {
