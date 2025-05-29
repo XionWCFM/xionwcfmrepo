@@ -18,13 +18,9 @@ pnpm run build:p
 
 명령어를 통해 packages 폴더 전체를 빌드하세요
 
-
 ## Project
 
 ### **[xionwcfm blog project](https://www.xionwcfm.com/)**
-
-next.js app router와 next-mdx-remotes를 기반으로 구성된 블로그 프로젝트입니다.
-
 
 #### Link
 
@@ -38,8 +34,6 @@ next.js app router와 next-mdx-remotes를 기반으로 구성된 블로그 프�
   <img src="./.asset/blog-1.webp" alt="grasshopper landing" width="33%">
   <img src="./.asset/blog-2.webp" alt="grasshopper problem" width="33%">
 </div>
-
-
 
 # CONVENTION
 
@@ -61,7 +55,6 @@ next.js app router와 next-mdx-remotes를 기반으로 구성된 블로그 프�
 
 - progress : 해당 PR로 완결되지 못하는 커다란 작업을 수행하고 있을 때 사용합니다.
 
-
 ## PR CONVENTION
 
 모든 PR의 제목은 다음과 같은 명명규칙을 준수합니다.
@@ -77,7 +70,6 @@ next.js app router와 next-mdx-remotes를 기반으로 구성된 블로그 프�
 ## COMMIT CONVENTION
 
 gitmoji를 이용하여 emoji를 통해 작업내용을 나타내며 각 Commit의 제목은 작업 내용을 나타냅니다.
-
 
 ---
 

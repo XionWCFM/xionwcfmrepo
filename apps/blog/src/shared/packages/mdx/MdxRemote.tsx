@@ -1,6 +1,6 @@
 import * as runtime from "react/jsx-runtime";
 import { MdxComponents } from "./MdxComponents";
-import { compileMdx } from "./compile";
+import { compileMdx } from "./compileMdx";
 
 const useMdxComponent = (code: string) => {
   const fn = new Function(code);

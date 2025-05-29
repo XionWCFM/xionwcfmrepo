@@ -1,5 +1,4 @@
 import { Flex, Spacing } from "@xionwcfm/xds";
-import { Footer } from "~/widgets/footer";
 import { InteractiveHeader } from "~/widgets/header/interactive-header";
 
 export default function RootLayout({
@@ -14,7 +13,6 @@ export default function RootLayout({
       <Flex className=" flex-col overflow-hidden w-screen items-center">
         <Flex className=" flex-col w-screen max-w-[768px]">{children}</Flex>
       </Flex>
-      <Footer />
     </Flex>
   );
 }

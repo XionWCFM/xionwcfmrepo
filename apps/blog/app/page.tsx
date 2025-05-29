@@ -1,38 +1,59 @@
-import { Flex } from "@xionwcfm/xds";
-import { getAllPosts } from "~/entities/post/libs/getAllPosts";
-import { PostCard } from "~/entities/post/ui/post/PostCard";
-import { AUTHOR_NICKNAME } from "~/shared/constants";
+import { Link } from "@repo/router";
+import { Box, Flex } from "@xionwcfm/xds";
+import { contentsRepository } from "~/entities/contents/model/contents.repository";
 import { MainTitle } from "~/shared/ui/common/MainTitle";
-import { getFormattedDate } from "~/shared/utils/date/getFormattedDate";
-import { Footer } from "~/widgets/footer";
+import { MainCard } from "../src/entities/contents/ui/MainCard";
+import { PostCard } from "../src/entities/contents/ui/PostCard";
+import { createPostCardViewModel } from "../src/entities/contents/ui/createPostCardViewModel";
 
 export default async function RootPage() {
-  const rawPosts = await getAllPosts();
+  const sortedPosts = await contentsRepository.getSortedResources();
+  const mainPost = sortedPosts[0]!;
+  const slicedPosts = sortedPosts.slice(0, 4);
 
   return (
     <>
       <MainTitle />
-      <Flex className=" flex-col w-full items-center">
-        <Flex className=" flex-col max-w-[768px]">
-          <Flex className=" flex-col my-[28px] gap-[16px]">
-            {rawPosts.map((post) => (
-              <PostCard key={post.title} {...createPostCardViewModel(post)} />
-            ))}
-          </Flex>
-          <Footer />
+
+      <MaxWidthContainer>
+        <Flex className=" flex-col mb-[16px]">
+          <Flex className=" w-full h-[1px] bg-gray-200 my-[16px]" />
+          <span className=" mb-[16px] text-[24px] text-gray-900 font-medium">이런 글은 어떠세요?</span>
+          <MainCard {...createPostCardViewModel(mainPost)} />
         </Flex>
-      </Flex>
+
+        <Flex className=" w-full h-[1px] bg-gray-200 my-[16px]" />
+
+        <Link
+          href="/posts"
+          aria-label="더 많은 포스트 확인하러가기"
+          className=" mb-[16px] text-[24px] text-gray-900 hover:text-primary-600 duration-300 transition-all font-medium w-fit "
+        >
+          더 많은 포스트를 확인해보세요
+        </Link>
+
+        <Flex className=" flex-col gap-y-[16px] mb-[16px]">
+          {slicedPosts.map((post) => (
+            <PostCard key={post.fileName} {...createPostCardViewModel(post)} />
+          ))}
+        </Flex>
+
+        <Flex className=" justify-end w-full">
+          <Link href="/posts" aria-label="더 많은 포스트 확인하러가기" className=" text-primary-alpha-900 underline ">
+            Read More
+          </Link>
+        </Flex>
+      </MaxWidthContainer>
+
+      <Box className=" h-[200px]" />
     </>
   );
 }
 
-const createPostCardViewModel = (post: Awaited<ReturnType<typeof getAllPosts>>[number]) => {
-  return {
-    title: post.title,
-    category: post.category,
-    description: post.description,
-    href: `/posts/${post.filePath.join("/")}`,
-    authorNickname: AUTHOR_NICKNAME,
-    date: getFormattedDate(post.createdAt, "yyyy년 MM월 dd일", "0000년 00월 00일"),
-  };
+const MaxWidthContainer = ({ children }: { children?: React.ReactNode }) => {
+  return (
+    <Flex className=" p-[16px] w-screen justify-center items-center">
+      <Flex className=" max-w-[768px] w-full flex-col">{children}</Flex>
+    </Flex>
+  );
 };

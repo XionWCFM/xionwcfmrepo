@@ -3,8 +3,7 @@ import { Image, Link } from "@repo/router";
 
 import { useScrollDirection } from "@xionwcfm/react";
 import { Flex, cn } from "@xionwcfm/xds";
-import { ASSET_XION_BOX_LOGO_48_16 } from "~/shared/assets";
-import { ROUTES } from "~/shared/routes";
+import { XION_BOX_LOGO_48_X_16_WEBP } from "~/shared/constants/images/images";
 import { Border } from "~/shared/ui/common/Border";
 
 export const InteractiveHeader = () => {
@@ -19,12 +18,8 @@ export const InteractiveHeader = () => {
       as={"header"}
     >
       <Flex className=" md:max-w-[768px] w-screen items-center justify-between px-[16px] md:px-[0] py-[8px]">
-        <Link href={ROUTES.root()} aria-label={"home 화면으로 돌아갑니다"}>
-          <Image
-            {...ASSET_XION_BOX_LOGO_48_16}
-            width={ASSET_XION_BOX_LOGO_48_16.width * 2}
-            height={ASSET_XION_BOX_LOGO_48_16.height * 2}
-          />
+        <Link href={"/"} aria-label={"home 화면으로 돌아갑니다"}>
+          <Image src={XION_BOX_LOGO_48_X_16_WEBP.src} width={96} height={32} alt="boxlogo" />
         </Link>
       </Flex>
       <Border />
