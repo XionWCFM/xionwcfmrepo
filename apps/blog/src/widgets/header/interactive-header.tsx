@@ -1,48 +1,28 @@
 "use client";
-import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { Image } from "@repo/router/image";
-import { Link } from "@repo/router/link";
+import { Image, Link } from "@repo/router";
 
 import { useScrollDirection } from "@xionwcfm/react";
-import { Stack, cn } from "@xionwcfm/xds";
-import { ASSET_XION_BOX_LOGO_48_16 } from "~/shared/assets";
-import { isEnabled } from "~/shared/feature-flag";
-import { ROUTES } from "~/shared/routes";
+import { Flex, cn } from "@xionwcfm/xds";
+import { XION_BOX_LOGO_48_X_16_WEBP } from "~/shared/constants/images/images";
 import { Border } from "~/shared/ui/common/Border";
 
 export const InteractiveHeader = () => {
   const scrollDirection = useScrollDirection();
   const shouldHiding = scrollDirection === "down" ? "-translate-y-[64px]" : "translate-y-0";
   return (
-    <Stack
-      className={cn("z-20 w-screen bg-neutral-50 fixed transition-transform duration-300", shouldHiding)}
+    <Flex
+      className={cn(
+        "items-center z-[20] w-screen bg-neutral-50 fixed transition-transform duration-300  flex-col",
+        shouldHiding,
+      )}
       as={"header"}
-      items={"center"}
     >
-      <Stack
-        maxW={{ md: "768" }}
-        w={"screen"}
-        direction={"row"}
-        items={"center"}
-        justify={"between"}
-        px={{ initial: "16", md: "0" }}
-        py={"8"}
-      >
-        <Link href={ROUTES.root()} aria-label={"home 화면으로 돌아갑니다"}>
-          <Image
-            {...ASSET_XION_BOX_LOGO_48_16}
-            width={ASSET_XION_BOX_LOGO_48_16.width * 2}
-            height={ASSET_XION_BOX_LOGO_48_16.height * 2}
-          />
+      <Flex className=" md:max-w-[768px] w-screen items-center justify-between px-[16px] md:px-[0] py-[8px]">
+        <Link href={"/"} aria-label={"home 화면으로 돌아갑니다"}>
+          <Image src={XION_BOX_LOGO_48_X_16_WEBP.src} width={96} height={32} alt="boxlogo" />
         </Link>
-
-        {isEnabled("header-hambuger") ? (
-          <button type={"button"}>
-            <HamburgerMenuIcon className=" w-24 h-24 text-neutral-400" />
-          </button>
-        ) : null}
-      </Stack>
+      </Flex>
       <Border />
-    </Stack>
+    </Flex>
   );
 };

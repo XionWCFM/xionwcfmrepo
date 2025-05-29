@@ -23,6 +23,8 @@
         "noConsoleLog": "off"
       },
       "performance": {
+        "noReExportAll": "off",
+        "noBarrelFile": "off",
         "useTopLevelRegex": {
           "level": "off"
         }

@@ -1,28 +1,29 @@
-import { Image } from "@repo/router/image";
+import { Image } from "@repo/router";
 
-import { Flex, Paragraph, Stack } from "@xionwcfm/xds";
-import { ASSET_XION_CHAR_WHITE } from "~/shared/assets";
+import { Flex, Paragraph } from "@xionwcfm/xds";
+import { XION_CHAR_WHITE_135_X_197_WEBP } from "~/shared/constants/images/images";
 import { XionGithubLogoIcon } from "../icon/XionGithubIcon";
 import { XionLinkedinIcon } from "../icon/XionLinkedInIcon";
 
 export const MainTitle = () => {
   return (
-    <Stack justify={"between"} px={"20"} py={"20"} className=" w-full items-center bg-primary-600 relative h-[450px]">
+    <Flex className=" flex-col justify-between p-[20px] w-full items-center bg-primary-600 relative">
       <Flex className=" w-full  max-w-1440 justify-between">
-        <Stack>
-          <Paragraph as="h1" weight={"bold"} size={"10"} responsive={true} color={"neutral-50"}>
+        <Flex className=" flex-col">
+          <Paragraph className=" mb-[8px]" as="h1" weight={"bold"} size={"10"} responsive={true} color={"neutral-50"}>
             {"FRONTEND DEVELOPER\nXIONWCFM"}
           </Paragraph>
-          <Stack direction={"row"}>
-            <Image {...ASSET_XION_CHAR_WHITE} />
-          </Stack>
 
-          <Flex className=" mt-16 gap-x-8 h-fit">
+          <Flex className="  mb-[16px]">
+            <Image src={XION_CHAR_WHITE_135_X_197_WEBP.src} width={135} height={197} alt="XionWCFM" />
+          </Flex>
+
+          <Flex className="gap-x-[8px] h-fit">
             <XionLinkedinIcon className=" text-neutral-50" />
             <XionGithubLogoIcon className=" text-neutral-50" />
           </Flex>
-        </Stack>
+        </Flex>
       </Flex>
-    </Stack>
+    </Flex>
   );
 };

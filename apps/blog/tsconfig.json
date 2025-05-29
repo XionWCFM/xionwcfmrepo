@@ -15,8 +15,15 @@
       "~/shared/*": ["./src/shared/*"],
       "~/apps/*": ["./src/apps/*"]
     },
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts", "vitest.config.mts"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "vitest.config.mts",
+    "src/entities/contents/model/contents.repository.ts"
+  ],
   "exclude": ["node_modules"]
 }
