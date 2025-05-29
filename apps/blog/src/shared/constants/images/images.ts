@@ -1,3 +1,10 @@
+export const FACE_WEBP = {
+  src: "/face.webp",
+  width: 413,
+  height: 531,
+  ratio: 1.2857142857142858,
+};
+
 export const XION_BOX_LOGO_48_X_16_WEBP = {
   src: "/xion-box-logo-48x16.webp",
   width: 192,
@@ -51,5 +58,19 @@ export const XION_SQURE_LOGO_48_X_48_WEBP = {
   src: "/xion-squre-logo-48x48.webp",
   width: 192,
   height: 192,
+  ratio: 1,
+};
+
+export const XION_MAC_CODING_CHAR_WEBP = {
+  src: "/xion_mac_coding_char.webp",
+  width: 450,
+  height: 450,
+  ratio: 1,
+};
+
+export const RANDOM_THUMBNAIL_1_WEBP = {
+  src: "/thumbnail/random/random_thumbnail_1.webp",
+  width: 1200,
+  height: 1200,
   ratio: 1,
 };

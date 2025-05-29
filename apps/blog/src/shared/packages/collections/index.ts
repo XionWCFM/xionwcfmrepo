@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import fg from "fast-glob";
 import matter from "gray-matter";
+import type { MdxRepositoryItem } from "./type";
 
 const __dirname = process.cwd();
 
@@ -24,13 +25,7 @@ export class MdxRepository<T> {
   private rootDir: string;
   private globPattern: string;
   validate: (value: unknown) => T;
-  private sortedResources: Array<{
-    frontmatter: T;
-    stats: { updatedAt: string; createdAt: string };
-    fullPath: string;
-    fileName: string;
-    path: string;
-  }> | null;
+  private sortedResources: MdxRepositoryItem<T>[] | null;
 
   constructor(props: {
     rootDir: string;
@@ -146,7 +141,7 @@ export class MdxRepository<T> {
     return { frontmatter: this.validate(data) };
   }
 
-  async pagenation(page: number, limit: number) {
+  async pagenation(page: number, limit: number): Promise<MdxRepositoryItem<T>[]> {
     const sortedResources = await this.getSortedResources();
     const start = (page - 1) * limit;
     const end = start + limit;

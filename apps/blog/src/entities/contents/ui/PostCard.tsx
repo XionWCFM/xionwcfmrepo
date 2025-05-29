@@ -1,56 +1,33 @@
-import { Box, Flex, Paragraph } from "@xionwcfm/xds";
-import Link from "next/link";
+import { Link } from "@repo/router";
+import { Box, Flex } from "@xionwcfm/xds";
+import Image from "next/image";
+import { XION_CIRCLE_LOGO_16_X_16_WEBP } from "~/shared/constants/images/images";
+import type { createPostCardViewModel } from "./createPostCardViewModel";
 
-type PostCardProps = {
-  date: string;
-  title: string;
-  category: string;
-  description: string;
-  href: string;
-  authorNickname: string;
-};
-
-export const PostCard = (props: PostCardProps) => {
-  const { date, title, category, description, href, authorNickname } = props;
-  const label = `ReadMore : ${title}`;
-
+export const PostCard = (props: ReturnType<typeof createPostCardViewModel>) => {
   return (
-    <Flex className=" flex-col py-[16px] px-[12px] transition-all rounded-[14px] duration-300 hover:opacity-80  hover:bg-neutral-200 active:opacity-56 active:scale-[0.99] ">
-      <Box className="w-fit ">
-        <Paragraph color={"neutral-500"} size={"3"}>
-          {category}
-        </Paragraph>
-      </Box>
-      <Link href={href} aria-label={label} title={label}>
+    <Link
+      aria-label={`${props.title} 포스트 보러가기`}
+      href={props.href}
+      className=" bg-gray-50 ring-[0.5px] rounded-sm ring-gray-200 p-[16px] active:ring-primary-600 active:bg-primary-50 active:scale-[0.995] flex-col hover:ring-primary-600 hover:bg-primary-50 transition-all duration-300 w-full flex text-start"
+    >
+      <h2 className=" text-gray-700 font-regular text-[18px] mb-[4px] line-clamp-1 ">{props.title}</h2>
+      <span className=" text-gray-600 font-light text-[14px] line-clamp-2 h-[42px] max-h-[42px]">
+        {props.description}
+      </span>
+      <Flex className=" justify-end w-full mb-[4px]">
         <Flex className=" flex-col">
-          <Paragraph
-            as="h2"
-            size={"5"}
-            color={"neutral-700"}
-            className=" max-w-[336px] md:max-w-[700px]"
-            responsive={true}
-            overflow={"ellipsis"}
-          >
-            {title}
-          </Paragraph>
-          <Paragraph
-            responsive={true}
-            className=" my-[4px]"
-            leading={"loose"}
-            weight={"thin"}
-            size={"2"}
-            color={"neutral-600"}
-          >
-            {description}
-          </Paragraph>
-
-          <Flex className=" gap-x-[4px] items-center">
-            <Paragraph responsive={true} as="time" size={"1"} weight={"thin"} color={"neutral-600"}>
-              {`${date} - ${authorNickname}`}
-            </Paragraph>
+          <Flex className=" gap-x-[4px]">
+            <Box>
+              <Image src={XION_CIRCLE_LOGO_16_X_16_WEBP.src} width={16} height={16} alt="xionwcfm" />
+            </Box>
+            <span className=" text-gray-600 font-light text-[12px]">XionWCFM</span>
           </Flex>
         </Flex>
-      </Link>
-    </Flex>
+      </Flex>
+      <Flex className=" justify-end w-full">
+        <span className=" text-[12px] text-gray-400 font-light">{props.date}</span>
+      </Flex>
+    </Link>
   );
 };

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import type { MdxRepositoryItem } from "~/shared/packages/collections/type";
 
 export const contentSchema = z.object({
   title: z.string(),
@@ -7,3 +8,5 @@ export const contentSchema = z.object({
 });
 
 export type ContentFrontmatter = z.infer<typeof contentSchema>;
+
+export type ContentRepositoryItem = MdxRepositoryItem<ContentFrontmatter>;
