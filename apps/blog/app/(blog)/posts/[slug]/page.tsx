@@ -52,7 +52,7 @@ export default async function Post({ params }: PostProps) {
         <PostDetailAuthorWithChar />
       </Box>
 
-      <Border className=" mb-[40px]" />
+      <Flex className=" h-[100px] w-full" />
     </Flex>
   );
 }

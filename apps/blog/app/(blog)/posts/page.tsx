@@ -9,8 +9,8 @@ export default async function Page() {
 
   return (
     <PaginationProvider>
-      <Flex className=" flex-col w-full">
-        <Flex className=" gap-x-[16px]  items-center justify-center w-full mt-[16px]">
+      <Flex className=" flex-col w-full px-[16px] items-center justify-center ">
+        <Flex className=" gap-x-[16px] flex-col items-center justify-center w-full mt-[16px] ">
           <Suspense>
             <PostSection posts={posts} />
           </Suspense>
