@@ -3,11 +3,11 @@ import { Flex, Spacing } from "@xionwcfm/xds";
 import { NavigateSection } from "~/features/NavigateSection";
 import { XION_BOX_LOGO_48_X_16_WEBP } from "~/shared/constants/images/images";
 import { Border } from "~/shared/ui/common/Border";
-import { MaxWidthContainer } from "~/shared/ui/common/MaxWidthContainer";
+import { MaxWidthFlex } from "~/shared/ui/common/MaxWidthFlex";
 
 export default function Page() {
   return (
-    <MaxWidthContainer>
+    <MaxWidthFlex>
       <Flex className=" h-[16px]" />
 
       <Flex className=" px-[16px] md:px-[0px]">
@@ -53,7 +53,7 @@ export default function Page() {
           ))}
         </Flex>
       </Flex>
-    </MaxWidthContainer>
+    </MaxWidthFlex>
   );
 }
 

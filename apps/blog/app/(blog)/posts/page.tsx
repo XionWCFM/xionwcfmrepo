@@ -6,14 +6,14 @@ import { NavigateSection } from "~/features/NavigateSection";
 import { PaginationProvider } from "~/features/Pagination/PaginationContext";
 import { PostSection } from "~/features/PostSection";
 import { XION_BOX_LOGO_48_X_16_WEBP } from "~/shared/constants/images/images";
-import { MaxWidthContainer } from "~/shared/ui/common/MaxWidthContainer";
+import { MaxWidthFlex } from "~/shared/ui/common/MaxWidthFlex";
 
 export default async function Page() {
   const posts = await contentsRepository.getSortedResources();
 
   return (
     <PaginationProvider>
-      <MaxWidthContainer>
+      <MaxWidthFlex>
         <Flex className=" h-[16px]" />
         <Flex className=" px-[16px] md:px-[0px]">
           <Link href={"/"} aria-label="home 화면으로 돌아갑니다">
@@ -32,7 +32,7 @@ export default async function Page() {
             </Suspense>
           </Flex>
         </Flex>
-      </MaxWidthContainer>
+      </MaxWidthFlex>
     </PaginationProvider>
   );
 }
