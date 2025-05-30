@@ -109,7 +109,7 @@ export const PostSection = (props: {
           }
 
           return (
-            <Flex className=" flex-col gap-y-[16px]">
+            <Flex className=" flex-col gap-y-[16px] w-full">
               {memoizedPosts.map((post) => (
                 <PostCard key={post.fullPath} {...createPostCardViewModel(post)} />
               ))}
