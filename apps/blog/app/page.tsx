@@ -4,7 +4,7 @@ import { contentsRepository } from "~/entities/contents/model/contents.repositor
 import { NavigateLink, NavigateSection } from "~/features/NavigateSection";
 import { Border } from "~/shared/ui/common/Border";
 import { MainTitle } from "~/shared/ui/common/MainTitle";
-import { MaxWidthContainer } from "~/shared/ui/common/MaxWidthContainer";
+import { MaxWidthFlex } from "~/shared/ui/common/MaxWidthFlex";
 import { MainCard } from "../src/entities/contents/ui/MainCard";
 import { PostCard } from "../src/entities/contents/ui/PostCard";
 import { createPostCardViewModel } from "../src/entities/contents/ui/createPostCardViewModel";
@@ -18,7 +18,7 @@ export default async function RootPage() {
     <>
       <MainTitle />
 
-      <MaxWidthContainer className=" px-[16px] md:px-[0px] mt-[16px]">
+      <MaxWidthFlex className=" px-[16px] md:px-[0px] mt-[16px]">
         <NavigateSection />
 
         <Flex className=" flex-col mb-[16px]">
@@ -48,7 +48,7 @@ export default async function RootPage() {
             Read More
           </NavigateLink>
         </Flex>
-      </MaxWidthContainer>
+      </MaxWidthFlex>
 
       <Box className=" h-[200px]" />
     </>
