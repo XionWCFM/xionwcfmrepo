@@ -141,7 +141,7 @@ export class MdxRepository<T> {
     return { frontmatter: this.validate(data) };
   }
 
-  async pagenation(page: number, limit: number): Promise<MdxRepositoryItem<T>[]> {
+  async pagination(page: number, limit: number): Promise<MdxRepositoryItem<T>[]> {
     const sortedResources = await this.getSortedResources();
     const start = (page - 1) * limit;
     const end = start + limit;

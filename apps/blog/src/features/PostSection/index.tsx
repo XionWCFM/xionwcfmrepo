@@ -83,7 +83,7 @@ export const PostSection = (props: {
 
   return (
     <>
-      <Flex className=" w-full flex-col min-h-screen">
+      <Flex className=" w-full flex-col min-h-screen items-center ">
         <Tabs.Root value={category} onValueChange={(val) => onCategoryChange(val)}>
           <Tabs.List>
             {CATEGORY_FILTERS.map((filter) => (
@@ -109,7 +109,7 @@ export const PostSection = (props: {
           }
 
           return (
-            <Flex className=" flex-col gap-y-[16px]">
+            <Flex className=" flex-col gap-y-[16px] w-full">
               {memoizedPosts.map((post) => (
                 <PostCard key={post.fullPath} {...createPostCardViewModel(post)} />
               ))}
@@ -117,7 +117,7 @@ export const PostSection = (props: {
           );
         })()}
       </Flex>
-      <Flex className=" h-[100px]" />
+      <Flex className=" h-[100px] w-full" />
     </>
   );
 };

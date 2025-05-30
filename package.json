@@ -22,7 +22,8 @@
     "gen:p": "pnpm dlx tsx .cli/package.cts",
     "test:type": "turbo test:type",
     "generate-types": "turbo generate-types",
-    "plop": "cross-env NODE_OPTIONS='--import tsx' plop --plopfile=plopfile.ts"
+    "plop": "cross-env NODE_OPTIONS='--import tsx' plop --plopfile=plopfile.ts",
+    "gen:blog": "cd apps/blog && pnpm run gen:blog"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",

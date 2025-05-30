@@ -1,5 +1,6 @@
 import { Link } from "@repo/router";
-import { Box, Flex } from "@xionwcfm/xds";
+import { Box, Flex, cn } from "@xionwcfm/xds";
+import { cva } from "class-variance-authority";
 import Image from "next/image";
 import { XION_CIRCLE_LOGO_16_X_16_WEBP } from "~/shared/constants/images/images";
 import type { createPostCardViewModel } from "./createPostCardViewModel";
@@ -15,19 +16,29 @@ export const PostCard = (props: ReturnType<typeof createPostCardViewModel>) => {
       <span className=" text-gray-600 font-light text-[14px] line-clamp-2 h-[42px] max-h-[42px]">
         {props.description}
       </span>
-      <Flex className=" justify-end w-full mb-[4px]">
+
+      <Flex className=" justify-between items-end w-full">
+        <span className={cn(categoryVariants({ variant: props.category }))}>{props.category}</span>
         <Flex className=" flex-col">
-          <Flex className=" gap-x-[4px]">
+          <Flex className=" gap-x-[4px] items-center justify-end mb-[4px]">
             <Box>
               <Image src={XION_CIRCLE_LOGO_16_X_16_WEBP.src} width={16} height={16} alt="xionwcfm" />
             </Box>
             <span className=" text-gray-600 font-light text-[12px]">XionWCFM</span>
           </Flex>
+          <span className=" text-[12px] text-gray-400 font-light">{props.date}</span>
         </Flex>
-      </Flex>
-      <Flex className=" justify-end w-full">
-        <span className=" text-[12px] text-gray-400 font-light">{props.date}</span>
       </Flex>
     </Link>
   );
 };
+
+const categoryVariants = cva(" text-[12px] py-[4px] px-[12px] rounded-sm font-medium w-fit", {
+  variants: {
+    variant: {
+      development: "bg-primary-alpha-300 text-primary-700",
+      retrospect: "bg-warning-50 text-warning-700",
+      books: " bg-success-50 text-success-700",
+    },
+  },
+});
