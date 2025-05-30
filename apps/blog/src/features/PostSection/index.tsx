@@ -83,7 +83,7 @@ export const PostSection = (props: {
 
   return (
     <>
-      <Flex className=" w-full flex-col min-h-screen">
+      <Flex className=" w-full flex-col min-h-screen items-center ">
         <Tabs.Root value={category} onValueChange={(val) => onCategoryChange(val)}>
           <Tabs.List>
             {CATEGORY_FILTERS.map((filter) => (
@@ -117,7 +117,7 @@ export const PostSection = (props: {
           );
         })()}
       </Flex>
-      <Flex className=" h-[100px]" />
+      <Flex className=" h-[100px] w-full" />
     </>
   );
 };
