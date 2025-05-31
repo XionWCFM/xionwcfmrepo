@@ -11,6 +11,6 @@ export const createPostCardViewModel = (
     category: post.path.replace("/", "") as "development" | "retrospect" | "books",
     href: `/posts/${post.fileName}`,
     authorNickname: AUTHOR_NICKNAME,
-    date: getFormattedDate(post.stats.createdAt, "yyyy년 MM월 dd일", "0000년 00월 00일"),
+    date: getFormattedDate(post.frontmatter.createdAt, "yyyy년 MM월 dd일", "0000년 00월 00일"),
   };
 };

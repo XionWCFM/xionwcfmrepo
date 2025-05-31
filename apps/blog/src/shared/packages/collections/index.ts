@@ -26,16 +26,19 @@ export class MdxRepository<T> {
   private globPattern: string;
   validate: (value: unknown) => T;
   private sortedResources: MdxRepositoryItem<T>[] | null;
+  private sortBy: (a: MdxRepositoryItem<T>, b: MdxRepositoryItem<T>) => number;
 
   constructor(props: {
     rootDir: string;
     globPattern: string;
     validate: (value: unknown) => T;
+    sortBy: (a: MdxRepositoryItem<T>, b: MdxRepositoryItem<T>) => number;
   }) {
     this.rootDir = path.join(__dirname, props.rootDir);
     this.globPattern = props.globPattern;
     this.validate = props.validate;
     this.sortedResources = null;
+    this.sortBy = props.sortBy;
   }
 
   getAllFilePaths() {
@@ -58,11 +61,6 @@ export class MdxRepository<T> {
     if (this.sortedResources) {
       return this.sortedResources;
     }
-    this.sortedResources = await this.getAllFilesUpdatedAt();
-    return this.sortedResources;
-  }
-
-  async getAllFilesUpdatedAt() {
     const files = this.getAllFilePaths();
     const mapped = await Promise.all(
       files.map((item) => {
@@ -75,14 +73,13 @@ export class MdxRepository<T> {
         })();
       }),
     );
-    const sorted = mapped.sort((a, b) => {
-      return new Date(b.stats.updatedAt).getTime() - new Date(a.stats.updatedAt).getTime();
-    });
 
-    return sorted;
+    const sorted = mapped.sort(this.sortBy);
+    this.sortedResources = sorted;
+    return this.sortedResources;
   }
 
-  async getFileByFileName(inputFileName: string) {
+  private async getFileByFileName(inputFileName: string) {
     const fileNameWithExt = inputFileName.endsWith(".mdx") ? inputFileName : `${inputFileName}.mdx`;
     const globFile = `**/${fileNameWithExt}`;
     const result = await fg(globFile, { cwd: this.rootDir });
@@ -99,13 +96,7 @@ export class MdxRepository<T> {
     return { file, stats, fullPath, fileName, path: dirPath };
   }
 
-  readFileByName(fileName: string) {
-    const filePath = path.join(this.rootDir, fileName);
-    const file = fs.readFileSync(filePath, "utf8");
-    return file;
-  }
-
-  async asyncGetFrontmatterByFileName(
+  private async asyncGetFrontmatterByFileName(
     fileName: string,
   ): Promise<{ frontmatter: T; stats: { updatedAt: string; createdAt: string } }> {
     const { file, stats } = await this.getFileByFileName(fileName);
@@ -134,11 +125,6 @@ export class MdxRepository<T> {
       path,
       code: result.content,
     };
-  }
-
-  getFrontmatterByMdx(mdx: string): { frontmatter: T } {
-    const { data } = matter(mdx);
-    return { frontmatter: this.validate(data) };
   }
 
   async pagination(page: number, limit: number): Promise<MdxRepositoryItem<T>[]> {

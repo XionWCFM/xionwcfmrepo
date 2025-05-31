@@ -9,4 +9,7 @@ export const contentsRepository = new MdxRepository({
   validate: (value) => {
     return contentSchema.parse(value);
   },
+  sortBy: (a, b) => {
+    return new Date(b.frontmatter.createdAt).getTime() - new Date(a.frontmatter.createdAt).getTime();
+  },
 });
