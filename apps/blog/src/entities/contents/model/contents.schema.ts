@@ -5,6 +5,7 @@ export const contentSchema = z.object({
   title: z.string(),
   description: z.string(),
   canView: z.boolean(),
+  createdAt: z.string(),
 });
 
 export type ContentFrontmatter = z.infer<typeof contentSchema>;

@@ -22,7 +22,7 @@ const mdxGenAction = (plop: NodePlopAPI) => {
       if (!fs.existsSync(targetDir)) {
         fs.mkdirSync(targetDir, { recursive: true });
       }
-      const mdxContent = `---\ntitle: \"${title}\"\ndescription: \"${description}\"\ncanView: true\n---\n\n`;
+      const mdxContent = `---\ntitle: \"${title}\"\ndescription: \"${description}\"\ncreatedAt: \"${new Date().toISOString()}\"\ncanView: true\n---\n\n`;
       fs.writeFileSync(path.join(targetDir, fileNameWithExt), mdxContent);
       return `✅ ${fileNameWithExt} 파일이 ${category} 카테고리에 생성되었어요`;
     } catch (_e) {
