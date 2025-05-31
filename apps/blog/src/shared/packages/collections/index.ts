@@ -25,20 +25,23 @@ export class MdxRepository<T> {
   private rootDir: string;
   private globPattern: string;
   validate: (value: unknown) => T;
-  private sortedResources: MdxRepositoryItem<T>[] | null;
+  private resources: MdxRepositoryItem<T>[] | null;
   private sortBy: (a: MdxRepositoryItem<T>, b: MdxRepositoryItem<T>) => number;
+  private filterBy: (item: MdxRepositoryItem<T>) => boolean;
 
   constructor(props: {
     rootDir: string;
     globPattern: string;
     validate: (value: unknown) => T;
     sortBy: (a: MdxRepositoryItem<T>, b: MdxRepositoryItem<T>) => number;
+    filterBy?: (item: MdxRepositoryItem<T>) => boolean;
   }) {
     this.rootDir = path.join(__dirname, props.rootDir);
     this.globPattern = props.globPattern;
     this.validate = props.validate;
-    this.sortedResources = null;
+    this.resources = null;
     this.sortBy = props.sortBy;
+    this.filterBy = props.filterBy ?? (() => true);
   }
 
   getAllFilePaths() {
@@ -54,12 +57,13 @@ export class MdxRepository<T> {
         path: dirPath === "/." ? "/" : dirPath,
       };
     });
+
     return mappedFiles;
   }
 
-  async getSortedResources() {
-    if (this.sortedResources) {
-      return this.sortedResources;
+  async getAllResources() {
+    if (this.resources) {
+      return this.resources;
     }
     const files = this.getAllFilePaths();
     const mapped = await Promise.all(
@@ -74,9 +78,9 @@ export class MdxRepository<T> {
       }),
     );
 
-    const sorted = mapped.sort(this.sortBy);
-    this.sortedResources = sorted;
-    return this.sortedResources;
+    const sorted = mapped.filter(this.filterBy).sort(this.sortBy);
+    this.resources = sorted;
+    return this.resources;
   }
 
   private async getFileByFileName(inputFileName: string) {
@@ -128,7 +132,7 @@ export class MdxRepository<T> {
   }
 
   async pagination(page: number, limit: number): Promise<MdxRepositoryItem<T>[]> {
-    const sortedResources = await this.getSortedResources();
+    const sortedResources = await this.getAllResources();
     const start = (page - 1) * limit;
     const end = start + limit;
     const resources = sortedResources.slice(start, end);

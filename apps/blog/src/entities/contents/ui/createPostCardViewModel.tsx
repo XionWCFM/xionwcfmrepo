@@ -3,7 +3,7 @@ import { AUTHOR_NICKNAME } from "~/shared/constants/constants";
 import { getFormattedDate } from "~/shared/utils/date/getFormattedDate";
 
 export const createPostCardViewModel = (
-  post: Awaited<ReturnType<typeof contentsRepository.getSortedResources>>[number],
+  post: Awaited<ReturnType<typeof contentsRepository.getAllResources>>[number],
 ) => {
   return {
     title: post.frontmatter.title,

@@ -12,4 +12,7 @@ export const contentsRepository = new MdxRepository({
   sortBy: (a, b) => {
     return new Date(b.frontmatter.createdAt).getTime() - new Date(a.frontmatter.createdAt).getTime();
   },
+  filterBy: (item) => {
+    return item.frontmatter.canView;
+  },
 });
