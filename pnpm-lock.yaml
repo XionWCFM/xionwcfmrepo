@@ -102,14 +102,14 @@ importers:
         specifier: 0.1.3
         version: 0.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@xionwcfm/token':
-        specifier: 0.3.0
-        version: 0.3.0
+        specifier: 0.4.0
+        version: 0.4.0
       '@xionwcfm/utils':
         specifier: 0.0.3
         version: 0.0.3
       '@xionwcfm/xds':
-        specifier: 0.2.0
-        version: 0.2.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: 0.6.0
+        version: 0.6.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.56.4(react@19.0.0))(react@19.0.0)
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
@@ -2114,17 +2114,18 @@ packages:
   '@xionwcfm/token@0.2.0':
     resolution: {integrity: sha512-5azi1nEPFIKyRc/dd+gXCz01mkqmnt9Q05+eKS/Qw5obzD6SBqoxRNICQJV7GysBceFy/3ZCJTrZFxRWZiyjNw==}
 
-  '@xionwcfm/token@0.3.0':
-    resolution: {integrity: sha512-8RbuxLSE5HfzJg9NZvbV2NdUgoRk2PJiDlV07fwRWWtYIpeRB09JuCPXclCcuWdTu8NUA1i5hL9qIGQfRebAuQ==}
+  '@xionwcfm/token@0.4.0':
+    resolution: {integrity: sha512-RAlW6uaaf+ote7GwGa8gbOaK7Hq6uDyOJBp3RLt+D3zR62PGHOru1L7Q3OLy5lMobAejPRhV0QL3Cuo6tdPbJw==}
 
   '@xionwcfm/utils@0.0.3':
     resolution: {integrity: sha512-FHwhOIPzaNh4pbrR7z1pRGGQv332jfVtaIwRYxqB5wDUY/iRDj/+vNKgvn1ipLhotSpdINbYkM/TxyEjhZJoyQ==}
 
-  '@xionwcfm/xds@0.2.0':
-    resolution: {integrity: sha512-hAqKiSRl2NgErDNAdPxaFaKS8VFEsdutu/U6Yy1tDrA2X/ZIFg0800A1wnrn5RoKaPKer0NPytWDyhNsmTnX3A==}
+  '@xionwcfm/xds@0.6.0':
+    resolution: {integrity: sha512-uqBpCeZ09AWhO8MDNVKD5yy20E2N2RHwLYy4Q2bvagSL+6B5vSt89VjlGk6b/N9HXdT02ugFSzyQiKtTW1SQvQ==}
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
+      react-hook-form: '>=3'
 
   '@xtuc/ieee754@1.2.0':
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
@@ -4927,8 +4928,8 @@ packages:
   symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
 
-  tailwind-merge@1.14.0:
-    resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
+  tailwind-merge@2.6.0:
+    resolution: {integrity: sha512-P+Vu1qXfzediirmHOC3xKGAYeZtPcV9g76X+xg2FD4tYgR71ewMA35Y3sCz3zhiN/dwefRpJX0yBcgwi1fXNQA==}
 
   tailwindcss-animate@1.0.7:
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
@@ -7280,11 +7281,11 @@ snapshots:
 
   '@xionwcfm/token@0.2.0': {}
 
-  '@xionwcfm/token@0.3.0': {}
+  '@xionwcfm/token@0.4.0': {}
 
   '@xionwcfm/utils@0.0.3': {}
 
-  '@xionwcfm/xds@0.2.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@xionwcfm/xds@0.6.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.56.4(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@radix-ui/react-accordion': 1.2.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-alert-dialog': 1.1.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -7302,7 +7303,7 @@ snapshots:
       '@radix-ui/react-radio-group': 1.2.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-select': 2.1.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-separator': 1.1.7(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@radix-ui/react-slot': 1.1.0(@types/react@18.3.12)(react@19.0.0)
+      '@radix-ui/react-slot': 1.2.3(@types/react@18.3.12)(react@19.0.0)
       '@radix-ui/react-switch': 1.1.0(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-tabs': 1.1.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@radix-ui/react-tooltip': 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -7311,8 +7312,9 @@ snapshots:
       clsx: 2.1.1
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
+      react-hook-form: 7.56.4(react@19.0.0)
       sonner: 1.5.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      tailwind-merge: 1.14.0
+      tailwind-merge: 2.6.0
       vaul: 0.9.6(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
     transitivePeerDependencies:
       - '@types/react'
@@ -10672,7 +10674,7 @@ snapshots:
   symbol-tree@3.2.4:
     optional: true
 
-  tailwind-merge@1.14.0: {}
+  tailwind-merge@2.6.0: {}
 
   tailwindcss-animate@1.0.7(tailwindcss@3.4.17):
     dependencies:
