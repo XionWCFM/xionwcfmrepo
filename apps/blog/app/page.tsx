@@ -10,7 +10,7 @@ import { PostCard } from "../src/entities/contents/ui/PostCard";
 import { createPostCardViewModel } from "../src/entities/contents/ui/createPostCardViewModel";
 
 export default async function RootPage() {
-  const sortedPosts = await contentsRepository.getSortedResources();
+  const sortedPosts = await contentsRepository.getAllResources();
   const mainPost = sortedPosts[0]!;
   const slicedPosts = sortedPosts.slice(0, 4);
 

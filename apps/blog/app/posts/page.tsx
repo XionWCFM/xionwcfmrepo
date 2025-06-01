@@ -9,7 +9,7 @@ import { XION_BOX_LOGO_48_X_16_WEBP } from "~/shared/constants/images/images";
 import { MaxWidthFlex } from "~/shared/ui/common/MaxWidthFlex";
 
 export default async function Page() {
-  const posts = await contentsRepository.getSortedResources();
+  const posts = await contentsRepository.getAllResources();
 
   return (
     <PaginationProvider>

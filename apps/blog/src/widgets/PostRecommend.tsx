@@ -5,7 +5,7 @@ import { contentsRepository } from "~/entities/contents/model/contents.repositor
 
 export const PostRecommend = async (props: { currentPostTitle: string }) => {
   const { currentPostTitle } = props;
-  const posts = await contentsRepository.getSortedResources();
+  const posts = await contentsRepository.getAllResources();
 
   return (
     <Flex

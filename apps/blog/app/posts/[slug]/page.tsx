@@ -28,6 +28,10 @@ export default async function Post({ params }: PostProps) {
     return redirect("/");
   }
 
+  if (!post.frontmatter.canView) {
+    return redirect("/");
+  }
+
   return (
     <Flex className=" flex-col min-h-screen">
       <InteractiveHeader />
