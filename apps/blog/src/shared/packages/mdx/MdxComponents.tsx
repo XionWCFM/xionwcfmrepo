@@ -85,16 +85,17 @@ export const MdxComponents: tmdxComponents = {
       );
     }
     return (
-      //@ts-expect-error
       <pre
         className={" my-[16px] overflow-x-auto rounded-sm bg-neutral-50 px-[24px] py-[12px] text-neutral-700"}
         {...props}
-      />
+      >
+        <code className={" text-neutral-700"}>{props.children.props.children}</code>
+      </pre>
     );
   },
   hr: (_props) => <hr className=" border-t border-neutral-300 my-[24px]" />,
   code: ({ className, ...props }: ElementProps) => (
-    <code className={" whitespace-pre-wrap text-gray-800 text-size-4"} {...props} />
+    <code className={" px-[8px] py-[4px] rounded-md bg-primary-50 text-primary-700 font-medium"} {...props} />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
     <ul
@@ -103,7 +104,7 @@ export const MdxComponents: tmdxComponents = {
     />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className={" text-neutral-600 font-thin px-[20px] py-[12px] list-decimal "} {...props} />
+    <ol className={" text-neutral-700 px-[16px] py-[16px] list-decimal"}>{props.children}</ol>
   ),
   li: ({ className, ...props }: React.LiHTMLAttributes<HTMLLIElement>) => <li className={""} {...props} />,
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
