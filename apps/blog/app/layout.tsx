@@ -7,6 +7,7 @@ import { Toaster } from "@xionwcfm/xds/toast";
 import type { Metadata } from "next";
 import { AnalyticsProvider } from "~/shared/packages/analytics";
 import { env } from "~/shared/packages/env";
+import { AutoRefresh } from "~/shared/packages/hmr";
 import { AUTHOR_NAME, BASE_SITE_DESCRIPTION, BASE_SITE_TITLE, BASE_SITE_URL } from "../src/shared/constants/constants";
 import { Pretendard } from "../src/shared/constants/fonts";
 import { createMetadata } from "../src/shared/utils/external/createMetaData";
@@ -35,6 +36,7 @@ export default function RootLayout({
           <Suspense>{children}</Suspense>
           <Toaster visibleToasts={1} />
         </AnalyticsProvider>
+        <AutoRefresh />
       </body>
     </html>
   );

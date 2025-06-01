@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "run-p dev:next",
+    "dev": "run-p dev:next watch",
     "dev:next": "next dev --experimental-https --turbo",
     "build": "pnpm run generate:image && next build",
     "start": "next start",
@@ -15,7 +15,8 @@
     "next-dev": "next dev",
     "test:type": "tsc --noEmit",
     "generate:image": "tsx imageConstantsGenerator.ts",
-    "gen:blog": "cross-env NODE_OPTIONS='--import tsx' plop --plopfile=plopfile.ts"
+    "gen:blog": "cross-env NODE_OPTIONS='--import tsx' plop --plopfile=plopfile.ts",
+    "watch": "node watcher.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "5.0.1",
