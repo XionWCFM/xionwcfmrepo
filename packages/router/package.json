@@ -17,7 +17,7 @@
     "@types/react": "18.3.12",
     "@repo/typescript-config": "workspace:*",
     "tsup": "8.5.0",
-    "typescript": "5.8.3"
+    "typescript": "5.9.2"
   },
   "peerDependencies": {
     "next": "^15",
