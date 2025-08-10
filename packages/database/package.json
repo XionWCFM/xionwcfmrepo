@@ -15,9 +15,9 @@
     "react-dom": "catalog:react18"
   },
   "devDependencies": {
-    "typescript": "5.8.3",
+    "typescript": "5.9.2",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.15.29"
+    "@types/node": "24.2.1"
   },
   "peerDependencies": {
     "@supabase/ssr": ">=0.5.2",

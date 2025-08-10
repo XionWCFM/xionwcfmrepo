@@ -25,5 +25,4 @@ jobs:
               "500": "size/XL",
               "1000": "size/XXL"
             }
-          ignore: |
-            pnpm-lock.yaml
+
